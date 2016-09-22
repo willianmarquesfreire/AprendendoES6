@@ -1,0 +1,36 @@
+{
+  "coverage": "0%",
+  "expectCount": 11,
+  "actualCount": 0,
+  "files": {
+    "src/world/Canvas.js": {
+      "expectCount": 7,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        18,
+        2,
+        21,
+        15,
+        9,
+        12
+      ]
+    },
+    "src/phisic/Phisic.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2
+      ]
+    },
+    "src/world/World.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        3,
+        4
+      ]
+    }
+  }
+}
