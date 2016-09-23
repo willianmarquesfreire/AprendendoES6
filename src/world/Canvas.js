@@ -1,9 +1,9 @@
 class Canvas {
     constructor() {
-        console.log(document.body)
         this._canvas = document.createElement('canvas')
         this._canvas.style.height = 200
         this._canvas.style.width = 200
+        this._canvas.setAttribute('width', 200)
         this._canvas.style.border = '1px solid black'
     }
     setHeight(height) {

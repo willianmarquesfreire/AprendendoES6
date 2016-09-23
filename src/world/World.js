@@ -1,4 +1,4 @@
-import Canvas from '../world/Canvas.js'
+import Canvas from '../world/Canvas'
 
 class World extends Canvas {
     constructor() {
