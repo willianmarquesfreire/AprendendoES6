@@ -1,19 +1,67 @@
 {
   "coverage": "0%",
-  "expectCount": 11,
+  "expectCount": 41,
   "actualCount": 0,
   "files": {
-    "src/world/Canvas.js": {
-      "expectCount": 7,
+    "src/elements/Audio.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/elements/Canvas.js": {
+      "expectCount": 14,
+      "actualCount": 0,
+      "undocumentLines": [
+        3,
+        75,
+        79,
+        4,
+        20,
+        26,
+        39,
+        57,
+        87,
+        8,
+        14,
+        17,
+        11,
+        83
+      ]
+    },
+    "src/elements/Element.js": {
+      "expectCount": 17,
       "actualCount": 0,
       "undocumentLines": [
         1,
-        18,
-        2,
-        21,
-        15,
-        9,
-        12
+        45,
+        49,
+        57,
+        53,
+        3,
+        11,
+        20,
+        61,
+        14,
+        23,
+        41,
+        17,
+        37,
+        29,
+        26,
+        33
+      ]
+    },
+    "src/elements/Image.js": {
+      "expectCount": 5,
+      "actualCount": 0,
+      "undocumentLines": [
+        3,
+        4,
+        8,
+        14,
+        11
       ]
     },
     "src/phisic/Phisic.js": {

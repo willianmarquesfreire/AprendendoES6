@@ -32,9 +32,12 @@
 <nav class="navigation" data-ice="nav"><div>
   <ul>
     
-  <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">phisic</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/phisic/Phisic.js~Phisic.html">Phisic</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">world</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/world/Canvas.js~Canvas.html">Canvas</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/world/World.js~World.html">World</a></span></span></li>
+  <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">elements</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Audio.js~Audio.html">Audio</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Canvas.js~Canvas.html">Canvas</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Element.js~Element.html">Element</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Image.js~Image.html">Image</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">phisic</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/phisic/Phisic.js~Phisic.html">Phisic</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">world</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/world/World.js~World.html">World</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -56,7 +59,7 @@
 
   
   
-  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span><a href="class/src/world/Canvas.js~Canvas.html">Canvas</a></span> &#x2192; World</div></div>
+  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span><a href="class/src/elements/Element.js~Element.html">Element</a></span> &#x2192; <span><a href="class/src/elements/Canvas.js~Canvas.html">Canvas</a></span> &#x2192; World</div></div>
   
   
   
@@ -115,7 +118,7 @@
 
 
 <div class="inherited-summary" data-ice="inheritedSummary"><h2>Inherited Summary</h2><table class="summary" data-ice="summary">
-  <thead><tr><td data-ice="title" colspan="3"><span class="toggle closed"></span> From class <span><a href="class/src/world/Canvas.js~Canvas.html">Canvas</a></span></td></tr></thead>
+  <thead><tr><td data-ice="title" colspan="3"><span class="toggle closed"></span> From class <span><a href="class/src/elements/Element.js~Element.html">Element</a></span></td></tr></thead>
   <tbody>
   
   <tr data-ice="target">
@@ -129,7 +132,7 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/world/Canvas.js~Canvas.html#instance-method-appendCanvas">appendCanvas</a></span></span><span data-ice="signature">(parent: <span>*</span>)</span>
+           <span data-ice="name"><span><a href="class/src/elements/Element.js~Element.html#instance-method-addChild">addChild</a></span></span><span data-ice="signature">(child: <span>*</span>): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -154,7 +157,7 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/world/Canvas.js~Canvas.html#instance-method-getCanvas">getCanvas</a></span></span><span data-ice="signature">(): <span>*</span></span>
+           <span data-ice="name"><span><a href="class/src/elements/Element.js~Element.html#instance-method-addToBody">addToBody</a></span></span><span data-ice="signature">(): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -179,7 +182,7 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/world/Canvas.js~Canvas.html#instance-method-setBorder">setBorder</a></span></span><span data-ice="signature">(border: <span>*</span>)</span>
+           <span data-ice="name"><span><a href="class/src/elements/Element.js~Element.html#instance-method-addToElementByClassName">addToElementByClassName</a></span></span><span data-ice="signature">(className: <span>*</span>): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -204,7 +207,7 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/world/Canvas.js~Canvas.html#instance-method-setHeight">setHeight</a></span></span><span data-ice="signature">(height: <span>*</span>)</span>
+           <span data-ice="name"><span><a href="class/src/elements/Element.js~Element.html#instance-method-addToElementById">addToElementById</a></span></span><span data-ice="signature">(id: <span>*</span>): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -229,7 +232,564 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/world/Canvas.js~Canvas.html#instance-method-setWidth">setWidth</a></span></span><span data-ice="signature">(width: <span>*</span>)</span>
+           <span data-ice="name"><span><a href="class/src/elements/Element.js~Element.html#instance-method-createElement">createElement</a></span></span><span data-ice="signature">(element: <span>*</span>): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/Element.js~Element.html#instance-method-getAttributes">getAttributes</a></span></span><span data-ice="signature">(): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/Element.js~Element.html#instance-method-getClassName">getClassName</a></span></span><span data-ice="signature">(): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/Element.js~Element.html#instance-method-getElement">getElement</a></span></span><span data-ice="signature">(): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/Element.js~Element.html#instance-method-setAttribute">setAttribute</a></span></span><span data-ice="signature">(attr: <span>*</span>, value: <span>*</span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/Element.js~Element.html#instance-method-setBorder">setBorder</a></span></span><span data-ice="signature">(border: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/Element.js~Element.html#instance-method-setElement">setElement</a></span></span><span data-ice="signature">(element: <span>*</span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/Element.js~Element.html#instance-method-setHeight">setHeight</a></span></span><span data-ice="signature">(height: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/Element.js~Element.html#instance-method-setSize">setSize</a></span></span><span data-ice="signature">(width: <span>*</span>, height: <span>*</span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/Element.js~Element.html#instance-method-setStyle">setStyle</a></span></span><span data-ice="signature">(attr: <span>*</span>, value: <span>*</span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/Element.js~Element.html#instance-method-setWidth">setWidth</a></span></span><span data-ice="signature">(width: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+
+<table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3"><span class="toggle closed"></span> From class <span><a href="class/src/elements/Canvas.js~Canvas.html">Canvas</a></span></td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/Canvas.js~Canvas.html#instance-method-beginPath">beginPath</a></span></span><span data-ice="signature">(): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/Canvas.js~Canvas.html#instance-method-closePath">closePath</a></span></span><span data-ice="signature">(): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/Canvas.js~Canvas.html#instance-method-drawLine">drawLine</a></span></span><span data-ice="signature">(beginX: <span>*</span>, beginY: <span>*</span>, endX: <span>*</span>, endY: <span>*</span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/Canvas.js~Canvas.html#instance-method-drawSquare">drawSquare</a></span></span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, width: <span>*</span>, height: <span>*</span>, type: <span>*</span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/Canvas.js~Canvas.html#instance-method-drawTriangle">drawTriangle</a></span></span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, x1: <span>*</span>, y1: <span>*</span>, x2: <span>*</span>, y2: <span>*</span>, type: <span>*</span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/Canvas.js~Canvas.html#instance-method-drawTriangleWithDimension">drawTriangleWithDimension</a></span></span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, dimension: <span>*</span>, type: <span>*</span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/Canvas.js~Canvas.html#instance-method-fill">fill</a></span></span><span data-ice="signature">(): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/Canvas.js~Canvas.html#instance-method-getContext">getContext</a></span></span><span data-ice="signature">(): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/Canvas.js~Canvas.html#instance-method-getContext2D">getContext2D</a></span></span><span data-ice="signature">(): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/Canvas.js~Canvas.html#instance-method-getContext3D">getContext3D</a></span></span><span data-ice="signature">(): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/Canvas.js~Canvas.html#instance-method-setContext">setContext</a></span></span><span data-ice="signature">(ctx: <span>*</span>): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/Canvas.js~Canvas.html#instance-method-stroke">stroke</a></span></span><span data-ice="signature">(): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -271,7 +831,7 @@
   
   
 
-  <div data-ice="override"><h4>Override:</h4><span><a href="class/src/world/Canvas.js~Canvas.html#instance-constructor-constructor">Canvas#constructor</a></span></div>
+  <div data-ice="override"><h4>Override:</h4><span><a href="class/src/elements/Canvas.js~Canvas.html#instance-constructor-constructor">Canvas#constructor</a></span></div>
 
   <div data-ice="properties">
 </div>

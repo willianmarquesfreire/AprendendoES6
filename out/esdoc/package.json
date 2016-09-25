@@ -4,15 +4,17 @@
   "description": "Angular Audio Player Component - HTML5/ES6",
   "main": "./bootstrap.js",
   "scripts": {
-    "start": "npm-run-all -p live-server frontend",
+    "start": "npm-run-all -p esdoc live-server esdoc-server frontend",
+    "esdoc": "esdoc -c esdoc.json",
     "live-server": "live-server --port=3000",
+    "esdoc-server": "live-server --port=3001 --open=out/esdoc",
     "frontend": "npm-run-all -p app:sequential vendor:sequential",
     "app:sequential": "npm-run-all -s -c app:minify app:concat",
     "app:minify": "uglifyjs ./dist/bundle.js -o ./dist/bundle.min.js",
     "app:concat": "watchify ./bootstrap.js -o ./dist/bundle.js -t [ babelify ] -v",
     "vendor:sequential": "npm-run-all -s -c vendor:minify vendor:concat",
     "vendor:minify": "uglifyjs ./dist/vendor.js -o ./dist/vendor.min.js",
-    "vendor:concat": "watchify -o ./dist/vendor.js -v -r "
+    "vendor:concat": "watchify -o ./dist/vendor.js -v -r"
   },
   "babel": {
     "plugins": [
@@ -24,6 +26,7 @@
   },
   "dependencies": {
     "angular": "^1.5.8",
+    "esdoc": "^0.4.8",
     "npm-run-all": "^1.7.0"
   },
   "devDependencies": {

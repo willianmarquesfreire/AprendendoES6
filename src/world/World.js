@@ -1,8 +1,7 @@
-import Canvas from '../world/Canvas'
+import Canvas from '../elements/Canvas'
 
 class World extends Canvas {
     constructor() {
-        console.log('World')
         super()
     }
 }

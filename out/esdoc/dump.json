@@ -10,10 +10,1071 @@
     "access": null,
     "description": null,
     "lineNumber": 2,
-    "content": "\nimport World from './world/World.js'\n\nwindow.addEventListener(\"load\", function() {\n    var world = new World()\n    document.body.appendChild(world.getCanvas())\n})"
+    "content": "\nimport World from './world/World'\nimport Image from './elements/Image'\nimport Canvas from './elements/Canvas'\n\nwindow.addEventListener(\"load\", function() {\n    var world = new World()\n    world.addToBody()\n    console.log(world.getElement().getContext('2d'))\n    world.drawLine(0,0,100,100)\n    world.drawSquare(10,10,20,20)\n    world.drawTriangle(100,100,50,150,150,150)\n    \n    var img = new Image(\"https://media.licdn.com/media/AAEAAQAAAAAAAANbAAAAJDE5NjBkNDk1LTY3ZGQtNDA0NS04YTJiLTdkNmU3NjZiNjI3Mg.png\")\n    world.addChild(img.getElement())\n\n    // document.body.appendChild(new Canvas().getElement())\n\n})"
   },
   {
     "__docId__": 1,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/elements/Audio.js",
+    "memberof": null,
+    "longname": "src/elements/Audio.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "class Audio {\n\n}\n\nexport default Audio"
+  },
+  {
+    "__docId__": 2,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "Audio",
+    "memberof": "src/elements/Audio.js",
+    "longname": "src/elements/Audio.js~Audio",
+    "access": null,
+    "export": true,
+    "importPath": "aprendendoES6/src/elements/Audio.js",
+    "importStyle": "Audio",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "interface": false
+  },
+  {
+    "__docId__": 3,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/elements/Canvas.js",
+    "memberof": null,
+    "longname": "src/elements/Canvas.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "import Element from './Element'\n\nclass Canvas extends Element {\n    constructor() {\n        super('canvas')\n        this._context = this.getContext2D()\n    }\n    getContext() {\n        return this._context\n    }\n    setContext(ctx) {\n        return this._context = this.getContext(ctx)\n    }\n    getContext2D() {\n        return this.getElement().getContext('2d')\n    }\n    getContext3D() {\n        return this.getElement().getContext('3d')\n    }\n    drawLine(beginX, beginY, endX, endY) {\n        let ctx = this.getContext()\n        ctx.moveTo(beginX, beginY)\n        ctx.lineTo(endX, endY)\n        ctx.stroke()\n    }\n    drawSquare(x, y, width, height, type) {\n        let ctx = this.getContext()\n        switch (type) {\n            case 'stroke':\n                ctx.strokeRect(x, y, width, height, type)\n                break\n            case 'clear':\n                ctx.clearRect(x, y, width, height, type)\n                break\n            default:\n                ctx.fillRect(x, y, width, height, type)\n        }\n    }\n    drawTriangle(x, y, x1, y1, x2, y2, type) {\n        let ctx = this.getContext()\n        ctx.beginPath();\n        ctx.moveTo(x, y);\n        ctx.lineTo(x1, y1);\n        ctx.lineTo(x2, y2);\n\n        switch (type) {\n            case 'stroke':\n                ctx.stroke()\n                break\n            case 'clear':\n                ctx.clear()\n                break\n            default:\n                ctx.fill();\n        }\n    }\n    drawTriangleWithDimension(x, y, dimension, type) {\n        let ctx = this.getContext()\n        ctx.beginPath();\n        ctx.moveTo(x, y);\n        ctx.lineTo(x1-dimension, y1+dimension);\n        ctx.lineTo(x2+dimension, y2+dimension);\n\n        switch (type) {\n            case 'stroke':\n                ctx.stroke()\n                break\n            case 'clear':\n                ctx.clear()\n                break\n            default:\n                ctx.fill();\n        }\n    }\n    beginPath() {\n        let ctx = this.getContext()\n        return ctx.beginPath()\n    }\n    closePath() {\n        let ctx = this.getContext()\n        return ctx.closePath()\n    }\n    stroke() {\n        let ctx = this.getContext()\n        return ctx.stroke()\n    }\n    fill() {\n        let ctx = this.getContext()\n        return ctx.fill()\n    }\n\n};\n\nexport default Canvas"
+  },
+  {
+    "__docId__": 4,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "Canvas",
+    "memberof": "src/elements/Canvas.js",
+    "longname": "src/elements/Canvas.js~Canvas",
+    "access": null,
+    "export": true,
+    "importPath": "aprendendoES6/src/elements/Canvas.js",
+    "importStyle": "Canvas",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "src/elements/Element.js~Element"
+    ]
+  },
+  {
+    "__docId__": 5,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "src/elements/Canvas.js~Canvas",
+    "longname": "src/elements/Canvas.js~Canvas#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "params": [],
+    "generator": false
+  },
+  {
+    "__docId__": 6,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "_context",
+    "memberof": "src/elements/Canvas.js~Canvas",
+    "longname": "src/elements/Canvas.js~Canvas#_context",
+    "access": null,
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 7,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "getContext",
+    "memberof": "src/elements/Canvas.js~Canvas",
+    "longname": "src/elements/Canvas.js~Canvas#getContext",
+    "access": null,
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 8,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "setContext",
+    "memberof": "src/elements/Canvas.js~Canvas",
+    "longname": "src/elements/Canvas.js~Canvas#setContext",
+    "access": null,
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "params": [
+      {
+        "name": "ctx",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 9,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "getContext2D",
+    "memberof": "src/elements/Canvas.js~Canvas",
+    "longname": "src/elements/Canvas.js~Canvas#getContext2D",
+    "access": null,
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 10,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "getContext3D",
+    "memberof": "src/elements/Canvas.js~Canvas",
+    "longname": "src/elements/Canvas.js~Canvas#getContext3D",
+    "access": null,
+    "description": null,
+    "lineNumber": 17,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 11,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "drawLine",
+    "memberof": "src/elements/Canvas.js~Canvas",
+    "longname": "src/elements/Canvas.js~Canvas#drawLine",
+    "access": null,
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "params": [
+      {
+        "name": "beginX",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "beginY",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "endX",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "endY",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 12,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "drawSquare",
+    "memberof": "src/elements/Canvas.js~Canvas",
+    "longname": "src/elements/Canvas.js~Canvas#drawSquare",
+    "access": null,
+    "description": null,
+    "lineNumber": 26,
+    "undocument": true,
+    "params": [
+      {
+        "name": "x",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "y",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "width",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "height",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "type",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 13,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "drawTriangle",
+    "memberof": "src/elements/Canvas.js~Canvas",
+    "longname": "src/elements/Canvas.js~Canvas#drawTriangle",
+    "access": null,
+    "description": null,
+    "lineNumber": 39,
+    "undocument": true,
+    "params": [
+      {
+        "name": "x",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "y",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "x1",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "y1",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "x2",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "y2",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "type",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 14,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "drawTriangleWithDimension",
+    "memberof": "src/elements/Canvas.js~Canvas",
+    "longname": "src/elements/Canvas.js~Canvas#drawTriangleWithDimension",
+    "access": null,
+    "description": null,
+    "lineNumber": 57,
+    "undocument": true,
+    "params": [
+      {
+        "name": "x",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "y",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "dimension",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "type",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 15,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "beginPath",
+    "memberof": "src/elements/Canvas.js~Canvas",
+    "longname": "src/elements/Canvas.js~Canvas#beginPath",
+    "access": null,
+    "description": null,
+    "lineNumber": 75,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 16,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "closePath",
+    "memberof": "src/elements/Canvas.js~Canvas",
+    "longname": "src/elements/Canvas.js~Canvas#closePath",
+    "access": null,
+    "description": null,
+    "lineNumber": 79,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 17,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "stroke",
+    "memberof": "src/elements/Canvas.js~Canvas",
+    "longname": "src/elements/Canvas.js~Canvas#stroke",
+    "access": null,
+    "description": null,
+    "lineNumber": 83,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 18,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "fill",
+    "memberof": "src/elements/Canvas.js~Canvas",
+    "longname": "src/elements/Canvas.js~Canvas#fill",
+    "access": null,
+    "description": null,
+    "lineNumber": 87,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 19,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/elements/Element.js",
+    "memberof": null,
+    "longname": "src/elements/Element.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "class Element {\n\n    constructor(element, width, height, border) {\n        this.setElement(element)\n        this.setWidth(width)\n        this.setHeight(height)\n        this.setBorder(border)\n        console.log(this.getClassName().concat(' Created!'))\n    }\n    \n    createElement(element) {\n        return document.createElement(element)\n    }\n    getElement() {\n        return this._element\n    }\n    setElement(element) {\n        this._element = this.createElement(element)\n    }\n    getAttributes() {\n        return this.getElement().attributes\n    }\n    setAttribute(attr, value) {\n        this.getElement().setAttribute(attr, value)\n    }\n    setStyle(attr, value) {\n        this.setAttibute('style', attr + ': ' + value)\n    }\n    setSize(width, height) {\n        this.setWidth(width)\n        this.setHeight(height)\n    }\n    setWidth(width = 200) {\n        this.getElement().setAttribute('style', 'width: '.concat(width))\n        return this.getElement()\n    }\n    setHeight(height = 200) {\n        this.getElement().setAttribute('style', 'height: '.concat(height))\n        return this.getElement()\n    }\n    setBorder(border = '1px solid black') {\n        this.getElement().setAttribute('style', 'border: '.concat(border))\n        return this.getElement()\n    }\n    addChild(child) {\n        this.getElement().appendChild(child)\n        return this.getElement()\n    }\n    addToBody() {\n        document.body.appendChild(this.getElement())\n        return this.getElement()\n    }\n    addToElementById(id) {\n        document.getElementById(id).appendChild(this.getElement())\n        return this.getElement()\n    }\n    addToElementByClassName(className) {\n        document.getElementsByClassName(className).appendChild(this.getElement())\n        return this.getElement()\n    }\n    getClassName() {\n        return this.constructor.name\n    }\n}\n\nexport default Element"
+  },
+  {
+    "__docId__": 20,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "Element",
+    "memberof": "src/elements/Element.js",
+    "longname": "src/elements/Element.js~Element",
+    "access": null,
+    "export": true,
+    "importPath": "aprendendoES6/src/elements/Element.js",
+    "importStyle": "Element",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "interface": false
+  },
+  {
+    "__docId__": 21,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "src/elements/Element.js~Element",
+    "longname": "src/elements/Element.js~Element#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "params": [
+      {
+        "name": "element",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "width",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "height",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "border",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 22,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "createElement",
+    "memberof": "src/elements/Element.js~Element",
+    "longname": "src/elements/Element.js~Element#createElement",
+    "access": null,
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "params": [
+      {
+        "name": "element",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 23,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "getElement",
+    "memberof": "src/elements/Element.js~Element",
+    "longname": "src/elements/Element.js~Element#getElement",
+    "access": null,
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 24,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "setElement",
+    "memberof": "src/elements/Element.js~Element",
+    "longname": "src/elements/Element.js~Element#setElement",
+    "access": null,
+    "description": null,
+    "lineNumber": 17,
+    "undocument": true,
+    "params": [
+      {
+        "name": "element",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 25,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "_element",
+    "memberof": "src/elements/Element.js~Element",
+    "longname": "src/elements/Element.js~Element#_element",
+    "access": null,
+    "description": null,
+    "lineNumber": 18,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 26,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "getAttributes",
+    "memberof": "src/elements/Element.js~Element",
+    "longname": "src/elements/Element.js~Element#getAttributes",
+    "access": null,
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 27,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "setAttribute",
+    "memberof": "src/elements/Element.js~Element",
+    "longname": "src/elements/Element.js~Element#setAttribute",
+    "access": null,
+    "description": null,
+    "lineNumber": 23,
+    "undocument": true,
+    "params": [
+      {
+        "name": "attr",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "value",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 28,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "setStyle",
+    "memberof": "src/elements/Element.js~Element",
+    "longname": "src/elements/Element.js~Element#setStyle",
+    "access": null,
+    "description": null,
+    "lineNumber": 26,
+    "undocument": true,
+    "params": [
+      {
+        "name": "attr",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "value",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 29,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "setSize",
+    "memberof": "src/elements/Element.js~Element",
+    "longname": "src/elements/Element.js~Element#setSize",
+    "access": null,
+    "description": null,
+    "lineNumber": 29,
+    "undocument": true,
+    "params": [
+      {
+        "name": "width",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "height",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 30,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "setWidth",
+    "memberof": "src/elements/Element.js~Element",
+    "longname": "src/elements/Element.js~Element#setWidth",
+    "access": null,
+    "description": null,
+    "lineNumber": 33,
+    "undocument": true,
+    "params": [
+      {
+        "name": "width",
+        "optional": true,
+        "types": [
+          "number"
+        ],
+        "defaultRaw": 200,
+        "defaultValue": "200"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 31,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "setHeight",
+    "memberof": "src/elements/Element.js~Element",
+    "longname": "src/elements/Element.js~Element#setHeight",
+    "access": null,
+    "description": null,
+    "lineNumber": 37,
+    "undocument": true,
+    "params": [
+      {
+        "name": "height",
+        "optional": true,
+        "types": [
+          "number"
+        ],
+        "defaultRaw": 200,
+        "defaultValue": "200"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 32,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "setBorder",
+    "memberof": "src/elements/Element.js~Element",
+    "longname": "src/elements/Element.js~Element#setBorder",
+    "access": null,
+    "description": null,
+    "lineNumber": 41,
+    "undocument": true,
+    "params": [
+      {
+        "name": "border",
+        "optional": true,
+        "types": [
+          "string"
+        ],
+        "defaultRaw": "1px solid black",
+        "defaultValue": "1px solid black"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 33,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "addChild",
+    "memberof": "src/elements/Element.js~Element",
+    "longname": "src/elements/Element.js~Element#addChild",
+    "access": null,
+    "description": null,
+    "lineNumber": 45,
+    "undocument": true,
+    "params": [
+      {
+        "name": "child",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 34,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "addToBody",
+    "memberof": "src/elements/Element.js~Element",
+    "longname": "src/elements/Element.js~Element#addToBody",
+    "access": null,
+    "description": null,
+    "lineNumber": 49,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 35,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "addToElementById",
+    "memberof": "src/elements/Element.js~Element",
+    "longname": "src/elements/Element.js~Element#addToElementById",
+    "access": null,
+    "description": null,
+    "lineNumber": 53,
+    "undocument": true,
+    "params": [
+      {
+        "name": "id",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 36,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "addToElementByClassName",
+    "memberof": "src/elements/Element.js~Element",
+    "longname": "src/elements/Element.js~Element#addToElementByClassName",
+    "access": null,
+    "description": null,
+    "lineNumber": 57,
+    "undocument": true,
+    "params": [
+      {
+        "name": "className",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 37,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "getClassName",
+    "memberof": "src/elements/Element.js~Element",
+    "longname": "src/elements/Element.js~Element#getClassName",
+    "access": null,
+    "description": null,
+    "lineNumber": 61,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 38,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/elements/Image.js",
+    "memberof": null,
+    "longname": "src/elements/Image.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "import Element from '../elements/Element.js'\n\nclass Image extends Element{\n    constructor(src) {\n        super('img')\n        this.setSrc(src)\n    }\n    getImage() {\n        return this._image\n    }\n    setSrc(src) {\n        this._src = super.setAttribute('src', src)\n    }\n    getSrc(src) {\n        return this._src\n    }\n}\n\nexport default Image"
+  },
+  {
+    "__docId__": 39,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "Image",
+    "memberof": "src/elements/Image.js",
+    "longname": "src/elements/Image.js~Image",
+    "access": null,
+    "export": true,
+    "importPath": "aprendendoES6/src/elements/Image.js",
+    "importStyle": "Image",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "src/elements/Element.js~Element"
+    ]
+  },
+  {
+    "__docId__": 40,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "src/elements/Image.js~Image",
+    "longname": "src/elements/Image.js~Image#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "params": [
+      {
+        "name": "src",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 41,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "getImage",
+    "memberof": "src/elements/Image.js~Image",
+    "longname": "src/elements/Image.js~Image#getImage",
+    "access": null,
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 42,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "setSrc",
+    "memberof": "src/elements/Image.js~Image",
+    "longname": "src/elements/Image.js~Image#setSrc",
+    "access": null,
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "params": [
+      {
+        "name": "src",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 43,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "_src",
+    "memberof": "src/elements/Image.js~Image",
+    "longname": "src/elements/Image.js~Image#_src",
+    "access": null,
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 44,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "getSrc",
+    "memberof": "src/elements/Image.js~Image",
+    "longname": "src/elements/Image.js~Image#getSrc",
+    "access": null,
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "params": [
+      {
+        "name": "src",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 45,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -26,7 +1087,7 @@
     "content": "class Phisic {\n  constructor() {\n    console.log('Phisic')\n  }\n};\nexport default Phisic"
   },
   {
-    "__docId__": 2,
+    "__docId__": 46,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -43,7 +1104,7 @@
     "interface": false
   },
   {
-    "__docId__": 3,
+    "__docId__": 47,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -58,178 +1119,7 @@
     "generator": false
   },
   {
-    "__docId__": 4,
-    "kind": "file",
-    "static": true,
-    "variation": null,
-    "name": "src/world/Canvas.js",
-    "memberof": null,
-    "longname": "src/world/Canvas.js",
-    "access": null,
-    "description": null,
-    "lineNumber": 1,
-    "content": "class Canvas {\n    constructor() {\n        console.log(document.body)\n        this._canvas = document.createElement('canvas')\n        this._canvas.style.height = 200\n        this._canvas.style.width = 200\n        this._canvas.style.border = '1px solid black'\n    }\n    setHeight(height) {\n        this._canvas.style.height = height\n    }\n    setWidth(width) {\n        this._canvas.style.width = width\n    }\n    setBorder(border) {\n        this._canvas.style.border = border\n    }\n    appendCanvas(parent) {\n        parent.appendChild(this.canvas)\n    }\n    getCanvas() {\n        return this._canvas\n    }\n};\n\nexport default Canvas"
-  },
-  {
-    "__docId__": 5,
-    "kind": "class",
-    "static": true,
-    "variation": null,
-    "name": "Canvas",
-    "memberof": "src/world/Canvas.js",
-    "longname": "src/world/Canvas.js~Canvas",
-    "access": null,
-    "export": true,
-    "importPath": "aprendendoES6/src/world/Canvas.js",
-    "importStyle": "Canvas",
-    "description": null,
-    "lineNumber": 1,
-    "undocument": true,
-    "interface": false
-  },
-  {
-    "__docId__": 6,
-    "kind": "constructor",
-    "static": false,
-    "variation": null,
-    "name": "constructor",
-    "memberof": "src/world/Canvas.js~Canvas",
-    "longname": "src/world/Canvas.js~Canvas#constructor",
-    "access": null,
-    "description": null,
-    "lineNumber": 2,
-    "undocument": true,
-    "params": [],
-    "generator": false
-  },
-  {
-    "__docId__": 7,
-    "kind": "member",
-    "static": false,
-    "variation": null,
-    "name": "_canvas",
-    "memberof": "src/world/Canvas.js~Canvas",
-    "longname": "src/world/Canvas.js~Canvas#_canvas",
-    "access": null,
-    "description": null,
-    "lineNumber": 4,
-    "undocument": true,
-    "type": {
-      "types": [
-        "*"
-      ]
-    }
-  },
-  {
-    "__docId__": 8,
-    "kind": "method",
-    "static": false,
-    "variation": null,
-    "name": "setHeight",
-    "memberof": "src/world/Canvas.js~Canvas",
-    "longname": "src/world/Canvas.js~Canvas#setHeight",
-    "access": null,
-    "description": null,
-    "lineNumber": 9,
-    "undocument": true,
-    "params": [
-      {
-        "name": "height",
-        "types": [
-          "*"
-        ]
-      }
-    ],
-    "generator": false
-  },
-  {
-    "__docId__": 9,
-    "kind": "method",
-    "static": false,
-    "variation": null,
-    "name": "setWidth",
-    "memberof": "src/world/Canvas.js~Canvas",
-    "longname": "src/world/Canvas.js~Canvas#setWidth",
-    "access": null,
-    "description": null,
-    "lineNumber": 12,
-    "undocument": true,
-    "params": [
-      {
-        "name": "width",
-        "types": [
-          "*"
-        ]
-      }
-    ],
-    "generator": false
-  },
-  {
-    "__docId__": 10,
-    "kind": "method",
-    "static": false,
-    "variation": null,
-    "name": "setBorder",
-    "memberof": "src/world/Canvas.js~Canvas",
-    "longname": "src/world/Canvas.js~Canvas#setBorder",
-    "access": null,
-    "description": null,
-    "lineNumber": 15,
-    "undocument": true,
-    "params": [
-      {
-        "name": "border",
-        "types": [
-          "*"
-        ]
-      }
-    ],
-    "generator": false
-  },
-  {
-    "__docId__": 11,
-    "kind": "method",
-    "static": false,
-    "variation": null,
-    "name": "appendCanvas",
-    "memberof": "src/world/Canvas.js~Canvas",
-    "longname": "src/world/Canvas.js~Canvas#appendCanvas",
-    "access": null,
-    "description": null,
-    "lineNumber": 18,
-    "undocument": true,
-    "params": [
-      {
-        "name": "parent",
-        "types": [
-          "*"
-        ]
-      }
-    ],
-    "generator": false
-  },
-  {
-    "__docId__": 12,
-    "kind": "method",
-    "static": false,
-    "variation": null,
-    "name": "getCanvas",
-    "memberof": "src/world/Canvas.js~Canvas",
-    "longname": "src/world/Canvas.js~Canvas#getCanvas",
-    "access": null,
-    "description": null,
-    "lineNumber": 21,
-    "undocument": true,
-    "params": [],
-    "return": {
-      "types": [
-        "*"
-      ]
-    },
-    "generator": false
-  },
-  {
-    "__docId__": 13,
+    "__docId__": 48,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -239,10 +1129,10 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import Canvas from '../world/Canvas.js'\n\nclass World extends Canvas {\n    constructor() {\n        console.log('World')\n        super()\n    }\n}\n\nexport default World"
+    "content": "import Canvas from '../elements/Canvas'\n\nclass World extends Canvas {\n    constructor() {\n        super()\n    }\n}\n\nexport default World"
   },
   {
-    "__docId__": 14,
+    "__docId__": 49,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -258,11 +1148,11 @@
     "undocument": true,
     "interface": false,
     "extends": [
-      "src/world/Canvas.js~Canvas"
+      "src/elements/Canvas.js~Canvas"
     ]
   },
   {
-    "__docId__": 15,
+    "__docId__": 50,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -277,7 +1167,7 @@
     "generator": false
   },
   {
-    "__docId__": 17,
+    "__docId__": 52,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -290,7 +1180,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 18,
+    "__docId__": 53,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -303,7 +1193,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 19,
+    "__docId__": 54,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -316,7 +1206,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 20,
+    "__docId__": 55,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -329,7 +1219,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 21,
+    "__docId__": 56,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -342,7 +1232,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 22,
+    "__docId__": 57,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -355,7 +1245,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 23,
+    "__docId__": 58,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -368,7 +1258,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 24,
+    "__docId__": 59,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -381,7 +1271,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 25,
+    "__docId__": 60,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -394,7 +1284,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 26,
+    "__docId__": 61,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -407,7 +1297,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 27,
+    "__docId__": 62,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -420,7 +1310,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 28,
+    "__docId__": 63,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -433,7 +1323,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 29,
+    "__docId__": 64,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -446,7 +1336,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 30,
+    "__docId__": 65,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -459,7 +1349,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 31,
+    "__docId__": 66,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -472,7 +1362,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 32,
+    "__docId__": 67,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -485,7 +1375,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 33,
+    "__docId__": 68,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -498,7 +1388,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 34,
+    "__docId__": 69,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -511,7 +1401,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 35,
+    "__docId__": 70,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -524,7 +1414,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 36,
+    "__docId__": 71,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -537,7 +1427,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 37,
+    "__docId__": 72,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -550,7 +1440,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 38,
+    "__docId__": 73,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -563,7 +1453,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 39,
+    "__docId__": 74,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -576,7 +1466,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 40,
+    "__docId__": 75,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -589,7 +1479,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 41,
+    "__docId__": 76,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -602,7 +1492,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 42,
+    "__docId__": 77,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -615,7 +1505,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 43,
+    "__docId__": 78,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -628,7 +1518,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 44,
+    "__docId__": 79,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -641,7 +1531,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 45,
+    "__docId__": 80,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -654,7 +1544,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 46,
+    "__docId__": 81,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -667,7 +1557,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 47,
+    "__docId__": 82,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -680,7 +1570,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 48,
+    "__docId__": 83,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -693,7 +1583,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 49,
+    "__docId__": 84,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -706,7 +1596,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 50,
+    "__docId__": 85,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -719,7 +1609,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 51,
+    "__docId__": 86,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -732,7 +1622,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 52,
+    "__docId__": 87,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -745,7 +1635,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 53,
+    "__docId__": 88,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -758,7 +1648,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 54,
+    "__docId__": 89,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -771,7 +1661,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 55,
+    "__docId__": 90,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -784,7 +1674,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 56,
+    "__docId__": 91,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -797,7 +1687,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 57,
+    "__docId__": 92,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -810,7 +1700,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 58,
+    "__docId__": 93,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -823,7 +1713,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 59,
+    "__docId__": 94,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -836,7 +1726,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 60,
+    "__docId__": 95,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -849,7 +1739,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 61,
+    "__docId__": 96,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -862,7 +1752,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 62,
+    "__docId__": 97,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -875,7 +1765,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 63,
+    "__docId__": 98,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -888,7 +1778,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 65,
+    "__docId__": 100,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -901,7 +1791,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 66,
+    "__docId__": 101,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -914,7 +1804,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 67,
+    "__docId__": 102,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -927,7 +1817,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 68,
+    "__docId__": 103,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -940,7 +1830,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 69,
+    "__docId__": 104,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -953,7 +1843,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 70,
+    "__docId__": 105,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -966,7 +1856,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 71,
+    "__docId__": 106,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -979,7 +1869,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 72,
+    "__docId__": 107,
     "kind": "external",
     "static": true,
     "variation": null,
