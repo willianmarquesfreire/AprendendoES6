@@ -1,6 +1,6 @@
-import Canvas from '../elements/Canvas'
+import WCanvas from '../elements/WCanvas'
 
-class World extends Canvas {
+class World extends WCanvas {
     constructor() {
         super()
     }

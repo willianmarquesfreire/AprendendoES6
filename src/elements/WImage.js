@@ -1,9 +1,9 @@
-import Element from '../elements/Element.js'
+import WElement from '../elements/WElement.js'
 
-class Image extends Element{
+class WImage extends WElement{
     constructor(src) {
         super('img')
-        this.setSrc(src)
+        if (src) this.setSrc(src)
     }
     getImage() {
         return this._image
@@ -16,4 +16,4 @@ class Image extends Element{
     }
 }
 
-export default Image
+export default WImage

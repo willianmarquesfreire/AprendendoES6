@@ -14,38 +14,46 @@ var _World = require('./world/World');
 
 var _World2 = _interopRequireDefault(_World);
 
-var _Image = require('./elements/Image');
+var _WImage = require('./elements/WImage');
 
-var _Image2 = _interopRequireDefault(_Image);
+var _WImage2 = _interopRequireDefault(_WImage);
 
-var _Canvas = require('./elements/Canvas');
+var _WCanvas = require('./elements/WCanvas');
 
-var _Canvas2 = _interopRequireDefault(_Canvas);
+var _WCanvas2 = _interopRequireDefault(_WCanvas);
 
-var _Type = require('./enums/Type');
+var _WType = require('./enums/WType');
 
-var _Type2 = _interopRequireDefault(_Type);
+var _WType2 = _interopRequireDefault(_WType);
+
+var _WBallon = require('./reusable_objects/WBallon');
+
+var _WBallon2 = _interopRequireDefault(_WBallon);
+
+var _WHeart = require('./reusable_objects/WHeart');
+
+var _WHeart2 = _interopRequireDefault(_WHeart);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 window.addEventListener("load", function () {
     var world = new _World2.default();
     world.addToBody();
-    console.log(world.getElement().getContext('2d'));
     world.drawLine(0, 0, 100, 100);
     world.drawSquare(10, 10, 20, 20);
     world.drawTriangle(100, 100, 50, 150, 150, 150);
     world.drawTriangleByDimension(200, 100, 40);
+    world.createBallon();
+    world.createHeart();
 
-    var img = new _Image2.default("https://media.licdn.com/media/AAEAAQAAAAAAAANbAAAAJDE5NjBkNDk1LTY3ZGQtNDA0NS04YTJiLTdkNmU3NjZiNjI3Mg.png");
-    world.addChild(img.getElement());
+    var img = new _WImage2.default();
+    img.src = "./src/img/1.jpg";
 
-    console.log(_Type2.default);
-
-    // document.body.appendChild(new Canvas().getElement())
+    world.drawImage(img.getElement(), 5, 5);
+    console.log(img);
 });
 
-},{"./elements/Canvas":3,"./elements/Image":5,"./enums/Type":6,"./world/World":7}],3:[function(require,module,exports){
+},{"./elements/WCanvas":3,"./elements/WImage":5,"./enums/WType":6,"./reusable_objects/WBallon":7,"./reusable_objects/WHeart":8,"./world/World":9}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -54,13 +62,13 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Element2 = require('./Element');
+var _WElement2 = require('./WElement');
 
-var _Element3 = _interopRequireDefault(_Element2);
+var _WElement3 = _interopRequireDefault(_WElement2);
 
-var _Type = require('../enums/Type');
+var _WType = require('../enums/WType');
 
-var _Type2 = _interopRequireDefault(_Type);
+var _WType2 = _interopRequireDefault(_WType);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -70,39 +78,19 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Canvas = function (_Element) {
-    _inherits(Canvas, _Element);
+var WCanvas = function (_WElement) {
+    _inherits(WCanvas, _WElement);
 
-    function Canvas() {
-        _classCallCheck(this, Canvas);
+    function WCanvas() {
+        _classCallCheck(this, WCanvas);
 
-        var _this = _possibleConstructorReturn(this, (Canvas.__proto__ || Object.getPrototypeOf(Canvas)).call(this, 'canvas'));
+        var _this = _possibleConstructorReturn(this, (WCanvas.__proto__ || Object.getPrototypeOf(WCanvas)).call(this, 'canvas'));
 
-        _this._context = _this.getContext2D();
+        _this._context = _this.context2D;
         return _this;
     }
 
-    _createClass(Canvas, [{
-        key: 'getContext',
-        value: function getContext() {
-            return this._context;
-        }
-    }, {
-        key: 'setContext',
-        value: function setContext(ctx) {
-            return this._context = this.getContext(ctx);
-        }
-    }, {
-        key: 'getContext2D',
-        value: function getContext2D() {
-            return this.getElement().getContext('2d');
-        }
-    }, {
-        key: 'getContext3D',
-        value: function getContext3D() {
-            return this.getElement().getContext('3d');
-        }
-    }, {
+    _createClass(WCanvas, [{
         key: 'drawLine',
         value: function drawLine(beginX, beginY, endX, endY) {
             this.moveTo(beginX, beginY);
@@ -113,10 +101,10 @@ var Canvas = function (_Element) {
         key: 'drawSquare',
         value: function drawSquare(x, y, width, height, type) {
             switch (type) {
-                case _Type2.default.STROKE:
+                case _WType2.default.STROKE:
                     this.strokeRect(x, y, width, height, type);
                     break;
-                case _Type2.default.CLEAR:
+                case _WType2.default.CLEAR:
                     this.clearRect(x, y, width, height, type);
                     break;
                 default:
@@ -132,10 +120,10 @@ var Canvas = function (_Element) {
             this.lineTo(x2, y2);
 
             switch (type) {
-                case _Type2.default.STROKE:
+                case _WType2.default.STROKE:
                     this.stroke();
                     break;
-                case _Type2.default.CLEAR:
+                case _WType2.default.CLEAR:
                     this.clear();
                     break;
                 default:
@@ -151,10 +139,10 @@ var Canvas = function (_Element) {
             this.lineTo(x + dimension, y + dimension);
 
             switch (type) {
-                case _Type2.default.STROKE:
+                case _WType2.default.STROKE:
                     this.stroke();
                     break;
-                case _Type2.default.CLEAR:
+                case _WType2.default.CLEAR:
                     this.clear();
                     break;
                 default:
@@ -162,63 +150,101 @@ var Canvas = function (_Element) {
             }
         }
     }, {
+        key: 'drawImage',
+        value: function drawImage(image, x, y) {
+            this.context.drawImage(image, x, y);
+        }
+    }, {
         key: 'fillRect',
         value: function fillRect(x, y, width, height, type) {
-            this.getContext().fillRect(x, y, width, height, type);
+            this.context.fillRect(x, y, width, height, type);
         }
     }, {
         key: 'clearRect',
         value: function clearRect(x, y, width, height, type) {
-            this.getContext().clearRect(x, y, width, height, type);
+            this.context.clearRect(x, y, width, height, type);
         }
     }, {
         key: 'strokeRect',
         value: function strokeRect(x, y, width, height, type) {
-            this.getContext().strokeRect(x, y, width, height, type);
+            this.context.strokeRect(x, y, width, height, type);
+        }
+    }, {
+        key: 'arc',
+        value: function arc(x, y, radius, startAngle, endAngle, anticlockwise) {
+            this.context.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+        }
+    }, {
+        key: 'quadraticCurveTo',
+        value: function quadraticCurveTo(cp1x, cp1y, x, y) {
+            return this.context.quadraticCurveTo(cp1x, cp1y, x, y);
+        }
+    }, {
+        key: 'bezierCurveTo',
+        value: function bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y) {
+            return this.context.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y);
         }
     }, {
         key: 'lineTo',
         value: function lineTo(x, y) {
-            this.getContext().lineTo(x, y);
+            this.context.lineTo(x, y);
         }
     }, {
         key: 'moveTo',
         value: function moveTo(x, y) {
-            this.getContext().moveTo(x, y);
+            this.context.moveTo(x, y);
         }
     }, {
         key: 'beginPath',
         value: function beginPath() {
-            return this.getContext().beginPath();
+            return this.context.beginPath();
         }
     }, {
         key: 'closePath',
         value: function closePath() {
-            return this.getContext().closePath();
+            return this.context.closePath();
         }
     }, {
         key: 'stroke',
         value: function stroke() {
-            return this.getContext().stroke();
+            return this.context.stroke();
         }
     }, {
         key: 'fill',
         value: function fill() {
-            return this.getContext().fill();
+            return this.context.fill();
         }
     }, {
         key: 'clear',
         value: function clear() {
-            return this.getContext().clear();
+            return this.context.clear();
+        }
+    }, {
+        key: 'context',
+        get: function get() {
+            return this._context;
+        },
+        set: function set(ctx) {
+            return this._context = this.getContext(ctx);
+        }
+    }, {
+        key: 'context2D',
+        get: function get() {
+            return this.getElement().getContext('2d');
+        }
+    }, {
+        key: 'context3D',
+        get: function get() {
+            return this.getElement().getContext('3d');
         }
     }]);
 
-    return Canvas;
-}(_Element3.default);
+    return WCanvas;
+}(_WElement3.default);
 
-exports.default = Canvas;
+exports.default = WCanvas;
 
-},{"../enums/Type":6,"./Element":4}],4:[function(require,module,exports){
+},{"../enums/WType":6,"./WElement":4}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -229,9 +255,9 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Element = function () {
-    function Element(element, width, height, border) {
-        _classCallCheck(this, Element);
+var WElement = function () {
+    function WElement(element, width, height, border) {
+        _classCallCheck(this, WElement);
 
         this.setElement(element);
         this.setWidth(width);
@@ -240,7 +266,7 @@ var Element = function () {
         console.log(this.getClassName().concat(' Created!'));
     }
 
-    _createClass(Element, [{
+    _createClass(WElement, [{
         key: 'createElement',
         value: function createElement(element) {
             return document.createElement(element);
@@ -331,10 +357,10 @@ var Element = function () {
         }
     }]);
 
-    return Element;
+    return WElement;
 }();
 
-exports.default = Element;
+exports.default = WElement;
 
 },{}],5:[function(require,module,exports){
 'use strict';
@@ -347,9 +373,9 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-var _Element2 = require('../elements/Element.js');
+var _WElement2 = require('../elements/WElement.js');
 
-var _Element3 = _interopRequireDefault(_Element2);
+var _WElement3 = _interopRequireDefault(_WElement2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -359,19 +385,19 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Image = function (_Element) {
-    _inherits(Image, _Element);
+var WImage = function (_WElement) {
+    _inherits(WImage, _WElement);
 
-    function Image(src) {
-        _classCallCheck(this, Image);
+    function WImage(src) {
+        _classCallCheck(this, WImage);
 
-        var _this = _possibleConstructorReturn(this, (Image.__proto__ || Object.getPrototypeOf(Image)).call(this, 'img'));
+        var _this = _possibleConstructorReturn(this, (WImage.__proto__ || Object.getPrototypeOf(WImage)).call(this, 'img'));
 
-        _this.setSrc(src);
+        if (src) _this.setSrc(src);
         return _this;
     }
 
-    _createClass(Image, [{
+    _createClass(WImage, [{
         key: 'getImage',
         value: function getImage() {
             return this._image;
@@ -379,7 +405,7 @@ var Image = function (_Element) {
     }, {
         key: 'setSrc',
         value: function setSrc(src) {
-            this._src = _get(Image.prototype.__proto__ || Object.getPrototypeOf(Image.prototype), 'setAttribute', this).call(this, 'src', src);
+            this._src = _get(WImage.prototype.__proto__ || Object.getPrototypeOf(WImage.prototype), 'setAttribute', this).call(this, 'src', src);
         }
     }, {
         key: 'getSrc',
@@ -388,12 +414,12 @@ var Image = function (_Element) {
         }
     }]);
 
-    return Image;
-}(_Element3.default);
+    return WImage;
+}(_WElement3.default);
 
-exports.default = Image;
+exports.default = WImage;
 
-},{"../elements/Element.js":4}],6:[function(require,module,exports){
+},{"../elements/WElement.js":4}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -408,15 +434,62 @@ var Type = {
 exports.default = Type;
 
 },{}],7:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+exports.default = Object.prototype.createBallon = function () {
+    if (this.context) {
+        var ctx = this.context;
+
+        // Quadratric curves example
+        ctx.beginPath();
+        ctx.moveTo(75, 25);
+        ctx.quadraticCurveTo(25, 25, 25, 62.5);
+        ctx.quadraticCurveTo(25, 100, 50, 100);
+        ctx.quadraticCurveTo(50, 120, 30, 125);
+        ctx.quadraticCurveTo(60, 120, 65, 100);
+        ctx.quadraticCurveTo(125, 100, 125, 62.5);
+        ctx.quadraticCurveTo(125, 25, 75, 25);
+        ctx.stroke();
+    }
+};
+
+},{}],8:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+exports.default = Object.prototype.createHeart = function () {
+    if (this.context) {
+        var ctx = this.context;
+
+        ctx.beginPath();
+        ctx.moveTo(75, 40);
+        ctx.bezierCurveTo(75, 37, 70, 25, 50, 25);
+        ctx.bezierCurveTo(20, 25, 20, 62.5, 20, 62.5);
+        ctx.bezierCurveTo(20, 80, 40, 102, 75, 120);
+        ctx.bezierCurveTo(110, 102, 130, 80, 130, 62.5);
+        ctx.bezierCurveTo(130, 62.5, 130, 25, 100, 25);
+        ctx.bezierCurveTo(85, 25, 75, 37, 75, 40);
+        ctx.fill();
+    }
+};
+
+},{}],9:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _Canvas2 = require('../elements/Canvas');
+var _WCanvas2 = require('../elements/WCanvas');
 
-var _Canvas3 = _interopRequireDefault(_Canvas2);
+var _WCanvas3 = _interopRequireDefault(_WCanvas2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -426,8 +499,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var World = function (_Canvas) {
-    _inherits(World, _Canvas);
+var World = function (_WCanvas) {
+    _inherits(World, _WCanvas);
 
     function World() {
         _classCallCheck(this, World);
@@ -436,8 +509,8 @@ var World = function (_Canvas) {
     }
 
     return World;
-}(_Canvas3.default);
+}(_WCanvas3.default);
 
 exports.default = World;
 
-},{"../elements/Canvas":3}]},{},[1]);
+},{"../elements/WCanvas":3}]},{},[1]);

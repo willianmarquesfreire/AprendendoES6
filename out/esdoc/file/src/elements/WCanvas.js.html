@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">src/elements/Canvas.js | API Document</title>
+  <title data-ice="title">src/elements/WCanvas.js | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -32,22 +32,24 @@
 <nav class="navigation" data-ice="nav"><div>
   <ul>
     
-  <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">elements</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Audio.js~Audio.html">Audio</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Canvas.js~Canvas.html">Canvas</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Element.js~Element.html">Element</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Image.js~Image.html">Image</a></span></span></li>
+  <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">elements</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/WAudio.js~WAudio.html">WAudio</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html">WCanvas</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html">WElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/WImage.js~WImage.html">WImage</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">enums</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Type">Type</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">phisic</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/phisic/Phisic.js~Phisic.html">Phisic</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">reusable_objects</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createBallon">createBallon</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createHeart">createHeart</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">world</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/world/World.js~World.html">World</a></span></span></li>
 </ul>
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/elements/Canvas.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import Element from &apos;./Element&apos;
-import Type from &apos;../enums/Type&apos;
+<div class="content" data-ice="content"><h1 data-ice="title">src/elements/WCanvas.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import WElement from &apos;./WElement&apos;
+import WType from &apos;../enums/WType&apos;
 
-class Canvas extends Element {
+class WCanvas extends WElement {
     constructor() {
         super(&apos;canvas&apos;)
         this._context = this.getContext2D()
@@ -71,10 +73,10 @@ class Canvas extends Element {
     }
     drawSquare(x, y, width, height, type) {
         switch (type) {
-            case &apos;stroke&apos;:
+            case WType.STROKE:
                 this.strokeRect(x, y, width, height, type)
                 break
-            case &apos;clear&apos;:
+            case WType.CLEAR:
                 this.clearRect(x, y, width, height, type)
                 break
             default:
@@ -88,10 +90,10 @@ class Canvas extends Element {
         this.lineTo(x2, y2)
 
         switch (type) {
-            case Type.STROKE:
+            case WType.STROKE:
                 this.stroke()
                 break
-            case Type.CLEAR:
+            case WType.CLEAR:
                 this.clear()
                 break
             default:
@@ -105,18 +107,36 @@ class Canvas extends Element {
         this.lineTo(x + dimension, y + dimension)
 
         switch (type) {
-            case Type.STROKE:
+            case WType.STROKE:
                 this.stroke()
                 break
-            case Type.CLEAR:
+            case WType.CLEAR:
                 this.clear()
                 break
             default:
                 this.fill()
         }
     }
+    drawImage(image, x, y) {
+        this.getContext().drawImage(image, x, y)
+    }
     fillRect(x, y, width, height, type) {
         this.getContext().fillRect(x, y, width, height, type)
+    }
+    clearRect(x, y, width, height, type) {
+        this.getContext().clearRect(x, y, width, height, type)
+    }
+    strokeRect(x, y, width, height, type) {
+        this.getContext().strokeRect(x, y, width, height, type)
+    }
+    arc(x, y, radius, startAngle, endAngle, anticlockwise) {
+        this.getContext().arc(x, y, radius, startAngle, endAngle, anticlockwise)
+    }
+    quadraticCurveTo(cp1x, cp1y, x, y) {
+        return this.getContext().quadraticCurveTo(cp1x, cp1y, x, y)
+    }
+    bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y) {
+        return this.getContext().bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)
     }
     lineTo(x, y) {
         this.getContext().lineTo(x, y)
@@ -142,7 +162,7 @@ class Canvas extends Element {
 
 }
 
-export default Canvas</code></pre>
+export default WCanvas</code></pre>
 
 </div>
 

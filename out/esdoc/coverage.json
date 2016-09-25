@@ -1,40 +1,61 @@
 {
   "coverage": "0%",
-  "expectCount": 46,
+  "expectCount": 54,
   "actualCount": 0,
   "files": {
-    "src/elements/Audio.js": {
+    "src/phisic/Phisic.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2
+      ]
+    },
+    "src/enums/WType.js": {
       "expectCount": 1,
       "actualCount": 0,
       "undocumentLines": [
         1
       ]
     },
-    "src/elements/Canvas.js": {
-      "expectCount": 18,
+    "src/elements/WAudio.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/elements/WCanvas.js": {
+      "expectCount": 24,
       "actualCount": 0,
       "undocumentLines": [
         4,
-        81,
-        93,
         84,
+        99,
+        90,
+        111,
+        78,
+        102,
         5,
+        72,
         21,
         26,
         38,
         55,
-        90,
-        72,
+        108,
+        75,
         9,
         15,
         18,
-        75,
-        78,
+        93,
+        96,
+        87,
         12,
-        87
+        105,
+        81
       ]
     },
-    "src/elements/Element.js": {
+    "src/elements/WElement.js": {
       "expectCount": 17,
       "actualCount": 0,
       "undocumentLines": [
@@ -57,7 +78,7 @@
         33
       ]
     },
-    "src/elements/Image.js": {
+    "src/elements/WImage.js": {
       "expectCount": 5,
       "actualCount": 0,
       "undocumentLines": [
@@ -68,27 +89,26 @@
         11
       ]
     },
-    "src/phisic/Phisic.js": {
-      "expectCount": 2,
-      "actualCount": 0,
-      "undocumentLines": [
-        1,
-        2
-      ]
-    },
-    "src/enums/Type.js": {
-      "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        1
-      ]
-    },
     "src/world/World.js": {
       "expectCount": 2,
       "actualCount": 0,
       "undocumentLines": [
         3,
         4
+      ]
+    },
+    "src/reusable_objects/WBallon.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/reusable_objects/WHeart.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
       ]
     }
   }

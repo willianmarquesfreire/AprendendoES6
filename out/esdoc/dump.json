@@ -10,33 +10,33 @@
     "access": null,
     "description": null,
     "lineNumber": 2,
-    "content": "\nimport World from './world/World'\nimport Image from './elements/Image'\nimport Canvas from './elements/Canvas'\n\nwindow.addEventListener(\"load\", function() {\n    var world = new World()\n    world.addToBody()\n    console.log(world.getElement().getContext('2d'))\n    world.drawLine(0,0,100,100)\n    world.drawSquare(10,10,20,20)\n    // world.drawTriangle(100,100,50,150,150,150)\n    world.drawTriangleByDimension(100,100,40)\n    \n    var img = new Image(\"https://media.licdn.com/media/AAEAAQAAAAAAAANbAAAAJDE5NjBkNDk1LTY3ZGQtNDA0NS04YTJiLTdkNmU3NjZiNjI3Mg.png\")\n    world.addChild(img.getElement())\n\n    console.log(Type)\n\n    // document.body.appendChild(new Canvas().getElement())\n\n})"
+    "content": "\nimport World from './world/World'\nimport WImage from './elements/WImage'\nimport WCanvas from './elements/WCanvas'\nimport WType from './enums/WType'\nimport WBallon from './reusable_objects/WBallon'\nimport WHeart from './reusable_objects/WHeart'\n\nwindow.addEventListener(\"load\", function() {\n    var world = new World()\n    world.addToBody()\n    console.log(world.getElement().getContext('2d'))\n    world.drawLine(0,0,100,100)\n    world.drawSquare(10,10,20,20)\n    world.drawTriangle(100,100,50,150,150,150)\n    world.drawTriangleByDimension(200,100,40)\n    world.createBallon()\n    world.createHeart()\n\n    var img = new WImage();\n    img.src = \"./src/img/1.jpg\"\n    \n    world.drawImage(img.getElement(),5,5)\n    console.log(img)\n\n})"
   },
   {
     "__docId__": 1,
     "kind": "file",
     "static": true,
     "variation": null,
-    "name": "src/elements/Audio.js",
+    "name": "src/elements/WAudio.js",
     "memberof": null,
-    "longname": "src/elements/Audio.js",
+    "longname": "src/elements/WAudio.js",
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "class Audio {\n\n}\n\nexport default Audio"
+    "content": "class WAudio {\n\n}\n\nexport default WAudio"
   },
   {
     "__docId__": 2,
     "kind": "class",
     "static": true,
     "variation": null,
-    "name": "Audio",
-    "memberof": "src/elements/Audio.js",
-    "longname": "src/elements/Audio.js~Audio",
+    "name": "WAudio",
+    "memberof": "src/elements/WAudio.js",
+    "longname": "src/elements/WAudio.js~WAudio",
     "access": null,
     "export": true,
-    "importPath": "aprendendoES6/src/elements/Audio.js",
-    "importStyle": "Audio",
+    "importPath": "aprendendoES6/src/elements/WAudio.js",
+    "importStyle": "WAudio",
     "description": null,
     "lineNumber": 1,
     "undocument": true,
@@ -47,32 +47,32 @@
     "kind": "file",
     "static": true,
     "variation": null,
-    "name": "src/elements/Canvas.js",
+    "name": "src/elements/WCanvas.js",
     "memberof": null,
-    "longname": "src/elements/Canvas.js",
+    "longname": "src/elements/WCanvas.js",
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import Element from './Element'\nimport Type from '../enums/Type'\n\nclass Canvas extends Element {\n    constructor() {\n        super('canvas')\n        this._context = this.getContext2D()\n    }\n    getContext() {\n        return this._context\n    }\n    setContext(ctx) {\n        return this._context = this.getContext(ctx)\n    }\n    getContext2D() {\n        return this.getElement().getContext('2d')\n    }\n    getContext3D() {\n        return this.getElement().getContext('3d')\n    }\n    drawLine(beginX, beginY, endX, endY) {\n        this.moveTo(beginX, beginY)\n        this.lineTo(endX, endY)\n        this.stroke()\n    }\n    drawSquare(x, y, width, height, type) {\n        switch (type) {\n            case 'stroke':\n                this.strokeRect(x, y, width, height, type)\n                break\n            case 'clear':\n                this.clearRect(x, y, width, height, type)\n                break\n            default:\n                this.fillRect(x, y, width, height, type)\n        }\n    }\n    drawTriangle(x, y, x1, y1, x2, y2, type) {\n        this.beginPath()\n        this.moveTo(x, y)\n        this.lineTo(x1, y1)\n        this.lineTo(x2, y2)\n\n        switch (type) {\n            case Type.STROKE:\n                this.stroke()\n                break\n            case Type.CLEAR:\n                this.clear()\n                break\n            default:\n                this.fill()\n        }\n    }\n    drawTriangleByDimension(x, y, dimension, type) {\n        this.beginPath()\n        this.moveTo(x, y)\n        this.lineTo(x - dimension, y + dimension)\n        this.lineTo(x + dimension, y + dimension)\n\n        switch (type) {\n            case Type.STROKE:\n                this.stroke()\n                break\n            case Type.CLEAR:\n                this.clear()\n                break\n            default:\n                this.fill()\n        }\n    }\n    fillRect(x, y, width, height, type) {\n        this.getContext().fillRect(x, y, width, height, type)\n    }\n    lineTo(x, y) {\n        this.getContext().lineTo(x, y)\n    }\n    moveTo(x, y) {\n        this.getContext().moveTo(x, y)\n    }\n    beginPath() {\n        return this.getContext().beginPath()\n    }\n    closePath() {\n        return this.getContext().closePath()\n    }\n    stroke() {\n        return this.getContext().stroke()\n    }\n    fill() {\n        return this.getContext().fill()\n    }\n    clear() {\n        return this.getContext().clear()\n    }\n\n}\n\nexport default Canvas"
+    "content": "import WElement from './WElement'\nimport WType from '../enums/WType'\n\nclass WCanvas extends WElement {\n    constructor() {\n        super('canvas')\n        this._context = this.getContext2D()\n    }\n    getContext() {\n        return this._context\n    }\n    setContext(ctx) {\n        return this._context = this.getContext(ctx)\n    }\n    getContext2D() {\n        return this.getElement().getContext('2d')\n    }\n    getContext3D() {\n        return this.getElement().getContext('3d')\n    }\n    drawLine(beginX, beginY, endX, endY) {\n        this.moveTo(beginX, beginY)\n        this.lineTo(endX, endY)\n        this.stroke()\n    }\n    drawSquare(x, y, width, height, type) {\n        switch (type) {\n            case WType.STROKE:\n                this.strokeRect(x, y, width, height, type)\n                break\n            case WType.CLEAR:\n                this.clearRect(x, y, width, height, type)\n                break\n            default:\n                this.fillRect(x, y, width, height, type)\n        }\n    }\n    drawTriangle(x, y, x1, y1, x2, y2, type) {\n        this.beginPath()\n        this.moveTo(x, y)\n        this.lineTo(x1, y1)\n        this.lineTo(x2, y2)\n\n        switch (type) {\n            case WType.STROKE:\n                this.stroke()\n                break\n            case WType.CLEAR:\n                this.clear()\n                break\n            default:\n                this.fill()\n        }\n    }\n    drawTriangleByDimension(x, y, dimension, type) {\n        this.beginPath()\n        this.moveTo(x, y)\n        this.lineTo(x - dimension, y + dimension)\n        this.lineTo(x + dimension, y + dimension)\n\n        switch (type) {\n            case WType.STROKE:\n                this.stroke()\n                break\n            case WType.CLEAR:\n                this.clear()\n                break\n            default:\n                this.fill()\n        }\n    }\n    drawImage(image, x, y) {\n        this.getContext().drawImage(image, x, y)\n    }\n    fillRect(x, y, width, height, type) {\n        this.getContext().fillRect(x, y, width, height, type)\n    }\n    clearRect(x, y, width, height, type) {\n        this.getContext().clearRect(x, y, width, height, type)\n    }\n    strokeRect(x, y, width, height, type) {\n        this.getContext().strokeRect(x, y, width, height, type)\n    }\n    arc(x, y, radius, startAngle, endAngle, anticlockwise) {\n        this.getContext().arc(x, y, radius, startAngle, endAngle, anticlockwise)\n    }\n    quadraticCurveTo(cp1x, cp1y, x, y) {\n        return this.getContext().quadraticCurveTo(cp1x, cp1y, x, y)\n    }\n    bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y) {\n        return this.getContext().bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)\n    }\n    lineTo(x, y) {\n        this.getContext().lineTo(x, y)\n    }\n    moveTo(x, y) {\n        this.getContext().moveTo(x, y)\n    }\n    beginPath() {\n        return this.getContext().beginPath()\n    }\n    closePath() {\n        return this.getContext().closePath()\n    }\n    stroke() {\n        return this.getContext().stroke()\n    }\n    fill() {\n        return this.getContext().fill()\n    }\n    clear() {\n        return this.getContext().clear()\n    }\n\n}\n\nexport default WCanvas"
   },
   {
     "__docId__": 4,
     "kind": "class",
     "static": true,
     "variation": null,
-    "name": "Canvas",
-    "memberof": "src/elements/Canvas.js",
-    "longname": "src/elements/Canvas.js~Canvas",
+    "name": "WCanvas",
+    "memberof": "src/elements/WCanvas.js",
+    "longname": "src/elements/WCanvas.js~WCanvas",
     "access": null,
     "export": true,
-    "importPath": "aprendendoES6/src/elements/Canvas.js",
-    "importStyle": "Canvas",
+    "importPath": "aprendendoES6/src/elements/WCanvas.js",
+    "importStyle": "WCanvas",
     "description": null,
     "lineNumber": 4,
     "undocument": true,
     "interface": false,
     "extends": [
-      "src/elements/Element.js~Element"
+      "src/elements/WElement.js~WElement"
     ]
   },
   {
@@ -81,8 +81,8 @@
     "static": false,
     "variation": null,
     "name": "constructor",
-    "memberof": "src/elements/Canvas.js~Canvas",
-    "longname": "src/elements/Canvas.js~Canvas#constructor",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#constructor",
     "access": null,
     "description": null,
     "lineNumber": 5,
@@ -96,8 +96,8 @@
     "static": false,
     "variation": null,
     "name": "_context",
-    "memberof": "src/elements/Canvas.js~Canvas",
-    "longname": "src/elements/Canvas.js~Canvas#_context",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#_context",
     "access": null,
     "description": null,
     "lineNumber": 7,
@@ -114,8 +114,8 @@
     "static": false,
     "variation": null,
     "name": "getContext",
-    "memberof": "src/elements/Canvas.js~Canvas",
-    "longname": "src/elements/Canvas.js~Canvas#getContext",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#getContext",
     "access": null,
     "description": null,
     "lineNumber": 9,
@@ -134,8 +134,8 @@
     "static": false,
     "variation": null,
     "name": "setContext",
-    "memberof": "src/elements/Canvas.js~Canvas",
-    "longname": "src/elements/Canvas.js~Canvas#setContext",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#setContext",
     "access": null,
     "description": null,
     "lineNumber": 12,
@@ -161,8 +161,8 @@
     "static": false,
     "variation": null,
     "name": "getContext2D",
-    "memberof": "src/elements/Canvas.js~Canvas",
-    "longname": "src/elements/Canvas.js~Canvas#getContext2D",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#getContext2D",
     "access": null,
     "description": null,
     "lineNumber": 15,
@@ -181,8 +181,8 @@
     "static": false,
     "variation": null,
     "name": "getContext3D",
-    "memberof": "src/elements/Canvas.js~Canvas",
-    "longname": "src/elements/Canvas.js~Canvas#getContext3D",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#getContext3D",
     "access": null,
     "description": null,
     "lineNumber": 18,
@@ -201,8 +201,8 @@
     "static": false,
     "variation": null,
     "name": "drawLine",
-    "memberof": "src/elements/Canvas.js~Canvas",
-    "longname": "src/elements/Canvas.js~Canvas#drawLine",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#drawLine",
     "access": null,
     "description": null,
     "lineNumber": 21,
@@ -241,8 +241,8 @@
     "static": false,
     "variation": null,
     "name": "drawSquare",
-    "memberof": "src/elements/Canvas.js~Canvas",
-    "longname": "src/elements/Canvas.js~Canvas#drawSquare",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#drawSquare",
     "access": null,
     "description": null,
     "lineNumber": 26,
@@ -287,8 +287,8 @@
     "static": false,
     "variation": null,
     "name": "drawTriangle",
-    "memberof": "src/elements/Canvas.js~Canvas",
-    "longname": "src/elements/Canvas.js~Canvas#drawTriangle",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#drawTriangle",
     "access": null,
     "description": null,
     "lineNumber": 38,
@@ -345,8 +345,8 @@
     "static": false,
     "variation": null,
     "name": "drawTriangleByDimension",
-    "memberof": "src/elements/Canvas.js~Canvas",
-    "longname": "src/elements/Canvas.js~Canvas#drawTriangleByDimension",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#drawTriangleByDimension",
     "access": null,
     "description": null,
     "lineNumber": 55,
@@ -384,12 +384,46 @@
     "kind": "method",
     "static": false,
     "variation": null,
-    "name": "fillRect",
-    "memberof": "src/elements/Canvas.js~Canvas",
-    "longname": "src/elements/Canvas.js~Canvas#fillRect",
+    "name": "drawImage",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#drawImage",
     "access": null,
     "description": null,
     "lineNumber": 72,
+    "undocument": true,
+    "params": [
+      {
+        "name": "image",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "x",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "y",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 16,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "fillRect",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#fillRect",
+    "access": null,
+    "description": null,
+    "lineNumber": 75,
     "undocument": true,
     "params": [
       {
@@ -426,41 +460,13 @@
     "generator": false
   },
   {
-    "__docId__": 16,
-    "kind": "method",
-    "static": false,
-    "variation": null,
-    "name": "lineTo",
-    "memberof": "src/elements/Canvas.js~Canvas",
-    "longname": "src/elements/Canvas.js~Canvas#lineTo",
-    "access": null,
-    "description": null,
-    "lineNumber": 75,
-    "undocument": true,
-    "params": [
-      {
-        "name": "x",
-        "types": [
-          "*"
-        ]
-      },
-      {
-        "name": "y",
-        "types": [
-          "*"
-        ]
-      }
-    ],
-    "generator": false
-  },
-  {
     "__docId__": 17,
     "kind": "method",
     "static": false,
     "variation": null,
-    "name": "moveTo",
-    "memberof": "src/elements/Canvas.js~Canvas",
-    "longname": "src/elements/Canvas.js~Canvas#moveTo",
+    "name": "clearRect",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#clearRect",
     "access": null,
     "description": null,
     "lineNumber": 78,
@@ -477,6 +483,24 @@
         "types": [
           "*"
         ]
+      },
+      {
+        "name": "width",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "height",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "type",
+        "types": [
+          "*"
+        ]
       }
     ],
     "generator": false
@@ -486,19 +510,45 @@
     "kind": "method",
     "static": false,
     "variation": null,
-    "name": "beginPath",
-    "memberof": "src/elements/Canvas.js~Canvas",
-    "longname": "src/elements/Canvas.js~Canvas#beginPath",
+    "name": "strokeRect",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#strokeRect",
     "access": null,
     "description": null,
     "lineNumber": 81,
     "undocument": true,
-    "params": [],
-    "return": {
-      "types": [
-        "*"
-      ]
-    },
+    "params": [
+      {
+        "name": "x",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "y",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "width",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "height",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "type",
+        "types": [
+          "*"
+        ]
+      }
+    ],
     "generator": false
   },
   {
@@ -506,19 +556,51 @@
     "kind": "method",
     "static": false,
     "variation": null,
-    "name": "closePath",
-    "memberof": "src/elements/Canvas.js~Canvas",
-    "longname": "src/elements/Canvas.js~Canvas#closePath",
+    "name": "arc",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#arc",
     "access": null,
     "description": null,
     "lineNumber": 84,
     "undocument": true,
-    "params": [],
-    "return": {
-      "types": [
-        "*"
-      ]
-    },
+    "params": [
+      {
+        "name": "x",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "y",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "radius",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "startAngle",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "endAngle",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "anticlockwise",
+        "types": [
+          "*"
+        ]
+      }
+    ],
     "generator": false
   },
   {
@@ -526,14 +608,39 @@
     "kind": "method",
     "static": false,
     "variation": null,
-    "name": "stroke",
-    "memberof": "src/elements/Canvas.js~Canvas",
-    "longname": "src/elements/Canvas.js~Canvas#stroke",
+    "name": "quadraticCurveTo",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#quadraticCurveTo",
     "access": null,
     "description": null,
     "lineNumber": 87,
     "undocument": true,
-    "params": [],
+    "params": [
+      {
+        "name": "cp1x",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "cp1y",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "x",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "y",
+        "types": [
+          "*"
+        ]
+      }
+    ],
     "return": {
       "types": [
         "*"
@@ -546,14 +653,51 @@
     "kind": "method",
     "static": false,
     "variation": null,
-    "name": "fill",
-    "memberof": "src/elements/Canvas.js~Canvas",
-    "longname": "src/elements/Canvas.js~Canvas#fill",
+    "name": "bezierCurveTo",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#bezierCurveTo",
     "access": null,
     "description": null,
     "lineNumber": 90,
     "undocument": true,
-    "params": [],
+    "params": [
+      {
+        "name": "cp1x",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "cp1y",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "cp2x",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "cp2y",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "x",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "y",
+        "types": [
+          "*"
+        ]
+      }
+    ],
     "return": {
       "types": [
         "*"
@@ -566,12 +710,68 @@
     "kind": "method",
     "static": false,
     "variation": null,
-    "name": "clear",
-    "memberof": "src/elements/Canvas.js~Canvas",
-    "longname": "src/elements/Canvas.js~Canvas#clear",
+    "name": "lineTo",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#lineTo",
     "access": null,
     "description": null,
     "lineNumber": 93,
+    "undocument": true,
+    "params": [
+      {
+        "name": "x",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "y",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 23,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "moveTo",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#moveTo",
+    "access": null,
+    "description": null,
+    "lineNumber": 96,
+    "undocument": true,
+    "params": [
+      {
+        "name": "x",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "y",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 24,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "beginPath",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#beginPath",
+    "access": null,
+    "description": null,
+    "lineNumber": 99,
     "undocument": true,
     "params": [],
     "return": {
@@ -582,43 +782,123 @@
     "generator": false
   },
   {
-    "__docId__": 23,
+    "__docId__": 25,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "closePath",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#closePath",
+    "access": null,
+    "description": null,
+    "lineNumber": 102,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 26,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "stroke",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#stroke",
+    "access": null,
+    "description": null,
+    "lineNumber": 105,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 27,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "fill",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#fill",
+    "access": null,
+    "description": null,
+    "lineNumber": 108,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 28,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "clear",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#clear",
+    "access": null,
+    "description": null,
+    "lineNumber": 111,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 29,
     "kind": "file",
     "static": true,
     "variation": null,
-    "name": "src/elements/Element.js",
+    "name": "src/elements/WElement.js",
     "memberof": null,
-    "longname": "src/elements/Element.js",
+    "longname": "src/elements/WElement.js",
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "class Element {\n\n    constructor(element, width, height, border) {\n        this.setElement(element)\n        this.setWidth(width)\n        this.setHeight(height)\n        this.setBorder(border)\n        console.log(this.getClassName().concat(' Created!'))\n    }\n    \n    createElement(element) {\n        return document.createElement(element)\n    }\n    getElement() {\n        return this._element\n    }\n    setElement(element) {\n        this._element = this.createElement(element)\n    }\n    getAttributes() {\n        return this.getElement().attributes\n    }\n    setAttribute(attr, value) {\n        this.getElement().setAttribute(attr, value)\n    }\n    setStyle(attr, value) {\n        this.setAttibute('style', attr + ': ' + value)\n    }\n    setSize(width, height) {\n        this.setWidth(width)\n        this.setHeight(height)\n    }\n    setWidth(width = 200) {\n        this.getElement().setAttribute('style', 'width: '.concat(width))\n        return this.getElement()\n    }\n    setHeight(height = 200) {\n        this.getElement().setAttribute('style', 'height: '.concat(height))\n        return this.getElement()\n    }\n    setBorder(border = '1px solid black') {\n        this.getElement().setAttribute('style', 'border: '.concat(border))\n        return this.getElement()\n    }\n    addChild(child) {\n        this.getElement().appendChild(child)\n        return this.getElement()\n    }\n    addToBody() {\n        document.body.appendChild(this.getElement())\n        return this.getElement()\n    }\n    addToElementById(id) {\n        document.getElementById(id).appendChild(this.getElement())\n        return this.getElement()\n    }\n    addToElementByClassName(className) {\n        document.getElementsByClassName(className).appendChild(this.getElement())\n        return this.getElement()\n    }\n    getClassName() {\n        return this.constructor.name\n    }\n}\n\nexport default Element"
+    "content": "class WElement {\n\n    constructor(element, width, height, border) {\n        this.setElement(element)\n        this.setWidth(width)\n        this.setHeight(height)\n        this.setBorder(border)\n        console.log(this.getClassName().concat(' Created!'))\n    }\n    \n    createElement(element) {\n        return document.createElement(element)\n    }\n    getElement() {\n        return this._element\n    }\n    setElement(element) {\n        this._element = this.createElement(element)\n    }\n    getAttributes() {\n        return this.getElement().attributes\n    }\n    setAttribute(attr, value) {\n        this.getElement().setAttribute(attr, value)\n    }\n    setStyle(attr, value) {\n        this.setAttibute('style', attr + ': ' + value)\n    }\n    setSize(width, height) {\n        this.setWidth(width)\n        this.setHeight(height)\n    }\n    setWidth(width = 200) {\n        this.getElement().setAttribute('style', 'width: '.concat(width))\n        return this.getElement()\n    }\n    setHeight(height = 200) {\n        this.getElement().setAttribute('style', 'height: '.concat(height))\n        return this.getElement()\n    }\n    setBorder(border = '1px solid black') {\n        this.getElement().setAttribute('style', 'border: '.concat(border))\n        return this.getElement()\n    }\n    addChild(child) {\n        this.getElement().appendChild(child)\n        return this.getElement()\n    }\n    addToBody() {\n        document.body.appendChild(this.getElement())\n        return this.getElement()\n    }\n    addToElementById(id) {\n        document.getElementById(id).appendChild(this.getElement())\n        return this.getElement()\n    }\n    addToElementByClassName(className) {\n        document.getElementsByClassName(className).appendChild(this.getElement())\n        return this.getElement()\n    }\n    getClassName() {\n        return this.constructor.name\n    }\n}\n\nexport default WElement"
   },
   {
-    "__docId__": 24,
+    "__docId__": 30,
     "kind": "class",
     "static": true,
     "variation": null,
-    "name": "Element",
-    "memberof": "src/elements/Element.js",
-    "longname": "src/elements/Element.js~Element",
+    "name": "WElement",
+    "memberof": "src/elements/WElement.js",
+    "longname": "src/elements/WElement.js~WElement",
     "access": null,
     "export": true,
-    "importPath": "aprendendoES6/src/elements/Element.js",
-    "importStyle": "Element",
+    "importPath": "aprendendoES6/src/elements/WElement.js",
+    "importStyle": "WElement",
     "description": null,
     "lineNumber": 1,
     "undocument": true,
     "interface": false
   },
   {
-    "__docId__": 25,
+    "__docId__": 31,
     "kind": "constructor",
     "static": false,
     "variation": null,
     "name": "constructor",
-    "memberof": "src/elements/Element.js~Element",
-    "longname": "src/elements/Element.js~Element#constructor",
+    "memberof": "src/elements/WElement.js~WElement",
+    "longname": "src/elements/WElement.js~WElement#constructor",
     "access": null,
     "description": null,
     "lineNumber": 3,
@@ -652,13 +932,13 @@
     "generator": false
   },
   {
-    "__docId__": 26,
+    "__docId__": 32,
     "kind": "method",
     "static": false,
     "variation": null,
     "name": "createElement",
-    "memberof": "src/elements/Element.js~Element",
-    "longname": "src/elements/Element.js~Element#createElement",
+    "memberof": "src/elements/WElement.js~WElement",
+    "longname": "src/elements/WElement.js~WElement#createElement",
     "access": null,
     "description": null,
     "lineNumber": 11,
@@ -679,13 +959,13 @@
     "generator": false
   },
   {
-    "__docId__": 27,
+    "__docId__": 33,
     "kind": "method",
     "static": false,
     "variation": null,
     "name": "getElement",
-    "memberof": "src/elements/Element.js~Element",
-    "longname": "src/elements/Element.js~Element#getElement",
+    "memberof": "src/elements/WElement.js~WElement",
+    "longname": "src/elements/WElement.js~WElement#getElement",
     "access": null,
     "description": null,
     "lineNumber": 14,
@@ -699,13 +979,13 @@
     "generator": false
   },
   {
-    "__docId__": 28,
+    "__docId__": 34,
     "kind": "method",
     "static": false,
     "variation": null,
     "name": "setElement",
-    "memberof": "src/elements/Element.js~Element",
-    "longname": "src/elements/Element.js~Element#setElement",
+    "memberof": "src/elements/WElement.js~WElement",
+    "longname": "src/elements/WElement.js~WElement#setElement",
     "access": null,
     "description": null,
     "lineNumber": 17,
@@ -721,13 +1001,13 @@
     "generator": false
   },
   {
-    "__docId__": 29,
+    "__docId__": 35,
     "kind": "member",
     "static": false,
     "variation": null,
     "name": "_element",
-    "memberof": "src/elements/Element.js~Element",
-    "longname": "src/elements/Element.js~Element#_element",
+    "memberof": "src/elements/WElement.js~WElement",
+    "longname": "src/elements/WElement.js~WElement#_element",
     "access": null,
     "description": null,
     "lineNumber": 18,
@@ -739,13 +1019,13 @@
     }
   },
   {
-    "__docId__": 30,
+    "__docId__": 36,
     "kind": "method",
     "static": false,
     "variation": null,
     "name": "getAttributes",
-    "memberof": "src/elements/Element.js~Element",
-    "longname": "src/elements/Element.js~Element#getAttributes",
+    "memberof": "src/elements/WElement.js~WElement",
+    "longname": "src/elements/WElement.js~WElement#getAttributes",
     "access": null,
     "description": null,
     "lineNumber": 20,
@@ -759,13 +1039,13 @@
     "generator": false
   },
   {
-    "__docId__": 31,
+    "__docId__": 37,
     "kind": "method",
     "static": false,
     "variation": null,
     "name": "setAttribute",
-    "memberof": "src/elements/Element.js~Element",
-    "longname": "src/elements/Element.js~Element#setAttribute",
+    "memberof": "src/elements/WElement.js~WElement",
+    "longname": "src/elements/WElement.js~WElement#setAttribute",
     "access": null,
     "description": null,
     "lineNumber": 23,
@@ -787,13 +1067,13 @@
     "generator": false
   },
   {
-    "__docId__": 32,
+    "__docId__": 38,
     "kind": "method",
     "static": false,
     "variation": null,
     "name": "setStyle",
-    "memberof": "src/elements/Element.js~Element",
-    "longname": "src/elements/Element.js~Element#setStyle",
+    "memberof": "src/elements/WElement.js~WElement",
+    "longname": "src/elements/WElement.js~WElement#setStyle",
     "access": null,
     "description": null,
     "lineNumber": 26,
@@ -815,13 +1095,13 @@
     "generator": false
   },
   {
-    "__docId__": 33,
+    "__docId__": 39,
     "kind": "method",
     "static": false,
     "variation": null,
     "name": "setSize",
-    "memberof": "src/elements/Element.js~Element",
-    "longname": "src/elements/Element.js~Element#setSize",
+    "memberof": "src/elements/WElement.js~WElement",
+    "longname": "src/elements/WElement.js~WElement#setSize",
     "access": null,
     "description": null,
     "lineNumber": 29,
@@ -843,13 +1123,13 @@
     "generator": false
   },
   {
-    "__docId__": 34,
+    "__docId__": 40,
     "kind": "method",
     "static": false,
     "variation": null,
     "name": "setWidth",
-    "memberof": "src/elements/Element.js~Element",
-    "longname": "src/elements/Element.js~Element#setWidth",
+    "memberof": "src/elements/WElement.js~WElement",
+    "longname": "src/elements/WElement.js~WElement#setWidth",
     "access": null,
     "description": null,
     "lineNumber": 33,
@@ -873,13 +1153,13 @@
     "generator": false
   },
   {
-    "__docId__": 35,
+    "__docId__": 41,
     "kind": "method",
     "static": false,
     "variation": null,
     "name": "setHeight",
-    "memberof": "src/elements/Element.js~Element",
-    "longname": "src/elements/Element.js~Element#setHeight",
+    "memberof": "src/elements/WElement.js~WElement",
+    "longname": "src/elements/WElement.js~WElement#setHeight",
     "access": null,
     "description": null,
     "lineNumber": 37,
@@ -903,13 +1183,13 @@
     "generator": false
   },
   {
-    "__docId__": 36,
+    "__docId__": 42,
     "kind": "method",
     "static": false,
     "variation": null,
     "name": "setBorder",
-    "memberof": "src/elements/Element.js~Element",
-    "longname": "src/elements/Element.js~Element#setBorder",
+    "memberof": "src/elements/WElement.js~WElement",
+    "longname": "src/elements/WElement.js~WElement#setBorder",
     "access": null,
     "description": null,
     "lineNumber": 41,
@@ -933,13 +1213,13 @@
     "generator": false
   },
   {
-    "__docId__": 37,
+    "__docId__": 43,
     "kind": "method",
     "static": false,
     "variation": null,
     "name": "addChild",
-    "memberof": "src/elements/Element.js~Element",
-    "longname": "src/elements/Element.js~Element#addChild",
+    "memberof": "src/elements/WElement.js~WElement",
+    "longname": "src/elements/WElement.js~WElement#addChild",
     "access": null,
     "description": null,
     "lineNumber": 45,
@@ -960,13 +1240,13 @@
     "generator": false
   },
   {
-    "__docId__": 38,
+    "__docId__": 44,
     "kind": "method",
     "static": false,
     "variation": null,
     "name": "addToBody",
-    "memberof": "src/elements/Element.js~Element",
-    "longname": "src/elements/Element.js~Element#addToBody",
+    "memberof": "src/elements/WElement.js~WElement",
+    "longname": "src/elements/WElement.js~WElement#addToBody",
     "access": null,
     "description": null,
     "lineNumber": 49,
@@ -980,13 +1260,13 @@
     "generator": false
   },
   {
-    "__docId__": 39,
+    "__docId__": 45,
     "kind": "method",
     "static": false,
     "variation": null,
     "name": "addToElementById",
-    "memberof": "src/elements/Element.js~Element",
-    "longname": "src/elements/Element.js~Element#addToElementById",
+    "memberof": "src/elements/WElement.js~WElement",
+    "longname": "src/elements/WElement.js~WElement#addToElementById",
     "access": null,
     "description": null,
     "lineNumber": 53,
@@ -1007,13 +1287,13 @@
     "generator": false
   },
   {
-    "__docId__": 40,
+    "__docId__": 46,
     "kind": "method",
     "static": false,
     "variation": null,
     "name": "addToElementByClassName",
-    "memberof": "src/elements/Element.js~Element",
-    "longname": "src/elements/Element.js~Element#addToElementByClassName",
+    "memberof": "src/elements/WElement.js~WElement",
+    "longname": "src/elements/WElement.js~WElement#addToElementByClassName",
     "access": null,
     "description": null,
     "lineNumber": 57,
@@ -1034,13 +1314,13 @@
     "generator": false
   },
   {
-    "__docId__": 41,
+    "__docId__": 47,
     "kind": "method",
     "static": false,
     "variation": null,
     "name": "getClassName",
-    "memberof": "src/elements/Element.js~Element",
-    "longname": "src/elements/Element.js~Element#getClassName",
+    "memberof": "src/elements/WElement.js~WElement",
+    "longname": "src/elements/WElement.js~WElement#getClassName",
     "access": null,
     "description": null,
     "lineNumber": 61,
@@ -1054,46 +1334,46 @@
     "generator": false
   },
   {
-    "__docId__": 42,
+    "__docId__": 48,
     "kind": "file",
     "static": true,
     "variation": null,
-    "name": "src/elements/Image.js",
+    "name": "src/elements/WImage.js",
     "memberof": null,
-    "longname": "src/elements/Image.js",
+    "longname": "src/elements/WImage.js",
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import Element from '../elements/Element.js'\n\nclass Image extends Element{\n    constructor(src) {\n        super('img')\n        this.setSrc(src)\n    }\n    getImage() {\n        return this._image\n    }\n    setSrc(src) {\n        this._src = super.setAttribute('src', src)\n    }\n    getSrc(src) {\n        return this._src\n    }\n}\n\nexport default Image"
+    "content": "import WElement from '../elements/WElement.js'\n\nclass WImage extends WElement{\n    constructor(src) {\n        super('img')\n        if (src) this.setSrc(src)\n    }\n    getImage() {\n        return this._image\n    }\n    setSrc(src) {\n        this._src = super.setAttribute('src', src)\n    }\n    getSrc(src) {\n        return this._src\n    }\n}\n\nexport default WImage"
   },
   {
-    "__docId__": 43,
+    "__docId__": 49,
     "kind": "class",
     "static": true,
     "variation": null,
-    "name": "Image",
-    "memberof": "src/elements/Image.js",
-    "longname": "src/elements/Image.js~Image",
+    "name": "WImage",
+    "memberof": "src/elements/WImage.js",
+    "longname": "src/elements/WImage.js~WImage",
     "access": null,
     "export": true,
-    "importPath": "aprendendoES6/src/elements/Image.js",
-    "importStyle": "Image",
+    "importPath": "aprendendoES6/src/elements/WImage.js",
+    "importStyle": "WImage",
     "description": null,
     "lineNumber": 3,
     "undocument": true,
     "interface": false,
     "extends": [
-      "src/elements/Element.js~Element"
+      "src/elements/WElement.js~WElement"
     ]
   },
   {
-    "__docId__": 44,
+    "__docId__": 50,
     "kind": "constructor",
     "static": false,
     "variation": null,
     "name": "constructor",
-    "memberof": "src/elements/Image.js~Image",
-    "longname": "src/elements/Image.js~Image#constructor",
+    "memberof": "src/elements/WImage.js~WImage",
+    "longname": "src/elements/WImage.js~WImage#constructor",
     "access": null,
     "description": null,
     "lineNumber": 4,
@@ -1109,13 +1389,13 @@
     "generator": false
   },
   {
-    "__docId__": 45,
+    "__docId__": 51,
     "kind": "method",
     "static": false,
     "variation": null,
     "name": "getImage",
-    "memberof": "src/elements/Image.js~Image",
-    "longname": "src/elements/Image.js~Image#getImage",
+    "memberof": "src/elements/WImage.js~WImage",
+    "longname": "src/elements/WImage.js~WImage#getImage",
     "access": null,
     "description": null,
     "lineNumber": 8,
@@ -1129,13 +1409,13 @@
     "generator": false
   },
   {
-    "__docId__": 46,
+    "__docId__": 52,
     "kind": "method",
     "static": false,
     "variation": null,
     "name": "setSrc",
-    "memberof": "src/elements/Image.js~Image",
-    "longname": "src/elements/Image.js~Image#setSrc",
+    "memberof": "src/elements/WImage.js~WImage",
+    "longname": "src/elements/WImage.js~WImage#setSrc",
     "access": null,
     "description": null,
     "lineNumber": 11,
@@ -1151,13 +1431,13 @@
     "generator": false
   },
   {
-    "__docId__": 47,
+    "__docId__": 53,
     "kind": "member",
     "static": false,
     "variation": null,
     "name": "_src",
-    "memberof": "src/elements/Image.js~Image",
-    "longname": "src/elements/Image.js~Image#_src",
+    "memberof": "src/elements/WImage.js~WImage",
+    "longname": "src/elements/WImage.js~WImage#_src",
     "access": null,
     "description": null,
     "lineNumber": 12,
@@ -1169,13 +1449,13 @@
     }
   },
   {
-    "__docId__": 48,
+    "__docId__": 54,
     "kind": "method",
     "static": false,
     "variation": null,
     "name": "getSrc",
-    "memberof": "src/elements/Image.js~Image",
-    "longname": "src/elements/Image.js~Image#getSrc",
+    "memberof": "src/elements/WImage.js~WImage",
+    "longname": "src/elements/WImage.js~WImage#getSrc",
     "access": null,
     "description": null,
     "lineNumber": 14,
@@ -1196,29 +1476,29 @@
     "generator": false
   },
   {
-    "__docId__": 49,
+    "__docId__": 55,
     "kind": "file",
     "static": true,
     "variation": null,
-    "name": "src/enums/Type.js",
+    "name": "src/enums/WType.js",
     "memberof": null,
-    "longname": "src/enums/Type.js",
+    "longname": "src/enums/WType.js",
     "access": null,
     "description": null,
     "lineNumber": 1,
     "content": "var Type = {\n    'FILL': 'fill',\n    'STROKE': 'stroke',\n    'CLEAR': 'clear'\n}\n\nexport default Type"
   },
   {
-    "__docId__": 50,
+    "__docId__": 56,
     "kind": "variable",
     "static": true,
     "variation": null,
     "name": "Type",
-    "memberof": "src/enums/Type.js",
-    "longname": "src/enums/Type.js~Type",
+    "memberof": "src/enums/WType.js",
+    "longname": "src/enums/WType.js~Type",
     "access": null,
     "export": true,
-    "importPath": "aprendendoES6/src/enums/Type.js",
+    "importPath": "aprendendoES6/src/enums/WType.js",
     "importStyle": "Type",
     "description": null,
     "lineNumber": 1,
@@ -1230,7 +1510,7 @@
     }
   },
   {
-    "__docId__": 51,
+    "__docId__": 57,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -1243,7 +1523,7 @@
     "content": "class Phisic {\n  constructor() {\n    console.log('Phisic')\n  }\n};\nexport default Phisic"
   },
   {
-    "__docId__": 52,
+    "__docId__": 58,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -1260,7 +1540,7 @@
     "interface": false
   },
   {
-    "__docId__": 53,
+    "__docId__": 59,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -1275,7 +1555,69 @@
     "generator": false
   },
   {
-    "__docId__": 54,
+    "__docId__": 60,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/reusable_objects/WBallon.js",
+    "memberof": null,
+    "longname": "src/reusable_objects/WBallon.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "export default Object.prototype.createBallon = function () {\n    if (this.getContext()) {\n        var ctx = this.getContext()\n\n        // Quadratric curves example\n        ctx.beginPath()\n        ctx.moveTo(75, 25)\n        ctx.quadraticCurveTo(25, 25, 25, 62.5)\n        ctx.quadraticCurveTo(25, 100, 50, 100)\n        ctx.quadraticCurveTo(50, 120, 30, 125)\n        ctx.quadraticCurveTo(60, 120, 65, 100)\n        ctx.quadraticCurveTo(125, 100, 125, 62.5)\n        ctx.quadraticCurveTo(125, 25, 75, 25)\n        ctx.stroke()\n    }\n}"
+  },
+  {
+    "__docId__": 61,
+    "kind": "function",
+    "static": true,
+    "variation": null,
+    "name": "createBallon",
+    "memberof": "src/reusable_objects/WBallon.js",
+    "longname": "src/reusable_objects/WBallon.js~createBallon",
+    "access": null,
+    "export": true,
+    "importPath": "aprendendoES6/src/reusable_objects/WBallon.js",
+    "importStyle": "createBallon",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "params": [],
+    "generator": false
+  },
+  {
+    "__docId__": 62,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/reusable_objects/WHeart.js",
+    "memberof": null,
+    "longname": "src/reusable_objects/WHeart.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "export default Object.prototype.createHeart = function () {\n    if (this.getContext()) {\n        var ctx = this.getContext();\n\n        ctx.beginPath();\n        ctx.moveTo(75, 40);\n        ctx.bezierCurveTo(75, 37, 70, 25, 50, 25);\n        ctx.bezierCurveTo(20, 25, 20, 62.5, 20, 62.5);\n        ctx.bezierCurveTo(20, 80, 40, 102, 75, 120);\n        ctx.bezierCurveTo(110, 102, 130, 80, 130, 62.5);\n        ctx.bezierCurveTo(130, 62.5, 130, 25, 100, 25);\n        ctx.bezierCurveTo(85, 25, 75, 37, 75, 40);\n        ctx.fill();\n    }\n}"
+  },
+  {
+    "__docId__": 63,
+    "kind": "function",
+    "static": true,
+    "variation": null,
+    "name": "createHeart",
+    "memberof": "src/reusable_objects/WHeart.js",
+    "longname": "src/reusable_objects/WHeart.js~createHeart",
+    "access": null,
+    "export": true,
+    "importPath": "aprendendoES6/src/reusable_objects/WHeart.js",
+    "importStyle": "createHeart",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "params": [],
+    "generator": false
+  },
+  {
+    "__docId__": 64,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -1288,7 +1630,7 @@
     "content": ""
   },
   {
-    "__docId__": 55,
+    "__docId__": 65,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -1301,7 +1643,7 @@
     "content": ""
   },
   {
-    "__docId__": 56,
+    "__docId__": 66,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -1311,10 +1653,10 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import Canvas from '../elements/Canvas'\n\nclass World extends Canvas {\n    constructor() {\n        super()\n    }\n}\n\nexport default World"
+    "content": "import WCanvas from '../elements/WCanvas'\n\nclass World extends WCanvas {\n    constructor() {\n        super()\n    }\n}\n\nexport default World"
   },
   {
-    "__docId__": 57,
+    "__docId__": 67,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -1330,11 +1672,11 @@
     "undocument": true,
     "interface": false,
     "extends": [
-      "src/elements/Canvas.js~Canvas"
+      "src/elements/WCanvas.js~WCanvas"
     ]
   },
   {
-    "__docId__": 58,
+    "__docId__": 68,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -1349,7 +1691,7 @@
     "generator": false
   },
   {
-    "__docId__": 60,
+    "__docId__": 70,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1362,7 +1704,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 61,
+    "__docId__": 71,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1375,7 +1717,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 62,
+    "__docId__": 72,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1388,7 +1730,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 63,
+    "__docId__": 73,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1401,7 +1743,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 64,
+    "__docId__": 74,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1414,7 +1756,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 65,
+    "__docId__": 75,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1427,7 +1769,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 66,
+    "__docId__": 76,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1440,7 +1782,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 67,
+    "__docId__": 77,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1453,7 +1795,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 68,
+    "__docId__": 78,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1466,7 +1808,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 69,
+    "__docId__": 79,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1479,7 +1821,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 70,
+    "__docId__": 80,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1492,7 +1834,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 71,
+    "__docId__": 81,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1505,7 +1847,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 72,
+    "__docId__": 82,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1518,7 +1860,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 73,
+    "__docId__": 83,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1531,7 +1873,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 74,
+    "__docId__": 84,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1544,7 +1886,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 75,
+    "__docId__": 85,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1557,7 +1899,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 76,
+    "__docId__": 86,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1570,7 +1912,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 77,
+    "__docId__": 87,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1583,7 +1925,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 78,
+    "__docId__": 88,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1596,7 +1938,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 79,
+    "__docId__": 89,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1609,7 +1951,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 80,
+    "__docId__": 90,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1622,7 +1964,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 81,
+    "__docId__": 91,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1635,7 +1977,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 82,
+    "__docId__": 92,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1648,7 +1990,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 83,
+    "__docId__": 93,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1661,7 +2003,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 84,
+    "__docId__": 94,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1674,7 +2016,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 85,
+    "__docId__": 95,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1687,7 +2029,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 86,
+    "__docId__": 96,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1700,7 +2042,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 87,
+    "__docId__": 97,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1713,7 +2055,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 88,
+    "__docId__": 98,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1726,7 +2068,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 89,
+    "__docId__": 99,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1739,7 +2081,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 90,
+    "__docId__": 100,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1752,7 +2094,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 91,
+    "__docId__": 101,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1765,7 +2107,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 92,
+    "__docId__": 102,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1778,7 +2120,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 93,
+    "__docId__": 103,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1791,7 +2133,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 94,
+    "__docId__": 104,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1804,7 +2146,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 95,
+    "__docId__": 105,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1817,7 +2159,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 96,
+    "__docId__": 106,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1830,7 +2172,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 97,
+    "__docId__": 107,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1843,7 +2185,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 98,
+    "__docId__": 108,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1856,7 +2198,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 99,
+    "__docId__": 109,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1869,7 +2211,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 100,
+    "__docId__": 110,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1882,7 +2224,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 101,
+    "__docId__": 111,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1895,7 +2237,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 102,
+    "__docId__": 112,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1908,7 +2250,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 103,
+    "__docId__": 113,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1921,7 +2263,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 104,
+    "__docId__": 114,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1934,7 +2276,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 105,
+    "__docId__": 115,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1947,7 +2289,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 106,
+    "__docId__": 116,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1960,7 +2302,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 108,
+    "__docId__": 118,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1973,7 +2315,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 109,
+    "__docId__": 119,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1986,7 +2328,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 110,
+    "__docId__": 120,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1999,7 +2341,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 111,
+    "__docId__": 121,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2012,7 +2354,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 112,
+    "__docId__": 122,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2025,7 +2367,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 113,
+    "__docId__": 123,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2038,7 +2380,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 114,
+    "__docId__": 124,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -2051,7 +2393,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 115,
+    "__docId__": 125,
     "kind": "external",
     "static": true,
     "variation": null,

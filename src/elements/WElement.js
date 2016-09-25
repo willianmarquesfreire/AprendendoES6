@@ -1,4 +1,4 @@
-class Element {
+class WElement {
 
     constructor(element, width, height, border) {
         this.setElement(element)
@@ -63,4 +63,4 @@ class Element {
     }
 }
 
-export default Element
+export default WElement

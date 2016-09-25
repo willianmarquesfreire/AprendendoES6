@@ -1,45 +1,57 @@
 window.esdocSearchIndex = [
   [
-    "aprendendoes6/src/elements/audio.js~audio",
-    "class/src/elements/Audio.js~Audio.html",
-    "<span>Audio</span> <span class=\"search-result-import-path\">aprendendoES6/src/elements/Audio.js</span>",
-    "class"
-  ],
-  [
-    "aprendendoes6/src/elements/canvas.js~canvas",
-    "class/src/elements/Canvas.js~Canvas.html",
-    "<span>Canvas</span> <span class=\"search-result-import-path\">aprendendoES6/src/elements/Canvas.js</span>",
-    "class"
-  ],
-  [
-    "aprendendoes6/src/elements/element.js~element",
-    "class/src/elements/Element.js~Element.html",
-    "<span>Element</span> <span class=\"search-result-import-path\">aprendendoES6/src/elements/Element.js</span>",
-    "class"
-  ],
-  [
-    "aprendendoes6/src/elements/image.js~image",
-    "class/src/elements/Image.js~Image.html",
-    "<span>Image</span> <span class=\"search-result-import-path\">aprendendoES6/src/elements/Image.js</span>",
-    "class"
-  ],
-  [
     "aprendendoes6/src/phisic/phisic.js~phisic",
     "class/src/phisic/Phisic.js~Phisic.html",
     "<span>Phisic</span> <span class=\"search-result-import-path\">aprendendoES6/src/phisic/Phisic.js</span>",
     "class"
   ],
   [
-    "aprendendoes6/src/enums/type.js~type",
+    "aprendendoes6/src/enums/wtype.js~type",
     "variable/index.html#static-variable-Type",
-    "<span>Type</span> <span class=\"search-result-import-path\">aprendendoES6/src/enums/Type.js</span>",
+    "<span>Type</span> <span class=\"search-result-import-path\">aprendendoES6/src/enums/WType.js</span>",
     "variable"
+  ],
+  [
+    "aprendendoes6/src/elements/waudio.js~waudio",
+    "class/src/elements/WAudio.js~WAudio.html",
+    "<span>WAudio</span> <span class=\"search-result-import-path\">aprendendoES6/src/elements/WAudio.js</span>",
+    "class"
+  ],
+  [
+    "aprendendoes6/src/elements/wcanvas.js~wcanvas",
+    "class/src/elements/WCanvas.js~WCanvas.html",
+    "<span>WCanvas</span> <span class=\"search-result-import-path\">aprendendoES6/src/elements/WCanvas.js</span>",
+    "class"
+  ],
+  [
+    "aprendendoes6/src/elements/welement.js~welement",
+    "class/src/elements/WElement.js~WElement.html",
+    "<span>WElement</span> <span class=\"search-result-import-path\">aprendendoES6/src/elements/WElement.js</span>",
+    "class"
+  ],
+  [
+    "aprendendoes6/src/elements/wimage.js~wimage",
+    "class/src/elements/WImage.js~WImage.html",
+    "<span>WImage</span> <span class=\"search-result-import-path\">aprendendoES6/src/elements/WImage.js</span>",
+    "class"
   ],
   [
     "aprendendoes6/src/world/world.js~world",
     "class/src/world/World.js~World.html",
     "<span>World</span> <span class=\"search-result-import-path\">aprendendoES6/src/world/World.js</span>",
     "class"
+  ],
+  [
+    "aprendendoes6/src/reusable_objects/wballon.js~createballon",
+    "function/index.html#static-function-createBallon",
+    "<span>createBallon</span> <span class=\"search-result-import-path\">aprendendoES6/src/reusable_objects/WBallon.js</span>",
+    "function"
+  ],
+  [
+    "aprendendoes6/src/reusable_objects/wheart.js~createheart",
+    "function/index.html#static-function-createHeart",
+    "<span>createHeart</span> <span class=\"search-result-import-path\">aprendendoES6/src/reusable_objects/WHeart.js</span>",
+    "function"
   ],
   [
     "builtinexternal/ecmascriptexternal.js~array",
@@ -378,255 +390,291 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "src/elements/audio.js",
-    "file/src/elements/Audio.js.html",
-    "src/elements/Audio.js",
+    "src/elements/waudio.js",
+    "file/src/elements/WAudio.js.html",
+    "src/elements/WAudio.js",
     "file"
   ],
   [
-    "src/elements/canvas.js",
-    "file/src/elements/Canvas.js.html",
-    "src/elements/Canvas.js",
+    "src/elements/wcanvas.js",
+    "file/src/elements/WCanvas.js.html",
+    "src/elements/WCanvas.js",
     "file"
   ],
   [
-    "src/elements/canvas.js~canvas#beginpath",
-    "class/src/elements/Canvas.js~Canvas.html#instance-method-beginPath",
-    "src/elements/Canvas.js~Canvas#beginPath",
+    "src/elements/wcanvas.js~wcanvas#arc",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-arc",
+    "src/elements/WCanvas.js~WCanvas#arc",
     "method"
   ],
   [
-    "src/elements/canvas.js~canvas#clear",
-    "class/src/elements/Canvas.js~Canvas.html#instance-method-clear",
-    "src/elements/Canvas.js~Canvas#clear",
+    "src/elements/wcanvas.js~wcanvas#beginpath",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-beginPath",
+    "src/elements/WCanvas.js~WCanvas#beginPath",
     "method"
   ],
   [
-    "src/elements/canvas.js~canvas#closepath",
-    "class/src/elements/Canvas.js~Canvas.html#instance-method-closePath",
-    "src/elements/Canvas.js~Canvas#closePath",
+    "src/elements/wcanvas.js~wcanvas#beziercurveto",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-bezierCurveTo",
+    "src/elements/WCanvas.js~WCanvas#bezierCurveTo",
     "method"
   ],
   [
-    "src/elements/canvas.js~canvas#constructor",
-    "class/src/elements/Canvas.js~Canvas.html#instance-constructor-constructor",
-    "src/elements/Canvas.js~Canvas#constructor",
+    "src/elements/wcanvas.js~wcanvas#clear",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-clear",
+    "src/elements/WCanvas.js~WCanvas#clear",
     "method"
   ],
   [
-    "src/elements/canvas.js~canvas#drawline",
-    "class/src/elements/Canvas.js~Canvas.html#instance-method-drawLine",
-    "src/elements/Canvas.js~Canvas#drawLine",
+    "src/elements/wcanvas.js~wcanvas#clearrect",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-clearRect",
+    "src/elements/WCanvas.js~WCanvas#clearRect",
     "method"
   ],
   [
-    "src/elements/canvas.js~canvas#drawsquare",
-    "class/src/elements/Canvas.js~Canvas.html#instance-method-drawSquare",
-    "src/elements/Canvas.js~Canvas#drawSquare",
+    "src/elements/wcanvas.js~wcanvas#closepath",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-closePath",
+    "src/elements/WCanvas.js~WCanvas#closePath",
     "method"
   ],
   [
-    "src/elements/canvas.js~canvas#drawtriangle",
-    "class/src/elements/Canvas.js~Canvas.html#instance-method-drawTriangle",
-    "src/elements/Canvas.js~Canvas#drawTriangle",
+    "src/elements/wcanvas.js~wcanvas#constructor",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-constructor-constructor",
+    "src/elements/WCanvas.js~WCanvas#constructor",
     "method"
   ],
   [
-    "src/elements/canvas.js~canvas#drawtrianglebydimension",
-    "class/src/elements/Canvas.js~Canvas.html#instance-method-drawTriangleByDimension",
-    "src/elements/Canvas.js~Canvas#drawTriangleByDimension",
+    "src/elements/wcanvas.js~wcanvas#drawimage",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-drawImage",
+    "src/elements/WCanvas.js~WCanvas#drawImage",
     "method"
   ],
   [
-    "src/elements/canvas.js~canvas#fill",
-    "class/src/elements/Canvas.js~Canvas.html#instance-method-fill",
-    "src/elements/Canvas.js~Canvas#fill",
+    "src/elements/wcanvas.js~wcanvas#drawline",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-drawLine",
+    "src/elements/WCanvas.js~WCanvas#drawLine",
     "method"
   ],
   [
-    "src/elements/canvas.js~canvas#fillrect",
-    "class/src/elements/Canvas.js~Canvas.html#instance-method-fillRect",
-    "src/elements/Canvas.js~Canvas#fillRect",
+    "src/elements/wcanvas.js~wcanvas#drawsquare",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-drawSquare",
+    "src/elements/WCanvas.js~WCanvas#drawSquare",
     "method"
   ],
   [
-    "src/elements/canvas.js~canvas#getcontext",
-    "class/src/elements/Canvas.js~Canvas.html#instance-method-getContext",
-    "src/elements/Canvas.js~Canvas#getContext",
+    "src/elements/wcanvas.js~wcanvas#drawtriangle",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-drawTriangle",
+    "src/elements/WCanvas.js~WCanvas#drawTriangle",
     "method"
   ],
   [
-    "src/elements/canvas.js~canvas#getcontext2d",
-    "class/src/elements/Canvas.js~Canvas.html#instance-method-getContext2D",
-    "src/elements/Canvas.js~Canvas#getContext2D",
+    "src/elements/wcanvas.js~wcanvas#drawtrianglebydimension",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-drawTriangleByDimension",
+    "src/elements/WCanvas.js~WCanvas#drawTriangleByDimension",
     "method"
   ],
   [
-    "src/elements/canvas.js~canvas#getcontext3d",
-    "class/src/elements/Canvas.js~Canvas.html#instance-method-getContext3D",
-    "src/elements/Canvas.js~Canvas#getContext3D",
+    "src/elements/wcanvas.js~wcanvas#fill",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-fill",
+    "src/elements/WCanvas.js~WCanvas#fill",
     "method"
   ],
   [
-    "src/elements/canvas.js~canvas#lineto",
-    "class/src/elements/Canvas.js~Canvas.html#instance-method-lineTo",
-    "src/elements/Canvas.js~Canvas#lineTo",
+    "src/elements/wcanvas.js~wcanvas#fillrect",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-fillRect",
+    "src/elements/WCanvas.js~WCanvas#fillRect",
     "method"
   ],
   [
-    "src/elements/canvas.js~canvas#moveto",
-    "class/src/elements/Canvas.js~Canvas.html#instance-method-moveTo",
-    "src/elements/Canvas.js~Canvas#moveTo",
+    "src/elements/wcanvas.js~wcanvas#getcontext",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-getContext",
+    "src/elements/WCanvas.js~WCanvas#getContext",
     "method"
   ],
   [
-    "src/elements/canvas.js~canvas#setcontext",
-    "class/src/elements/Canvas.js~Canvas.html#instance-method-setContext",
-    "src/elements/Canvas.js~Canvas#setContext",
+    "src/elements/wcanvas.js~wcanvas#getcontext2d",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-getContext2D",
+    "src/elements/WCanvas.js~WCanvas#getContext2D",
     "method"
   ],
   [
-    "src/elements/canvas.js~canvas#stroke",
-    "class/src/elements/Canvas.js~Canvas.html#instance-method-stroke",
-    "src/elements/Canvas.js~Canvas#stroke",
+    "src/elements/wcanvas.js~wcanvas#getcontext3d",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-getContext3D",
+    "src/elements/WCanvas.js~WCanvas#getContext3D",
     "method"
   ],
   [
-    "src/elements/element.js",
-    "file/src/elements/Element.js.html",
-    "src/elements/Element.js",
+    "src/elements/wcanvas.js~wcanvas#lineto",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-lineTo",
+    "src/elements/WCanvas.js~WCanvas#lineTo",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#moveto",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-moveTo",
+    "src/elements/WCanvas.js~WCanvas#moveTo",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#quadraticcurveto",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-quadraticCurveTo",
+    "src/elements/WCanvas.js~WCanvas#quadraticCurveTo",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#setcontext",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-setContext",
+    "src/elements/WCanvas.js~WCanvas#setContext",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#stroke",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-stroke",
+    "src/elements/WCanvas.js~WCanvas#stroke",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#strokerect",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-strokeRect",
+    "src/elements/WCanvas.js~WCanvas#strokeRect",
+    "method"
+  ],
+  [
+    "src/elements/welement.js",
+    "file/src/elements/WElement.js.html",
+    "src/elements/WElement.js",
     "file"
   ],
   [
-    "src/elements/element.js~element#addchild",
-    "class/src/elements/Element.js~Element.html#instance-method-addChild",
-    "src/elements/Element.js~Element#addChild",
+    "src/elements/welement.js~welement#addchild",
+    "class/src/elements/WElement.js~WElement.html#instance-method-addChild",
+    "src/elements/WElement.js~WElement#addChild",
     "method"
   ],
   [
-    "src/elements/element.js~element#addtobody",
-    "class/src/elements/Element.js~Element.html#instance-method-addToBody",
-    "src/elements/Element.js~Element#addToBody",
+    "src/elements/welement.js~welement#addtobody",
+    "class/src/elements/WElement.js~WElement.html#instance-method-addToBody",
+    "src/elements/WElement.js~WElement#addToBody",
     "method"
   ],
   [
-    "src/elements/element.js~element#addtoelementbyclassname",
-    "class/src/elements/Element.js~Element.html#instance-method-addToElementByClassName",
-    "src/elements/Element.js~Element#addToElementByClassName",
+    "src/elements/welement.js~welement#addtoelementbyclassname",
+    "class/src/elements/WElement.js~WElement.html#instance-method-addToElementByClassName",
+    "src/elements/WElement.js~WElement#addToElementByClassName",
     "method"
   ],
   [
-    "src/elements/element.js~element#addtoelementbyid",
-    "class/src/elements/Element.js~Element.html#instance-method-addToElementById",
-    "src/elements/Element.js~Element#addToElementById",
+    "src/elements/welement.js~welement#addtoelementbyid",
+    "class/src/elements/WElement.js~WElement.html#instance-method-addToElementById",
+    "src/elements/WElement.js~WElement#addToElementById",
     "method"
   ],
   [
-    "src/elements/element.js~element#constructor",
-    "class/src/elements/Element.js~Element.html#instance-constructor-constructor",
-    "src/elements/Element.js~Element#constructor",
+    "src/elements/welement.js~welement#constructor",
+    "class/src/elements/WElement.js~WElement.html#instance-constructor-constructor",
+    "src/elements/WElement.js~WElement#constructor",
     "method"
   ],
   [
-    "src/elements/element.js~element#createelement",
-    "class/src/elements/Element.js~Element.html#instance-method-createElement",
-    "src/elements/Element.js~Element#createElement",
+    "src/elements/welement.js~welement#createelement",
+    "class/src/elements/WElement.js~WElement.html#instance-method-createElement",
+    "src/elements/WElement.js~WElement#createElement",
     "method"
   ],
   [
-    "src/elements/element.js~element#getattributes",
-    "class/src/elements/Element.js~Element.html#instance-method-getAttributes",
-    "src/elements/Element.js~Element#getAttributes",
+    "src/elements/welement.js~welement#getattributes",
+    "class/src/elements/WElement.js~WElement.html#instance-method-getAttributes",
+    "src/elements/WElement.js~WElement#getAttributes",
     "method"
   ],
   [
-    "src/elements/element.js~element#getclassname",
-    "class/src/elements/Element.js~Element.html#instance-method-getClassName",
-    "src/elements/Element.js~Element#getClassName",
+    "src/elements/welement.js~welement#getclassname",
+    "class/src/elements/WElement.js~WElement.html#instance-method-getClassName",
+    "src/elements/WElement.js~WElement#getClassName",
     "method"
   ],
   [
-    "src/elements/element.js~element#getelement",
-    "class/src/elements/Element.js~Element.html#instance-method-getElement",
-    "src/elements/Element.js~Element#getElement",
+    "src/elements/welement.js~welement#getelement",
+    "class/src/elements/WElement.js~WElement.html#instance-method-getElement",
+    "src/elements/WElement.js~WElement#getElement",
     "method"
   ],
   [
-    "src/elements/element.js~element#setattribute",
-    "class/src/elements/Element.js~Element.html#instance-method-setAttribute",
-    "src/elements/Element.js~Element#setAttribute",
+    "src/elements/welement.js~welement#setattribute",
+    "class/src/elements/WElement.js~WElement.html#instance-method-setAttribute",
+    "src/elements/WElement.js~WElement#setAttribute",
     "method"
   ],
   [
-    "src/elements/element.js~element#setborder",
-    "class/src/elements/Element.js~Element.html#instance-method-setBorder",
-    "src/elements/Element.js~Element#setBorder",
+    "src/elements/welement.js~welement#setborder",
+    "class/src/elements/WElement.js~WElement.html#instance-method-setBorder",
+    "src/elements/WElement.js~WElement#setBorder",
     "method"
   ],
   [
-    "src/elements/element.js~element#setelement",
-    "class/src/elements/Element.js~Element.html#instance-method-setElement",
-    "src/elements/Element.js~Element#setElement",
+    "src/elements/welement.js~welement#setelement",
+    "class/src/elements/WElement.js~WElement.html#instance-method-setElement",
+    "src/elements/WElement.js~WElement#setElement",
     "method"
   ],
   [
-    "src/elements/element.js~element#setheight",
-    "class/src/elements/Element.js~Element.html#instance-method-setHeight",
-    "src/elements/Element.js~Element#setHeight",
+    "src/elements/welement.js~welement#setheight",
+    "class/src/elements/WElement.js~WElement.html#instance-method-setHeight",
+    "src/elements/WElement.js~WElement#setHeight",
     "method"
   ],
   [
-    "src/elements/element.js~element#setsize",
-    "class/src/elements/Element.js~Element.html#instance-method-setSize",
-    "src/elements/Element.js~Element#setSize",
+    "src/elements/welement.js~welement#setsize",
+    "class/src/elements/WElement.js~WElement.html#instance-method-setSize",
+    "src/elements/WElement.js~WElement#setSize",
     "method"
   ],
   [
-    "src/elements/element.js~element#setstyle",
-    "class/src/elements/Element.js~Element.html#instance-method-setStyle",
-    "src/elements/Element.js~Element#setStyle",
+    "src/elements/welement.js~welement#setstyle",
+    "class/src/elements/WElement.js~WElement.html#instance-method-setStyle",
+    "src/elements/WElement.js~WElement#setStyle",
     "method"
   ],
   [
-    "src/elements/element.js~element#setwidth",
-    "class/src/elements/Element.js~Element.html#instance-method-setWidth",
-    "src/elements/Element.js~Element#setWidth",
+    "src/elements/welement.js~welement#setwidth",
+    "class/src/elements/WElement.js~WElement.html#instance-method-setWidth",
+    "src/elements/WElement.js~WElement#setWidth",
     "method"
   ],
   [
-    "src/elements/image.js",
-    "file/src/elements/Image.js.html",
-    "src/elements/Image.js",
+    "src/elements/wimage.js",
+    "file/src/elements/WImage.js.html",
+    "src/elements/WImage.js",
     "file"
   ],
   [
-    "src/elements/image.js~image#constructor",
-    "class/src/elements/Image.js~Image.html#instance-constructor-constructor",
-    "src/elements/Image.js~Image#constructor",
+    "src/elements/wimage.js~wimage#constructor",
+    "class/src/elements/WImage.js~WImage.html#instance-constructor-constructor",
+    "src/elements/WImage.js~WImage#constructor",
     "method"
   ],
   [
-    "src/elements/image.js~image#getimage",
-    "class/src/elements/Image.js~Image.html#instance-method-getImage",
-    "src/elements/Image.js~Image#getImage",
+    "src/elements/wimage.js~wimage#getimage",
+    "class/src/elements/WImage.js~WImage.html#instance-method-getImage",
+    "src/elements/WImage.js~WImage#getImage",
     "method"
   ],
   [
-    "src/elements/image.js~image#getsrc",
-    "class/src/elements/Image.js~Image.html#instance-method-getSrc",
-    "src/elements/Image.js~Image#getSrc",
+    "src/elements/wimage.js~wimage#getsrc",
+    "class/src/elements/WImage.js~WImage.html#instance-method-getSrc",
+    "src/elements/WImage.js~WImage#getSrc",
     "method"
   ],
   [
-    "src/elements/image.js~image#setsrc",
-    "class/src/elements/Image.js~Image.html#instance-method-setSrc",
-    "src/elements/Image.js~Image#setSrc",
+    "src/elements/wimage.js~wimage#setsrc",
+    "class/src/elements/WImage.js~WImage.html#instance-method-setSrc",
+    "src/elements/WImage.js~WImage#setSrc",
     "method"
   ],
   [
-    "src/enums/type.js",
-    "file/src/enums/Type.js.html",
-    "src/enums/Type.js",
+    "src/enums/wtype.js",
+    "file/src/enums/WType.js.html",
+    "src/enums/WType.js",
     "file"
   ],
   [
@@ -640,6 +688,18 @@ window.esdocSearchIndex = [
     "class/src/phisic/Phisic.js~Phisic.html#instance-constructor-constructor",
     "src/phisic/Phisic.js~Phisic#constructor",
     "method"
+  ],
+  [
+    "src/reusable_objects/wballon.js",
+    "file/src/reusable_objects/WBallon.js.html",
+    "src/reusable_objects/WBallon.js",
+    "file"
+  ],
+  [
+    "src/reusable_objects/wheart.js",
+    "file/src/reusable_objects/WHeart.js.html",
+    "src/reusable_objects/WHeart.js",
+    "file"
   ],
   [
     "src/util/enum.js",

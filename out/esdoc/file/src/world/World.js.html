@@ -32,21 +32,23 @@
 <nav class="navigation" data-ice="nav"><div>
   <ul>
     
-  <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">elements</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Audio.js~Audio.html">Audio</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Canvas.js~Canvas.html">Canvas</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Element.js~Element.html">Element</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Image.js~Image.html">Image</a></span></span></li>
+  <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">elements</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/WAudio.js~WAudio.html">WAudio</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html">WCanvas</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html">WElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/WImage.js~WImage.html">WImage</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">enums</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Type">Type</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">phisic</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/phisic/Phisic.js~Phisic.html">Phisic</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">reusable_objects</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createBallon">createBallon</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createHeart">createHeart</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">world</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/world/World.js~World.html">World</a></span></span></li>
 </ul>
 </div>
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/world/World.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import Canvas from &apos;../elements/Canvas&apos;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import WCanvas from &apos;../elements/WCanvas&apos;
 
-class World extends Canvas {
+class World extends WCanvas {
     constructor() {
         super()
     }
