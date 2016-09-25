@@ -2,7 +2,6 @@
 import World from './world/World'
 import Image from './elements/Image'
 import Canvas from './elements/Canvas'
-import Type from './enums/Enums'
 
 window.addEventListener("load", function() {
     var world = new World()

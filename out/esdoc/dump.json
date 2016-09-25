@@ -10,7 +10,7 @@
     "access": null,
     "description": null,
     "lineNumber": 2,
-    "content": "\nimport World from './world/World'\nimport Image from './elements/Image'\nimport Canvas from './elements/Canvas'\n\nwindow.addEventListener(\"load\", function() {\n    var world = new World()\n    world.addToBody()\n    console.log(world.getElement().getContext('2d'))\n    world.drawLine(0,0,100,100)\n    world.drawSquare(10,10,20,20)\n    world.drawTriangle(100,100,50,150,150,150)\n    \n    var img = new Image(\"https://media.licdn.com/media/AAEAAQAAAAAAAANbAAAAJDE5NjBkNDk1LTY3ZGQtNDA0NS04YTJiLTdkNmU3NjZiNjI3Mg.png\")\n    world.addChild(img.getElement())\n\n    // document.body.appendChild(new Canvas().getElement())\n\n})"
+    "content": "\nimport World from './world/World'\nimport Image from './elements/Image'\nimport Canvas from './elements/Canvas'\nimport Type from './enums/Enums'\n\nwindow.addEventListener(\"load\", function() {\n    var world = new World()\n    world.addToBody()\n    console.log(world.getElement().getContext('2d'))\n    world.drawLine(0,0,100,100)\n    world.drawSquare(10,10,20,20)\n    // world.drawTriangle(100,100,50,150,150,150)\n    world.drawTriangleByDimension(100,100,40)\n    \n    var img = new Image(\"https://media.licdn.com/media/AAEAAQAAAAAAAANbAAAAJDE5NjBkNDk1LTY3ZGQtNDA0NS04YTJiLTdkNmU3NjZiNjI3Mg.png\")\n    world.addChild(img.getElement())\n\n    console.log(Type)\n\n    // document.body.appendChild(new Canvas().getElement())\n\n})"
   },
   {
     "__docId__": 1,
@@ -53,7 +53,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import Element from './Element'\n\nclass Canvas extends Element {\n    constructor() {\n        super('canvas')\n        this._context = this.getContext2D()\n    }\n    getContext() {\n        return this._context\n    }\n    setContext(ctx) {\n        return this._context = this.getContext(ctx)\n    }\n    getContext2D() {\n        return this.getElement().getContext('2d')\n    }\n    getContext3D() {\n        return this.getElement().getContext('3d')\n    }\n    drawLine(beginX, beginY, endX, endY) {\n        let ctx = this.getContext()\n        ctx.moveTo(beginX, beginY)\n        ctx.lineTo(endX, endY)\n        ctx.stroke()\n    }\n    drawSquare(x, y, width, height, type) {\n        let ctx = this.getContext()\n        switch (type) {\n            case 'stroke':\n                ctx.strokeRect(x, y, width, height, type)\n                break\n            case 'clear':\n                ctx.clearRect(x, y, width, height, type)\n                break\n            default:\n                ctx.fillRect(x, y, width, height, type)\n        }\n    }\n    drawTriangle(x, y, x1, y1, x2, y2, type) {\n        let ctx = this.getContext()\n        ctx.beginPath();\n        ctx.moveTo(x, y);\n        ctx.lineTo(x1, y1);\n        ctx.lineTo(x2, y2);\n\n        switch (type) {\n            case 'stroke':\n                ctx.stroke()\n                break\n            case 'clear':\n                ctx.clear()\n                break\n            default:\n                ctx.fill();\n        }\n    }\n    drawTriangleWithDimension(x, y, dimension, type) {\n        let ctx = this.getContext()\n        ctx.beginPath();\n        ctx.moveTo(x, y);\n        ctx.lineTo(x1-dimension, y1+dimension);\n        ctx.lineTo(x2+dimension, y2+dimension);\n\n        switch (type) {\n            case 'stroke':\n                ctx.stroke()\n                break\n            case 'clear':\n                ctx.clear()\n                break\n            default:\n                ctx.fill();\n        }\n    }\n    beginPath() {\n        let ctx = this.getContext()\n        return ctx.beginPath()\n    }\n    closePath() {\n        let ctx = this.getContext()\n        return ctx.closePath()\n    }\n    stroke() {\n        let ctx = this.getContext()\n        return ctx.stroke()\n    }\n    fill() {\n        let ctx = this.getContext()\n        return ctx.fill()\n    }\n\n};\n\nexport default Canvas"
+    "content": "import Element from './Element'\nimport Type from '../enums/Type'\n\nclass Canvas extends Element {\n    constructor() {\n        super('canvas')\n        this._context = this.getContext2D()\n    }\n    getContext() {\n        return this._context\n    }\n    setContext(ctx) {\n        return this._context = this.getContext(ctx)\n    }\n    getContext2D() {\n        return this.getElement().getContext('2d')\n    }\n    getContext3D() {\n        return this.getElement().getContext('3d')\n    }\n    drawLine(beginX, beginY, endX, endY) {\n        this.moveTo(beginX, beginY)\n        this.lineTo(endX, endY)\n        this.stroke()\n    }\n    drawSquare(x, y, width, height, type) {\n        switch (type) {\n            case 'stroke':\n                this.strokeRect(x, y, width, height, type)\n                break\n            case 'clear':\n                this.clearRect(x, y, width, height, type)\n                break\n            default:\n                this.fillRect(x, y, width, height, type)\n        }\n    }\n    drawTriangle(x, y, x1, y1, x2, y2, type) {\n        this.beginPath()\n        this.moveTo(x, y)\n        this.lineTo(x1, y1)\n        this.lineTo(x2, y2)\n\n        switch (type) {\n            case Type.STROKE:\n                this.stroke()\n                break\n            case Type.CLEAR:\n                this.clear()\n                break\n            default:\n                this.fill()\n        }\n    }\n    drawTriangleByDimension(x, y, dimension, type) {\n        this.beginPath()\n        this.moveTo(x, y)\n        this.lineTo(x - dimension, y + dimension)\n        this.lineTo(x + dimension, y + dimension)\n\n        switch (type) {\n            case Type.STROKE:\n                this.stroke()\n                break\n            case Type.CLEAR:\n                this.clear()\n                break\n            default:\n                this.fill()\n        }\n    }\n    fillRect(x, y, width, height, type) {\n        this.getContext().fillRect(x, y, width, height, type)\n    }\n    lineTo(x, y) {\n        this.getContext().lineTo(x, y)\n    }\n    moveTo(x, y) {\n        this.getContext().moveTo(x, y)\n    }\n    beginPath() {\n        return this.getContext().beginPath()\n    }\n    closePath() {\n        return this.getContext().closePath()\n    }\n    stroke() {\n        return this.getContext().stroke()\n    }\n    fill() {\n        return this.getContext().fill()\n    }\n    clear() {\n        return this.getContext().clear()\n    }\n\n}\n\nexport default Canvas"
   },
   {
     "__docId__": 4,
@@ -68,7 +68,7 @@
     "importPath": "aprendendoES6/src/elements/Canvas.js",
     "importStyle": "Canvas",
     "description": null,
-    "lineNumber": 3,
+    "lineNumber": 4,
     "undocument": true,
     "interface": false,
     "extends": [
@@ -85,7 +85,7 @@
     "longname": "src/elements/Canvas.js~Canvas#constructor",
     "access": null,
     "description": null,
-    "lineNumber": 4,
+    "lineNumber": 5,
     "undocument": true,
     "params": [],
     "generator": false
@@ -100,7 +100,7 @@
     "longname": "src/elements/Canvas.js~Canvas#_context",
     "access": null,
     "description": null,
-    "lineNumber": 6,
+    "lineNumber": 7,
     "undocument": true,
     "type": {
       "types": [
@@ -118,7 +118,7 @@
     "longname": "src/elements/Canvas.js~Canvas#getContext",
     "access": null,
     "description": null,
-    "lineNumber": 8,
+    "lineNumber": 9,
     "undocument": true,
     "params": [],
     "return": {
@@ -138,7 +138,7 @@
     "longname": "src/elements/Canvas.js~Canvas#setContext",
     "access": null,
     "description": null,
-    "lineNumber": 11,
+    "lineNumber": 12,
     "undocument": true,
     "params": [
       {
@@ -165,7 +165,7 @@
     "longname": "src/elements/Canvas.js~Canvas#getContext2D",
     "access": null,
     "description": null,
-    "lineNumber": 14,
+    "lineNumber": 15,
     "undocument": true,
     "params": [],
     "return": {
@@ -185,7 +185,7 @@
     "longname": "src/elements/Canvas.js~Canvas#getContext3D",
     "access": null,
     "description": null,
-    "lineNumber": 17,
+    "lineNumber": 18,
     "undocument": true,
     "params": [],
     "return": {
@@ -205,7 +205,7 @@
     "longname": "src/elements/Canvas.js~Canvas#drawLine",
     "access": null,
     "description": null,
-    "lineNumber": 20,
+    "lineNumber": 21,
     "undocument": true,
     "params": [
       {
@@ -291,7 +291,7 @@
     "longname": "src/elements/Canvas.js~Canvas#drawTriangle",
     "access": null,
     "description": null,
-    "lineNumber": 39,
+    "lineNumber": 38,
     "undocument": true,
     "params": [
       {
@@ -344,12 +344,12 @@
     "kind": "method",
     "static": false,
     "variation": null,
-    "name": "drawTriangleWithDimension",
+    "name": "drawTriangleByDimension",
     "memberof": "src/elements/Canvas.js~Canvas",
-    "longname": "src/elements/Canvas.js~Canvas#drawTriangleWithDimension",
+    "longname": "src/elements/Canvas.js~Canvas#drawTriangleByDimension",
     "access": null,
     "description": null,
-    "lineNumber": 57,
+    "lineNumber": 55,
     "undocument": true,
     "params": [
       {
@@ -384,12 +384,114 @@
     "kind": "method",
     "static": false,
     "variation": null,
+    "name": "fillRect",
+    "memberof": "src/elements/Canvas.js~Canvas",
+    "longname": "src/elements/Canvas.js~Canvas#fillRect",
+    "access": null,
+    "description": null,
+    "lineNumber": 72,
+    "undocument": true,
+    "params": [
+      {
+        "name": "x",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "y",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "width",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "height",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "type",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 16,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "lineTo",
+    "memberof": "src/elements/Canvas.js~Canvas",
+    "longname": "src/elements/Canvas.js~Canvas#lineTo",
+    "access": null,
+    "description": null,
+    "lineNumber": 75,
+    "undocument": true,
+    "params": [
+      {
+        "name": "x",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "y",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 17,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "moveTo",
+    "memberof": "src/elements/Canvas.js~Canvas",
+    "longname": "src/elements/Canvas.js~Canvas#moveTo",
+    "access": null,
+    "description": null,
+    "lineNumber": 78,
+    "undocument": true,
+    "params": [
+      {
+        "name": "x",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "y",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 18,
+    "kind": "method",
+    "static": false,
+    "variation": null,
     "name": "beginPath",
     "memberof": "src/elements/Canvas.js~Canvas",
     "longname": "src/elements/Canvas.js~Canvas#beginPath",
     "access": null,
     "description": null,
-    "lineNumber": 75,
+    "lineNumber": 81,
     "undocument": true,
     "params": [],
     "return": {
@@ -400,7 +502,7 @@
     "generator": false
   },
   {
-    "__docId__": 16,
+    "__docId__": 19,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -409,7 +511,7 @@
     "longname": "src/elements/Canvas.js~Canvas#closePath",
     "access": null,
     "description": null,
-    "lineNumber": 79,
+    "lineNumber": 84,
     "undocument": true,
     "params": [],
     "return": {
@@ -420,33 +522,13 @@
     "generator": false
   },
   {
-    "__docId__": 17,
+    "__docId__": 20,
     "kind": "method",
     "static": false,
     "variation": null,
     "name": "stroke",
     "memberof": "src/elements/Canvas.js~Canvas",
     "longname": "src/elements/Canvas.js~Canvas#stroke",
-    "access": null,
-    "description": null,
-    "lineNumber": 83,
-    "undocument": true,
-    "params": [],
-    "return": {
-      "types": [
-        "*"
-      ]
-    },
-    "generator": false
-  },
-  {
-    "__docId__": 18,
-    "kind": "method",
-    "static": false,
-    "variation": null,
-    "name": "fill",
-    "memberof": "src/elements/Canvas.js~Canvas",
-    "longname": "src/elements/Canvas.js~Canvas#fill",
     "access": null,
     "description": null,
     "lineNumber": 87,
@@ -460,7 +542,47 @@
     "generator": false
   },
   {
-    "__docId__": 19,
+    "__docId__": 21,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "fill",
+    "memberof": "src/elements/Canvas.js~Canvas",
+    "longname": "src/elements/Canvas.js~Canvas#fill",
+    "access": null,
+    "description": null,
+    "lineNumber": 90,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 22,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "clear",
+    "memberof": "src/elements/Canvas.js~Canvas",
+    "longname": "src/elements/Canvas.js~Canvas#clear",
+    "access": null,
+    "description": null,
+    "lineNumber": 93,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 23,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -473,7 +595,7 @@
     "content": "class Element {\n\n    constructor(element, width, height, border) {\n        this.setElement(element)\n        this.setWidth(width)\n        this.setHeight(height)\n        this.setBorder(border)\n        console.log(this.getClassName().concat(' Created!'))\n    }\n    \n    createElement(element) {\n        return document.createElement(element)\n    }\n    getElement() {\n        return this._element\n    }\n    setElement(element) {\n        this._element = this.createElement(element)\n    }\n    getAttributes() {\n        return this.getElement().attributes\n    }\n    setAttribute(attr, value) {\n        this.getElement().setAttribute(attr, value)\n    }\n    setStyle(attr, value) {\n        this.setAttibute('style', attr + ': ' + value)\n    }\n    setSize(width, height) {\n        this.setWidth(width)\n        this.setHeight(height)\n    }\n    setWidth(width = 200) {\n        this.getElement().setAttribute('style', 'width: '.concat(width))\n        return this.getElement()\n    }\n    setHeight(height = 200) {\n        this.getElement().setAttribute('style', 'height: '.concat(height))\n        return this.getElement()\n    }\n    setBorder(border = '1px solid black') {\n        this.getElement().setAttribute('style', 'border: '.concat(border))\n        return this.getElement()\n    }\n    addChild(child) {\n        this.getElement().appendChild(child)\n        return this.getElement()\n    }\n    addToBody() {\n        document.body.appendChild(this.getElement())\n        return this.getElement()\n    }\n    addToElementById(id) {\n        document.getElementById(id).appendChild(this.getElement())\n        return this.getElement()\n    }\n    addToElementByClassName(className) {\n        document.getElementsByClassName(className).appendChild(this.getElement())\n        return this.getElement()\n    }\n    getClassName() {\n        return this.constructor.name\n    }\n}\n\nexport default Element"
   },
   {
-    "__docId__": 20,
+    "__docId__": 24,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -490,7 +612,7 @@
     "interface": false
   },
   {
-    "__docId__": 21,
+    "__docId__": 25,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -530,7 +652,7 @@
     "generator": false
   },
   {
-    "__docId__": 22,
+    "__docId__": 26,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -557,7 +679,7 @@
     "generator": false
   },
   {
-    "__docId__": 23,
+    "__docId__": 27,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -577,7 +699,7 @@
     "generator": false
   },
   {
-    "__docId__": 24,
+    "__docId__": 28,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -599,7 +721,7 @@
     "generator": false
   },
   {
-    "__docId__": 25,
+    "__docId__": 29,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -617,7 +739,7 @@
     }
   },
   {
-    "__docId__": 26,
+    "__docId__": 30,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -637,7 +759,7 @@
     "generator": false
   },
   {
-    "__docId__": 27,
+    "__docId__": 31,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -665,7 +787,7 @@
     "generator": false
   },
   {
-    "__docId__": 28,
+    "__docId__": 32,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -693,7 +815,7 @@
     "generator": false
   },
   {
-    "__docId__": 29,
+    "__docId__": 33,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -721,7 +843,7 @@
     "generator": false
   },
   {
-    "__docId__": 30,
+    "__docId__": 34,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -751,7 +873,7 @@
     "generator": false
   },
   {
-    "__docId__": 31,
+    "__docId__": 35,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -781,7 +903,7 @@
     "generator": false
   },
   {
-    "__docId__": 32,
+    "__docId__": 36,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -811,7 +933,7 @@
     "generator": false
   },
   {
-    "__docId__": 33,
+    "__docId__": 37,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -838,7 +960,7 @@
     "generator": false
   },
   {
-    "__docId__": 34,
+    "__docId__": 38,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -858,7 +980,7 @@
     "generator": false
   },
   {
-    "__docId__": 35,
+    "__docId__": 39,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -885,7 +1007,7 @@
     "generator": false
   },
   {
-    "__docId__": 36,
+    "__docId__": 40,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -912,7 +1034,7 @@
     "generator": false
   },
   {
-    "__docId__": 37,
+    "__docId__": 41,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -932,7 +1054,7 @@
     "generator": false
   },
   {
-    "__docId__": 38,
+    "__docId__": 42,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -945,7 +1067,7 @@
     "content": "import Element from '../elements/Element.js'\n\nclass Image extends Element{\n    constructor(src) {\n        super('img')\n        this.setSrc(src)\n    }\n    getImage() {\n        return this._image\n    }\n    setSrc(src) {\n        this._src = super.setAttribute('src', src)\n    }\n    getSrc(src) {\n        return this._src\n    }\n}\n\nexport default Image"
   },
   {
-    "__docId__": 39,
+    "__docId__": 43,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -965,7 +1087,7 @@
     ]
   },
   {
-    "__docId__": 40,
+    "__docId__": 44,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -987,7 +1109,7 @@
     "generator": false
   },
   {
-    "__docId__": 41,
+    "__docId__": 45,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1007,7 +1129,7 @@
     "generator": false
   },
   {
-    "__docId__": 42,
+    "__docId__": 46,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1029,7 +1151,7 @@
     "generator": false
   },
   {
-    "__docId__": 43,
+    "__docId__": 47,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -1047,7 +1169,7 @@
     }
   },
   {
-    "__docId__": 44,
+    "__docId__": 48,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1074,7 +1196,41 @@
     "generator": false
   },
   {
-    "__docId__": 45,
+    "__docId__": 49,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/enums/Type.js",
+    "memberof": null,
+    "longname": "src/enums/Type.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "var Type = {\n    'FILL': 'fill',\n    'STROKE': 'stroke',\n    'CLEAR': 'clear'\n}\n\nexport default Type"
+  },
+  {
+    "__docId__": 50,
+    "kind": "variable",
+    "static": true,
+    "variation": null,
+    "name": "Type",
+    "memberof": "src/enums/Type.js",
+    "longname": "src/enums/Type.js~Type",
+    "access": null,
+    "export": true,
+    "importPath": "aprendendoES6/src/enums/Type.js",
+    "importStyle": "Type",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 51,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -1087,7 +1243,7 @@
     "content": "class Phisic {\n  constructor() {\n    console.log('Phisic')\n  }\n};\nexport default Phisic"
   },
   {
-    "__docId__": 46,
+    "__docId__": 52,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -1104,7 +1260,7 @@
     "interface": false
   },
   {
-    "__docId__": 47,
+    "__docId__": 53,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -1119,7 +1275,33 @@
     "generator": false
   },
   {
-    "__docId__": 48,
+    "__docId__": 54,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/util/Enum.js",
+    "memberof": null,
+    "longname": "src/util/Enum.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 0,
+    "content": ""
+  },
+  {
+    "__docId__": 55,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/util/EnumSymbol.js",
+    "memberof": null,
+    "longname": "src/util/EnumSymbol.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 0,
+    "content": ""
+  },
+  {
+    "__docId__": 56,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -1132,7 +1314,7 @@
     "content": "import Canvas from '../elements/Canvas'\n\nclass World extends Canvas {\n    constructor() {\n        super()\n    }\n}\n\nexport default World"
   },
   {
-    "__docId__": 49,
+    "__docId__": 57,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -1152,7 +1334,7 @@
     ]
   },
   {
-    "__docId__": 50,
+    "__docId__": 58,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -1167,7 +1349,7 @@
     "generator": false
   },
   {
-    "__docId__": 52,
+    "__docId__": 60,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1180,7 +1362,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 53,
+    "__docId__": 61,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1193,7 +1375,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 54,
+    "__docId__": 62,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1206,7 +1388,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 55,
+    "__docId__": 63,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1219,7 +1401,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 56,
+    "__docId__": 64,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1232,7 +1414,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 57,
+    "__docId__": 65,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1245,7 +1427,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 58,
+    "__docId__": 66,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1258,7 +1440,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 59,
+    "__docId__": 67,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1271,7 +1453,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 60,
+    "__docId__": 68,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1284,7 +1466,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 61,
+    "__docId__": 69,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1297,7 +1479,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 62,
+    "__docId__": 70,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1310,7 +1492,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 63,
+    "__docId__": 71,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1323,7 +1505,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 64,
+    "__docId__": 72,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1336,7 +1518,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 65,
+    "__docId__": 73,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1349,7 +1531,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 66,
+    "__docId__": 74,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1362,7 +1544,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 67,
+    "__docId__": 75,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1375,7 +1557,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 68,
+    "__docId__": 76,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1388,7 +1570,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 69,
+    "__docId__": 77,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1401,7 +1583,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 70,
+    "__docId__": 78,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1414,7 +1596,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 71,
+    "__docId__": 79,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1427,7 +1609,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 72,
+    "__docId__": 80,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1440,7 +1622,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 73,
+    "__docId__": 81,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1453,7 +1635,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 74,
+    "__docId__": 82,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1466,7 +1648,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 75,
+    "__docId__": 83,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1479,7 +1661,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 76,
+    "__docId__": 84,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1492,7 +1674,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 77,
+    "__docId__": 85,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1505,7 +1687,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 78,
+    "__docId__": 86,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1518,7 +1700,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 79,
+    "__docId__": 87,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1531,7 +1713,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 80,
+    "__docId__": 88,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1544,7 +1726,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 81,
+    "__docId__": 89,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1557,7 +1739,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 82,
+    "__docId__": 90,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1570,7 +1752,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 83,
+    "__docId__": 91,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1583,7 +1765,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 84,
+    "__docId__": 92,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1596,7 +1778,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 85,
+    "__docId__": 93,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1609,7 +1791,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 86,
+    "__docId__": 94,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1622,7 +1804,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 87,
+    "__docId__": 95,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1635,7 +1817,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 88,
+    "__docId__": 96,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1648,7 +1830,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 89,
+    "__docId__": 97,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1661,7 +1843,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 90,
+    "__docId__": 98,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1674,7 +1856,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 91,
+    "__docId__": 99,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1687,7 +1869,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 92,
+    "__docId__": 100,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1700,7 +1882,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 93,
+    "__docId__": 101,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1713,7 +1895,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 94,
+    "__docId__": 102,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1726,7 +1908,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 95,
+    "__docId__": 103,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1739,7 +1921,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 96,
+    "__docId__": 104,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1752,7 +1934,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 97,
+    "__docId__": 105,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1765,7 +1947,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 98,
+    "__docId__": 106,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1778,7 +1960,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 100,
+    "__docId__": 108,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1791,7 +1973,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 101,
+    "__docId__": 109,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1804,7 +1986,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 102,
+    "__docId__": 110,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1817,7 +1999,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 103,
+    "__docId__": 111,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1830,7 +2012,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 104,
+    "__docId__": 112,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1843,7 +2025,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 105,
+    "__docId__": 113,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1856,7 +2038,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 106,
+    "__docId__": 114,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -1869,7 +2051,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 107,
+    "__docId__": 115,
     "kind": "external",
     "static": true,
     "variation": null,

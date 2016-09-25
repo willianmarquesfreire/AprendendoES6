@@ -30,6 +30,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "aprendendoes6/src/enums/type.js~type",
+    "variable/index.html#static-variable-Type",
+    "<span>Type</span> <span class=\"search-result-import-path\">aprendendoES6/src/enums/Type.js</span>",
+    "variable"
+  ],
+  [
     "aprendendoes6/src/world/world.js~world",
     "class/src/world/World.js~World.html",
     "<span>World</span> <span class=\"search-result-import-path\">aprendendoES6/src/world/World.js</span>",
@@ -390,6 +396,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/elements/canvas.js~canvas#clear",
+    "class/src/elements/Canvas.js~Canvas.html#instance-method-clear",
+    "src/elements/Canvas.js~Canvas#clear",
+    "method"
+  ],
+  [
     "src/elements/canvas.js~canvas#closepath",
     "class/src/elements/Canvas.js~Canvas.html#instance-method-closePath",
     "src/elements/Canvas.js~Canvas#closePath",
@@ -420,15 +432,21 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/elements/canvas.js~canvas#drawtrianglewithdimension",
-    "class/src/elements/Canvas.js~Canvas.html#instance-method-drawTriangleWithDimension",
-    "src/elements/Canvas.js~Canvas#drawTriangleWithDimension",
+    "src/elements/canvas.js~canvas#drawtrianglebydimension",
+    "class/src/elements/Canvas.js~Canvas.html#instance-method-drawTriangleByDimension",
+    "src/elements/Canvas.js~Canvas#drawTriangleByDimension",
     "method"
   ],
   [
     "src/elements/canvas.js~canvas#fill",
     "class/src/elements/Canvas.js~Canvas.html#instance-method-fill",
     "src/elements/Canvas.js~Canvas#fill",
+    "method"
+  ],
+  [
+    "src/elements/canvas.js~canvas#fillrect",
+    "class/src/elements/Canvas.js~Canvas.html#instance-method-fillRect",
+    "src/elements/Canvas.js~Canvas#fillRect",
     "method"
   ],
   [
@@ -447,6 +465,18 @@ window.esdocSearchIndex = [
     "src/elements/canvas.js~canvas#getcontext3d",
     "class/src/elements/Canvas.js~Canvas.html#instance-method-getContext3D",
     "src/elements/Canvas.js~Canvas#getContext3D",
+    "method"
+  ],
+  [
+    "src/elements/canvas.js~canvas#lineto",
+    "class/src/elements/Canvas.js~Canvas.html#instance-method-lineTo",
+    "src/elements/Canvas.js~Canvas#lineTo",
+    "method"
+  ],
+  [
+    "src/elements/canvas.js~canvas#moveto",
+    "class/src/elements/Canvas.js~Canvas.html#instance-method-moveTo",
+    "src/elements/Canvas.js~Canvas#moveTo",
     "method"
   ],
   [
@@ -594,6 +624,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/enums/type.js",
+    "file/src/enums/Type.js.html",
+    "src/enums/Type.js",
+    "file"
+  ],
+  [
     "src/phisic/phisic.js",
     "file/src/phisic/Phisic.js.html",
     "src/phisic/Phisic.js",
@@ -604,6 +640,18 @@ window.esdocSearchIndex = [
     "class/src/phisic/Phisic.js~Phisic.html#instance-constructor-constructor",
     "src/phisic/Phisic.js~Phisic#constructor",
     "method"
+  ],
+  [
+    "src/util/enum.js",
+    "file/src/util/Enum.js.html",
+    "src/util/Enum.js",
+    "file"
+  ],
+  [
+    "src/util/enumsymbol.js",
+    "file/src/util/EnumSymbol.js.html",
+    "src/util/EnumSymbol.js",
+    "file"
   ],
   [
     "src/world/world.js",

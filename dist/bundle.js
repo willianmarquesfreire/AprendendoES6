@@ -22,10 +22,6 @@ var _Canvas = require('./elements/Canvas');
 
 var _Canvas2 = _interopRequireDefault(_Canvas);
 
-var _Enums = require('./enums/Enums');
-
-var _Enums2 = _interopRequireDefault(_Enums);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 window.addEventListener("load", function () {
@@ -40,12 +36,12 @@ window.addEventListener("load", function () {
     var img = new _Image2.default("https://media.licdn.com/media/AAEAAQAAAAAAAANbAAAAJDE5NjBkNDk1LTY3ZGQtNDA0NS04YTJiLTdkNmU3NjZiNjI3Mg.png");
     world.addChild(img.getElement());
 
-    console.log(_Enums2.default);
+    console.log(Type);
 
     // document.body.appendChild(new Canvas().getElement())
 });
 
-},{"./elements/Canvas":3,"./elements/Image":5,"./enums/Enums":6,"./world/World":8}],3:[function(require,module,exports){
+},{"./elements/Canvas":3,"./elements/Image":5,"./world/World":7}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -208,7 +204,7 @@ var Canvas = function (_Element) {
 
 exports.default = Canvas;
 
-},{"../enums/Type":7,"./Element":4}],4:[function(require,module,exports){
+},{"../enums/Type":6,"./Element":4}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -398,20 +394,6 @@ var Type = {
 exports.default = Type;
 
 },{}],7:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var Type = {
-    'FILL': 'fill',
-    'STROKE': 'stroke',
-    'CLEAR': 'clear'
-};
-
-exports.default = Type;
-
-},{}],8:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

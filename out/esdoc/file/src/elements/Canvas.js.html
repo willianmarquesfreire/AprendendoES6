@@ -36,6 +36,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Canvas.js~Canvas.html">Canvas</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Element.js~Element.html">Element</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Image.js~Image.html">Image</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">enums</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Type">Type</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">phisic</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/phisic/Phisic.js~Phisic.html">Phisic</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">world</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/world/World.js~World.html">World</a></span></span></li>
 </ul>
@@ -44,6 +45,7 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/elements/Canvas.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import Element from &apos;./Element&apos;
+import Type from &apos;../enums/Type&apos;
 
 class Canvas extends Element {
     constructor() {
@@ -63,78 +65,82 @@ class Canvas extends Element {
         return this.getElement().getContext(&apos;3d&apos;)
     }
     drawLine(beginX, beginY, endX, endY) {
-        let ctx = this.getContext()
-        ctx.moveTo(beginX, beginY)
-        ctx.lineTo(endX, endY)
-        ctx.stroke()
+        this.moveTo(beginX, beginY)
+        this.lineTo(endX, endY)
+        this.stroke()
     }
     drawSquare(x, y, width, height, type) {
-        let ctx = this.getContext()
         switch (type) {
             case &apos;stroke&apos;:
-                ctx.strokeRect(x, y, width, height, type)
+                this.strokeRect(x, y, width, height, type)
                 break
             case &apos;clear&apos;:
-                ctx.clearRect(x, y, width, height, type)
+                this.clearRect(x, y, width, height, type)
                 break
             default:
-                ctx.fillRect(x, y, width, height, type)
+                this.fillRect(x, y, width, height, type)
         }
     }
     drawTriangle(x, y, x1, y1, x2, y2, type) {
-        let ctx = this.getContext()
-        ctx.beginPath();
-        ctx.moveTo(x, y);
-        ctx.lineTo(x1, y1);
-        ctx.lineTo(x2, y2);
+        this.beginPath()
+        this.moveTo(x, y)
+        this.lineTo(x1, y1)
+        this.lineTo(x2, y2)
 
         switch (type) {
-            case &apos;stroke&apos;:
-                ctx.stroke()
+            case Type.STROKE:
+                this.stroke()
                 break
-            case &apos;clear&apos;:
-                ctx.clear()
+            case Type.CLEAR:
+                this.clear()
                 break
             default:
-                ctx.fill();
+                this.fill()
         }
     }
-    drawTriangleWithDimension(x, y, dimension, type) {
-        let ctx = this.getContext()
-        ctx.beginPath();
-        ctx.moveTo(x, y);
-        ctx.lineTo(x1-dimension, y1+dimension);
-        ctx.lineTo(x2+dimension, y2+dimension);
+    drawTriangleByDimension(x, y, dimension, type) {
+        this.beginPath()
+        this.moveTo(x, y)
+        this.lineTo(x - dimension, y + dimension)
+        this.lineTo(x + dimension, y + dimension)
 
         switch (type) {
-            case &apos;stroke&apos;:
-                ctx.stroke()
+            case Type.STROKE:
+                this.stroke()
                 break
-            case &apos;clear&apos;:
-                ctx.clear()
+            case Type.CLEAR:
+                this.clear()
                 break
             default:
-                ctx.fill();
+                this.fill()
         }
+    }
+    fillRect(x, y, width, height, type) {
+        this.getContext().fillRect(x, y, width, height, type)
+    }
+    lineTo(x, y) {
+        this.getContext().lineTo(x, y)
+    }
+    moveTo(x, y) {
+        this.getContext().moveTo(x, y)
     }
     beginPath() {
-        let ctx = this.getContext()
-        return ctx.beginPath()
+        return this.getContext().beginPath()
     }
     closePath() {
-        let ctx = this.getContext()
-        return ctx.closePath()
+        return this.getContext().closePath()
     }
     stroke() {
-        let ctx = this.getContext()
-        return ctx.stroke()
+        return this.getContext().stroke()
     }
     fill() {
-        let ctx = this.getContext()
-        return ctx.fill()
+        return this.getContext().fill()
+    }
+    clear() {
+        return this.getContext().clear()
     }
 
-};
+}
 
 export default Canvas</code></pre>
 

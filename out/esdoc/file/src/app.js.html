@@ -36,6 +36,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Canvas.js~Canvas.html">Canvas</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Element.js~Element.html">Element</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/Image.js~Image.html">Image</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">enums</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Type">Type</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">phisic</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/phisic/Phisic.js~Phisic.html">Phisic</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">world</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/world/World.js~World.html">World</a></span></span></li>
 </ul>
@@ -47,6 +48,7 @@
 import World from &apos;./world/World&apos;
 import Image from &apos;./elements/Image&apos;
 import Canvas from &apos;./elements/Canvas&apos;
+import Type from &apos;./enums/Enums&apos;
 
 window.addEventListener(&quot;load&quot;, function() {
     var world = new World()
@@ -54,10 +56,13 @@ window.addEventListener(&quot;load&quot;, function() {
     console.log(world.getElement().getContext(&apos;2d&apos;))
     world.drawLine(0,0,100,100)
     world.drawSquare(10,10,20,20)
-    world.drawTriangle(100,100,50,150,150,150)
+    // world.drawTriangle(100,100,50,150,150,150)
+    world.drawTriangleByDimension(100,100,40)
     
     var img = new Image(&quot;https://media.licdn.com/media/AAEAAQAAAAAAAANbAAAAJDE5NjBkNDk1LTY3ZGQtNDA0NS04YTJiLTdkNmU3NjZiNjI3Mg.png&quot;)
     world.addChild(img.getElement())
+
+    console.log(Type)
 
     // document.body.appendChild(new Canvas().getElement())
 
