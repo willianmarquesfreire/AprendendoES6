@@ -22,6 +22,10 @@ var _Canvas = require('./elements/Canvas');
 
 var _Canvas2 = _interopRequireDefault(_Canvas);
 
+var _Type = require('./enums/Type');
+
+var _Type2 = _interopRequireDefault(_Type);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 window.addEventListener("load", function () {
@@ -30,18 +34,18 @@ window.addEventListener("load", function () {
     console.log(world.getElement().getContext('2d'));
     world.drawLine(0, 0, 100, 100);
     world.drawSquare(10, 10, 20, 20);
-    // world.drawTriangle(100,100,50,150,150,150)
-    world.drawTriangleByDimension(100, 100, 40);
+    world.drawTriangle(100, 100, 50, 150, 150, 150);
+    world.drawTriangleByDimension(200, 100, 40);
 
     var img = new _Image2.default("https://media.licdn.com/media/AAEAAQAAAAAAAANbAAAAJDE5NjBkNDk1LTY3ZGQtNDA0NS04YTJiLTdkNmU3NjZiNjI3Mg.png");
     world.addChild(img.getElement());
 
-    console.log(Type);
+    console.log(_Type2.default);
 
     // document.body.appendChild(new Canvas().getElement())
 });
 
-},{"./elements/Canvas":3,"./elements/Image":5,"./world/World":7}],3:[function(require,module,exports){
+},{"./elements/Canvas":3,"./elements/Image":5,"./enums/Type":6,"./world/World":7}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -109,10 +113,10 @@ var Canvas = function (_Element) {
         key: 'drawSquare',
         value: function drawSquare(x, y, width, height, type) {
             switch (type) {
-                case 'stroke':
+                case _Type2.default.STROKE:
                     this.strokeRect(x, y, width, height, type);
                     break;
-                case 'clear':
+                case _Type2.default.CLEAR:
                     this.clearRect(x, y, width, height, type);
                     break;
                 default:
@@ -161,6 +165,16 @@ var Canvas = function (_Element) {
         key: 'fillRect',
         value: function fillRect(x, y, width, height, type) {
             this.getContext().fillRect(x, y, width, height, type);
+        }
+    }, {
+        key: 'clearRect',
+        value: function clearRect(x, y, width, height, type) {
+            this.getContext().clearRect(x, y, width, height, type);
+        }
+    }, {
+        key: 'strokeRect',
+        value: function strokeRect(x, y, width, height, type) {
+            this.getContext().strokeRect(x, y, width, height, type);
         }
     }, {
         key: 'lineTo',

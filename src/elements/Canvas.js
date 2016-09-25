@@ -25,10 +25,10 @@ class Canvas extends Element {
     }
     drawSquare(x, y, width, height, type) {
         switch (type) {
-            case 'stroke':
+            case Type.STROKE:
                 this.strokeRect(x, y, width, height, type)
                 break
-            case 'clear':
+            case Type.CLEAR:
                 this.clearRect(x, y, width, height, type)
                 break
             default:
@@ -71,6 +71,12 @@ class Canvas extends Element {
     }
     fillRect(x, y, width, height, type) {
         this.getContext().fillRect(x, y, width, height, type)
+    }
+    clearRect(x, y, width, height, type) {
+        this.getContext().clearRect(x, y, width, height, type)
+    }
+    strokeRect(x, y, width, height, type) {
+        this.getContext().strokeRect(x, y, width, height, type)
     }
     lineTo(x, y) {
         this.getContext().lineTo(x, y)

@@ -10,7 +10,7 @@
     "access": null,
     "description": null,
     "lineNumber": 2,
-    "content": "\nimport World from './world/World'\nimport Image from './elements/Image'\nimport Canvas from './elements/Canvas'\nimport Type from './enums/Enums'\n\nwindow.addEventListener(\"load\", function() {\n    var world = new World()\n    world.addToBody()\n    console.log(world.getElement().getContext('2d'))\n    world.drawLine(0,0,100,100)\n    world.drawSquare(10,10,20,20)\n    // world.drawTriangle(100,100,50,150,150,150)\n    world.drawTriangleByDimension(100,100,40)\n    \n    var img = new Image(\"https://media.licdn.com/media/AAEAAQAAAAAAAANbAAAAJDE5NjBkNDk1LTY3ZGQtNDA0NS04YTJiLTdkNmU3NjZiNjI3Mg.png\")\n    world.addChild(img.getElement())\n\n    console.log(Type)\n\n    // document.body.appendChild(new Canvas().getElement())\n\n})"
+    "content": "\nimport World from './world/World'\nimport Image from './elements/Image'\nimport Canvas from './elements/Canvas'\n\nwindow.addEventListener(\"load\", function() {\n    var world = new World()\n    world.addToBody()\n    console.log(world.getElement().getContext('2d'))\n    world.drawLine(0,0,100,100)\n    world.drawSquare(10,10,20,20)\n    // world.drawTriangle(100,100,50,150,150,150)\n    world.drawTriangleByDimension(100,100,40)\n    \n    var img = new Image(\"https://media.licdn.com/media/AAEAAQAAAAAAAANbAAAAJDE5NjBkNDk1LTY3ZGQtNDA0NS04YTJiLTdkNmU3NjZiNjI3Mg.png\")\n    world.addChild(img.getElement())\n\n    console.log(Type)\n\n    // document.body.appendChild(new Canvas().getElement())\n\n})"
   },
   {
     "__docId__": 1,
