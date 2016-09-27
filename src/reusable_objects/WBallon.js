@@ -2,7 +2,6 @@ export default Object.prototype.createBallon = function () {
     if (this.context) {
         var ctx = this.context
 
-        // Quadratric curves example
         ctx.beginPath()
         ctx.moveTo(75, 25)
         ctx.quadraticCurveTo(25, 25, 25, 62.5)
@@ -12,5 +11,6 @@ export default Object.prototype.createBallon = function () {
         ctx.quadraticCurveTo(125, 100, 125, 62.5)
         ctx.quadraticCurveTo(125, 25, 75, 25)
         ctx.stroke()
+        return this
     }
 }

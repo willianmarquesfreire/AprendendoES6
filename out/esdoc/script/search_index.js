@@ -444,6 +444,30 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/elements/wcanvas.js~wcanvas#context",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-context",
+    "src/elements/WCanvas.js~WCanvas#context",
+    "member"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#context",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-context",
+    "src/elements/WCanvas.js~WCanvas#context",
+    "member"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#context2d",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-context2D",
+    "src/elements/WCanvas.js~WCanvas#context2D",
+    "member"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#context3d",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-context3D",
+    "src/elements/WCanvas.js~WCanvas#context3D",
+    "member"
+  ],
+  [
     "src/elements/wcanvas.js~wcanvas#drawimage",
     "class/src/elements/WCanvas.js~WCanvas.html#instance-method-drawImage",
     "src/elements/WCanvas.js~WCanvas#drawImage",
@@ -486,24 +510,6 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/elements/wcanvas.js~wcanvas#getcontext",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-getContext",
-    "src/elements/WCanvas.js~WCanvas#getContext",
-    "method"
-  ],
-  [
-    "src/elements/wcanvas.js~wcanvas#getcontext2d",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-getContext2D",
-    "src/elements/WCanvas.js~WCanvas#getContext2D",
-    "method"
-  ],
-  [
-    "src/elements/wcanvas.js~wcanvas#getcontext3d",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-getContext3D",
-    "src/elements/WCanvas.js~WCanvas#getContext3D",
-    "method"
-  ],
-  [
     "src/elements/wcanvas.js~wcanvas#lineto",
     "class/src/elements/WCanvas.js~WCanvas.html#instance-method-lineTo",
     "src/elements/WCanvas.js~WCanvas#lineTo",
@@ -519,12 +525,6 @@ window.esdocSearchIndex = [
     "src/elements/wcanvas.js~wcanvas#quadraticcurveto",
     "class/src/elements/WCanvas.js~WCanvas.html#instance-method-quadraticCurveTo",
     "src/elements/WCanvas.js~WCanvas#quadraticCurveTo",
-    "method"
-  ],
-  [
-    "src/elements/wcanvas.js~wcanvas#setcontext",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-setContext",
-    "src/elements/WCanvas.js~WCanvas#setContext",
     "method"
   ],
   [

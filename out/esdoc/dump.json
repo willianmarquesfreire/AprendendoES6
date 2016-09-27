@@ -10,7 +10,7 @@
     "access": null,
     "description": null,
     "lineNumber": 2,
-    "content": "\nimport World from './world/World'\nimport WImage from './elements/WImage'\nimport WCanvas from './elements/WCanvas'\nimport WType from './enums/WType'\nimport WBallon from './reusable_objects/WBallon'\nimport WHeart from './reusable_objects/WHeart'\n\nwindow.addEventListener(\"load\", function() {\n    var world = new World()\n    world.addToBody()\n    console.log(world.getElement().getContext('2d'))\n    world.drawLine(0,0,100,100)\n    world.drawSquare(10,10,20,20)\n    world.drawTriangle(100,100,50,150,150,150)\n    world.drawTriangleByDimension(200,100,40)\n    world.createBallon()\n    world.createHeart()\n\n    var img = new WImage();\n    img.src = \"./src/img/1.jpg\"\n    \n    world.drawImage(img.getElement(),5,5)\n    console.log(img)\n\n})"
+    "content": "\nimport World from './world/World'\nimport WImage from './elements/WImage'\nimport WCanvas from './elements/WCanvas'\nimport WType from './enums/WType'\nimport WBallon from './reusable_objects/WBallon'\nimport WHeart from './reusable_objects/WHeart'\n\nwindow.addEventListener(\"load\", function() {\n    var world = new World()\n    world.addToBody()\n    world.drawLine(0,0,100,100)\n    world.drawSquare(10,10,20,20)\n    world.drawTriangle(100,100,50,150,150,150)\n    world.drawTriangleByDimension(200,100,40)\n    world.createBallon()\n    world.createHeart()\n\n    var img = new WImage();\n    img.src = \"./src/img/1.jpg\"\n    \n    world.drawImage(img.getElement(),5,5)\n    console.log(img)\n\n})"
   },
   {
     "__docId__": 1,
@@ -53,7 +53,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import WElement from './WElement'\nimport WType from '../enums/WType'\n\nclass WCanvas extends WElement {\n    constructor() {\n        super('canvas')\n        this._context = this.getContext2D()\n    }\n    getContext() {\n        return this._context\n    }\n    setContext(ctx) {\n        return this._context = this.getContext(ctx)\n    }\n    getContext2D() {\n        return this.getElement().getContext('2d')\n    }\n    getContext3D() {\n        return this.getElement().getContext('3d')\n    }\n    drawLine(beginX, beginY, endX, endY) {\n        this.moveTo(beginX, beginY)\n        this.lineTo(endX, endY)\n        this.stroke()\n    }\n    drawSquare(x, y, width, height, type) {\n        switch (type) {\n            case WType.STROKE:\n                this.strokeRect(x, y, width, height, type)\n                break\n            case WType.CLEAR:\n                this.clearRect(x, y, width, height, type)\n                break\n            default:\n                this.fillRect(x, y, width, height, type)\n        }\n    }\n    drawTriangle(x, y, x1, y1, x2, y2, type) {\n        this.beginPath()\n        this.moveTo(x, y)\n        this.lineTo(x1, y1)\n        this.lineTo(x2, y2)\n\n        switch (type) {\n            case WType.STROKE:\n                this.stroke()\n                break\n            case WType.CLEAR:\n                this.clear()\n                break\n            default:\n                this.fill()\n        }\n    }\n    drawTriangleByDimension(x, y, dimension, type) {\n        this.beginPath()\n        this.moveTo(x, y)\n        this.lineTo(x - dimension, y + dimension)\n        this.lineTo(x + dimension, y + dimension)\n\n        switch (type) {\n            case WType.STROKE:\n                this.stroke()\n                break\n            case WType.CLEAR:\n                this.clear()\n                break\n            default:\n                this.fill()\n        }\n    }\n    drawImage(image, x, y) {\n        this.getContext().drawImage(image, x, y)\n    }\n    fillRect(x, y, width, height, type) {\n        this.getContext().fillRect(x, y, width, height, type)\n    }\n    clearRect(x, y, width, height, type) {\n        this.getContext().clearRect(x, y, width, height, type)\n    }\n    strokeRect(x, y, width, height, type) {\n        this.getContext().strokeRect(x, y, width, height, type)\n    }\n    arc(x, y, radius, startAngle, endAngle, anticlockwise) {\n        this.getContext().arc(x, y, radius, startAngle, endAngle, anticlockwise)\n    }\n    quadraticCurveTo(cp1x, cp1y, x, y) {\n        return this.getContext().quadraticCurveTo(cp1x, cp1y, x, y)\n    }\n    bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y) {\n        return this.getContext().bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)\n    }\n    lineTo(x, y) {\n        this.getContext().lineTo(x, y)\n    }\n    moveTo(x, y) {\n        this.getContext().moveTo(x, y)\n    }\n    beginPath() {\n        return this.getContext().beginPath()\n    }\n    closePath() {\n        return this.getContext().closePath()\n    }\n    stroke() {\n        return this.getContext().stroke()\n    }\n    fill() {\n        return this.getContext().fill()\n    }\n    clear() {\n        return this.getContext().clear()\n    }\n\n}\n\nexport default WCanvas"
+    "content": "import WElement from './WElement'\nimport WType from '../enums/WType'\n\nclass WCanvas extends WElement {\n    constructor() {\n        super('canvas')\n        this._context = this.context2D\n    }\n    get context () {\n        return this._context\n    }\n    set context (ctx) {\n        return this._context = this.getContext(ctx)\n    }\n    get context2D () {\n        return this.getElement().getContext('2d')\n    }\n    get context3D () {\n        return this.getElement().getContext('3d')\n    }\n    drawLine(beginX, beginY, endX, endY) {\n        this.moveTo(beginX, beginY)\n        this.lineTo(endX, endY)\n        this.stroke()\n    }\n    drawSquare(x, y, width, height, type) {\n        switch (type) {\n            case WType.STROKE:\n                this.strokeRect(x, y, width, height, type)\n                break\n            case WType.CLEAR:\n                this.clearRect(x, y, width, height, type)\n                break\n            default:\n                this.fillRect(x, y, width, height, type)\n        }\n    }\n    drawTriangle(x, y, x1, y1, x2, y2, type) {\n        this.beginPath()\n        this.moveTo(x, y)\n        this.lineTo(x1, y1)\n        this.lineTo(x2, y2)\n\n        switch (type) {\n            case WType.STROKE:\n                this.stroke()\n                break\n            case WType.CLEAR:\n                this.clear()\n                break\n            default:\n                this.fill()\n        }\n    }\n    drawTriangleByDimension(x, y, dimension, type) {\n        this.beginPath()\n        this.moveTo(x, y)\n        this.lineTo(x - dimension, y + dimension)\n        this.lineTo(x + dimension, y + dimension)\n\n        switch (type) {\n            case WType.STROKE:\n                this.stroke()\n                break\n            case WType.CLEAR:\n                this.clear()\n                break\n            default:\n                this.fill()\n        }\n    }\n    drawImage(image, x, y) {\n        this.context.drawImage(image, x, y)\n    }\n    fillRect(x, y, width, height, type) {\n        this.context.fillRect(x, y, width, height, type)\n    }\n    clearRect(x, y, width, height, type) {\n        this.context.clearRect(x, y, width, height, type)\n    }\n    strokeRect(x, y, width, height, type) {\n        this.context.strokeRect(x, y, width, height, type)\n    }\n    arc(x, y, radius, startAngle, endAngle, anticlockwise) {\n        this.context.arc(x, y, radius, startAngle, endAngle, anticlockwise)\n    }\n    quadraticCurveTo(cp1x, cp1y, x, y) {\n        return this.context.quadraticCurveTo(cp1x, cp1y, x, y)\n    }\n    bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y) {\n        return this.context.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)\n    }\n    lineTo(x, y) {\n        this.context.lineTo(x, y)\n    }\n    moveTo(x, y) {\n        this.context.moveTo(x, y)\n    }\n    beginPath() {\n        return this.context.beginPath()\n    }\n    closePath() {\n        return this.context.closePath()\n    }\n    stroke() {\n        return this.context.stroke()\n    }\n    fill() {\n        return this.context.fill()\n    }\n    clear() {\n        return this.context.clear()\n    }\n\n}\n\nexport default WCanvas"
   },
   {
     "__docId__": 4,
@@ -110,18 +110,17 @@
   },
   {
     "__docId__": 7,
-    "kind": "method",
+    "kind": "get",
     "static": false,
     "variation": null,
-    "name": "getContext",
+    "name": "context",
     "memberof": "src/elements/WCanvas.js~WCanvas",
-    "longname": "src/elements/WCanvas.js~WCanvas#getContext",
+    "longname": "src/elements/WCanvas.js~WCanvas#context",
     "access": null,
     "description": null,
     "lineNumber": 9,
     "undocument": true,
-    "params": [],
-    "return": {
+    "type": {
       "types": [
         "*"
       ]
@@ -130,25 +129,17 @@
   },
   {
     "__docId__": 8,
-    "kind": "method",
+    "kind": "set",
     "static": false,
     "variation": null,
-    "name": "setContext",
+    "name": "context",
     "memberof": "src/elements/WCanvas.js~WCanvas",
-    "longname": "src/elements/WCanvas.js~WCanvas#setContext",
+    "longname": "src/elements/WCanvas.js~WCanvas#context",
     "access": null,
     "description": null,
     "lineNumber": 12,
     "undocument": true,
-    "params": [
-      {
-        "name": "ctx",
-        "types": [
-          "*"
-        ]
-      }
-    ],
-    "return": {
+    "type": {
       "types": [
         "*"
       ]
@@ -157,18 +148,17 @@
   },
   {
     "__docId__": 9,
-    "kind": "method",
+    "kind": "get",
     "static": false,
     "variation": null,
-    "name": "getContext2D",
+    "name": "context2D",
     "memberof": "src/elements/WCanvas.js~WCanvas",
-    "longname": "src/elements/WCanvas.js~WCanvas#getContext2D",
+    "longname": "src/elements/WCanvas.js~WCanvas#context2D",
     "access": null,
     "description": null,
     "lineNumber": 15,
     "undocument": true,
-    "params": [],
-    "return": {
+    "type": {
       "types": [
         "*"
       ]
@@ -177,18 +167,17 @@
   },
   {
     "__docId__": 10,
-    "kind": "method",
+    "kind": "get",
     "static": false,
     "variation": null,
-    "name": "getContext3D",
+    "name": "context3D",
     "memberof": "src/elements/WCanvas.js~WCanvas",
-    "longname": "src/elements/WCanvas.js~WCanvas#getContext3D",
+    "longname": "src/elements/WCanvas.js~WCanvas#context3D",
     "access": null,
     "description": null,
     "lineNumber": 18,
     "undocument": true,
-    "params": [],
-    "return": {
+    "type": {
       "types": [
         "*"
       ]
@@ -1565,7 +1554,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "export default Object.prototype.createBallon = function () {\n    if (this.getContext()) {\n        var ctx = this.getContext()\n\n        // Quadratric curves example\n        ctx.beginPath()\n        ctx.moveTo(75, 25)\n        ctx.quadraticCurveTo(25, 25, 25, 62.5)\n        ctx.quadraticCurveTo(25, 100, 50, 100)\n        ctx.quadraticCurveTo(50, 120, 30, 125)\n        ctx.quadraticCurveTo(60, 120, 65, 100)\n        ctx.quadraticCurveTo(125, 100, 125, 62.5)\n        ctx.quadraticCurveTo(125, 25, 75, 25)\n        ctx.stroke()\n    }\n}"
+    "content": "export default Object.prototype.createBallon = function () {\n    if (this.context) {\n        var ctx = this.context\n\n        // Quadratric curves example\n        ctx.beginPath()\n        ctx.moveTo(75, 25)\n        ctx.quadraticCurveTo(25, 25, 25, 62.5)\n        ctx.quadraticCurveTo(25, 100, 50, 100)\n        ctx.quadraticCurveTo(50, 120, 30, 125)\n        ctx.quadraticCurveTo(60, 120, 65, 100)\n        ctx.quadraticCurveTo(125, 100, 125, 62.5)\n        ctx.quadraticCurveTo(125, 25, 75, 25)\n        ctx.stroke()\n    }\n}"
   },
   {
     "__docId__": 61,
@@ -1596,7 +1585,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "export default Object.prototype.createHeart = function () {\n    if (this.getContext()) {\n        var ctx = this.getContext();\n\n        ctx.beginPath();\n        ctx.moveTo(75, 40);\n        ctx.bezierCurveTo(75, 37, 70, 25, 50, 25);\n        ctx.bezierCurveTo(20, 25, 20, 62.5, 20, 62.5);\n        ctx.bezierCurveTo(20, 80, 40, 102, 75, 120);\n        ctx.bezierCurveTo(110, 102, 130, 80, 130, 62.5);\n        ctx.bezierCurveTo(130, 62.5, 130, 25, 100, 25);\n        ctx.bezierCurveTo(85, 25, 75, 37, 75, 40);\n        ctx.fill();\n    }\n}"
+    "content": "export default Object.prototype.createHeart = function () {\n    if (this.context) {\n        var ctx = this.context\n\n        ctx.beginPath();\n        ctx.moveTo(75, 40);\n        ctx.bezierCurveTo(75, 37, 70, 25, 50, 25);\n        ctx.bezierCurveTo(20, 25, 20, 62.5, 20, 62.5);\n        ctx.bezierCurveTo(20, 80, 40, 102, 75, 120);\n        ctx.bezierCurveTo(110, 102, 130, 80, 130, 62.5);\n        ctx.bezierCurveTo(130, 62.5, 130, 25, 100, 25);\n        ctx.bezierCurveTo(85, 25, 75, 37, 75, 40);\n        ctx.fill();\n    }\n}"
   },
   {
     "__docId__": 63,

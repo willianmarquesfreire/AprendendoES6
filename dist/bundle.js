@@ -34,26 +34,18 @@ var _WHeart = require('./reusable_objects/WHeart');
 
 var _WHeart2 = _interopRequireDefault(_WHeart);
 
+var _WClockOne = require('./reusable_objects/WClockOne');
+
+var _WClockOne2 = _interopRequireDefault(_WClockOne);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 window.addEventListener("load", function () {
     var world = new _World2.default();
-    world.addToBody();
-    world.drawLine(0, 0, 100, 100);
-    world.drawSquare(10, 10, 20, 20);
-    world.drawTriangle(100, 100, 50, 150, 150, 150);
-    world.drawTriangleByDimension(200, 100, 40);
-    world.createBallon();
-    world.createHeart();
+    world.addToBody().drawLine(0, 0, 100, 100).fillStyle("rgb(200,0,0)").drawSquare(10, 10, 20, 20).fillStyle("rgba(0, 0, 200, 0.5)").drawTriangle(100, 100, 50, 150, 150, 150).drawTriangleByDimension(200, 100, 40).fillStyle("rgb(200,0,0)").createBallon().createHeart().addChild(new _WImage2.default("./src/img/1.jpg").element).createClockOne();
+}); //Parei em => https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Advanced_animations
 
-    var img = new _WImage2.default();
-    img.src = "./src/img/1.jpg";
-
-    world.drawImage(img.getElement(), 5, 5);
-    console.log(img);
-});
-
-},{"./elements/WCanvas":3,"./elements/WImage":5,"./enums/WType":6,"./reusable_objects/WBallon":7,"./reusable_objects/WHeart":8,"./world/World":9}],3:[function(require,module,exports){
+},{"./elements/WCanvas":3,"./elements/WImage":5,"./enums/WType":6,"./reusable_objects/WBallon":7,"./reusable_objects/WClockOne":8,"./reusable_objects/WHeart":9,"./world/World":10}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -91,11 +83,77 @@ var WCanvas = function (_WElement) {
     }
 
     _createClass(WCanvas, [{
+        key: 'save',
+        value: function save() {
+            this.context.save();
+            return this;
+        }
+    }, {
+        key: 'restore',
+        value: function restore() {
+            this.context.restore();
+            return this;
+        }
+    }, {
+        key: 'translate',
+        value: function translate(x, y) {
+            this.context.translate(x, y);
+            return this;
+        }
+    }, {
+        key: 'scale',
+        value: function scale(x, y) {
+            this.context.scale(x, y);
+            return this;
+        }
+    }, {
+        key: 'rotate',
+        value: function rotate(angle) {
+            this.context.rotate(angle);
+            return this;
+        }
+    }, {
+        key: 'transform',
+        value: function transform(a, b, c, d, e, f) {
+            this.context.transform(a, b, c, d, e, f);
+            return this;
+        }
+    }, {
+        key: 'setTransform',
+        value: function setTransform(a, b, c, d, e, f) {
+            this.context.setTransform(a, b, c, d, e, f);
+            return this;
+        }
+    }, {
+        key: 'resetTransform',
+        value: function resetTransform() {
+            this.context.resetTransform();
+            return this;
+        }
+    }, {
+        key: 'clip',
+        value: function clip() {
+            this.context.clip();
+            return this;
+        }
+    }, {
+        key: 'fillStyle',
+        value: function fillStyle(style) {
+            this.context.fillStyle = style;
+            return this;
+        }
+    }, {
+        key: 'drawRect',
+        value: function drawRect(x, y, width, height) {
+            this.context.rect(x, y, width, height);
+        }
+    }, {
         key: 'drawLine',
         value: function drawLine(beginX, beginY, endX, endY) {
             this.moveTo(beginX, beginY);
             this.lineTo(endX, endY);
             this.stroke();
+            return this;
         }
     }, {
         key: 'drawSquare',
@@ -110,6 +168,7 @@ var WCanvas = function (_WElement) {
                 default:
                     this.fillRect(x, y, width, height, type);
             }
+            return this;
         }
     }, {
         key: 'drawTriangle',
@@ -129,6 +188,7 @@ var WCanvas = function (_WElement) {
                 default:
                     this.fill();
             }
+            return this;
         }
     }, {
         key: 'drawTriangleByDimension',
@@ -148,76 +208,108 @@ var WCanvas = function (_WElement) {
                 default:
                     this.fill();
             }
+            return this;
         }
     }, {
         key: 'drawImage',
         value: function drawImage(image, x, y) {
             this.context.drawImage(image, x, y);
+            return this;
+        }
+    }, {
+        key: 'drawImage',
+        value: function drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight) {
+            this.context.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
+            return this;
         }
     }, {
         key: 'fillRect',
         value: function fillRect(x, y, width, height, type) {
             this.context.fillRect(x, y, width, height, type);
+            return this;
         }
     }, {
         key: 'clearRect',
         value: function clearRect(x, y, width, height, type) {
             this.context.clearRect(x, y, width, height, type);
+            return this;
         }
     }, {
         key: 'strokeRect',
         value: function strokeRect(x, y, width, height, type) {
             this.context.strokeRect(x, y, width, height, type);
+            return this;
         }
     }, {
         key: 'arc',
         value: function arc(x, y, radius, startAngle, endAngle, anticlockwise) {
             this.context.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+            return this;
         }
     }, {
         key: 'quadraticCurveTo',
         value: function quadraticCurveTo(cp1x, cp1y, x, y) {
-            return this.context.quadraticCurveTo(cp1x, cp1y, x, y);
+            this.context.quadraticCurveTo(cp1x, cp1y, x, y);
+            return this;
         }
     }, {
         key: 'bezierCurveTo',
         value: function bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y) {
-            return this.context.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y);
+            this.context.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y);
+            return this;
         }
     }, {
         key: 'lineTo',
         value: function lineTo(x, y) {
             this.context.lineTo(x, y);
+            return this;
         }
     }, {
         key: 'moveTo',
         value: function moveTo(x, y) {
             this.context.moveTo(x, y);
+            return this;
         }
     }, {
         key: 'beginPath',
         value: function beginPath() {
-            return this.context.beginPath();
+            this.context.beginPath();
+            return this;
         }
     }, {
         key: 'closePath',
         value: function closePath() {
-            return this.context.closePath();
+            this.context.closePath();
+            return this;
         }
     }, {
         key: 'stroke',
         value: function stroke() {
-            return this.context.stroke();
+            this.context.stroke();
+            return this;
         }
     }, {
         key: 'fill',
         value: function fill() {
-            return this.context.fill();
+            this.context.fill();
+            return this;
         }
     }, {
         key: 'clear',
         value: function clear() {
-            return this.context.clear();
+            this.context.clear();
+            return this;
+        }
+        /**
+         * @TODO
+         * Esta função será implementada
+         * Ela está aqui somente para me lembrar de como fazer animações
+         */
+
+    }, {
+        key: 'requestAnimationFrame',
+        value: function requestAnimationFrame(fn) {
+            return window.requestAnimationFrame(draw);
         }
     }, {
         key: 'context',
@@ -230,12 +322,12 @@ var WCanvas = function (_WElement) {
     }, {
         key: 'context2D',
         get: function get() {
-            return this.getElement().getContext('2d');
+            return this.element.getContext('2d');
         }
     }, {
         key: 'context3D',
         get: function get() {
-            return this.getElement().getContext('3d');
+            return this.element.getContext('3d');
         }
     }]);
 
@@ -259,10 +351,10 @@ var WElement = function () {
     function WElement(element, width, height, border) {
         _classCallCheck(this, WElement);
 
-        this.setElement(element);
-        this.setWidth(width);
-        this.setHeight(height);
-        this.setBorder(border);
+        this.element = element;
+        this.width = width;
+        this.height = height;
+        this.border = border;
         console.log(this.getClassName().concat(' Created!'));
     }
 
@@ -272,88 +364,85 @@ var WElement = function () {
             return document.createElement(element);
         }
     }, {
-        key: 'getElement',
-        value: function getElement() {
-            return this._element;
-        }
-    }, {
-        key: 'setElement',
-        value: function setElement(element) {
-            this._element = this.createElement(element);
-        }
-    }, {
-        key: 'getAttributes',
-        value: function getAttributes() {
-            return this.getElement().attributes;
-        }
-    }, {
         key: 'setAttribute',
         value: function setAttribute(attr, value) {
-            this.getElement().setAttribute(attr, value);
+            this.element.setAttribute(attr, value);
+            return this;
         }
     }, {
         key: 'setStyle',
         value: function setStyle(attr, value) {
             this.setAttibute('style', attr + ': ' + value);
+            return this;
         }
     }, {
         key: 'setSize',
         value: function setSize(width, height) {
-            this.setWidth(width);
-            this.setHeight(height);
-        }
-    }, {
-        key: 'setWidth',
-        value: function setWidth() {
-            var width = arguments.length <= 0 || arguments[0] === undefined ? 200 : arguments[0];
-
-            this.getElement().setAttribute('style', 'width: '.concat(width));
-            return this.getElement();
-        }
-    }, {
-        key: 'setHeight',
-        value: function setHeight() {
-            var height = arguments.length <= 0 || arguments[0] === undefined ? 200 : arguments[0];
-
-            this.getElement().setAttribute('style', 'height: '.concat(height));
-            return this.getElement();
-        }
-    }, {
-        key: 'setBorder',
-        value: function setBorder() {
-            var border = arguments.length <= 0 || arguments[0] === undefined ? '1px solid black' : arguments[0];
-
-            this.getElement().setAttribute('style', 'border: '.concat(border));
-            return this.getElement();
+            this.width === width;
+            this.height === height;
+            return this;
         }
     }, {
         key: 'addChild',
         value: function addChild(child) {
-            this.getElement().appendChild(child);
-            return this.getElement();
+            this.element.appendChild(child);
+            return this;
         }
     }, {
         key: 'addToBody',
         value: function addToBody() {
-            document.body.appendChild(this.getElement());
-            return this.getElement();
+            document.body.appendChild(this.element);
+            return this;
         }
     }, {
         key: 'addToElementById',
         value: function addToElementById(id) {
-            document.getElementById(id).appendChild(this.getElement());
-            return this.getElement();
+            document.getElementById(id).appendChild(this.element);
+            return this;
         }
     }, {
         key: 'addToElementByClassName',
         value: function addToElementByClassName(className) {
-            document.getElementsByClassName(className).appendChild(this.getElement());
-            return this.getElement();
+            document.getElementsByClassName(className).appendChild(this.element);
+            return this;
         }
     }, {
         key: 'getClassName',
         value: function getClassName() {
             return this.constructor.name;
+        }
+    }, {
+        key: 'element',
+        get: function get() {
+            return this._element;
+        },
+        set: function set(element) {
+            this._element = this.createElement(element);
+        }
+    }, {
+        key: 'attributes',
+        get: function get() {
+            return this.element.attributes;
+        }
+    }, {
+        key: 'width',
+        set: function set(width) {
+            this.element.setAttribute('style', 'width: '.concat(width));
+            return this;
+        }
+    }, {
+        key: 'height',
+        set: function set(height) {
+            this.element.setAttribute('style', 'height: '.concat(height));
+            return this;
+        }
+    }, {
+        key: 'border',
+        set: function set() {
+            var border = arguments.length <= 0 || arguments[0] === undefined ? '1px solid black' : arguments[0];
+
+            this.element.setAttribute('style', 'border: '.concat(border));
+            return this;
         }
     }]);
 
@@ -444,7 +533,6 @@ exports.default = Object.prototype.createBallon = function () {
     if (this.context) {
         var ctx = this.context;
 
-        // Quadratric curves example
         ctx.beginPath();
         ctx.moveTo(75, 25);
         ctx.quadraticCurveTo(25, 25, 25, 62.5);
@@ -454,10 +542,136 @@ exports.default = Object.prototype.createBallon = function () {
         ctx.quadraticCurveTo(125, 100, 125, 62.5);
         ctx.quadraticCurveTo(125, 25, 75, 25);
         ctx.stroke();
+        return this;
     }
 };
 
 },{}],8:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+exports.default = Object.prototype.createClockOne = function () {
+    var _this = this;
+
+    if (this.context) {
+        var ctx;
+
+        var _ret = function () {
+            var clock = function clock() {
+                var now = new Date();
+                ctx.save();
+                ctx.clearRect(0, 0, 150, 150);
+                ctx.translate(75, 75);
+                ctx.scale(0.4, 0.4);
+                ctx.rotate(-Math.PI / 2);
+                ctx.strokeStyle = "black";
+                ctx.fillStyle = "white";
+                ctx.lineWidth = 8;
+                ctx.lineCap = "round";
+
+                // Hour marks
+                ctx.save();
+                for (var i = 0; i < 12; i++) {
+                    ctx.beginPath();
+                    ctx.rotate(Math.PI / 6);
+                    ctx.moveTo(100, 0);
+                    ctx.lineTo(120, 0);
+                    ctx.stroke();
+                }
+                ctx.restore();
+
+                // Minute marks
+                ctx.save();
+                ctx.lineWidth = 5;
+                for (i = 0; i < 60; i++) {
+                    if (i % 5 != 0) {
+                        ctx.beginPath();
+                        ctx.moveTo(117, 0);
+                        ctx.lineTo(120, 0);
+                        ctx.stroke();
+                    }
+                    ctx.rotate(Math.PI / 30);
+                }
+                ctx.restore();
+
+                var sec = now.getSeconds();
+                var min = now.getMinutes();
+                var hr = now.getHours();
+                hr = hr >= 12 ? hr - 12 : hr;
+
+                ctx.fillStyle = "black";
+
+                // write Hours
+                ctx.save();
+                ctx.rotate(hr * (Math.PI / 6) + Math.PI / 360 * min + Math.PI / 21600 * sec);
+                ctx.lineWidth = 14;
+                ctx.beginPath();
+                ctx.moveTo(-20, 0);
+                ctx.lineTo(80, 0);
+                ctx.stroke();
+                ctx.restore();
+
+                // write Minutes
+                ctx.save();
+                ctx.rotate(Math.PI / 30 * min + Math.PI / 1800 * sec);
+                ctx.lineWidth = 10;
+                ctx.beginPath();
+                ctx.moveTo(-28, 0);
+                ctx.lineTo(112, 0);
+                ctx.stroke();
+                ctx.restore();
+
+                // Write seconds
+                ctx.save();
+                ctx.rotate(sec * Math.PI / 30);
+                ctx.strokeStyle = "#D40000";
+                ctx.fillStyle = "#D40000";
+                ctx.lineWidth = 6;
+                ctx.beginPath();
+                ctx.moveTo(-30, 0);
+                ctx.lineTo(83, 0);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.arc(0, 0, 10, 0, Math.PI * 2, true);
+                ctx.fill();
+                ctx.beginPath();
+                ctx.arc(95, 0, 10, 0, Math.PI * 2, true);
+                ctx.stroke();
+                ctx.fillStyle = "rgba(0,0,0,0)";
+                ctx.arc(0, 0, 3, 0, Math.PI * 2, true);
+                ctx.fill();
+                ctx.restore();
+
+                ctx.beginPath();
+                ctx.lineWidth = 14;
+                ctx.strokeStyle = '#325FA2';
+                ctx.arc(0, 0, 142, 0, Math.PI * 2, true);
+                ctx.stroke();
+
+                ctx.restore();
+
+                window.requestAnimationFrame(clock);
+            };
+
+            ctx = _this.context;
+
+
+            window.requestAnimationFrame(clock);
+            return {
+                v: _this
+            };
+        }();
+
+        if ((typeof _ret === "undefined" ? "undefined" : _typeof(_ret)) === "object") return _ret.v;
+    }
+};
+
+},{}],9:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -477,10 +691,11 @@ exports.default = Object.prototype.createHeart = function () {
         ctx.bezierCurveTo(130, 62.5, 130, 25, 100, 25);
         ctx.bezierCurveTo(85, 25, 75, 37, 75, 40);
         ctx.fill();
+        return this;
     }
 };
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

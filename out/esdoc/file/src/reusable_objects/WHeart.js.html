@@ -47,8 +47,8 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/reusable_objects/WHeart.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">export default Object.prototype.createHeart = function () {
-    if (this.getContext()) {
-        var ctx = this.getContext();
+    if (this.context) {
+        var ctx = this.context
 
         ctx.beginPath();
         ctx.moveTo(75, 40);

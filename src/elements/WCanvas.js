@@ -6,22 +6,66 @@ class WCanvas extends WElement {
         super('canvas')
         this._context = this.context2D
     }
-    get context () {
+    get context() {
         return this._context
     }
-    set context (ctx) {
+    set context(ctx) {
         return this._context = this.getContext(ctx)
     }
-    get context2D () {
-        return this.getElement().getContext('2d')
+    get context2D() {
+        return this.element.getContext('2d')
     }
-    get context3D () {
-        return this.getElement().getContext('3d')
+    get context3D() {
+        return this.element.getContext('3d')
+    }
+    save() {
+        this.context.save()
+        return this
+    }
+    restore() {
+        this.context.restore()
+        return this
+    }
+    translate(x, y) {
+        this.context.translate(x, y)
+        return this
+    }
+    scale(x, y) {
+        this.context.scale(x, y)
+        return this
+    }
+    rotate(angle) {
+        this.context.rotate(angle)
+        return this
+    }
+    transform(a, b, c, d, e, f) {
+        this.context.transform(a, b, c, d, e, f)
+        return this
+    }
+    setTransform(a, b, c, d, e, f) {
+        this.context.setTransform(a, b, c, d, e, f)
+        return this
+    }
+    resetTransform() {
+        this.context.resetTransform()
+        return this
+    }
+    clip() {
+        this.context.clip()
+        return this
+    }
+    fillStyle(style) {
+        this.context.fillStyle = style
+        return this
+    }
+    drawRect(x, y, width, height) {
+        this.context.rect(x, y, width, height)
     }
     drawLine(beginX, beginY, endX, endY) {
         this.moveTo(beginX, beginY)
         this.lineTo(endX, endY)
         this.stroke()
+        return this
     }
     drawSquare(x, y, width, height, type) {
         switch (type) {
@@ -34,6 +78,7 @@ class WCanvas extends WElement {
             default:
                 this.fillRect(x, y, width, height, type)
         }
+        return this
     }
     drawTriangle(x, y, x1, y1, x2, y2, type) {
         this.beginPath()
@@ -51,6 +96,7 @@ class WCanvas extends WElement {
             default:
                 this.fill()
         }
+        return this
     }
     drawTriangleByDimension(x, y, dimension, type) {
         this.beginPath()
@@ -68,48 +114,75 @@ class WCanvas extends WElement {
             default:
                 this.fill()
         }
+        return this
     }
     drawImage(image, x, y) {
         this.context.drawImage(image, x, y)
+        return this
+    }
+    drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight) {
+        this.context.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
+        return this
     }
     fillRect(x, y, width, height, type) {
         this.context.fillRect(x, y, width, height, type)
+        return this
     }
     clearRect(x, y, width, height, type) {
         this.context.clearRect(x, y, width, height, type)
+        return this
     }
     strokeRect(x, y, width, height, type) {
         this.context.strokeRect(x, y, width, height, type)
+        return this
     }
     arc(x, y, radius, startAngle, endAngle, anticlockwise) {
         this.context.arc(x, y, radius, startAngle, endAngle, anticlockwise)
+        return this
     }
     quadraticCurveTo(cp1x, cp1y, x, y) {
-        return this.context.quadraticCurveTo(cp1x, cp1y, x, y)
+        this.context.quadraticCurveTo(cp1x, cp1y, x, y)
+        return this
     }
     bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y) {
-        return this.context.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)
+        this.context.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)
+        return this
     }
     lineTo(x, y) {
         this.context.lineTo(x, y)
+        return this
     }
     moveTo(x, y) {
         this.context.moveTo(x, y)
+        return this
     }
     beginPath() {
-        return this.context.beginPath()
+        this.context.beginPath()
+        return this
     }
     closePath() {
-        return this.context.closePath()
+        this.context.closePath()
+        return this
     }
     stroke() {
-        return this.context.stroke()
+        this.context.stroke()
+        return this
     }
     fill() {
-        return this.context.fill()
+        this.context.fill()
+        return this
     }
     clear() {
-        return this.context.clear()
+        this.context.clear()
+        return this
+    }
+    /**
+     * @TODO
+     * Esta função será implementada
+     * Ela está aqui somente para me lembrar de como fazer animações
+     */
+    requestAnimationFrame(fn) {
+        return window.requestAnimationFrame(draw)
     }
 
 }

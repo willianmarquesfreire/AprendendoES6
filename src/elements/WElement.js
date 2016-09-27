@@ -1,62 +1,65 @@
 class WElement {
 
     constructor(element, width, height, border) {
-        this.setElement(element)
-        this.setWidth(width)
-        this.setHeight(height)
-        this.setBorder(border)
+        this.element = element
+        this.width = width
+        this.height = height
+        this.border = border
         console.log(this.getClassName().concat(' Created!'))
     }
-    
+
     createElement(element) {
         return document.createElement(element)
     }
-    getElement() {
+    get element() {
         return this._element
     }
-    setElement(element) {
+    set element(element) {
         this._element = this.createElement(element)
     }
-    getAttributes() {
-        return this.getElement().attributes
+    get attributes() {
+        return this.element.attributes
     }
     setAttribute(attr, value) {
-        this.getElement().setAttribute(attr, value)
+        this.element.setAttribute(attr, value)
+        return this
     }
     setStyle(attr, value) {
         this.setAttibute('style', attr + ': ' + value)
+        return this
     }
     setSize(width, height) {
-        this.setWidth(width)
-        this.setHeight(height)
+        this.width === width
+        this.height === height
+        return this
     }
-    setWidth(width = 200) {
-        this.getElement().setAttribute('style', 'width: '.concat(width))
-        return this.getElement()
+    set width(width) {
+        this.element.setAttribute('style', 'width: '.concat(width))
+        return this
     }
-    setHeight(height = 200) {
-        this.getElement().setAttribute('style', 'height: '.concat(height))
-        return this.getElement()
+    set height(height) {
+        this.element.setAttribute('style', 'height: '.concat(height))
+        return this
     }
-    setBorder(border = '1px solid black') {
-        this.getElement().setAttribute('style', 'border: '.concat(border))
-        return this.getElement()
+    set border(border = '1px solid black') {
+        this.element.setAttribute('style', 'border: '.concat(border))
+        return this
     }
     addChild(child) {
-        this.getElement().appendChild(child)
-        return this.getElement()
+        this.element.appendChild(child)
+        return this
     }
     addToBody() {
-        document.body.appendChild(this.getElement())
-        return this.getElement()
+        document.body.appendChild(this.element)
+        return this
     }
     addToElementById(id) {
-        document.getElementById(id).appendChild(this.getElement())
-        return this.getElement()
+        document.getElementById(id).appendChild(this.element)
+        return this
     }
     addToElementByClassName(className) {
-        document.getElementsByClassName(className).appendChild(this.getElement())
-        return this.getElement()
+        document.getElementsByClassName(className).appendChild(this.element)
+        return this
     }
     getClassName() {
         return this.constructor.name
