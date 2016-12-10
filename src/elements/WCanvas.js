@@ -54,8 +54,8 @@ class WCanvas extends WElement {
         this.context.clip()
         return this
     }
-    fillStyle(style) {
-        this.context.fillStyle = style
+    fillStyle(color) {
+        this.context.fillStyle = color
         return this
     }
     drawRect(x, y, width, height) {
@@ -123,6 +123,32 @@ class WCanvas extends WElement {
     drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight) {
         this.context.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
         return this
+    }
+    createImage(url, x, y, callback) {
+        var $this = this
+        var img = new Image()
+        img.src = url
+        img.onload = function () {
+            $this.context.drawImage(img, x, y)
+            img.style.display = 'none'
+            if (callback) {
+                callback(img)
+            }
+            return this
+        }
+    }
+    stringRGBA(r, g, b, a) {
+        return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')'
+    }
+    getImageData(x, y, width, height) {
+        return this.context.getImageData(x, y, width, height)
+    }
+    getImageDataRGBA(imageData) {
+        return 'rgba('
+            + imageData.data[0]
+            + ',' + imageData.data[1]
+            + ',' + imageData.data[2]
+            + ',' + imageData.data[3] / 255 + ')'
     }
     fillRect(x, y, width, height, type) {
         this.context.fillRect(x, y, width, height, type)

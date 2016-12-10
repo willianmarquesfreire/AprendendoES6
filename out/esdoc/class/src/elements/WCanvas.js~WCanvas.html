@@ -36,17 +36,24 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html">WCanvas</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html">WElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/WImage.js~WImage.html">WImage</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">enums</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Type">Type</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">enums</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WGlobalCompositeOperationType">WGlobalCompositeOperationType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Type">Type</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">events</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-eventFallMove">eventFallMove</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-eventRandomOne">eventRandomOne</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">phisic</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/phisic/Phisic.js~Phisic.html">Phisic</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">reusable_objects</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createBallon">createBallon</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">reusable_objects</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createBall">createBall</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createBallon">createBallon</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createClockOne">createClockOne</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createFaceFeliz">createFaceFeliz</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createHeart">createHeart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createTransformPointerOne">createTransformPointerOne</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">world</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/world/World.js~World.html">World</a></span></span></li>
 </ul>
 </div>
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import WCanvas from &apos;<span><a href="file/src/elements/WCanvas.js.html#lineNumber4">aprendendoES6/src/elements/WCanvas.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import WCanvas from &apos;<span><a href="file/src/elements/WCanvas.js.html#lineNumber4">aprendendoes6/src/elements/WCanvas.js</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
@@ -239,7 +246,7 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-arc">arc</a></span></span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, radius: <span>*</span>, startAngle: <span>*</span>, endAngle: <span>*</span>, anticlockwise: <span>*</span>)</span>
+           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-arc">arc</a></span></span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, radius: <span>*</span>, startAngle: <span>*</span>, endAngle: <span>*</span>, anticlockwise: <span>*</span>): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -339,7 +346,32 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-clearRect">clearRect</a></span></span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, width: <span>*</span>, height: <span>*</span>, type: <span>*</span>)</span>
+           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-clearRect">clearRect</a></span></span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, width: <span>*</span>, height: <span>*</span>, type: <span>*</span>): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-clip">clip</a></span></span><span data-ice="signature">(): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -389,7 +421,7 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-drawImage">drawImage</a></span></span><span data-ice="signature">(image: <span>*</span>, x: <span>*</span>, y: <span>*</span>)</span>
+           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-drawImage">drawImage</a></span></span><span data-ice="signature">(image: <span>*</span>, sx: <span>*</span>, sy: <span>*</span>, sWidth: <span>*</span>, sHeight: <span>*</span>, dx: <span>*</span>, dy: <span>*</span>, dWidth: <span>*</span>, dHeight: <span>*</span>): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -414,7 +446,7 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-drawLine">drawLine</a></span></span><span data-ice="signature">(beginX: <span>*</span>, beginY: <span>*</span>, endX: <span>*</span>, endY: <span>*</span>)</span>
+           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-drawImage">drawImage</a></span></span><span data-ice="signature">(image: <span>*</span>, x: <span>*</span>, y: <span>*</span>): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -439,7 +471,7 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-drawSquare">drawSquare</a></span></span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, width: <span>*</span>, height: <span>*</span>, type: <span>*</span>)</span>
+           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-drawLine">drawLine</a></span></span><span data-ice="signature">(beginX: <span>*</span>, beginY: <span>*</span>, endX: <span>*</span>, endY: <span>*</span>): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -464,7 +496,7 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-drawTriangle">drawTriangle</a></span></span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, x1: <span>*</span>, y1: <span>*</span>, x2: <span>*</span>, y2: <span>*</span>, type: <span>*</span>)</span>
+           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-drawRect">drawRect</a></span></span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, width: <span>*</span>, height: <span>*</span>)</span>
         </p>
       </div>
       <div>
@@ -489,7 +521,57 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-drawTriangleByDimension">drawTriangleByDimension</a></span></span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, dimension: <span>*</span>, type: <span>*</span>)</span>
+           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-drawSquare">drawSquare</a></span></span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, width: <span>*</span>, height: <span>*</span>, type: <span>*</span>): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-drawTriangle">drawTriangle</a></span></span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, x1: <span>*</span>, y1: <span>*</span>, x2: <span>*</span>, y2: <span>*</span>, type: <span>*</span>): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-drawTriangleByDimension">drawTriangleByDimension</a></span></span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, dimension: <span>*</span>, type: <span>*</span>): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -539,7 +621,7 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-fillRect">fillRect</a></span></span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, width: <span>*</span>, height: <span>*</span>, type: <span>*</span>)</span>
+           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-fillRect">fillRect</a></span></span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, width: <span>*</span>, height: <span>*</span>, type: <span>*</span>): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -564,7 +646,7 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-lineTo">lineTo</a></span></span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>)</span>
+           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-fillStyle">fillStyle</a></span></span><span data-ice="signature">(color: <span>*</span>): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -589,7 +671,32 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-moveTo">moveTo</a></span></span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>)</span>
+           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-lineTo">lineTo</a></span></span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-moveTo">moveTo</a></span></span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -639,6 +746,181 @@
     <td>
       <div>
         <p>
+           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-requestAnimationFrame">requestAnimationFrame</a></span></span><span data-ice="signature">(fn: <span>*</span>): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-resetTransform">resetTransform</a></span></span><span data-ice="signature">(): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-restore">restore</a></span></span><span data-ice="signature">(): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-rotate">rotate</a></span></span><span data-ice="signature">(angle: <span>*</span>): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-save">save</a></span></span><span data-ice="signature">(): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-scale">scale</a></span></span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-setTransform">setTransform</a></span></span><span data-ice="signature">(a: <span>*</span>, b: <span>*</span>, c: <span>*</span>, d: <span>*</span>, e: <span>*</span>, f: <span>*</span>): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
            <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-stroke">stroke</a></span></span><span data-ice="signature">(): <span>*</span></span>
         </p>
       </div>
@@ -664,7 +946,57 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-strokeRect">strokeRect</a></span></span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, width: <span>*</span>, height: <span>*</span>, type: <span>*</span>)</span>
+           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-strokeRect">strokeRect</a></span></span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, width: <span>*</span>, height: <span>*</span>, type: <span>*</span>): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-transform">transform</a></span></span><span data-ice="signature">(a: <span>*</span>, b: <span>*</span>, c: <span>*</span>, d: <span>*</span>, e: <span>*</span>, f: <span>*</span>): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-translate">translate</a></span></span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -687,6 +1019,156 @@
   <tbody>
   
   <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      <span class="kind" data-ice="kind">get</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html#instance-get-attributes">attributes</a></span></span><span data-ice="signature">: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      <span class="kind" data-ice="kind">set</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html#instance-set-border">border</a></span></span><span data-ice="signature">: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      <span class="kind" data-ice="kind">get</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html#instance-get-element">element</a></span></span><span data-ice="signature">: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      <span class="kind" data-ice="kind">set</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html#instance-set-element">element</a></span></span><span data-ice="signature">: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      <span class="kind" data-ice="kind">set</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html#instance-set-height">height</a></span></span><span data-ice="signature">: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      <span class="kind" data-ice="kind">set</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html#instance-set-width">width</a></span></span><span data-ice="signature">: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
     <td>
       <span class="access" data-ice="access">public</span>
       
@@ -822,31 +1304,6 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html#instance-method-getAttributes">getAttributes</a></span></span><span data-ice="signature">(): <span>*</span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
            <span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html#instance-method-getClassName">getClassName</a></span></span><span data-ice="signature">(): <span>*</span></span>
         </p>
       </div>
@@ -872,7 +1329,7 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html#instance-method-getElement">getElement</a></span></span><span data-ice="signature">(): <span>*</span></span>
+           <span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html#instance-method-setAttribute">setAttribute</a></span></span><span data-ice="signature">(attr: <span>*</span>, value: <span>*</span>): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -897,7 +1354,7 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html#instance-method-setAttribute">setAttribute</a></span></span><span data-ice="signature">(attr: <span>*</span>, value: <span>*</span>)</span>
+           <span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html#instance-method-setSize">setSize</a></span></span><span data-ice="signature">(width: <span>*</span>, height: <span>*</span>): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -922,132 +1379,7 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html#instance-method-setBorder">setBorder</a></span></span><span data-ice="signature">(border: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span>*</span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-           <span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html#instance-method-setElement">setElement</a></span></span><span data-ice="signature">(element: <span>*</span>)</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-           <span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html#instance-method-setHeight">setHeight</a></span></span><span data-ice="signature">(height: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span>*</span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-           <span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html#instance-method-setSize">setSize</a></span></span><span data-ice="signature">(width: <span>*</span>, height: <span>*</span>)</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-           <span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html#instance-method-setStyle">setStyle</a></span></span><span data-ice="signature">(attr: <span>*</span>, value: <span>*</span>)</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-           <span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html#instance-method-setWidth">setWidth</a></span></span><span data-ice="signature">(width: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span>*</span></span>
+           <span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html#instance-method-setStyle">setStyle</a></span></span><span data-ice="signature">(attr: <span>*</span>, value: <span>*</span>): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -1282,11 +1614,11 @@
     
     
     
-    <span data-ice="name">arc</span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, radius: <span>*</span>, startAngle: <span>*</span>, endAngle: <span>*</span>, anticlockwise: <span>*</span>)</span>
+    <span data-ice="name">arc</span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, radius: <span>*</span>, startAngle: <span>*</span>, endAngle: <span>*</span>, anticlockwise: <span>*</span>): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber84">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber139">source</a></span></span>
     </span>
   </h3>
 
@@ -1346,7 +1678,17 @@
 </div>
 </div>
 
-  
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span>*</span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
 
   
 
@@ -1372,7 +1714,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber99">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber159">source</a></span></span>
     </span>
   </h3>
 
@@ -1422,7 +1764,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber90">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber147">source</a></span></span>
     </span>
   </h3>
 
@@ -1518,7 +1860,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber111">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber175">source</a></span></span>
     </span>
   </h3>
 
@@ -1564,11 +1906,11 @@
     
     
     
-    <span data-ice="name">clearRect</span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, width: <span>*</span>, height: <span>*</span>, type: <span>*</span>)</span>
+    <span data-ice="name">clearRect</span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, width: <span>*</span>, height: <span>*</span>, type: <span>*</span>): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber78">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber131">source</a></span></span>
     </span>
   </h3>
 
@@ -1622,7 +1964,67 @@
 </div>
 </div>
 
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span>*</span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
   
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-clip">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">clip</span><span data-ice="signature">(): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber53">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span>*</span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
 
   
 
@@ -1648,7 +2050,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber102">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber163">source</a></span></span>
     </span>
   </h3>
 
@@ -1694,11 +2096,125 @@
     
     
     
-    <span data-ice="name">drawImage</span><span data-ice="signature">(image: <span>*</span>, x: <span>*</span>, y: <span>*</span>)</span>
+    <span data-ice="name">drawImage</span><span data-ice="signature">(image: <span>*</span>, sx: <span>*</span>, sy: <span>*</span>, sWidth: <span>*</span>, sHeight: <span>*</span>, dx: <span>*</span>, dy: <span>*</span>, dWidth: <span>*</span>, dHeight: <span>*</span>): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber72">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber123">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">image</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">sx</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">sy</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">sWidth</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">sHeight</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">dx</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">dy</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">dWidth</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">dHeight</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span>*</span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-drawImage">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">drawImage</span><span data-ice="signature">(image: <span>*</span>, x: <span>*</span>, y: <span>*</span>): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber119">source</a></span></span>
     </span>
   </h3>
 
@@ -1740,7 +2256,17 @@
 </div>
 </div>
 
-  
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span>*</span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
 
   
 
@@ -1762,11 +2288,11 @@
     
     
     
-    <span data-ice="name">drawLine</span><span data-ice="signature">(beginX: <span>*</span>, beginY: <span>*</span>, endX: <span>*</span>, endY: <span>*</span>)</span>
+    <span data-ice="name">drawLine</span><span data-ice="signature">(beginX: <span>*</span>, beginY: <span>*</span>, endX: <span>*</span>, endY: <span>*</span>): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber21">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber64">source</a></span></span>
     </span>
   </h3>
 
@@ -1814,6 +2340,90 @@
 </div>
 </div>
 
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span>*</span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-drawRect">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">drawRect</span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, width: <span>*</span>, height: <span>*</span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber61">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">x</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">y</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">width</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">height</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
   
 
   
@@ -1836,11 +2446,11 @@
     
     
     
-    <span data-ice="name">drawSquare</span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, width: <span>*</span>, height: <span>*</span>, type: <span>*</span>)</span>
+    <span data-ice="name">drawSquare</span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, width: <span>*</span>, height: <span>*</span>, type: <span>*</span>): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber26">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber70">source</a></span></span>
     </span>
   </h3>
 
@@ -1894,7 +2504,17 @@
 </div>
 </div>
 
-  
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span>*</span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
 
   
 
@@ -1916,11 +2536,11 @@
     
     
     
-    <span data-ice="name">drawTriangle</span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, x1: <span>*</span>, y1: <span>*</span>, x2: <span>*</span>, y2: <span>*</span>, type: <span>*</span>)</span>
+    <span data-ice="name">drawTriangle</span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, x1: <span>*</span>, y1: <span>*</span>, x2: <span>*</span>, y2: <span>*</span>, type: <span>*</span>): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber38">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber83">source</a></span></span>
     </span>
   </h3>
 
@@ -1986,7 +2606,17 @@
 </div>
 </div>
 
-  
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span>*</span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
 
   
 
@@ -2008,11 +2638,11 @@
     
     
     
-    <span data-ice="name">drawTriangleByDimension</span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, dimension: <span>*</span>, type: <span>*</span>)</span>
+    <span data-ice="name">drawTriangleByDimension</span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, dimension: <span>*</span>, type: <span>*</span>): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber55">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber101">source</a></span></span>
     </span>
   </h3>
 
@@ -2060,7 +2690,17 @@
 </div>
 </div>
 
-  
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span>*</span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
 
   
 
@@ -2086,7 +2726,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber108">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber171">source</a></span></span>
     </span>
   </h3>
 
@@ -2132,11 +2772,11 @@
     
     
     
-    <span data-ice="name">fillRect</span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, width: <span>*</span>, height: <span>*</span>, type: <span>*</span>)</span>
+    <span data-ice="name">fillRect</span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, width: <span>*</span>, height: <span>*</span>, type: <span>*</span>): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber75">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber127">source</a></span></span>
     </span>
   </h3>
 
@@ -2190,7 +2830,83 @@
 </div>
 </div>
 
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span>*</span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
   
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-fillStyle">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">fillStyle</span><span data-ice="signature">(color: <span>*</span>): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber57">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">color</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span>*</span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
 
   
 
@@ -2212,11 +2928,11 @@
     
     
     
-    <span data-ice="name">lineTo</span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>)</span>
+    <span data-ice="name">lineTo</span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber93">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber151">source</a></span></span>
     </span>
   </h3>
 
@@ -2252,7 +2968,17 @@
 </div>
 </div>
 
-  
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span>*</span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
 
   
 
@@ -2274,11 +3000,11 @@
     
     
     
-    <span data-ice="name">moveTo</span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>)</span>
+    <span data-ice="name">moveTo</span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber96">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber155">source</a></span></span>
     </span>
   </h3>
 
@@ -2314,7 +3040,17 @@
 </div>
 </div>
 
-  
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span>*</span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
 
   
 
@@ -2340,7 +3076,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber87">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber143">source</a></span></span>
     </span>
   </h3>
 
@@ -2414,6 +3150,456 @@
   
 </div>
 <div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-requestAnimationFrame">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">requestAnimationFrame</span><span data-ice="signature">(fn: <span>*</span>): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber184">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">fn</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span>*</span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-resetTransform">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">resetTransform</span><span data-ice="signature">(): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber49">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span>*</span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-restore">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">restore</span><span data-ice="signature">(): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber25">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span>*</span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-rotate">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">rotate</span><span data-ice="signature">(angle: <span>*</span>): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber37">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">angle</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span>*</span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-save">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">save</span><span data-ice="signature">(): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber21">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span>*</span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-scale">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">scale</span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber33">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">x</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">y</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span>*</span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-setTransform">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">setTransform</span><span data-ice="signature">(a: <span>*</span>, b: <span>*</span>, c: <span>*</span>, d: <span>*</span>, e: <span>*</span>, f: <span>*</span>): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber45">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">a</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">b</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">c</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">d</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">e</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">f</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span>*</span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="instance-method-stroke">
     <span class="access" data-ice="access">public</span>
     
@@ -2424,7 +3610,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber105">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber167">source</a></span></span>
     </span>
   </h3>
 
@@ -2470,11 +3656,11 @@
     
     
     
-    <span data-ice="name">strokeRect</span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, width: <span>*</span>, height: <span>*</span>, type: <span>*</span>)</span>
+    <span data-ice="name">strokeRect</span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, width: <span>*</span>, height: <span>*</span>, type: <span>*</span>): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber81">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber135">source</a></span></span>
     </span>
   </h3>
 
@@ -2528,7 +3714,185 @@
 </div>
 </div>
 
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span>*</span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
   
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-transform">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">transform</span><span data-ice="signature">(a: <span>*</span>, b: <span>*</span>, c: <span>*</span>, d: <span>*</span>, e: <span>*</span>, f: <span>*</span>): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber41">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">a</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">b</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">c</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">d</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">e</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">f</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span>*</span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-translate">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">translate</span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber29">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">x</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">y</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span>*</span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
 
   
 

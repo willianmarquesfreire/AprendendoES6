@@ -38,14 +38,47 @@ var _WClockOne = require('./reusable_objects/WClockOne');
 
 var _WClockOne2 = _interopRequireDefault(_WClockOne);
 
+var _WBall = require('./reusable_objects/WBall');
+
+var _WBall2 = _interopRequireDefault(_WBall);
+
+var _WBallShadow = require('./reusable_objects/WBallShadow');
+
+var _WBallShadow2 = _interopRequireDefault(_WBallShadow);
+
+var _WMoveRandomOne = require('./events/WMoveRandomOne');
+
+var _WMoveRandomOne2 = _interopRequireDefault(_WMoveRandomOne);
+
+var _WFallMove = require('./events/WFallMove');
+
+var _WFallMove2 = _interopRequireDefault(_WFallMove);
+
+var _WMouseFollow = require('./events/WMouseFollow');
+
+var _WMouseFollow2 = _interopRequireDefault(_WMouseFollow);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//Parei em => https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Advanced_animations
 window.addEventListener("load", function () {
     var world = new _World2.default();
-    world.addToBody().drawLine(0, 0, 100, 100).fillStyle("rgb(200,0,0)").drawSquare(10, 10, 20, 20).fillStyle("rgba(0, 0, 200, 0.5)").drawTriangle(100, 100, 50, 150, 150, 150).drawTriangleByDimension(200, 100, 40).fillStyle("rgb(200,0,0)").createBallon().createHeart().addChild(new _WImage2.default("./src/img/1.jpg").element).createClockOne();
-}); //Parei em => https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Advanced_animations
+    world.addToBody().createImage('src/img/rhino.jpg', 0, 0, call);
 
-},{"./elements/WCanvas":3,"./elements/WImage":5,"./enums/WType":6,"./reusable_objects/WBallon":7,"./reusable_objects/WClockOne":8,"./reusable_objects/WHeart":9,"./world/World":10}],3:[function(require,module,exports){
+    function call() {
+        world.element.addEventListener('mousemove', function (event) {
+            var x = event.layerX;
+            var y = event.layerY;
+            var image = world.context.getImageData(x, y, 1, 1);
+            document.getElementById('color').style.backgroundColor = world.getImageDataRGBA(image);
+        });
+    }
+
+    // world.element.addEventListener('mousemove', pick)
+
+});
+
+},{"./elements/WCanvas":3,"./elements/WImage":5,"./enums/WType":6,"./events/WFallMove":7,"./events/WMouseFollow":8,"./events/WMoveRandomOne":9,"./reusable_objects/WBall":10,"./reusable_objects/WBallShadow":11,"./reusable_objects/WBallon":12,"./reusable_objects/WClockOne":13,"./reusable_objects/WHeart":14,"./world/World":15}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -138,8 +171,8 @@ var WCanvas = function (_WElement) {
         }
     }, {
         key: 'fillStyle',
-        value: function fillStyle(style) {
-            this.context.fillStyle = style;
+        value: function fillStyle(color) {
+            this.context.fillStyle = color;
             return this;
         }
     }, {
@@ -221,6 +254,36 @@ var WCanvas = function (_WElement) {
         value: function drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight) {
             this.context.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
             return this;
+        }
+    }, {
+        key: 'createImage',
+        value: function createImage(url, x, y, callback) {
+            var $this = this;
+            var img = new Image();
+            img.src = url;
+            img.onload = function () {
+                $this.context.drawImage(img, x, y);
+                img.style.display = 'none';
+                if (callback) {
+                    callback(img);
+                }
+                return this;
+            };
+        }
+    }, {
+        key: 'stringRGBA',
+        value: function stringRGBA(r, g, b, a) {
+            return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
+        }
+    }, {
+        key: 'getImageData',
+        value: function getImageData(x, y, width, height) {
+            return this.context.getImageData(x, y, width, height);
+        }
+    }, {
+        key: 'getImageDataRGBA',
+        value: function getImageDataRGBA(imageData) {
+            return 'rgba(' + imageData.data[0] + ',' + imageData.data[1] + ',' + imageData.data[2] + ',' + imageData.data[3] / 255 + ')';
         }
     }, {
         key: 'fillRect',
@@ -439,7 +502,7 @@ var WElement = function () {
     }, {
         key: 'border',
         set: function set() {
-            var border = arguments.length <= 0 || arguments[0] === undefined ? '1px solid black' : arguments[0];
+            var border = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '1px solid black';
 
             this.element.setAttribute('style', 'border: '.concat(border));
             return this;
@@ -529,6 +592,239 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+exports.default = Object.prototype.eventFallMove = function () {
+    if (this.context) {
+        var $this = this;
+        var ctx = $this.context;
+
+        $this.running = false;
+
+        var raf;
+
+        $this.start = function () {
+            $this.running = true;
+            $this.draw().toX($this.x).toY($this.y);
+
+            $this.x += $this.vx;
+            $this.y += $this.vy;
+            $this.vy *= .99;
+            $this.vy += .25;
+
+            if ($this.y + $this.vy > $this.element.height || $this.y + $this.vy < 0) {
+                $this.vy = -$this.vy;
+            }
+
+            if ($this.x + $this.vx > $this.element.width || $this.x + $this.vx < 0) {
+                $this.vx = -$this.vx;
+            }
+            raf = window.requestAnimationFrame($this.start);
+        };
+
+        $this.stop = function () {
+            $this.running = false;
+            window.cancelAnimationFrame(raf);
+        };
+
+        return $this;
+    }
+};
+
+},{}],8:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+exports.default = Object.prototype.eventMouseFollow = function () {
+    var _this = this;
+
+    if (this.context) {
+        var $this;
+        var ctx;
+
+        var _ret = function () {
+            var clear = function clear() {
+                ctx.fillStyle = 'rgba(255,255,255,0.1)';
+                ctx.fillRect(0, 0, $this.element.width, $this.element.height);
+            };
+
+            $this = _this;
+            ctx = $this.context;
+
+
+            $this.element.addEventListener('mousemove', function (e) {
+                if (!$this.running) {
+                    clear();
+                    $this.x = e.clientX;
+                    $this.y = e.clientY;
+                    $this.draw();
+                }
+            });
+
+            $this.element.addEventListener('click', function (e) {
+                if (!$this.running) {
+                    $this.start();
+                } else {
+                    $this.stop();
+                }
+            });
+
+            return {
+                v: $this
+            };
+        }();
+
+        if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
+    }
+};
+
+},{}],9:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/**
+ * Evento de objeto se movendo na tela.
+ * Têm-se o x, y, vx, vy.
+ * Objeto se move de acordo com x e y.
+ * Utiliza-se vx e vy para somar as váriaveis de posição.
+ * Quando se objeto chega ao limite do canvas, nega-se o vx e vy para
+ * inverter a soma, fazendo com que o x e y decremente, e ao retornar
+ * inverte-se novamente para o x e y incrementar, movendo assim o objeto
+ * em sentidos opostos. 
+ */
+exports.default = Object.prototype.eventRandomOne = function () {
+    var _this = this;
+
+    if (this.context) {
+        var $this;
+        var ctx;
+        var raf;
+
+        var _ret = function () {
+            var draw = function draw() {
+                $this.draw().toX($this.x).toY($this.y);
+
+                $this.x += $this.vx;
+                $this.y += $this.vy;
+
+                if ($this.y + $this.vy > $this.element.height || $this.y + $this.vy < 0) {
+                    $this.vy = -$this.vy;
+                }
+
+                if ($this.x + $this.vx > $this.element.width || $this.x + $this.vx < 0) {
+                    $this.vx = -$this.vx;
+                }
+                raf = window.requestAnimationFrame(draw);
+            };
+
+            $this = _this;
+            ctx = $this.context;
+
+
+            draw();
+            return {
+                v: $this
+            };
+        }();
+
+        if ((typeof _ret === "undefined" ? "undefined" : _typeof(_ret)) === "object") return _ret.v;
+    }
+};
+
+},{}],10:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+exports.default = Object.prototype.createBall = function (x, y) {
+    if (this.context) {
+        var $this = this;
+        $this.x = x;
+        $this.y = y;
+        $this.vx = 5;
+        $this.vy = 2;
+        $this.radius = 25;
+        $this.color = 'blue';
+        $this.draw = function () {
+            $this.clearRect(0, 0, $this.element.width, $this.element.height);
+            $this.context.beginPath();
+            $this.context.arc($this.x, $this.y, $this.radius, 0, Math.PI * 2, true);
+            $this.context.closePath();
+            $this.context.fillStyle = $this.color;
+            $this.context.fill();
+            return $this;
+        };
+        $this.toX = function (x) {
+            $this.x = x;
+            return $this;
+        };
+        $this.toY = function (y) {
+            $this.y = y;
+            return $this;
+        };
+
+        return $this;
+    }
+};
+
+},{}],11:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+exports.default = Object.prototype.createBallShadow = function (x, y) {
+    if (this.context) {
+        var $this = this;
+        $this.x = x;
+        $this.y = y;
+        $this.vx = 5;
+        $this.vy = 2;
+        $this.radius = 25;
+        $this.color = 'blue';
+        $this.draw = function () {
+            $this.fillStyle('rgba(255,255,255,0.3)');
+            $this.fillRect(0, 0, $this.element.width, $this.element.height);
+            $this.context.beginPath();
+            $this.context.arc($this.x, $this.y, $this.radius, 0, Math.PI * 2, true);
+            $this.context.closePath();
+            $this.context.fillStyle = $this.color;
+            $this.context.fill();
+            return $this;
+        };
+        $this.toX = function (x) {
+            $this.x = x;
+            return $this;
+        };
+        $this.toY = function (y) {
+            $this.y = y;
+            return $this;
+        };
+
+        $this.draw();
+
+        return $this;
+    }
+};
+
+},{}],12:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
 exports.default = Object.prototype.createBallon = function () {
     if (this.context) {
         var ctx = this.context;
@@ -546,14 +842,14 @@ exports.default = Object.prototype.createBallon = function () {
     }
 };
 
-},{}],8:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 exports.default = Object.prototype.createClockOne = function () {
     var _this = this;
@@ -671,7 +967,7 @@ exports.default = Object.prototype.createClockOne = function () {
     }
 };
 
-},{}],9:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -695,7 +991,7 @@ exports.default = Object.prototype.createHeart = function () {
     }
 };
 
-},{}],10:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

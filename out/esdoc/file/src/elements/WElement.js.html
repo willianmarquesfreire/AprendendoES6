@@ -36,10 +36,17 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html">WCanvas</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html">WElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/WImage.js~WImage.html">WImage</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">enums</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Type">Type</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">enums</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WGlobalCompositeOperationType">WGlobalCompositeOperationType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Type">Type</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">events</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-eventFallMove">eventFallMove</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-eventRandomOne">eventRandomOne</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">phisic</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/phisic/Phisic.js~Phisic.html">Phisic</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">reusable_objects</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createBallon">createBallon</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">reusable_objects</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createBall">createBall</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createBallon">createBallon</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createClockOne">createClockOne</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createFaceFeliz">createFaceFeliz</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createHeart">createHeart</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createTransformPointerOne">createTransformPointerOne</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">world</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/world/World.js~World.html">World</a></span></span></li>
 </ul>
 </div>
@@ -49,62 +56,65 @@
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">class WElement {
 
     constructor(element, width, height, border) {
-        this.setElement(element)
-        this.setWidth(width)
-        this.setHeight(height)
-        this.setBorder(border)
+        this.element = element
+        this.width = width
+        this.height = height
+        this.border = border
         console.log(this.getClassName().concat(&apos; Created!&apos;))
     }
-    
+
     createElement(element) {
         return document.createElement(element)
     }
-    getElement() {
+    get element() {
         return this._element
     }
-    setElement(element) {
+    set element(element) {
         this._element = this.createElement(element)
     }
-    getAttributes() {
-        return this.getElement().attributes
+    get attributes() {
+        return this.element.attributes
     }
     setAttribute(attr, value) {
-        this.getElement().setAttribute(attr, value)
+        this.element.setAttribute(attr, value)
+        return this
     }
     setStyle(attr, value) {
         this.setAttibute(&apos;style&apos;, attr + &apos;: &apos; + value)
+        return this
     }
     setSize(width, height) {
-        this.setWidth(width)
-        this.setHeight(height)
+        this.width === width
+        this.height === height
+        return this
     }
-    setWidth(width = 200) {
-        this.getElement().setAttribute(&apos;style&apos;, &apos;width: &apos;.concat(width))
-        return this.getElement()
+    set width(width) {
+        this.element.setAttribute(&apos;style&apos;, &apos;width: &apos;.concat(width))
+        return this
     }
-    setHeight(height = 200) {
-        this.getElement().setAttribute(&apos;style&apos;, &apos;height: &apos;.concat(height))
-        return this.getElement()
+    set height(height) {
+        this.element.setAttribute(&apos;style&apos;, &apos;height: &apos;.concat(height))
+        return this
     }
-    setBorder(border = &apos;1px solid black&apos;) {
-        this.getElement().setAttribute(&apos;style&apos;, &apos;border: &apos;.concat(border))
-        return this.getElement()
+    set border(border = &apos;1px solid black&apos;) {
+        this.element.setAttribute(&apos;style&apos;, &apos;border: &apos;.concat(border))
+        return this
     }
     addChild(child) {
-        this.getElement().appendChild(child)
-        return this.getElement()
+        this.element.appendChild(child)
+        return this
     }
     addToBody() {
-        document.body.appendChild(this.getElement())
-        return this.getElement()
+        document.body.appendChild(this.element)
+        return this
     }
     addToElementById(id) {
-        document.getElementById(id).appendChild(this.getElement())
-        return this.getElement()
+        document.getElementById(id).appendChild(this.element)
+        return this
     }
     addToElementByClassName(className) {
-        document.getElementsByClassName(className).appendChild(this.getElement())
-        return this.getElement()
+        document.getElementsByClassName(className).appendChild(this.element)
+        return this
     }
     getClassName() {
         return this.constructor.name

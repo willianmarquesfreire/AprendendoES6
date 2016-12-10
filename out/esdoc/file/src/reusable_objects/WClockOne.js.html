@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">WAudio | API Document</title>
+  <title data-ice="title">src/reusable_objects/WClockOne.js | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -52,56 +52,110 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import WAudio from &apos;<span><a href="file/src/elements/WAudio.js.html#lineNumber1">aprendendoes6/src/elements/WAudio.js</a></span>&apos;</code></pre></div>
-  <span data-ice="access">public</span>
-  <span data-ice="kind">class</span>
-  
-  
-  
-  <span data-ice="source">| <span><a href="file/src/elements/WAudio.js.html#lineNumber1">source</a></span></span>
-</div>
+<div class="content" data-ice="content"><h1 data-ice="title">src/reusable_objects/WClockOne.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">export default Object.prototype.createClockOne = function () {
+    if (this.context) {
+        var ctx = this.context
+        function clock() {
+            var now = new Date()
+            ctx.save();
+            ctx.clearRect(0, 0, 150, 150);
+            ctx.translate(75, 75);
+            ctx.scale(0.4, 0.4);
+            ctx.rotate(-Math.PI / 2);
+            ctx.strokeStyle = &quot;black&quot;;
+            ctx.fillStyle = &quot;white&quot;;
+            ctx.lineWidth = 8;
+            ctx.lineCap = &quot;round&quot;;
 
-<div class="self-detail detail">
-  <h1 data-ice="name">WAudio</h1>
+            // Hour marks
+            ctx.save();
+            for (var i = 0; i &lt; 12; i++) {
+                ctx.beginPath();
+                ctx.rotate(Math.PI / 6);
+                ctx.moveTo(100, 0);
+                ctx.lineTo(120, 0);
+                ctx.stroke();
+            }
+            ctx.restore();
 
-  
+            // Minute marks
+            ctx.save();
+            ctx.lineWidth = 5;
+            for (i = 0; i &lt; 60; i++) {
+                if (i % 5 != 0) {
+                    ctx.beginPath();
+                    ctx.moveTo(117, 0);
+                    ctx.lineTo(120, 0);
+                    ctx.stroke();
+                }
+                ctx.rotate(Math.PI / 30);
+            }
+            ctx.restore();
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
+            var sec = now.getSeconds();
+            var min = now.getMinutes();
+            var hr = now.getHours();
+            hr = hr &gt;= 12 ? hr - 12 : hr;
 
-  
-  
-  
+            ctx.fillStyle = &quot;black&quot;;
 
-  
+            // write Hours
+            ctx.save();
+            ctx.rotate(hr * (Math.PI / 6) + (Math.PI / 360) * min + (Math.PI / 21600) * sec)
+            ctx.lineWidth = 14;
+            ctx.beginPath();
+            ctx.moveTo(-20, 0);
+            ctx.lineTo(80, 0);
+            ctx.stroke();
+            ctx.restore();
 
-  
+            // write Minutes
+            ctx.save();
+            ctx.rotate((Math.PI / 30) * min + (Math.PI / 1800) * sec)
+            ctx.lineWidth = 10;
+            ctx.beginPath();
+            ctx.moveTo(-28, 0);
+            ctx.lineTo(112, 0);
+            ctx.stroke();
+            ctx.restore();
 
-  
+            // Write seconds
+            ctx.save();
+            ctx.rotate(sec * Math.PI / 30);
+            ctx.strokeStyle = &quot;#D40000&quot;;
+            ctx.fillStyle = &quot;#D40000&quot;;
+            ctx.lineWidth = 6;
+            ctx.beginPath();
+            ctx.moveTo(-30, 0);
+            ctx.lineTo(83, 0);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.arc(0, 0, 10, 0, Math.PI * 2, true);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(95, 0, 10, 0, Math.PI * 2, true);
+            ctx.stroke();
+            ctx.fillStyle = &quot;rgba(0,0,0,0)&quot;;
+            ctx.arc(0, 0, 3, 0, Math.PI * 2, true);
+            ctx.fill();
+            ctx.restore();
 
-  
-</div>
+            ctx.beginPath();
+            ctx.lineWidth = 14;
+            ctx.strokeStyle = &apos;#325FA2&apos;;
+            ctx.arc(0, 0, 142, 0, Math.PI * 2, true);
+            ctx.stroke();
 
+            ctx.restore();
 
+            window.requestAnimationFrame(clock);
+        }
 
-
-
-
-
-
-
-
-
-
-
+        window.requestAnimationFrame(clock);
+        return this
+    }
+}</code></pre>
 
 </div>
 

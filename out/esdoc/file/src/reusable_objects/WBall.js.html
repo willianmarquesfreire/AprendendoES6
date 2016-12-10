@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">WAudio | API Document</title>
+  <title data-ice="title">src/reusable_objects/WBall.js | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -52,56 +52,39 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import WAudio from &apos;<span><a href="file/src/elements/WAudio.js.html#lineNumber1">aprendendoes6/src/elements/WAudio.js</a></span>&apos;</code></pre></div>
-  <span data-ice="access">public</span>
-  <span data-ice="kind">class</span>
-  
-  
-  
-  <span data-ice="source">| <span><a href="file/src/elements/WAudio.js.html#lineNumber1">source</a></span></span>
-</div>
+<div class="content" data-ice="content"><h1 data-ice="title">src/reusable_objects/WBall.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">export default Object.prototype.createBall = function (x,y) {
+    if (this.context) {
+        var $this = this
+        $this.x = 0
+        $this.y = 0
+        $this.vx = 5
+        $this.vy = 2
+        $this.radius = 25
+        $this.color = &apos;blue&apos;
+        $this.draw = function () {
+            $this.clearRect(0, 0, $this.element.width, $this.element.height);
+            $this.context.beginPath();
+            $this.context.arc($this.x, $this.y, $this.radius, 0, Math.PI * 2, true);
+            $this.context.closePath();
+            $this.context.fillStyle = $this.color;
+            $this.context.fill();
+            return $this
+        }
+        $this.toX = function (x) {
+            $this.x = x
+            return $this
+        }
+        $this.toY = function (y) {
+            $this.y = y
+            return $this
+        }
 
-<div class="self-detail detail">
-  <h1 data-ice="name">WAudio</h1>
+        $this.draw()
 
-  
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
+        return $this
+    }
+}</code></pre>
 
 </div>
 

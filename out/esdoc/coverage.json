@@ -1,7 +1,7 @@
 {
-  "coverage": "0%",
-  "expectCount": 54,
-  "actualCount": 0,
+  "coverage": "2.7%",
+  "expectCount": 74,
+  "actualCount": 2,
   "files": {
     "src/phisic/Phisic.js": {
       "expectCount": 2,
@@ -26,33 +26,45 @@
       ]
     },
     "src/elements/WCanvas.js": {
-      "expectCount": 24,
-      "actualCount": 0,
+      "expectCount": 37,
+      "actualCount": 1,
       "undocumentLines": [
         4,
-        84,
-        99,
-        90,
-        111,
-        78,
-        102,
+        139,
+        159,
+        147,
+        175,
+        131,
+        53,
+        163,
         5,
         9,
         12,
         15,
         18,
-        72,
+        123,
+        119,
+        64,
+        61,
+        70,
+        83,
+        101,
+        171,
+        127,
+        57,
+        151,
+        155,
+        143,
+        49,
+        25,
+        37,
         21,
-        26,
-        38,
-        55,
-        108,
-        75,
-        93,
-        96,
-        87,
-        105,
-        81
+        33,
+        45,
+        167,
+        135,
+        41,
+        29
       ]
     },
     "src/elements/WElement.js": {
@@ -60,22 +72,29 @@
       "actualCount": 0,
       "undocumentLines": [
         1,
-        45,
-        49,
-        57,
-        53,
+        48,
+        52,
+        60,
+        56,
+        20,
+        44,
         3,
         11,
-        20,
-        61,
-        14,
-        23,
-        41,
         17,
-        37,
-        29,
-        26,
-        33
+        14,
+        64,
+        40,
+        23,
+        31,
+        27,
+        36
+      ]
+    },
+    "src/enums/WGlobalCompositeOperationType.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
       ]
     },
     "src/elements/WImage.js": {
@@ -97,7 +116,28 @@
         4
       ]
     },
+    "src/reusable_objects/WBall.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
     "src/reusable_objects/WBallon.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/reusable_objects/WClockOne.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/reusable_objects/WFaceFeliz.js": {
       "expectCount": 1,
       "actualCount": 0,
       "undocumentLines": [
@@ -110,6 +150,25 @@
       "undocumentLines": [
         1
       ]
+    },
+    "src/reusable_objects/WTransformPointerOne.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/events/WFallMove.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/events/WMoveRandomOne.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
     }
   }
 }
