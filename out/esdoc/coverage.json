@@ -1,15 +1,8 @@
 {
-  "coverage": "47.91%",
-  "expectCount": 96,
-  "actualCount": 46,
+  "coverage": "53.1%",
+  "expectCount": 145,
+  "actualCount": 77,
   "files": {
-    "src/enums/WCanvasQuality.js": {
-      "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        1
-      ]
-    },
     "src/phisic/Phisic.js": {
       "expectCount": 2,
       "actualCount": 0,
@@ -26,42 +19,62 @@
       ]
     },
     "src/elements/WCanvas.js": {
-      "expectCount": 52,
-      "actualCount": 45,
+      "expectCount": 96,
+      "actualCount": 65,
       "undocumentLines": [
         8,
         16,
         13,
         19,
         22,
+        102,
+        99,
         31,
-        25
+        25,
+        78,
+        75,
+        81,
+        84,
+        90,
+        87,
+        96,
+        93,
+        48,
+        45,
+        66,
+        63,
+        51,
+        54,
+        57,
+        60,
+        69,
+        72,
+        105,
+        108,
+        111,
+        114
+      ]
+    },
+    "src/enums/WCanvasQuality.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
       ]
     },
     "src/elements/WElement.js": {
       "expectCount": 20,
-      "actualCount": 0,
+      "actualCount": 11,
       "undocumentLines": [
-        1,
-        59,
-        63,
-        71,
-        67,
         27,
-        55,
-        3,
-        11,
+        84,
+        7,
         24,
         21,
-        75,
-        51,
+        80,
         14,
         17,
-        34,
-        30,
-        42,
-        38,
-        47
+        76
       ]
     },
     "src/enums/WGlobalCompositeOperationType.js": {
@@ -82,7 +95,42 @@
         11
       ]
     },
+    "src/enums/WLineCap.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/enums/WLineJoin.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
     "src/enums/WMimeType.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/enums/WRepeat.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/enums/WTextAlign.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/enums/WTextBaseline.js": {
       "expectCount": 1,
       "actualCount": 0,
       "undocumentLines": [

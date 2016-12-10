@@ -10,7 +10,7 @@
     "access": null,
     "description": null,
     "lineNumber": 2,
-    "content": "//Parei em => https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Advanced_animations\nimport World from './world/World'\nimport WImage from './elements/WImage'\nimport WCanvas from './elements/WCanvas'\nimport WType from './enums/WType'\nimport WBallon from './reusable_objects/WBallon'\nimport WHeart from './reusable_objects/WHeart'\nimport WClockOne from './reusable_objects/WClockOne'\nimport WBall from './reusable_objects/WBall'\nimport WBallShadow from './reusable_objects/WBallShadow'\nimport WMoveRandomOne from './events/WMoveRandomOne'\nimport WFallMove from './events/WFallMove'\nimport WMouseFollow from './events/WMouseFollow'\nimport WMimeType from './enums/WMimeType'\nimport WCanvasQuality from './enums/WCanvasQuality'\n\nwindow.addEventListener(\"load\", function () {\n    var world = new World()\n    world.element.id = \"world1\"\n    world.addToBody()\n       \n    \n\n    // world.element.addEventListener('mousemove', pick)\n\n\n})"
+    "content": "//Parei em => https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Advanced_animations\nimport World from './world/World'\nimport WImage from './elements/WImage'\nimport WCanvas from './elements/WCanvas'\nimport WType from './enums/WType'\nimport WBallon from './reusable_objects/WBallon'\nimport WHeart from './reusable_objects/WHeart'\nimport WClockOne from './reusable_objects/WClockOne'\nimport WBall from './reusable_objects/WBall'\nimport WBallShadow from './reusable_objects/WBallShadow'\nimport WMoveRandomOne from './events/WMoveRandomOne'\nimport WFallMove from './events/WFallMove'\nimport WMouseFollow from './events/WMouseFollow'\nimport WMimeType from './enums/WMimeType'\nimport WCanvasQuality from './enums/WCanvasQuality'\n\nwindow.addEventListener(\"load\", function () {\n    var world = new World()\n    world.element.id = \"world1\"\n    world.addToBody()\n\n})"
   },
   {
     "__docId__": 1,
@@ -53,7 +53,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import WElement from './WElement'\nimport WType from '../enums/WType'\n/**\n * Emulate the Canvas element with features\n * @class\n */\nclass WCanvas extends WElement {\n    constructor() {\n        super('canvas')\n        this._context = this.context2D\n        this.element.id = \"canvas\"\n    }\n    get context() {\n        return this._context\n    }\n    set context(ctx) {\n        return this._context = this.getContext(ctx)\n    }\n    get context2D() {\n        return this.element.getContext('2d')\n    }\n    get context3D() {\n        return this.element.getContext('3d')\n    }\n    get imageSmoothingEnabled() {\n        return this.context.imageSmoothingEnabled\n            || this.context.mozImageSmoothingEnabled\n            || this.context.webkitImageSmoothingEnabled\n            || this.context.msImageSmoothingEnabled\n    }\n    set imageSmoothingEnabled(imageSmoothingEnabled) {\n        if (this.context.imageSmoothingEnabled) {\n            this.context.imageSmoothingEnabled = imageSmoothingEnabled\n        }\n        if (this.context.mozImageSmoothingEnabled) {\n            this.context.mozImageSmoothingEnabled = imageSmoothingEnabled\n        }\n        if (this.context.webkitImageSmoothingEnabled) {\n            this.context.webkitImageSmoothingEnabled = imageSmoothingEnabled\n        }\n        if (this.context.msImageSmoothingEnabled) {\n            this.context.msImageSmoothingEnabled = imageSmoothingEnabled\n        }\n    }\n    /**\n     * Saves the state of the current context\n     */\n    save() {\n        this.context.save()\n        return this\n    }\n    /**\n     * Previously saved path state and attributes\n     */\n    restore() {\n        this.context.restore()\n        return this\n    }\n    /**\n     * Remaps the (x,y) position on the canvas\n     * @param {number} x Eixo X\n     * @param {number} y Eixo Y\n     * @return {this}\n     */\n    translate(x, y) {\n        this.context.translate(x, y)\n        return this\n    }\n    /**\n     * Scale the (x,y) position on the canvas\n     * @param {number} x  Eixo X\n     * @param {number} y  Eixo Y\n     * @return {this}\n     */\n    scale(x, y) {\n        this.context.scale(x, y)\n        return this\n    }\n    /**\n     * Rotate the (x,y) position on the canvas\n     * @param {number} angle Ângulo\n     * @return {this}\n     */\n    rotate(angle) {\n        this.context.rotate(angle)\n        return this\n    }\n    /**\n     * Replaces the current transformation matrix for the drawing\n     * @param {number} a Horizontal scaling\n     * @param {number} b Horizontal skewing\n     * @param {number} c Vertical skewing\n     * @param {number} d Vertical scaling\n     * @param {number} e Horizontal moving\n     * @param {number} f Vertical moving\n     */\n    transform(a, b, c, d, e, f) {\n        this.context.transform(a, b, c, d, e, f)\n        return this\n    }\n    /**\n     * Resets the current transform to the identity matrix. Then runs \n     * @param {number} a Horizontal scaling\n     * @param {number} b Horizontal skewing\n     * @param {number} c Vertical skewing\n     * @param {number} d Vertical scaling\n     * @param {number} e Horizontal moving\n     * @param {number} f Vertical moving\n     */\n    setTransform(a, b, c, d, e, f) {\n        this.context.setTransform(a, b, c, d, e, f)\n        return this\n    }\n    /**\n     * Resets the current transform to 0\n     */\n    resetTransform() {\n        this.context.resetTransform()\n        return this\n    }\n    /**\n     * Clips a region of any shape and size from the original canvas\n     */\n    clip() {\n        this.context.clip()\n        return this\n    }\n    /**\n     * \tSets or returns the color, gradient, or pattern used to fill the drawing\n     * @param {style} color CSS   Color value that indicates the fill color of the drawing. Default value is #000000 \n     */\n    fillStyle(color) {\n        this.context.fillStyle = color\n        return this\n    }\n    /**\n     * The method creates a rectangle.\n     * @param {number} x\t     The x-coordinate of the upper-left corner of the rectangle\n     * @param {number} y\t     The y-coordinate of the upper-left corner of the rectangle\n     * @param {number} width\t The width of the rectangle, in pixels\n     * @param {number} height The height of the rectangle, in pixels\n     */\n    drawRect(x, y, width, height) {\n        this.context.rect(x, y, width, height)\n    }\n    /**\n     * The method creates a Line.\n     * @param {number} beginX  The begin of x-coordninate\n     * @param {number} beginY  The begin of y-coordinate\n     * @param {number} endX    The end x of Line\n     * @param {number} endY    The end y of the Line\n     */\n    drawLine(beginX, beginY, endX, endY) {\n        this.moveTo(beginX, beginY)\n        this.lineTo(endX, endY)\n        this.stroke()\n        return this\n    }\n    /**\n     * Draw a Square\n     * @param {number} x begin of square\n     * @param {number} y end of square\n     * @param {number} width width of square\n     * @param {number} height height of square\n     * @param {WType} type type of rect\n     */\n    drawSquare(x, y, width, height, type) {\n        switch (type) {\n            case WType.STROKE:\n                this.strokeRect(x, y, width, height, type)\n                break\n            case WType.CLEAR:\n                this.clearRect(x, y, width, height, type)\n                break\n            default:\n                this.fillRect(x, y, width, height, type)\n        }\n        return this\n    }\n    /**\n     * Draw a tringle\n     * @param {number} x Indicates the initial x-position\n     * @param {number} y Indicates the initial y-position\n     * @param {number} x1 Indicates the x left side\n     * @param {number} y1 Indicates the y left side\n     * @param {number} x2 Indicates the x right side\n     * @param {number} y2 Indicates the y right side\n     * @param {WType} type Type of rect\n     */\n    drawTriangle(x, y, x1, y1, x2, y2, type) {\n        this.beginPath()\n        this.moveTo(x, y)\n        this.lineTo(x1, y1)\n        this.lineTo(x2, y2)\n\n        switch (type) {\n            case WType.STROKE:\n                this.stroke()\n                break\n            case WType.CLEAR:\n                this.clear()\n                break\n            default:\n                this.fill()\n        }\n        return this\n    }\n    /**\n     * Draw a tringle by dimension\n     * @param {number} x Indicates the initial x-position\n     * @param {number} y Indicates the initial y-position\n     * @param {number} dimension Indicates the dimension\n     * @param {WType} type Type of rect\n     */\n    drawTriangleByDimension(x, y, dimension, type) {\n        this.beginPath()\n        this.moveTo(x, y)\n        this.lineTo(x - dimension, y + dimension)\n        this.lineTo(x + dimension, y + dimension)\n\n        switch (type) {\n            case WType.STROKE:\n                this.stroke()\n                break\n            case WType.CLEAR:\n                this.clear()\n                break\n            default:\n                this.fill()\n        }\n        return this\n    }\n    /**\n     * Draw a image\n     * @param {Image} image Image to rendering\n     * @param {number} x x-coordinate\n     * @param {number} y y-coordinate\n     */\n    drawImage(image, x, y) {\n        this.context.drawImage(image, x, y)\n        return this\n    }\n    /**\n     * Draw a image\n     * @param {Image} image Image to rendering\n     * @param {number} sx x-coordinate\n     * @param {number} sy y-coordinate\n     */\n    drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight) {\n        this.context.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)\n        return this\n    }\n    /**\n     * Create zoom of canvas in other canvas\n     * @param {number} zoomX zomm x-coordinate\n     * @param {number} zoomY zomm y-coordinate\n     * @param {WCanvas} destiny Canvas destination\n     * @param {number} destinyX Canvas destination x-coordinate\n     * @param {number} destinyY Canvas destination y-coordinate\n     * @param {number} originWidth Canvas Origin width\n     * @param {number} originHeight Canvas Origin height\n     * @param {number} destinyWidth Canvas destination width\n     * @param {number} destinyHeight Canvas destination height\n     * @param {boolean} smoothing anti-aliasing of zoom image\n     */\n    zoomImage(zoomX, zoomY, destiny, destinyX,\n        destinyY, originWidth, originHeight, destinyWidth, destinyHeight, smoothing) {\n        destiny.clearRect(0, 0, destiny.element.width, destiny.element.height)\n        if (smoothing)\n            destiny.setImageSmoothingEnabled(true)\n        else\n            destiny.setImageSmoothingEnabled(false)\n        destiny.drawImage(\n            this.element,\n            Math.abs(destinyX - 10),\n            Math.abs(destinyY - 5),\n            zoomX,\n            zoomY,\n            originWidth,\n            originHeight,\n            destinyWidth,\n            destinyHeight\n        )\n    }\n    /**\n     * Create a image\n     * @param {string} url Location of image\n     * @param {number} x x-coordinate\n     * @param {number} y y-coordinate\n     * @param {function} callback Callback function to invokes of load the image \n     */\n    createImage(url, x, y, callback) {\n        var $this = this\n        var img = new Image()\n        img.src = url\n        img.onload = function () {\n            $this.context.drawImage(img, x, y)\n            img.style.display = 'none'\n            if (callback) {\n                callback(img)\n            }\n            return this\n        }\n        // return tColor(image,x,y)this\n    }\n    /**\n     * @param {number} x x-coordinate\n     * @param {number} y y-coordinate\n     * @param {number} width Size on x-coordinate\n     * @param {number} height Size on y-coordinate\n     * @return {ImageData}\n     */\n    getImageData(x, y, width, height) {\n        return this.context.getImageData(x, y, width, height)\n    }\n    /**\n     * Put the image data on location\n     * @param {ImageData} imageData ImageData to put\n     * @param {number} x x-coordinate\n     * @param {number} y y-coordinate\n     * @return {ImageData} \n     */\n    putImageData(imageData, x, y) {\n        return this.context.putImageData(imageData, x, y)\n    }\n    /**\n     * Get string rgba from imageData\n     * @param {ImageData} imageData ImageData to get rgba\n     * @return {string} RGBA\n     */\n    //@TODO Fazer uma classe Rgba com métodos get de r g b a, e um que retorna tudo\n    getImageDataRGBA(imageData) {\n        return 'rgba('\n            + imageData.data[0]\n            + ',' + imageData.data[1]\n            + ',' + imageData.data[2]\n            + ',' + imageData.data[3] / 255 + ')'\n    }\n    /**\n     * Get string rgba from params\n     * @param {number} r Red\n     * @param {number} g Green\n     * @param {number} b Blue\n     * @param {number} a Opacity\n     * @return {string} RGBA\n     */\n    stringRGBA(r, g, b, a) {\n        return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')'\n    }\n    /**\n     * Method returns a data URI containing a representation of the image in the format specified by the type parameter.\n     * Defaults to PNG\n     * The returned image is in a resolution of 96 dpi.\n     * @param {WMimeType} type Type of DataUrl\n     * @param {WCanvasQuality} quality Quality of DataUrl \n     */\n    toDataURL(type, quality) {\n        var dataUrl = this.element.toDataURL(type, quality)\n        return dataUrl\n    }\n    /**\n     * Method creates a Blob object representing the image contained in the canvas\n     * @param {function} callback Function of callback to onload Blob\n     * @param {WMimeType} type Type of Blob\n     * @param {WCanvasQuality} quality Quality of Blob \n     */\n    toBlob(callback, type, quality) {\n        var toBlob = this.element.toDataURL(callback, type, quality)\n        return toBlob\n    }\n    /**\n     * Invert color of ImageData\n     * @param {ImageData} imageData ImageData to invert color\n     * @param {number} x x-coordinate\n     * @param {number} y y-coordinate\n     */\n    invertColor(imageData, x, y) {\n        var data = imageData.data\n        for (var i = 0; i < data.length; i += 4) {\n            data[i] = 255 - data[i]\n            data[i + 1] = 255 - data[i + 1]\n            data[i + 2] = 255 - data[i + 2]\n        }\n        this.putImageData(imageData, x, y)\n        return this\n    }\n    /**\n     * Invert Canvas Color\n     */\n    invertCanvasColor() {\n        var imageData = this.getImageData(0, 0, this.element.width, this.element.height)\n        this.invertColor(imageData, 0, 0)\n        return this\n    }\n    /**\n     * Grayscale color of ImageData\n     * @param {ImageData} imageData ImageData to grayscale color\n     * @param {number} x x-coordinate\n     * @param {number} y y-coordinate\n     */\n    grayscaleColor(imageData, x, y) {\n        var data = imageData.data\n        for (var i = 0; i < data.length; i += 4) {\n            var avg = (data[i] + data[i + 1] + data[i + 2]) / 3\n            data[i] = avg //red\n            data[i + 1] = avg //green\n            data[i + 2] = avg //blue\n        }\n        this.putImageData(imageData, x, y)\n        return this\n    }\n    /**\n     * Grayscale color\n     */\n    grayscaleCanvasColor() {\n        var imageData = this.getImageData(0, 0, this.element.width, this.element.height)\n        this.grayscaleColor(imageData, 0, 0)\n        return this\n    }\n    /**\n     * Draws a \"filled\" rectangle\n     * @param {number} x\t    The x-coordinate of the upper-left corner of the rectangle\n     * @param {number} y\t    The y-coordinate of the upper-left corner of the rectangle\n     * @param {number} width\tThe width of the rectangle, in pixels\n     * @param {number} height\tThe height of the rectangle, in pixels\n     * @param {WType} type      Type of Rect\n     */\n    fillRect(x, y, width, height, type) {\n        this.context.fillRect(x, y, width, height, type)\n        return this\n    }\n    /**\n     * Clear a rectangle\n     * @param {number} x\t    The x-coordinate of the upper-left corner of the rectangle\n     * @param {number} y\t    The y-coordinate of the upper-left corner of the rectangle\n     * @param {number} width\tThe width of the rectangle, in pixels\n     * @param {number} height\tThe height of the rectangle, in pixels\n     * @param {WType} type      Type of Rect\n     */\n    clearRect(x, y, width, height, type) {\n        this.context.clearRect(x, y, width, height, type)\n        return this\n    }\n    /**\n     * Stroke a rectangle\n     * @param {number} x\t    The x-coordinate of the upper-left corner of the rectangle\n     * @param {number} y\t    The y-coordinate of the upper-left corner of the rectangle\n     * @param {number} width\tThe width of the rectangle, in pixels\n     * @param {number} height\tThe height of the rectangle, in pixels\n     * @param {WType} type      Type of Rect\n     */\n    strokeRect(x, y, width, height, type) {\n        this.context.strokeRect(x, y, width, height, type)\n        return this\n    }\n    /**\n     * Creates an arc/curve (used to create circles, or parts of circles)\n     * @param {number} x\t            The x-coordinate of the center of the circle\n     * @param {number} y        \t    The y-coordinate of the center of the circle\n     * @param {number} radius\t            The radius of the circle\n     * @param {number} startAngle  \tThe starting angle, in radians (0 is at the 3 o'clock position of the arc's circle)\n     * @param {number} endAngle\t    The ending angle, in radians\n     * @param {number} anticlockwise\tOptional. Specifies whether the drawing should be counterclockwise or clockwise.\n     */\n    arc(x, y, radius, startAngle, endAngle, anticlockwise) {\n        this.context.arc(x, y, radius, startAngle, endAngle, anticlockwise)\n        return this\n    }\n    /**\n     * Creates a quadratic Bézier curve\n     * @param {number} cp1x\tThe x-coordinate of the Bézier control point\n     * @param {number} cp1y\tThe y-coordinate of the Bézier control point\n     * @param {number} x\tThe x-coordinate of the ending point\n     * @param {number} y\tThe y-coordinate of the ending point\n     */\n    quadraticCurveTo(cp1x, cp1y, x, y) {\n        this.context.quadraticCurveTo(cp1x, cp1y, x, y)\n        return this\n    }\n    /**\n    * Creates a cubic Bézier curve\n    * @param {number} cp1x\tThe x-coordinate of the first Bézier control point\n    * @param {number} cp1y\tThe y-coordinate of the first Bézier control point\n    * @param {number} cp2x\tThe x-coordinate of the second Bézier control point\n    * @param {number} cp2y\tThe y-coordinate of the second Bézier control point\n    * @param {number} x\tThe x-coordinate of the ending point\n    * @param {number} y\tThe y-coordinate of the ending point\n    */\n    bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y) {\n        this.context.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)\n        return this\n    }\n    /**\n     * Set Smoothing configuration enable\n     * @param {boolean} imageSmoothingEnabled Enabled or disable the configuration\n     */\n    setImageSmoothingEnabled(imageSmoothingEnabled) {\n        this.imageSmoothingEnabled = imageSmoothingEnabled\n        return this\n    }\n    /**\n     * Adds a new point and creates a line to that point from the last specified point in the canvas\n     * @param {number} x x-coordinate\n     * @param {number} y y-coordinate\n     */\n    lineTo(x, y) {\n        this.context.lineTo(x, y)\n        return this\n    }\n    /**\n     * Moves the path to the specified point in the canvas, without creating a line\n     * @param {number} x x-coordinate\n     * @param {number} y y-coordinate\n     */\n    moveTo(x, y) {\n        this.context.moveTo(x, y)\n        return this\n    }\n    /**\n     * Begins a path, or resets the current path\n     */\n    beginPath() {\n        this.context.beginPath()\n        return this\n    }\n    /**\n     * Creates a path from the current point back to the starting point\n     */\n    closePath() {\n        this.context.closePath()\n        return this\n    }\n    /**\n     * Actually draws the path you have defined\n     */\n    stroke() {\n        this.context.stroke()\n        return this\n    }\n    /**\n     * Fills the current drawing (path)\n     */\n    fill() {\n        this.context.fill()\n        return this\n    }\n    /**\n     * Clear the context\n     */\n    clear() {\n        this.context.clear()\n        return this\n    }\n    /**\n     * @TODO\n     * Esta função será implementada\n     * Ela está aqui somente para me lembrar de como fazer animações\n     */\n    requestAnimationFrame(fn) {\n        return window.requestAnimationFrame(draw)\n    }\n\n}\n\nexport default WCanvas"
+    "content": "import WElement from './WElement'\nimport WType from '../enums/WType'\n/**\n * Emulate the Canvas element with features\n * @class\n */\nclass WCanvas extends WElement {\n    constructor() {\n        super('canvas')\n        this._context = this.context2D\n        this.element.id = \"canvas\"\n    }\n    get context() {\n        return this._context\n    }\n    set context(ctx) {\n        return this._context = this.getContext(ctx)\n    }\n    get context2D() {\n        return this.element.getContext('2d')\n    }\n    get context3D() {\n        return this.element.getContext('3d')\n    }\n    get imageSmoothingEnabled() {\n        return this.context.imageSmoothingEnabled\n            || this.context.mozImageSmoothingEnabled\n            || this.context.webkitImageSmoothingEnabled\n            || this.context.msImageSmoothingEnabled\n    }\n    set imageSmoothingEnabled(imageSmoothingEnabled) {\n        if (this.context.imageSmoothingEnabled) {\n            this.context.imageSmoothingEnabled = imageSmoothingEnabled\n        }\n        if (this.context.mozImageSmoothingEnabled) {\n            this.context.mozImageSmoothingEnabled = imageSmoothingEnabled\n        }\n        if (this.context.webkitImageSmoothingEnabled) {\n            this.context.webkitImageSmoothingEnabled = imageSmoothingEnabled\n        }\n        if (this.context.msImageSmoothingEnabled) {\n            this.context.msImageSmoothingEnabled = imageSmoothingEnabled\n        }\n    }\n    get shadowBlur() {\n        return this.context.shadowBlur\n    }\n    set shadowBlur(offset) {\n        this.context.shadowBlur = offset\n    }\n    get shadowOffsetX() {\n        return this.context.shadowOffsetX\n    }\n    set shadowOffsetX(offset) {\n        this.context.shadowOffsetX = offset\n    }\n    get shadowOffsetY() {\n        return this.context.shadowOffsetY\n    }\n    set shadowOffsetY(offset) {\n        this.context.shadowOffsetY = offset\n    }\n    get shadowColor() {\n        return this.context.shadowColor\n    }\n    set shadowColor(shadowColor) {\n        this.context.shadowColor = shadowColor\n    }\n    get strokeStyle() {\n        return this.context.strokeStyle\n    }\n    set strokeStyle(strokeStyle) {\n        this.context.strokeStyle = strokeStyle\n    }\n    get lineCap() {\n        return this.context.lineCap\n    }\n    set lineCap(lineCap) {\n        this.context.lineCap = lineCap\n    }\n    get lineJoin() {\n        return this.context.lineJoin\n    }\n    set lineJoin(lineJoin) {\n        this.context.lineJoin = lineJoin\n    }\n    get lineWidth() {\n        return this.context.lineWidth\n    }\n    set lineWidth(lineWidth) {\n        this.context.lineWidth = lineWidth\n    }\n    get miterLimit() {\n        return this.context.miterLimit\n    }\n    set miterLimit(miterLimit) {\n        this.context.miterLimit = miterLimit\n    }\n    get font() {\n        return this.context.font\n    }\n    set font(font) {\n        this.context.font = font\n    }\n    get textAlign() {\n        return this.context.textAlign\n    }\n    set textAlign(textAlign) {\n        this.context.textAlign = textAlign\n    }\n    get textBaseline() {\n        return this.context.textBaseline\n    }\n    set textBaseline(textBaseline) {\n        this.context.textBaseline = textBaseline\n    }\n    /**\n     * Method returns an object that contains the width of the specified text, in pixels.\n     * @param {string} text\tThe text to be measured\n     * @returns {string}\n     */\n    fillText(text) {\n        return this.context.measureText(text)\n    }\n    /**\n     * Method draws filled text on the canvas. The default color of the text is black.\n     * @param {string} text\tSpecifies the text that will be written on the canvas\n     * @param {number} x\tThe x coordinate where to start painting the text (relative to the canvas)\n     * @param {number} y\tThe y coordinate where to start painting the text (relative to the canvas)\n     * @param {number} maxWidth\tOptional. The maximum allowed width of the text, in pixels\n     */\n    fillText(text, x, y, maxWidth) {\n        this.context.fillText(text, x, y, maxWidth)\n        return this\n    }\n    /**\n     * Method draws text (with no fill) on the canvas. The default color of the text is black.\n     * @param {string} text\tSpecifies the text that will be written on the canvas\n     * @param {number} x\tThe x coordinate where to start painting the text (relative to the canvas)\n     * @param {number} y\tThe y coordinate where to start painting the text (relative to the canvas)\n     * @param {number} maxWidth\tOptional. The maximum allowed width of the text, in pixels\n     */\n    strokeText(text, x, y, maxWidth) {\n        this.context.strokeText(text, x, y, maxWidth)\n        return this\n    }\n    /**\n     * The textBaseline property sets or returns the current text baseline used when drawing text.\n     * @param {WTextBaseline} textBaseline\ttextBaseline to set\n     */\n    setTextBaseline(textBaseline) {\n        this.textBaseline = textBaseline\n        return this\n    }\n    /**\n     * The textAlign property sets or returns the current alignment for text content, according to the anchor point.\n     * @param {WTextAlign} textAlign\tTextAlign to set\n     */\n    setTextAlign(textAlign) {\n        this.textAlign = textAlign\n        return this\n    }\n    /**\n     * The font property sets or returns the current font properties for text content on the canvas.\n     * @param {string} font\tFont to select\n     */\n    setFont(font) {\n        this.font = font\n        return this\n    }\n    /**\n     * Method returns true if the specified point is in the current path, otherwise false.\n     * @param {x} x\tThe x-coordinate to test\n     * @param {y} y\tThe y-coordinate to test\n     */\n    isPointInPath(x, y) {\n        return this.context.isPointInPath(x, y)\n    }\n    /**\n     * The miterLimit property sets or returns the style of the end caps for a line.\n     * @param {number} miterLimit\tA positive number that specifies the maximum miter length. If the current miter length exceeds the miterLimit, the corner will display as lineJoin \"bevel\"\n     */\n    setMiterLimit(miterLimit) {\n        this.miterLimit = miterLimit\n        return this\n    }\n    /**\n     * The lineWidth property sets or returns the style of the end caps for a line.\n     * @param {number} lineWidth\tSpecifies the lineWidth\n     */\n    setLineWidth(lineWidth) {\n        this.lineWidth = lineWidth\n        return this\n    }\n    /**\n     * The lineJoin property sets or returns the style of the end caps for a line.\n     * @param {WLineJoin} lineJoin\tSpecifies the lineJoin\n     */\n    setLineJoin(lineJoin) {\n        this.lineJoin = lineJoin\n        return this\n    }\n    /**\n     * The lineCap property sets or returns the style of the end caps for a line.\n     * @param {WLineCap} lineCap\tSpecifies the lineCap\n     */\n    setLineCap(lineCap) {\n        this.lineCap = lineCap\n        return this\n    }\n    /**\n     * Method repeats the specified element in the specified direction.\n     * @param {Object} image\tSpecifies the image, canvas, or video element of the pattern to use\t \n     * @param {WRepeat} repeat\tDefault. The pattern repeats\n     */\n    createPattern(image, repeat) {\n        this.context.createPattern(image, repeat)\n        return this\n    }\n    /**\n     * Method specifies the colors and position in a gradient object.\n     * @param {number} stop\tA value between 0.0 and 1.0 that represents the position between start and end in a gradient\n     * @param {string} color A CSS color value to display at the stop position\n     */\n    addColorStop(stop, color) {\n        this.context.addColorStop(stop, color)\n        return this\n    }\n    /**\n     * Method creates a radial gradient object.\n     * @param {number} x0 The x-coordinate of the start point of the gradient\n     * @param {number} y0 The y-coordinate of the start point of the gradient\n     * @param {number} r0 The radius of the gradient\n     * @param {number} x1 The x-coordinate of the end point of the gradient\n     * @param {number} y1 The y-coordinate of the end point of the gradient\n     * @param {number} r1 The radius of the gradient\n     */\n    createRadialGradient(x0, y0, r0, x1, y1, r1) {\n        this.context.createRadialGradient(x0, y0, r0, x1, y1, r1)\n        return this\n    }\n    /**\n     * Method creates a linear gradient object.\n     * @param {number} x0 The x-coordinate of the start point of the gradient\n     * @param {number} y0 The y-coordinate of the start point of the gradient\n     * @param {number} x1 The x-coordinate of the end point of the gradient\n     * @param {number} y1 The y-coordinate of the end point of the gradient\n     */\n    createLinearGradient(x0, y0, x1, y1) {\n        this.context.createLinearGradient(x0, y0, x1, y1)\n        return this\n    }\n    /**\n     * Set strokeStyle of context\n     * @param {Color} strokeStyle Offset of shadow blur\n     */\n    setStrokeStyle(strokeStyle) {\n        this.strokeStyle = strokeStyle\n        return this\n    }\n    /**\n     * Set shadowColor of context\n     * @param {Color} shadowColor Offset of shadow blur\n     */\n    setShadowColor(shadowColor) {\n        this.shadowColor = shadowColor\n        return this\n    }\n    /**\n     * Set Shadow of context\n     * @param {number} offset Offset of shadow blur\n     */\n    setShadowBlur(offset) {\n        this.shadowBlur = offset\n        return this\n    }\n    /**\n     * Set X-Shadow of context\n     * @param {number} offset Offset of shadow blur\n     */\n    setShadowBlurX(offset) {\n        this.shadowOffsetX = offset\n        return this\n    }\n    /**\n     * Set Y-Shadow of context\n     * @param {number} offset Offset of shadow blur\n     */\n    setShadowBlurY(offset) {\n        this.shadowOffsetY = offset\n        return this\n    }\n    /**\n     * Saves the state of the current context\n     */\n    save() {\n        this.context.save()\n        return this\n    }\n    /**\n     * Previously saved path state and attributes\n     */\n    restore() {\n        this.context.restore()\n        return this\n    }\n    /**\n     * Remaps the (x,y) position on the canvas\n     * @param {number} x Eixo X\n     * @param {number} y Eixo Y\n     * @return {this}\n     */\n    translate(x, y) {\n        this.context.translate(x, y)\n        return this\n    }\n    /**\n     * Scale the (x,y) position on the canvas\n     * @param {number} x  Eixo X\n     * @param {number} y  Eixo Y\n     * @return {this}\n     */\n    scale(x, y) {\n        this.context.scale(x, y)\n        return this\n    }\n    /**\n     * Rotate the (x,y) position on the canvas\n     * @param {number} angle Ângulo\n     * @return {this}\n     */\n    rotate(angle) {\n        this.context.rotate(angle)\n        return this\n    }\n    /**\n     * Replaces the current transformation matrix for the drawing\n     * @param {number} a Horizontal scaling\n     * @param {number} b Horizontal skewing\n     * @param {number} c Vertical skewing\n     * @param {number} d Vertical scaling\n     * @param {number} e Horizontal moving\n     * @param {number} f Vertical moving\n     */\n    transform(a, b, c, d, e, f) {\n        this.context.transform(a, b, c, d, e, f)\n        return this\n    }\n    /**\n     * Resets the current transform to the identity matrix. Then runs \n     * @param {number} a Horizontal scaling\n     * @param {number} b Horizontal skewing\n     * @param {number} c Vertical skewing\n     * @param {number} d Vertical scaling\n     * @param {number} e Horizontal moving\n     * @param {number} f Vertical moving\n     */\n    setTransform(a, b, c, d, e, f) {\n        this.context.setTransform(a, b, c, d, e, f)\n        return this\n    }\n    /**\n     * Resets the current transform to 0\n     */\n    resetTransform() {\n        this.context.resetTransform()\n        return this\n    }\n    /**\n     * Clips a region of any shape and size from the original canvas\n     */\n    clip() {\n        this.context.clip()\n        return this\n    }\n    /**\n     * \tSets or returns the color, gradient, or pattern used to fill the drawing\n     * @param {style} color CSS   Color value that indicates the fill color of the drawing. Default value is #000000 \n     */\n    fillStyle(color) {\n        this.context.fillStyle = color\n        return this\n    }\n    /**\n     * The method creates a rectangle.\n     * @param {number} x\t     The x-coordinate of the upper-left corner of the rectangle\n     * @param {number} y\t     The y-coordinate of the upper-left corner of the rectangle\n     * @param {number} width\t The width of the rectangle, in pixels\n     * @param {number} height The height of the rectangle, in pixels\n     */\n    drawRect(x, y, width, height) {\n        this.context.rect(x, y, width, height)\n    }\n    /**\n     * The method creates a Line.\n     * @param {number} beginX  The begin of x-coordninate\n     * @param {number} beginY  The begin of y-coordinate\n     * @param {number} endX    The end x of Line\n     * @param {number} endY    The end y of the Line\n     */\n    drawLine(beginX, beginY, endX, endY) {\n        this.moveTo(beginX, beginY)\n        this.lineTo(endX, endY)\n        this.stroke()\n        return this\n    }\n    /**\n     * Draw a Square\n     * @param {number} x begin of square\n     * @param {number} y end of square\n     * @param {number} width width of square\n     * @param {number} height height of square\n     * @param {WType} type type of rect\n     */\n    drawSquare(x, y, width, height, type) {\n        switch (type) {\n            case WType.STROKE:\n                this.strokeRect(x, y, width, height, type)\n                break\n            case WType.CLEAR:\n                this.clearRect(x, y, width, height, type)\n                break\n            default:\n                this.fillRect(x, y, width, height, type)\n        }\n        return this\n    }\n    /**\n     * Draw a tringle\n     * @param {number} x Indicates the initial x-position\n     * @param {number} y Indicates the initial y-position\n     * @param {number} x1 Indicates the x left side\n     * @param {number} y1 Indicates the y left side\n     * @param {number} x2 Indicates the x right side\n     * @param {number} y2 Indicates the y right side\n     * @param {WType} type Type of rect\n     */\n    drawTriangle(x, y, x1, y1, x2, y2, type) {\n        this.beginPath()\n        this.moveTo(x, y)\n        this.lineTo(x1, y1)\n        this.lineTo(x2, y2)\n\n        switch (type) {\n            case WType.STROKE:\n                this.stroke()\n                break\n            case WType.CLEAR:\n                this.clear()\n                break\n            default:\n                this.fill()\n        }\n        return this\n    }\n    /**\n     * Draw a tringle by dimension\n     * @param {number} x Indicates the initial x-position\n     * @param {number} y Indicates the initial y-position\n     * @param {number} dimension Indicates the dimension\n     * @param {WType} type Type of rect\n     */\n    drawTriangleByDimension(x, y, dimension, type) {\n        this.beginPath()\n        this.moveTo(x, y)\n        this.lineTo(x - dimension, y + dimension)\n        this.lineTo(x + dimension, y + dimension)\n\n        switch (type) {\n            case WType.STROKE:\n                this.stroke()\n                break\n            case WType.CLEAR:\n                this.clear()\n                break\n            default:\n                this.fill()\n        }\n        return this\n    }\n    /**\n     * Draw a image\n     * @param {Image} image Image to rendering\n     * @param {number} x x-coordinate\n     * @param {number} y y-coordinate\n     */\n    drawImage(image, x, y) {\n        this.context.drawImage(image, x, y)\n        return this\n    }\n    /**\n     * Draw a image\n     * @param {Image} image Image to rendering\n     * @param {number} sx x-coordinate\n     * @param {number} sy y-coordinate\n     */\n    drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight) {\n        this.context.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)\n        return this\n    }\n    /**\n     * Create zoom of canvas in other canvas\n     * @param {number} zoomX zomm x-coordinate\n     * @param {number} zoomY zomm y-coordinate\n     * @param {WCanvas} destiny Canvas destination\n     * @param {number} destinyX Canvas destination x-coordinate\n     * @param {number} destinyY Canvas destination y-coordinate\n     * @param {number} originWidth Canvas Origin width\n     * @param {number} originHeight Canvas Origin height\n     * @param {number} destinyWidth Canvas destination width\n     * @param {number} destinyHeight Canvas destination height\n     * @param {boolean} smoothing anti-aliasing of zoom image\n     */\n    zoomImage(zoomX, zoomY, destiny, destinyX,\n        destinyY, originWidth, originHeight, destinyWidth, destinyHeight, smoothing) {\n        destiny.clearRect(0, 0, destiny.element.width, destiny.element.height)\n        if (smoothing)\n            destiny.setImageSmoothingEnabled(true)\n        else\n            destiny.setImageSmoothingEnabled(false)\n        destiny.drawImage(\n            this.element,\n            Math.abs(destinyX - 10),\n            Math.abs(destinyY - 5),\n            zoomX,\n            zoomY,\n            originWidth,\n            originHeight,\n            destinyWidth,\n            destinyHeight\n        )\n    }\n    /**\n     * Create a image\n     * @param {string} url Location of image\n     * @param {number} x x-coordinate\n     * @param {number} y y-coordinate\n     * @param {function} callback Callback function to invokes of load the image \n     */\n    createImage(url, x, y, callback) {\n        var $this = this\n        var img = new Image()\n        img.src = url\n        img.onload = function() {\n            $this.context.drawImage(img, x, y)\n            img.style.display = 'none'\n            if (callback) {\n                callback(img)\n            }\n            return this\n        }\n        // return tColor(image,x,y)this\n    }\n    /**\n     * @param {number} x x-coordinate\n     * @param {number} y y-coordinate\n     * @param {number} width Size on x-coordinate\n     * @param {number} height Size on y-coordinate\n     * @return {ImageData}\n     */\n    getImageData(x, y, width, height) {\n        return this.context.getImageData(x, y, width, height)\n    }\n    /**\n     * Put the image data on location\n     * @param {ImageData} imageData ImageData to put\n     * @param {number} x x-coordinate\n     * @param {number} y y-coordinate\n     * @return {ImageData} \n     */\n    putImageData(imageData, x, y) {\n        return this.context.putImageData(imageData, x, y)\n    }\n    /**\n     * Get string rgba from imageData\n     * @param {ImageData} imageData ImageData to get rgba\n     * @return {string} RGBA\n     */\n    //@TODO Fazer uma classe Rgba com métodos get de r g b a, e um que retorna tudo\n    getImageDataRGBA(imageData) {\n        return 'rgba('\n            + imageData.data[0]\n            + ',' + imageData.data[1]\n            + ',' + imageData.data[2]\n            + ',' + imageData.data[3] / 255 + ')'\n    }\n    /**\n     * Get string rgba from params\n     * @param {number} r Red\n     * @param {number} g Green\n     * @param {number} b Blue\n     * @param {number} a Opacity\n     * @return {string} RGBA\n     */\n    stringRGBA(r, g, b, a) {\n        return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')'\n    }\n    /**\n     * Method returns a data URI containing a representation of the image in the format specified by the type parameter.\n     * Defaults to PNG\n     * The returned image is in a resolution of 96 dpi.\n     * @param {WMimeType} type Type of DataUrl\n     * @param {WCanvasQuality} quality Quality of DataUrl \n     */\n    toDataURL(type, quality) {\n        var dataUrl = this.element.toDataURL(type, quality)\n        return dataUrl\n    }\n    /**\n     * Method creates a Blob object representing the image contained in the canvas\n     * @param {function} callback Function of callback to onload Blob\n     * @param {WMimeType} type Type of Blob\n     * @param {WCanvasQuality} quality Quality of Blob \n     */\n    toBlob(callback, type, quality) {\n        var toBlob = this.element.toDataURL(callback, type, quality)\n        return toBlob\n    }\n    /**\n     * Invert color of ImageData\n     * @param {ImageData} imageData ImageData to invert color\n     * @param {number} x x-coordinate\n     * @param {number} y y-coordinate\n     */\n    invertColor(imageData, x, y) {\n        var data = imageData.data\n        for (var i = 0; i < data.length; i += 4) {\n            data[i] = 255 - data[i]\n            data[i + 1] = 255 - data[i + 1]\n            data[i + 2] = 255 - data[i + 2]\n        }\n        this.putImageData(imageData, x, y)\n        return this\n    }\n    /**\n     * Invert Canvas Color\n     */\n    invertCanvasColor() {\n        var imageData = this.getImageData(0, 0, this.element.width, this.element.height)\n        this.invertColor(imageData, 0, 0)\n        return this\n    }\n    /**\n     * Grayscale color of ImageData\n     * @param {ImageData} imageData ImageData to grayscale color\n     * @param {number} x x-coordinate\n     * @param {number} y y-coordinate\n     */\n    grayscaleColor(imageData, x, y) {\n        var data = imageData.data\n        for (var i = 0; i < data.length; i += 4) {\n            var avg = (data[i] + data[i + 1] + data[i + 2]) / 3\n            data[i] = avg //red\n            data[i + 1] = avg //green\n            data[i + 2] = avg //blue\n        }\n        this.putImageData(imageData, x, y)\n        return this\n    }\n    /**\n     * Grayscale color\n     */\n    grayscaleCanvasColor() {\n        var imageData = this.getImageData(0, 0, this.element.width, this.element.height)\n        this.grayscaleColor(imageData, 0, 0)\n        return this\n    }\n    /**\n     * Draws a \"filled\" rectangle\n     * @param {number} x\t    The x-coordinate of the upper-left corner of the rectangle\n     * @param {number} y\t    The y-coordinate of the upper-left corner of the rectangle\n     * @param {number} width\tThe width of the rectangle, in pixels\n     * @param {number} height\tThe height of the rectangle, in pixels\n     * @param {WType} type      Type of Rect\n     */\n    fillRect(x, y, width, height, type) {\n        this.context.fillRect(x, y, width, height, type)\n        return this\n    }\n    /**\n     * Clear a rectangle\n     * @param {number} x\t    The x-coordinate of the upper-left corner of the rectangle\n     * @param {number} y\t    The y-coordinate of the upper-left corner of the rectangle\n     * @param {number} width\tThe width of the rectangle, in pixels\n     * @param {number} height\tThe height of the rectangle, in pixels\n     * @param {WType} type      Type of Rect\n     */\n    clearRect(x, y, width, height, type) {\n        this.context.clearRect(x, y, width, height, type)\n        return this\n    }\n    /**\n     * Stroke a rectangle\n     * @param {number} x\t    The x-coordinate of the upper-left corner of the rectangle\n     * @param {number} y\t    The y-coordinate of the upper-left corner of the rectangle\n     * @param {number} width\tThe width of the rectangle, in pixels\n     * @param {number} height\tThe height of the rectangle, in pixels\n     * @param {WType} type      Type of Rect\n     */\n    strokeRect(x, y, width, height, type) {\n        this.context.strokeRect(x, y, width, height, type)\n        return this\n    }\n    /**\n     * Creates an arc/curve (used to create circles, or parts of circles)\n     * @param {number} x\t            The x-coordinate of the center of the circle\n     * @param {number} y        \t    The y-coordinate of the center of the circle\n     * @param {number} radius\t            The radius of the circle\n     * @param {number} startAngle  \tThe starting angle, in radians (0 is at the 3 o'clock position of the arc's circle)\n     * @param {number} endAngle\t    The ending angle, in radians\n     * @param {number} anticlockwise\tOptional. Specifies whether the drawing should be counterclockwise or clockwise.\n     */\n    arc(x, y, radius, startAngle, endAngle, anticlockwise) {\n        this.context.arc(x, y, radius, startAngle, endAngle, anticlockwise)\n        return this\n    }\n    /**\n     * Creates a quadratic Bézier curve\n     * @param {number} cp1x\tThe x-coordinate of the Bézier control point\n     * @param {number} cp1y\tThe y-coordinate of the Bézier control point\n     * @param {number} x\tThe x-coordinate of the ending point\n     * @param {number} y\tThe y-coordinate of the ending point\n     */\n    quadraticCurveTo(cp1x, cp1y, x, y) {\n        this.context.quadraticCurveTo(cp1x, cp1y, x, y)\n        return this\n    }\n    /**\n    * Creates a cubic Bézier curve\n    * @param {number} cp1x\tThe x-coordinate of the first Bézier control point\n    * @param {number} cp1y\tThe y-coordinate of the first Bézier control point\n    * @param {number} cp2x\tThe x-coordinate of the second Bézier control point\n    * @param {number} cp2y\tThe y-coordinate of the second Bézier control point\n    * @param {number} x\tThe x-coordinate of the ending point\n    * @param {number} y\tThe y-coordinate of the ending point\n    */\n    bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y) {\n        this.context.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)\n        return this\n    }\n    /**\n     * Set Smoothing configuration enable\n     * @param {boolean} imageSmoothingEnabled Enabled or disable the configuration\n     */\n    setImageSmoothingEnabled(imageSmoothingEnabled) {\n        this.imageSmoothingEnabled = imageSmoothingEnabled\n        return this\n    }\n\n    /**\n     * Adds a new point and creates a line to that point from the last specified point in the canvas\n     * @param {number} x x-coordinate\n     * @param {number} y y-coordinate\n     */\n    lineTo(x, y) {\n        this.context.lineTo(x, y)\n        return this\n    }\n    /**\n     * Moves the path to the specified point in the canvas, without creating a line\n     * @param {number} x x-coordinate\n     * @param {number} y y-coordinate\n     */\n    moveTo(x, y) {\n        this.context.moveTo(x, y)\n        return this\n    }\n    /**\n     * Begins a path, or resets the current path\n     */\n    beginPath() {\n        this.context.beginPath()\n        return this\n    }\n    /**\n     * Creates a path from the current point back to the starting point\n     */\n    closePath() {\n        this.context.closePath()\n        return this\n    }\n    /**\n     * Actually draws the path you have defined\n     */\n    stroke() {\n        this.context.stroke()\n        return this\n    }\n    /**\n     * Fills the current drawing (path)\n     */\n    fill() {\n        this.context.fill()\n        return this\n    }\n    /**\n     * Clear the context\n     */\n    clear() {\n        this.context.clear()\n        return this\n    }\n    /**\n     * @TODO\n     * Esta função será implementada\n     * Ela está aqui somente para me lembrar de como fazer animações\n     */\n    requestAnimationFrame(fn) {\n        return window.requestAnimationFrame(draw)\n    }\n\n}\n\nexport default WCanvas"
   },
   {
     "__docId__": 4,
@@ -229,17 +229,17 @@
   },
   {
     "__docId__": 13,
-    "kind": "method",
+    "kind": "get",
     "static": false,
     "variation": null,
-    "name": "save",
+    "name": "shadowBlur",
     "memberof": "src/elements/WCanvas.js~WCanvas",
-    "longname": "src/elements/WCanvas.js~WCanvas#save",
+    "longname": "src/elements/WCanvas.js~WCanvas#shadowBlur",
     "access": null,
-    "description": "Saves the state of the current context",
-    "lineNumber": 48,
-    "params": [],
-    "return": {
+    "description": null,
+    "lineNumber": 45,
+    "undocument": true,
+    "type": {
       "types": [
         "*"
       ]
@@ -248,15 +248,1447 @@
   },
   {
     "__docId__": 14,
+    "kind": "set",
+    "static": false,
+    "variation": null,
+    "name": "shadowBlur",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#shadowBlur",
+    "access": null,
+    "description": null,
+    "lineNumber": 48,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 15,
+    "kind": "get",
+    "static": false,
+    "variation": null,
+    "name": "shadowOffsetX",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#shadowOffsetX",
+    "access": null,
+    "description": null,
+    "lineNumber": 51,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 16,
+    "kind": "set",
+    "static": false,
+    "variation": null,
+    "name": "shadowOffsetX",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#shadowOffsetX",
+    "access": null,
+    "description": null,
+    "lineNumber": 54,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 17,
+    "kind": "get",
+    "static": false,
+    "variation": null,
+    "name": "shadowOffsetY",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#shadowOffsetY",
+    "access": null,
+    "description": null,
+    "lineNumber": 57,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 18,
+    "kind": "set",
+    "static": false,
+    "variation": null,
+    "name": "shadowOffsetY",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#shadowOffsetY",
+    "access": null,
+    "description": null,
+    "lineNumber": 60,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 19,
+    "kind": "get",
+    "static": false,
+    "variation": null,
+    "name": "shadowColor",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#shadowColor",
+    "access": null,
+    "description": null,
+    "lineNumber": 63,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 20,
+    "kind": "set",
+    "static": false,
+    "variation": null,
+    "name": "shadowColor",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#shadowColor",
+    "access": null,
+    "description": null,
+    "lineNumber": 66,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 21,
+    "kind": "get",
+    "static": false,
+    "variation": null,
+    "name": "strokeStyle",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#strokeStyle",
+    "access": null,
+    "description": null,
+    "lineNumber": 69,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 22,
+    "kind": "set",
+    "static": false,
+    "variation": null,
+    "name": "strokeStyle",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#strokeStyle",
+    "access": null,
+    "description": null,
+    "lineNumber": 72,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 23,
+    "kind": "get",
+    "static": false,
+    "variation": null,
+    "name": "lineCap",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#lineCap",
+    "access": null,
+    "description": null,
+    "lineNumber": 75,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 24,
+    "kind": "set",
+    "static": false,
+    "variation": null,
+    "name": "lineCap",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#lineCap",
+    "access": null,
+    "description": null,
+    "lineNumber": 78,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 25,
+    "kind": "get",
+    "static": false,
+    "variation": null,
+    "name": "lineJoin",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#lineJoin",
+    "access": null,
+    "description": null,
+    "lineNumber": 81,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 26,
+    "kind": "set",
+    "static": false,
+    "variation": null,
+    "name": "lineJoin",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#lineJoin",
+    "access": null,
+    "description": null,
+    "lineNumber": 84,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 27,
+    "kind": "get",
+    "static": false,
+    "variation": null,
+    "name": "lineWidth",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#lineWidth",
+    "access": null,
+    "description": null,
+    "lineNumber": 87,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 28,
+    "kind": "set",
+    "static": false,
+    "variation": null,
+    "name": "lineWidth",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#lineWidth",
+    "access": null,
+    "description": null,
+    "lineNumber": 90,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 29,
+    "kind": "get",
+    "static": false,
+    "variation": null,
+    "name": "miterLimit",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#miterLimit",
+    "access": null,
+    "description": null,
+    "lineNumber": 93,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 30,
+    "kind": "set",
+    "static": false,
+    "variation": null,
+    "name": "miterLimit",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#miterLimit",
+    "access": null,
+    "description": null,
+    "lineNumber": 96,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 31,
+    "kind": "get",
+    "static": false,
+    "variation": null,
+    "name": "font",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#font",
+    "access": null,
+    "description": null,
+    "lineNumber": 99,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 32,
+    "kind": "set",
+    "static": false,
+    "variation": null,
+    "name": "font",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#font",
+    "access": null,
+    "description": null,
+    "lineNumber": 102,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 33,
+    "kind": "get",
+    "static": false,
+    "variation": null,
+    "name": "textAlign",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#textAlign",
+    "access": null,
+    "description": null,
+    "lineNumber": 105,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 34,
+    "kind": "set",
+    "static": false,
+    "variation": null,
+    "name": "textAlign",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#textAlign",
+    "access": null,
+    "description": null,
+    "lineNumber": 108,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 35,
+    "kind": "get",
+    "static": false,
+    "variation": null,
+    "name": "textBaseline",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#textBaseline",
+    "access": null,
+    "description": null,
+    "lineNumber": 111,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 36,
+    "kind": "set",
+    "static": false,
+    "variation": null,
+    "name": "textBaseline",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#textBaseline",
+    "access": null,
+    "description": null,
+    "lineNumber": 114,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 37,
     "kind": "method",
     "static": false,
     "variation": null,
-    "name": "restore",
+    "name": "fillText",
     "memberof": "src/elements/WCanvas.js~WCanvas",
-    "longname": "src/elements/WCanvas.js~WCanvas#restore",
+    "longname": "src/elements/WCanvas.js~WCanvas#fillText",
     "access": null,
-    "description": "Previously saved path state and attributes",
-    "lineNumber": 55,
+    "description": "Method returns an object that contains the width of the specified text, in pixels.",
+    "lineNumber": 122,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{string}"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "text",
+        "description": "The text to be measured"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 38,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "fillText",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#fillText",
+    "access": null,
+    "description": "Method draws filled text on the canvas. The default color of the text is black.",
+    "lineNumber": 132,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "text",
+        "description": "Specifies the text that will be written on the canvas"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "x",
+        "description": "The x coordinate where to start painting the text (relative to the canvas)"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "y",
+        "description": "The y coordinate where to start painting the text (relative to the canvas)"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "maxWidth",
+        "description": "Optional. The maximum allowed width of the text, in pixels"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 39,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "strokeText",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#strokeText",
+    "access": null,
+    "description": "Method draws text (with no fill) on the canvas. The default color of the text is black.",
+    "lineNumber": 143,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "text",
+        "description": "Specifies the text that will be written on the canvas"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "x",
+        "description": "The x coordinate where to start painting the text (relative to the canvas)"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "y",
+        "description": "The y coordinate where to start painting the text (relative to the canvas)"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "maxWidth",
+        "description": "Optional. The maximum allowed width of the text, in pixels"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 40,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "setTextBaseline",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#setTextBaseline",
+    "access": null,
+    "description": "The textBaseline property sets or returns the current text baseline used when drawing text.",
+    "lineNumber": 151,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "WTextBaseline"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "textBaseline",
+        "description": "textBaseline to set"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 41,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "textBaseline",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#textBaseline",
+    "access": null,
+    "description": null,
+    "lineNumber": 152,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 42,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "setTextAlign",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#setTextAlign",
+    "access": null,
+    "description": "The textAlign property sets or returns the current alignment for text content, according to the anchor point.",
+    "lineNumber": 159,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "WTextAlign"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "textAlign",
+        "description": "TextAlign to set"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 43,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "textAlign",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#textAlign",
+    "access": null,
+    "description": null,
+    "lineNumber": 160,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 44,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "setFont",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#setFont",
+    "access": null,
+    "description": "The font property sets or returns the current font properties for text content on the canvas.",
+    "lineNumber": 167,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "font",
+        "description": "Font to select"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 45,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "font",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#font",
+    "access": null,
+    "description": null,
+    "lineNumber": 168,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 46,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "isPointInPath",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#isPointInPath",
+    "access": null,
+    "description": "Method returns true if the specified point is in the current path, otherwise false.",
+    "lineNumber": 176,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "x"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "x",
+        "description": "The x-coordinate to test"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "y"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "y",
+        "description": "The y-coordinate to test"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 47,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "setMiterLimit",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#setMiterLimit",
+    "access": null,
+    "description": "The miterLimit property sets or returns the style of the end caps for a line.",
+    "lineNumber": 183,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "miterLimit",
+        "description": "A positive number that specifies the maximum miter length. If the current miter length exceeds the miterLimit, the corner will display as lineJoin \"bevel\""
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 48,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "miterLimit",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#miterLimit",
+    "access": null,
+    "description": null,
+    "lineNumber": 184,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 49,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "setLineWidth",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#setLineWidth",
+    "access": null,
+    "description": "The lineWidth property sets or returns the style of the end caps for a line.",
+    "lineNumber": 191,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "lineWidth",
+        "description": "Specifies the lineWidth"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 50,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "lineWidth",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#lineWidth",
+    "access": null,
+    "description": null,
+    "lineNumber": 192,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 51,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "setLineJoin",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#setLineJoin",
+    "access": null,
+    "description": "The lineJoin property sets or returns the style of the end caps for a line.",
+    "lineNumber": 199,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "WLineJoin"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "lineJoin",
+        "description": "Specifies the lineJoin"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 52,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "lineJoin",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#lineJoin",
+    "access": null,
+    "description": null,
+    "lineNumber": 200,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 53,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "setLineCap",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#setLineCap",
+    "access": null,
+    "description": "The lineCap property sets or returns the style of the end caps for a line.",
+    "lineNumber": 207,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "WLineCap"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "lineCap",
+        "description": "Specifies the lineCap"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 54,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "lineCap",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#lineCap",
+    "access": null,
+    "description": null,
+    "lineNumber": 208,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 55,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "createPattern",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#createPattern",
+    "access": null,
+    "description": "Method repeats the specified element in the specified direction.",
+    "lineNumber": 216,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "image",
+        "description": "Specifies the image, canvas, or video element of the pattern to use"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "WRepeat"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "repeat",
+        "description": "Default. The pattern repeats"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 56,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "addColorStop",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#addColorStop",
+    "access": null,
+    "description": "Method specifies the colors and position in a gradient object.",
+    "lineNumber": 225,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "stop",
+        "description": "A value between 0.0 and 1.0 that represents the position between start and end in a gradient"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "color",
+        "description": "A CSS color value to display at the stop position"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 57,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "createRadialGradient",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#createRadialGradient",
+    "access": null,
+    "description": "Method creates a radial gradient object.",
+    "lineNumber": 238,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "x0",
+        "description": "The x-coordinate of the start point of the gradient"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "y0",
+        "description": "The y-coordinate of the start point of the gradient"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "r0",
+        "description": "The radius of the gradient"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "x1",
+        "description": "The x-coordinate of the end point of the gradient"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "y1",
+        "description": "The y-coordinate of the end point of the gradient"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "r1",
+        "description": "The radius of the gradient"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 58,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "createLinearGradient",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#createLinearGradient",
+    "access": null,
+    "description": "Method creates a linear gradient object.",
+    "lineNumber": 249,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "x0",
+        "description": "The x-coordinate of the start point of the gradient"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "y0",
+        "description": "The y-coordinate of the start point of the gradient"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "x1",
+        "description": "The x-coordinate of the end point of the gradient"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "y1",
+        "description": "The y-coordinate of the end point of the gradient"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 59,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "setStrokeStyle",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#setStrokeStyle",
+    "access": null,
+    "description": "Set strokeStyle of context",
+    "lineNumber": 257,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Color"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "strokeStyle",
+        "description": "Offset of shadow blur"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 60,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "strokeStyle",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#strokeStyle",
+    "access": null,
+    "description": null,
+    "lineNumber": 258,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 61,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "setShadowColor",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#setShadowColor",
+    "access": null,
+    "description": "Set shadowColor of context",
+    "lineNumber": 265,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Color"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "shadowColor",
+        "description": "Offset of shadow blur"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 62,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "shadowColor",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#shadowColor",
+    "access": null,
+    "description": null,
+    "lineNumber": 266,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 63,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "setShadowBlur",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#setShadowBlur",
+    "access": null,
+    "description": "Set Shadow of context",
+    "lineNumber": 273,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "offset",
+        "description": "Offset of shadow blur"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 64,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "shadowBlur",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#shadowBlur",
+    "access": null,
+    "description": null,
+    "lineNumber": 274,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 65,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "setShadowBlurX",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#setShadowBlurX",
+    "access": null,
+    "description": "Set X-Shadow of context",
+    "lineNumber": 281,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "offset",
+        "description": "Offset of shadow blur"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 66,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "shadowOffsetX",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#shadowOffsetX",
+    "access": null,
+    "description": null,
+    "lineNumber": 282,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 67,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "setShadowBlurY",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#setShadowBlurY",
+    "access": null,
+    "description": "Set Y-Shadow of context",
+    "lineNumber": 289,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "offset",
+        "description": "Offset of shadow blur"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 68,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "shadowOffsetY",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#shadowOffsetY",
+    "access": null,
+    "description": null,
+    "lineNumber": 290,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 69,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "save",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#save",
+    "access": null,
+    "description": "Saves the state of the current context",
+    "lineNumber": 296,
     "params": [],
     "return": {
       "types": [
@@ -266,7 +1698,26 @@
     "generator": false
   },
   {
-    "__docId__": 15,
+    "__docId__": 70,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "restore",
+    "memberof": "src/elements/WCanvas.js~WCanvas",
+    "longname": "src/elements/WCanvas.js~WCanvas#restore",
+    "access": null,
+    "description": "Previously saved path state and attributes",
+    "lineNumber": 303,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 71,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -275,7 +1726,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#translate",
     "access": null,
     "description": "Remaps the (x,y) position on the canvas",
-    "lineNumber": 65,
+    "lineNumber": 313,
     "params": [
       {
         "nullable": null,
@@ -309,7 +1760,7 @@
     "generator": false
   },
   {
-    "__docId__": 16,
+    "__docId__": 72,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -318,7 +1769,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#scale",
     "access": null,
     "description": "Scale the (x,y) position on the canvas",
-    "lineNumber": 75,
+    "lineNumber": 323,
     "params": [
       {
         "nullable": null,
@@ -352,7 +1803,7 @@
     "generator": false
   },
   {
-    "__docId__": 17,
+    "__docId__": 73,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -361,7 +1812,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#rotate",
     "access": null,
     "description": "Rotate the (x,y) position on the canvas",
-    "lineNumber": 84,
+    "lineNumber": 332,
     "params": [
       {
         "nullable": null,
@@ -385,7 +1836,7 @@
     "generator": false
   },
   {
-    "__docId__": 18,
+    "__docId__": 74,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -394,7 +1845,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#transform",
     "access": null,
     "description": "Replaces the current transformation matrix for the drawing",
-    "lineNumber": 97,
+    "lineNumber": 345,
     "params": [
       {
         "nullable": null,
@@ -465,7 +1916,7 @@
     "generator": false
   },
   {
-    "__docId__": 19,
+    "__docId__": 75,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -474,7 +1925,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#setTransform",
     "access": null,
     "description": "Resets the current transform to the identity matrix. Then runs ",
-    "lineNumber": 110,
+    "lineNumber": 358,
     "params": [
       {
         "nullable": null,
@@ -545,7 +1996,7 @@
     "generator": false
   },
   {
-    "__docId__": 20,
+    "__docId__": 76,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -554,7 +2005,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#resetTransform",
     "access": null,
     "description": "Resets the current transform to 0",
-    "lineNumber": 117,
+    "lineNumber": 365,
     "params": [],
     "return": {
       "types": [
@@ -564,7 +2015,7 @@
     "generator": false
   },
   {
-    "__docId__": 21,
+    "__docId__": 77,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -573,7 +2024,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#clip",
     "access": null,
     "description": "Clips a region of any shape and size from the original canvas",
-    "lineNumber": 124,
+    "lineNumber": 372,
     "params": [],
     "return": {
       "types": [
@@ -583,7 +2034,7 @@
     "generator": false
   },
   {
-    "__docId__": 22,
+    "__docId__": 78,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -592,7 +2043,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#fillStyle",
     "access": null,
     "description": "\tSets or returns the color, gradient, or pattern used to fill the drawing",
-    "lineNumber": 132,
+    "lineNumber": 380,
     "params": [
       {
         "nullable": null,
@@ -613,7 +2064,7 @@
     "generator": false
   },
   {
-    "__docId__": 23,
+    "__docId__": 79,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -622,7 +2073,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#drawRect",
     "access": null,
     "description": "The method creates a rectangle.",
-    "lineNumber": 143,
+    "lineNumber": 391,
     "params": [
       {
         "nullable": null,
@@ -668,7 +2119,7 @@
     "generator": false
   },
   {
-    "__docId__": 24,
+    "__docId__": 80,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -677,7 +2128,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#drawLine",
     "access": null,
     "description": "The method creates a Line.",
-    "lineNumber": 153,
+    "lineNumber": 401,
     "params": [
       {
         "nullable": null,
@@ -728,7 +2179,7 @@
     "generator": false
   },
   {
-    "__docId__": 25,
+    "__docId__": 81,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -737,7 +2188,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#drawSquare",
     "access": null,
     "description": "Draw a Square",
-    "lineNumber": 167,
+    "lineNumber": 415,
     "params": [
       {
         "nullable": null,
@@ -798,7 +2249,7 @@
     "generator": false
   },
   {
-    "__docId__": 26,
+    "__docId__": 82,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -807,7 +2258,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#drawTriangle",
     "access": null,
     "description": "Draw a tringle",
-    "lineNumber": 190,
+    "lineNumber": 438,
     "params": [
       {
         "nullable": null,
@@ -888,7 +2339,7 @@
     "generator": false
   },
   {
-    "__docId__": 27,
+    "__docId__": 83,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -897,7 +2348,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#drawTriangleByDimension",
     "access": null,
     "description": "Draw a tringle by dimension",
-    "lineNumber": 215,
+    "lineNumber": 463,
     "params": [
       {
         "nullable": null,
@@ -948,7 +2399,7 @@
     "generator": false
   },
   {
-    "__docId__": 28,
+    "__docId__": 84,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -957,7 +2408,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#drawImage",
     "access": null,
     "description": "Draw a image",
-    "lineNumber": 239,
+    "lineNumber": 487,
     "params": [
       {
         "nullable": null,
@@ -998,7 +2449,7 @@
     "generator": false
   },
   {
-    "__docId__": 29,
+    "__docId__": 85,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1007,7 +2458,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#drawImage",
     "access": null,
     "description": "Draw a image",
-    "lineNumber": 249,
+    "lineNumber": 497,
     "params": [
       {
         "nullable": null,
@@ -1048,7 +2499,7 @@
     "generator": false
   },
   {
-    "__docId__": 30,
+    "__docId__": 86,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1057,7 +2508,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#zoomImage",
     "access": null,
     "description": "Create zoom of canvas in other canvas",
-    "lineNumber": 266,
+    "lineNumber": 514,
     "params": [
       {
         "nullable": null,
@@ -1163,7 +2614,7 @@
     "generator": false
   },
   {
-    "__docId__": 31,
+    "__docId__": 87,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1172,7 +2623,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#createImage",
     "access": null,
     "description": "Create a image",
-    "lineNumber": 292,
+    "lineNumber": 540,
     "params": [
       {
         "nullable": null,
@@ -1218,7 +2669,7 @@
     "generator": false
   },
   {
-    "__docId__": 32,
+    "__docId__": 88,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1227,7 +2678,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#getImageData",
     "access": null,
     "description": "",
-    "lineNumber": 313,
+    "lineNumber": 561,
     "params": [
       {
         "nullable": null,
@@ -1281,7 +2732,7 @@
     "generator": false
   },
   {
-    "__docId__": 33,
+    "__docId__": 89,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1290,7 +2741,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#putImageData",
     "access": null,
     "description": "Put the image data on location",
-    "lineNumber": 323,
+    "lineNumber": 571,
     "params": [
       {
         "nullable": null,
@@ -1334,7 +2785,7 @@
     "generator": false
   },
   {
-    "__docId__": 34,
+    "__docId__": 90,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1343,7 +2794,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#getImageDataRGBA",
     "access": null,
     "description": "Get string rgba from imageData",
-    "lineNumber": 332,
+    "lineNumber": 580,
     "params": [
       {
         "nullable": null,
@@ -1367,7 +2818,7 @@
     "generator": false
   },
   {
-    "__docId__": 35,
+    "__docId__": 91,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1376,7 +2827,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#stringRGBA",
     "access": null,
     "description": "Get string rgba from params",
-    "lineNumber": 347,
+    "lineNumber": 595,
     "params": [
       {
         "nullable": null,
@@ -1430,7 +2881,7 @@
     "generator": false
   },
   {
-    "__docId__": 36,
+    "__docId__": 92,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1439,7 +2890,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#toDataURL",
     "access": null,
     "description": "Method returns a data URI containing a representation of the image in the format specified by the type parameter.\nDefaults to PNG\nThe returned image is in a resolution of 96 dpi.",
-    "lineNumber": 357,
+    "lineNumber": 605,
     "params": [
       {
         "nullable": null,
@@ -1470,7 +2921,7 @@
     "generator": false
   },
   {
-    "__docId__": 37,
+    "__docId__": 93,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1479,7 +2930,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#toBlob",
     "access": null,
     "description": "Method creates a Blob object representing the image contained in the canvas",
-    "lineNumber": 367,
+    "lineNumber": 615,
     "params": [
       {
         "nullable": null,
@@ -1520,7 +2971,7 @@
     "generator": false
   },
   {
-    "__docId__": 38,
+    "__docId__": 94,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1529,7 +2980,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#invertColor",
     "access": null,
     "description": "Invert color of ImageData",
-    "lineNumber": 377,
+    "lineNumber": 625,
     "params": [
       {
         "nullable": null,
@@ -1570,7 +3021,7 @@
     "generator": false
   },
   {
-    "__docId__": 39,
+    "__docId__": 95,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1579,7 +3030,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#invertCanvasColor",
     "access": null,
     "description": "Invert Canvas Color",
-    "lineNumber": 390,
+    "lineNumber": 638,
     "params": [],
     "return": {
       "types": [
@@ -1589,7 +3040,7 @@
     "generator": false
   },
   {
-    "__docId__": 40,
+    "__docId__": 96,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1598,7 +3049,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#grayscaleColor",
     "access": null,
     "description": "Grayscale color of ImageData",
-    "lineNumber": 401,
+    "lineNumber": 649,
     "params": [
       {
         "nullable": null,
@@ -1639,7 +3090,7 @@
     "generator": false
   },
   {
-    "__docId__": 41,
+    "__docId__": 97,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1648,7 +3099,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#grayscaleCanvasColor",
     "access": null,
     "description": "Grayscale color",
-    "lineNumber": 415,
+    "lineNumber": 663,
     "params": [],
     "return": {
       "types": [
@@ -1658,7 +3109,7 @@
     "generator": false
   },
   {
-    "__docId__": 42,
+    "__docId__": 98,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1667,7 +3118,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#fillRect",
     "access": null,
     "description": "Draws a \"filled\" rectangle",
-    "lineNumber": 428,
+    "lineNumber": 676,
     "params": [
       {
         "nullable": null,
@@ -1728,7 +3179,7 @@
     "generator": false
   },
   {
-    "__docId__": 43,
+    "__docId__": 99,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1737,7 +3188,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#clearRect",
     "access": null,
     "description": "Clear a rectangle",
-    "lineNumber": 440,
+    "lineNumber": 688,
     "params": [
       {
         "nullable": null,
@@ -1798,7 +3249,7 @@
     "generator": false
   },
   {
-    "__docId__": 44,
+    "__docId__": 100,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1807,7 +3258,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#strokeRect",
     "access": null,
     "description": "Stroke a rectangle",
-    "lineNumber": 452,
+    "lineNumber": 700,
     "params": [
       {
         "nullable": null,
@@ -1868,7 +3319,7 @@
     "generator": false
   },
   {
-    "__docId__": 45,
+    "__docId__": 101,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1877,7 +3328,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#arc",
     "access": null,
     "description": "Creates an arc/curve (used to create circles, or parts of circles)",
-    "lineNumber": 465,
+    "lineNumber": 713,
     "params": [
       {
         "nullable": null,
@@ -1948,7 +3399,7 @@
     "generator": false
   },
   {
-    "__docId__": 46,
+    "__docId__": 102,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1957,7 +3408,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#quadraticCurveTo",
     "access": null,
     "description": "Creates a quadratic Bézier curve",
-    "lineNumber": 476,
+    "lineNumber": 724,
     "params": [
       {
         "nullable": null,
@@ -2008,7 +3459,7 @@
     "generator": false
   },
   {
-    "__docId__": 47,
+    "__docId__": 103,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -2017,7 +3468,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#bezierCurveTo",
     "access": null,
     "description": "Creates a cubic Bézier curve",
-    "lineNumber": 489,
+    "lineNumber": 737,
     "params": [
       {
         "nullable": null,
@@ -2088,7 +3539,7 @@
     "generator": false
   },
   {
-    "__docId__": 48,
+    "__docId__": 104,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -2097,7 +3548,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#setImageSmoothingEnabled",
     "access": null,
     "description": "Set Smoothing configuration enable",
-    "lineNumber": 497,
+    "lineNumber": 745,
     "params": [
       {
         "nullable": null,
@@ -2118,7 +3569,7 @@
     "generator": false
   },
   {
-    "__docId__": 49,
+    "__docId__": 105,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -2127,7 +3578,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#imageSmoothingEnabled",
     "access": null,
     "description": null,
-    "lineNumber": 498,
+    "lineNumber": 746,
     "undocument": true,
     "type": {
       "types": [
@@ -2136,7 +3587,7 @@
     }
   },
   {
-    "__docId__": 50,
+    "__docId__": 106,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -2145,7 +3596,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#lineTo",
     "access": null,
     "description": "Adds a new point and creates a line to that point from the last specified point in the canvas",
-    "lineNumber": 506,
+    "lineNumber": 755,
     "params": [
       {
         "nullable": null,
@@ -2176,7 +3627,7 @@
     "generator": false
   },
   {
-    "__docId__": 51,
+    "__docId__": 107,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -2185,7 +3636,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#moveTo",
     "access": null,
     "description": "Moves the path to the specified point in the canvas, without creating a line",
-    "lineNumber": 515,
+    "lineNumber": 764,
     "params": [
       {
         "nullable": null,
@@ -2216,7 +3667,7 @@
     "generator": false
   },
   {
-    "__docId__": 52,
+    "__docId__": 108,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -2225,7 +3676,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#beginPath",
     "access": null,
     "description": "Begins a path, or resets the current path",
-    "lineNumber": 522,
+    "lineNumber": 771,
     "params": [],
     "return": {
       "types": [
@@ -2235,7 +3686,7 @@
     "generator": false
   },
   {
-    "__docId__": 53,
+    "__docId__": 109,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -2244,7 +3695,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#closePath",
     "access": null,
     "description": "Creates a path from the current point back to the starting point",
-    "lineNumber": 529,
+    "lineNumber": 778,
     "params": [],
     "return": {
       "types": [
@@ -2254,7 +3705,7 @@
     "generator": false
   },
   {
-    "__docId__": 54,
+    "__docId__": 110,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -2263,7 +3714,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#stroke",
     "access": null,
     "description": "Actually draws the path you have defined",
-    "lineNumber": 536,
+    "lineNumber": 785,
     "params": [],
     "return": {
       "types": [
@@ -2273,7 +3724,7 @@
     "generator": false
   },
   {
-    "__docId__": 55,
+    "__docId__": 111,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -2282,7 +3733,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#fill",
     "access": null,
     "description": "Fills the current drawing (path)",
-    "lineNumber": 543,
+    "lineNumber": 792,
     "params": [],
     "return": {
       "types": [
@@ -2292,7 +3743,7 @@
     "generator": false
   },
   {
-    "__docId__": 56,
+    "__docId__": 112,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -2301,7 +3752,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#clear",
     "access": null,
     "description": "Clear the context",
-    "lineNumber": 550,
+    "lineNumber": 799,
     "params": [],
     "return": {
       "types": [
@@ -2311,7 +3762,7 @@
     "generator": false
   },
   {
-    "__docId__": 57,
+    "__docId__": 113,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -2320,7 +3771,7 @@
     "longname": "src/elements/WCanvas.js~WCanvas#requestAnimationFrame",
     "access": null,
     "description": "",
-    "lineNumber": 559,
+    "lineNumber": 808,
     "unknown": [
       {
         "tagName": "@TODO",
@@ -2343,7 +3794,7 @@
     "generator": false
   },
   {
-    "__docId__": 58,
+    "__docId__": 114,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -2352,11 +3803,11 @@
     "longname": "src/elements/WElement.js",
     "access": null,
     "description": null,
-    "lineNumber": 1,
-    "content": "class WElement {\n\n    constructor(element, width, height, border) {\n        this.element = element\n        this.width = width\n        this.height = height\n        this.border = border\n        console.log(this.getClassName().concat(' Created!'))\n    }\n\n    createElement(element) {\n        return document.createElement(element)\n    }\n    get id() {\n        return this.element.id\n    }\n    set id(id) {\n        this.element.id = id\n    }\n\n    get element() {\n        return this._element\n    }\n    set element(element) {\n        this._element = this.createElement(element)\n    }\n    get attributes() {\n        return this.element.attributes\n    }\n    setId(id) {\n        this.element.id = id\n        return this\n    }\n    setAttribute(attr, value) {\n        this.element.setAttribute(attr, value)\n        return this\n    }\n    setStyle(attr, value) {\n        this.setAttibute('style', attr + ': ' + value)\n        return this\n    }\n    setSize(width, height) {\n        this.width === width\n        this.height === height\n        return this\n    }\n    set width(width) {\n        this.element.setAttribute('style', 'width: '.concat(width))\n        return this\n    }\n    set height(height) {\n        this.element.setAttribute('style', 'height: '.concat(height))\n        return this\n    }\n    set border(border = '1px solid black') {\n        this.element.setAttribute('style', 'border: '.concat(border))\n        return this\n    }\n    addChild(child) {\n        this.element.appendChild(child)\n        return this\n    }\n    addToBody() {\n        document.body.appendChild(this.element)\n        return this\n    }\n    addToElementById(id) {\n        document.getElementById(id).appendChild(this.element)\n        return this\n    }\n    addToElementByClassName(className) {\n        document.getElementsByClassName(className).appendChild(this.element)\n        return this\n    }\n    getClassName() {\n        return this.constructor.name\n    }\n}\n\nexport default WElement"
+    "lineNumber": 5,
+    "content": "/**\n * Generic class to elements\n * @class\n */\nclass WElement {\n\n    constructor(element, width, height, border) {\n        this.element = element\n        this.width = width\n        this.height = height\n        this.border = border\n        console.log(this.getClassName().concat(' Created!'))\n    }\n    get id() {\n        return this.element.id\n    }\n    set id(id) {\n        this.element.id = id\n    }\n\n    get element() {\n        return this._element\n    }\n    set element(element) {\n        this._element = this.createElement(element)\n    }\n    get attributes() {\n        return this.element.attributes\n    }\n    /**\n     * Create a element\n     * @param {string} element Type of element\n     * @example WElement element = new WElement('p')\n     */\n    createElement(element) {\n        return document.createElement(element)\n    }\n    /**\n     * Set the id of element\n     * @param {string} id Id of element\n     */\n    setId(id) {\n        this.element.id = id\n        return this\n    }\n    /**\n     * Set Attribute to element\n     * @param {string} attr Attribute of element\n     * @param {string} value Value of attribute\n     * @example element.setAttribute('width','10')\n     */\n    setAttribute(attr, value) {\n        this.element.setAttribute(attr, value)\n        return this\n    }\n    /**\n     * Set Style of element\n     * @param {string} attr Attribute of style\n     * @param {string} value Value of attributey\n     * @example element.setStyle('color','red')\n     */\n    setStyle(attr, value) {\n        this.setAttibute('style', attr + ': ' + value)\n        return this\n    }\n    /**\n     * Set size of element\n     * @param {number} width Width of element\n     * @param {number} height Height of element\n     */\n    setSize(width, height) {\n        this.width = width\n        this.height = height\n        return this\n    }\n    set width(width) {\n        this.element.setAttribute('style', 'width: '.concat(width))\n        return this\n    }\n    set height(height) {\n        this.element.setAttribute('style', 'height: '.concat(height))\n        return this\n    }\n    set border(border = '1px solid black') {\n        this.element.setAttribute('style', 'border: '.concat(border))\n        return this\n    }\n    /**\n     * Add Child to Element\n     * @param {Object} child Child to append on element\n     */\n    addChild(child) {\n        this.element.appendChild(child)\n        return this\n    }\n    /**\n     * Add current element to body\n     */\n    addToBody() {\n        document.body.appendChild(this.element)\n        return this\n    }\n    /**\n     * Add current element to element with specified id\n     * @param {string} id Id of element\n     */\n    addToElementById(id) {\n        document.getElementById(id).appendChild(this.element)\n        return this\n    }\n    /**\n     * Add current element to element with specified className\n     * @param {string} className Class of element\n     */\n    addToElementByClassName(className) {\n        document.getElementsByClassName(className).appendChild(this.element)\n        return this\n    }\n    /**\n     * Get name of current Class\n     */\n    getClassName() {\n        return this.constructor.name\n    }\n}\n\nexport default WElement"
   },
   {
-    "__docId__": 59,
+    "__docId__": 115,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -2367,13 +3818,18 @@
     "export": true,
     "importPath": "aprendendoes6/src/elements/WElement.js",
     "importStyle": "WElement",
-    "description": null,
-    "lineNumber": 1,
-    "undocument": true,
+    "description": "Generic class to elements",
+    "lineNumber": 5,
+    "unknown": [
+      {
+        "tagName": "@class",
+        "tagValue": ""
+      }
+    ],
     "interface": false
   },
   {
-    "__docId__": 60,
+    "__docId__": 116,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -2382,7 +3838,7 @@
     "longname": "src/elements/WElement.js~WElement#constructor",
     "access": null,
     "description": null,
-    "lineNumber": 3,
+    "lineNumber": 7,
     "undocument": true,
     "params": [
       {
@@ -2413,7 +3869,7 @@
     "generator": false
   },
   {
-    "__docId__": 61,
+    "__docId__": 117,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -2422,7 +3878,7 @@
     "longname": "src/elements/WElement.js~WElement#element",
     "access": null,
     "description": null,
-    "lineNumber": 4,
+    "lineNumber": 8,
     "undocument": true,
     "type": {
       "types": [
@@ -2431,7 +3887,7 @@
     }
   },
   {
-    "__docId__": 62,
+    "__docId__": 118,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -2440,7 +3896,7 @@
     "longname": "src/elements/WElement.js~WElement#width",
     "access": null,
     "description": null,
-    "lineNumber": 5,
+    "lineNumber": 9,
     "undocument": true,
     "type": {
       "types": [
@@ -2449,7 +3905,7 @@
     }
   },
   {
-    "__docId__": 63,
+    "__docId__": 119,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -2458,7 +3914,7 @@
     "longname": "src/elements/WElement.js~WElement#height",
     "access": null,
     "description": null,
-    "lineNumber": 6,
+    "lineNumber": 10,
     "undocument": true,
     "type": {
       "types": [
@@ -2467,7 +3923,7 @@
     }
   },
   {
-    "__docId__": 64,
+    "__docId__": 120,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -2476,7 +3932,7 @@
     "longname": "src/elements/WElement.js~WElement#border",
     "access": null,
     "description": null,
-    "lineNumber": 7,
+    "lineNumber": 11,
     "undocument": true,
     "type": {
       "types": [
@@ -2485,34 +3941,7 @@
     }
   },
   {
-    "__docId__": 65,
-    "kind": "method",
-    "static": false,
-    "variation": null,
-    "name": "createElement",
-    "memberof": "src/elements/WElement.js~WElement",
-    "longname": "src/elements/WElement.js~WElement#createElement",
-    "access": null,
-    "description": null,
-    "lineNumber": 11,
-    "undocument": true,
-    "params": [
-      {
-        "name": "element",
-        "types": [
-          "*"
-        ]
-      }
-    ],
-    "return": {
-      "types": [
-        "*"
-      ]
-    },
-    "generator": false
-  },
-  {
-    "__docId__": 66,
+    "__docId__": 121,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -2531,7 +3960,7 @@
     "generator": false
   },
   {
-    "__docId__": 67,
+    "__docId__": 122,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -2550,7 +3979,7 @@
     "generator": false
   },
   {
-    "__docId__": 68,
+    "__docId__": 123,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -2569,7 +3998,7 @@
     "generator": false
   },
   {
-    "__docId__": 69,
+    "__docId__": 124,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -2588,7 +4017,7 @@
     "generator": false
   },
   {
-    "__docId__": 70,
+    "__docId__": 125,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -2606,7 +4035,7 @@
     }
   },
   {
-    "__docId__": 71,
+    "__docId__": 126,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -2625,7 +4054,40 @@
     "generator": false
   },
   {
-    "__docId__": 72,
+    "__docId__": 127,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "createElement",
+    "memberof": "src/elements/WElement.js~WElement",
+    "longname": "src/elements/WElement.js~WElement#createElement",
+    "access": null,
+    "description": "Create a element",
+    "examples": [
+      "WElement element = new WElement('p')"
+    ],
+    "lineNumber": 35,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "element",
+        "description": "Type of element"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 128,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -2633,15 +4095,18 @@
     "memberof": "src/elements/WElement.js~WElement",
     "longname": "src/elements/WElement.js~WElement#setId",
     "access": null,
-    "description": null,
-    "lineNumber": 30,
-    "undocument": true,
+    "description": "Set the id of element",
+    "lineNumber": 42,
     "params": [
       {
-        "name": "id",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "id",
+        "description": "Id of element"
       }
     ],
     "return": {
@@ -2652,7 +4117,7 @@
     "generator": false
   },
   {
-    "__docId__": 73,
+    "__docId__": 129,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -2660,21 +4125,31 @@
     "memberof": "src/elements/WElement.js~WElement",
     "longname": "src/elements/WElement.js~WElement#setAttribute",
     "access": null,
-    "description": null,
-    "lineNumber": 34,
-    "undocument": true,
+    "description": "Set Attribute to element",
+    "examples": [
+      "element.setAttribute('width','10')"
+    ],
+    "lineNumber": 52,
     "params": [
       {
-        "name": "attr",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "attr",
+        "description": "Attribute of element"
       },
       {
-        "name": "value",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "Value of attribute"
       }
     ],
     "return": {
@@ -2685,7 +4160,7 @@
     "generator": false
   },
   {
-    "__docId__": 74,
+    "__docId__": 130,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -2693,21 +4168,31 @@
     "memberof": "src/elements/WElement.js~WElement",
     "longname": "src/elements/WElement.js~WElement#setStyle",
     "access": null,
-    "description": null,
-    "lineNumber": 38,
-    "undocument": true,
+    "description": "Set Style of element",
+    "examples": [
+      "element.setStyle('color','red')"
+    ],
+    "lineNumber": 62,
     "params": [
       {
-        "name": "attr",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "attr",
+        "description": "Attribute of style"
       },
       {
-        "name": "value",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "Value of attributey"
       }
     ],
     "return": {
@@ -2718,7 +4203,7 @@
     "generator": false
   },
   {
-    "__docId__": 75,
+    "__docId__": 131,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -2726,21 +4211,28 @@
     "memberof": "src/elements/WElement.js~WElement",
     "longname": "src/elements/WElement.js~WElement#setSize",
     "access": null,
-    "description": null,
-    "lineNumber": 42,
-    "undocument": true,
+    "description": "Set size of element",
+    "lineNumber": 71,
     "params": [
       {
-        "name": "width",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "width",
+        "description": "Width of element"
       },
       {
-        "name": "height",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "height",
+        "description": "Height of element"
       }
     ],
     "return": {
@@ -2751,7 +4243,7 @@
     "generator": false
   },
   {
-    "__docId__": 76,
+    "__docId__": 132,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -2760,7 +4252,7 @@
     "longname": "src/elements/WElement.js~WElement#width",
     "access": null,
     "description": null,
-    "lineNumber": 43,
+    "lineNumber": 72,
     "undocument": true,
     "type": {
       "types": [
@@ -2769,7 +4261,7 @@
     }
   },
   {
-    "__docId__": 77,
+    "__docId__": 133,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -2778,7 +4270,7 @@
     "longname": "src/elements/WElement.js~WElement#height",
     "access": null,
     "description": null,
-    "lineNumber": 44,
+    "lineNumber": 73,
     "undocument": true,
     "type": {
       "types": [
@@ -2787,7 +4279,7 @@
     }
   },
   {
-    "__docId__": 78,
+    "__docId__": 134,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -2796,7 +4288,7 @@
     "longname": "src/elements/WElement.js~WElement#width",
     "access": null,
     "description": null,
-    "lineNumber": 47,
+    "lineNumber": 76,
     "undocument": true,
     "type": {
       "types": [
@@ -2806,7 +4298,7 @@
     "generator": false
   },
   {
-    "__docId__": 79,
+    "__docId__": 135,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -2815,7 +4307,7 @@
     "longname": "src/elements/WElement.js~WElement#height",
     "access": null,
     "description": null,
-    "lineNumber": 51,
+    "lineNumber": 80,
     "undocument": true,
     "type": {
       "types": [
@@ -2825,7 +4317,7 @@
     "generator": false
   },
   {
-    "__docId__": 80,
+    "__docId__": 136,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -2834,7 +4326,7 @@
     "longname": "src/elements/WElement.js~WElement#border",
     "access": null,
     "description": null,
-    "lineNumber": 55,
+    "lineNumber": 84,
     "undocument": true,
     "type": {
       "types": [
@@ -2844,7 +4336,7 @@
     "generator": false
   },
   {
-    "__docId__": 81,
+    "__docId__": 137,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -2852,15 +4344,18 @@
     "memberof": "src/elements/WElement.js~WElement",
     "longname": "src/elements/WElement.js~WElement#addChild",
     "access": null,
-    "description": null,
-    "lineNumber": 59,
-    "undocument": true,
+    "description": "Add Child to Element",
+    "lineNumber": 92,
     "params": [
       {
-        "name": "child",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "child",
+        "description": "Child to append on element"
       }
     ],
     "return": {
@@ -2871,7 +4366,7 @@
     "generator": false
   },
   {
-    "__docId__": 82,
+    "__docId__": 138,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -2879,9 +4374,8 @@
     "memberof": "src/elements/WElement.js~WElement",
     "longname": "src/elements/WElement.js~WElement#addToBody",
     "access": null,
-    "description": null,
-    "lineNumber": 63,
-    "undocument": true,
+    "description": "Add current element to body",
+    "lineNumber": 99,
     "params": [],
     "return": {
       "types": [
@@ -2891,7 +4385,7 @@
     "generator": false
   },
   {
-    "__docId__": 83,
+    "__docId__": 139,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -2899,15 +4393,18 @@
     "memberof": "src/elements/WElement.js~WElement",
     "longname": "src/elements/WElement.js~WElement#addToElementById",
     "access": null,
-    "description": null,
-    "lineNumber": 67,
-    "undocument": true,
+    "description": "Add current element to element with specified id",
+    "lineNumber": 107,
     "params": [
       {
-        "name": "id",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "id",
+        "description": "Id of element"
       }
     ],
     "return": {
@@ -2918,7 +4415,7 @@
     "generator": false
   },
   {
-    "__docId__": 84,
+    "__docId__": 140,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -2926,15 +4423,18 @@
     "memberof": "src/elements/WElement.js~WElement",
     "longname": "src/elements/WElement.js~WElement#addToElementByClassName",
     "access": null,
-    "description": null,
-    "lineNumber": 71,
-    "undocument": true,
+    "description": "Add current element to element with specified className",
+    "lineNumber": 115,
     "params": [
       {
-        "name": "className",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "className",
+        "description": "Class of element"
       }
     ],
     "return": {
@@ -2945,7 +4445,7 @@
     "generator": false
   },
   {
-    "__docId__": 85,
+    "__docId__": 141,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -2953,9 +4453,8 @@
     "memberof": "src/elements/WElement.js~WElement",
     "longname": "src/elements/WElement.js~WElement#getClassName",
     "access": null,
-    "description": null,
-    "lineNumber": 75,
-    "undocument": true,
+    "description": "Get name of current Class",
+    "lineNumber": 122,
     "params": [],
     "return": {
       "types": [
@@ -2965,7 +4464,7 @@
     "generator": false
   },
   {
-    "__docId__": 86,
+    "__docId__": 142,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -2978,7 +4477,7 @@
     "content": "import WElement from '../elements/WElement.js'\n\nclass WImage extends WElement{\n    constructor(src) {\n        super('img')\n        if (src) this.setSrc(src)\n    }\n    getImage() {\n        return this._image\n    }\n    setSrc(src) {\n        this._src = super.setAttribute('src', src)\n    }\n    getSrc(src) {\n        return this._src\n    }\n}\n\nexport default WImage"
   },
   {
-    "__docId__": 87,
+    "__docId__": 143,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -2998,7 +4497,7 @@
     ]
   },
   {
-    "__docId__": 88,
+    "__docId__": 144,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -3020,7 +4519,7 @@
     "generator": false
   },
   {
-    "__docId__": 89,
+    "__docId__": 145,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -3040,7 +4539,7 @@
     "generator": false
   },
   {
-    "__docId__": 90,
+    "__docId__": 146,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -3062,7 +4561,7 @@
     "generator": false
   },
   {
-    "__docId__": 91,
+    "__docId__": 147,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -3080,7 +4579,7 @@
     }
   },
   {
-    "__docId__": 92,
+    "__docId__": 148,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -3107,7 +4606,7 @@
     "generator": false
   },
   {
-    "__docId__": 93,
+    "__docId__": 149,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -3117,20 +4616,20 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "var CanvasQuality = {\n    'FULL': 1.0,\n    'MEDIUM': 0.5,\n    'LOW': 0.1\n}\n\nexport default CanvasQuality"
+    "content": "var WCanvasQuality = {\n    'FULL': 1.0,\n    'MEDIUM': 0.5,\n    'LOW': 0.1\n}\n\nexport default WCanvasQuality"
   },
   {
-    "__docId__": 94,
+    "__docId__": 150,
     "kind": "variable",
     "static": true,
     "variation": null,
-    "name": "CanvasQuality",
+    "name": "WCanvasQuality",
     "memberof": "src/enums/WCanvasQuality.js",
-    "longname": "src/enums/WCanvasQuality.js~CanvasQuality",
+    "longname": "src/enums/WCanvasQuality.js~WCanvasQuality",
     "access": null,
     "export": true,
     "importPath": "aprendendoes6/src/enums/WCanvasQuality.js",
-    "importStyle": "CanvasQuality",
+    "importStyle": "WCanvasQuality",
     "description": null,
     "lineNumber": 1,
     "undocument": true,
@@ -3141,7 +4640,7 @@
     }
   },
   {
-    "__docId__": 95,
+    "__docId__": 151,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -3154,7 +4653,7 @@
     "content": "var WGlobalCompositeOperationType = {\n    'SOURCE-OVER': 'source-over',\n    'SOURCE-IN': 'source-in',\n    'SOURCE-OUT': 'source-out',\n    'SOURCE-ATOP': 'source-atop',\n    'DESTINATION-OVER': 'destination-over',\n    'DESTINATION-IN': 'destination-in',\n    'DESTINATION-OUT': 'destination-out',\n    'DESTINATION-ATOP': 'destination-atop',\n    'LIGHTER': 'lighter',\n    'COPY': 'copy',\n    'XOR': 'xor',\n    'MULTIPLY': 'multiply',\n    'SCREEN': 'screen',\n    'OVERLAY': 'overlay',\n    'DARKEN': 'darken',\n    'LIGHTEN': 'lighten',\n    'COLOR-DODGE': 'color-dodge',\n    'COLOR-BURN': 'color-burn',\n    'HARD-LIGHT': 'hard-light',\n    'SOFT-LIGHT': 'soft-light',\n    'DIFFERENCE': 'difference',\n    'EXCLUSION': 'exclusion',\n    'HUE': 'hue',\n    'SATURATION': 'saturation',\n    'COLOR': 'color',\n    'LUMINOSITY': 'luminosity'\n}\n\nexport default WGlobalCompositeOperationType"
   },
   {
-    "__docId__": 96,
+    "__docId__": 152,
     "kind": "variable",
     "static": true,
     "variation": null,
@@ -3175,7 +4674,75 @@
     }
   },
   {
-    "__docId__": 97,
+    "__docId__": 153,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/enums/WLineCap.js",
+    "memberof": null,
+    "longname": "src/enums/WLineCap.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "var WLineCap = {\n    'BUTT': \"butt\",\n    'ROUND': \"round\",\n    'SQUARE': 'square'\n}\n\nexport default WLineCap"
+  },
+  {
+    "__docId__": 154,
+    "kind": "variable",
+    "static": true,
+    "variation": null,
+    "name": "WLineCap",
+    "memberof": "src/enums/WLineCap.js",
+    "longname": "src/enums/WLineCap.js~WLineCap",
+    "access": null,
+    "export": true,
+    "importPath": "aprendendoes6/src/enums/WLineCap.js",
+    "importStyle": "WLineCap",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 155,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/enums/WLineJoin.js",
+    "memberof": null,
+    "longname": "src/enums/WLineJoin.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "var WLineJoin = {\n    'BEVEL': \"bevel\",\n    'ROUND': \"round\",\n    'MITER': 'miter'\n}\n\nexport default WLineJoin"
+  },
+  {
+    "__docId__": 156,
+    "kind": "variable",
+    "static": true,
+    "variation": null,
+    "name": "WLineJoin",
+    "memberof": "src/enums/WLineJoin.js",
+    "longname": "src/enums/WLineJoin.js~WLineJoin",
+    "access": null,
+    "export": true,
+    "importPath": "aprendendoes6/src/enums/WLineJoin.js",
+    "importStyle": "WLineJoin",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 157,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -3188,7 +4755,7 @@
     "content": "var WMimeType = {\n    'IMAGE_JPEG': 'image/jpeg',\n}\n\nexport default WMimeType"
   },
   {
-    "__docId__": 98,
+    "__docId__": 158,
     "kind": "variable",
     "static": true,
     "variation": null,
@@ -3209,7 +4776,109 @@
     }
   },
   {
-    "__docId__": 99,
+    "__docId__": 159,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/enums/WRepeat.js",
+    "memberof": null,
+    "longname": "src/enums/WRepeat.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "var WRepeat = {\n    'REPEAT': 'repeat',\n    'REPEAT_X': 'repeat-x',\n    'REPEAT_Y': 'repeat-y',\n    'NO_REPEAT': 'no-repeat'\n}\n\nexport default WRepeat"
+  },
+  {
+    "__docId__": 160,
+    "kind": "variable",
+    "static": true,
+    "variation": null,
+    "name": "WRepeat",
+    "memberof": "src/enums/WRepeat.js",
+    "longname": "src/enums/WRepeat.js~WRepeat",
+    "access": null,
+    "export": true,
+    "importPath": "aprendendoes6/src/enums/WRepeat.js",
+    "importStyle": "WRepeat",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 161,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/enums/WTextAlign.js",
+    "memberof": null,
+    "longname": "src/enums/WTextAlign.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "var WTextAlign = {\n    'CENTER': \"center\",\n    'END': \"end\",\n    'LEFT': 'left',\n    'RIGHT': \"right\",\n    'START': \"start\"\n}\n\nexport default WTextAlign"
+  },
+  {
+    "__docId__": 162,
+    "kind": "variable",
+    "static": true,
+    "variation": null,
+    "name": "WTextAlign",
+    "memberof": "src/enums/WTextAlign.js",
+    "longname": "src/enums/WTextAlign.js~WTextAlign",
+    "access": null,
+    "export": true,
+    "importPath": "aprendendoes6/src/enums/WTextAlign.js",
+    "importStyle": "WTextAlign",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 163,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/enums/WTextBaseline.js",
+    "memberof": null,
+    "longname": "src/enums/WTextBaseline.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "var WTextBaseline = {\n    'ALPHABETIC': \"alphabetic\",\n    'TOP': \"top\",\n    'HANGING': 'hanging',\n    'MIDDLE': \"middle\",\n    'IDEOGRAPHIC': \"ideographic\",\n    'BOTTOM': 'bottom'\n}\n\nexport default WTextBaseline"
+  },
+  {
+    "__docId__": 164,
+    "kind": "variable",
+    "static": true,
+    "variation": null,
+    "name": "WTextBaseline",
+    "memberof": "src/enums/WTextBaseline.js",
+    "longname": "src/enums/WTextBaseline.js~WTextBaseline",
+    "access": null,
+    "export": true,
+    "importPath": "aprendendoes6/src/enums/WTextBaseline.js",
+    "importStyle": "WTextBaseline",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 165,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -3222,7 +4891,7 @@
     "content": "var WType = {\n    'FILL': 'fill',\n    'STROKE': 'stroke',\n    'CLEAR': 'clear'\n}\n\nexport default WType"
   },
   {
-    "__docId__": 100,
+    "__docId__": 166,
     "kind": "variable",
     "static": true,
     "variation": null,
@@ -3243,7 +4912,7 @@
     }
   },
   {
-    "__docId__": 101,
+    "__docId__": 167,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -3256,7 +4925,7 @@
     "content": "export default Object.prototype.eventFallMove = function () {\n    if (this.context) {\n        var $this = this\n        var ctx = $this.context\n\n        $this.running = false\n\n        var raf;\n\n        $this.start = function() {\n            $this.running = true\n            $this.draw()\n                .toX($this.x)\n                .toY($this.y)\n\n            $this.x += $this.vx\n            $this.y += $this.vy\n            $this.vy *= .99\n            $this.vy += .25\n\n            if ($this.y + $this.vy > $this.element.height\n                || $this.y + $this.vy < 0) {\n                $this.vy = -$this.vy\n            }\n\n            if ($this.x + $this.vx > $this.element.width\n                || $this.x + $this.vx < 0) {\n                $this.vx = -$this.vx\n            }\n            raf = window.requestAnimationFrame($this.start)\n        }\n\n        $this.stop = function() {\n            $this.running = false\n            window.cancelAnimationFrame(raf)\n        }\n\n        return $this\n    }\n}"
   },
   {
-    "__docId__": 102,
+    "__docId__": 168,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -3279,7 +4948,7 @@
     "generator": false
   },
   {
-    "__docId__": 103,
+    "__docId__": 169,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -3292,7 +4961,7 @@
     "content": "export default Object.prototype.eventMouseFollow = function () {\n    if (this.context) {\n        var $this = this\n        var ctx = $this.context\n\n        function clear() {\n            ctx.fillStyle = 'rgba(255,255,255,0.1)'\n            ctx.fillRect(0, 0, $this.element.width, $this.element.height)\n        }\n\n        $this.element.addEventListener('mousemove', function (e) {\n            if (!$this.running) {\n                clear()\n                $this.x = e.clientX\n                $this.y = e.clientY\n                $this.draw()\n            }\n        })\n\n        $this.element.addEventListener('click', function (e) {\n            if (!$this.running) {\n                $this.start()\n            } else {\n                $this.stop()\n            }\n        })\n\n\n        return $this\n    }\n}"
   },
   {
-    "__docId__": 104,
+    "__docId__": 170,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -3315,7 +4984,7 @@
     "generator": false
   },
   {
-    "__docId__": 105,
+    "__docId__": 171,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -3328,7 +4997,7 @@
     "content": "/**\n * Evento de objeto se movendo na tela.\n * Têm-se o x, y, vx, vy.\n * Objeto se move de acordo com x e y.\n * Utiliza-se vx e vy para somar as váriaveis de posição.\n * Quando se objeto chega ao limite do canvas, nega-se o vx e vy para\n * inverter a soma, fazendo com que o x e y decremente, e ao retornar\n * inverte-se novamente para o x e y incrementar, movendo assim o objeto\n * em sentidos opostos. \n */\nexport default Object.prototype.eventRandomOne = function () {\n    if (this.context) {\n        var $this = this\n        var ctx = $this.context\n\n        var raf;\n\n        function draw() {\n            $this.draw()\n                .toX($this.x)\n                .toY($this.y)\n\n            $this.x += $this.vx\n            $this.y += $this.vy\n\n            if ($this.y + $this.vy > $this.element.height\n                || $this.y + $this.vy < 0) {\n                $this.vy = -$this.vy\n            }\n\n            if ($this.x + $this.vx > $this.element.width\n                || $this.x + $this.vx < 0) {\n                $this.vx = -$this.vx\n            }\n            raf = window.requestAnimationFrame(draw)\n        }\n\n        draw()\n        return $this\n    }\n}"
   },
   {
-    "__docId__": 106,
+    "__docId__": 172,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -3350,7 +5019,7 @@
     "generator": false
   },
   {
-    "__docId__": 107,
+    "__docId__": 173,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -3363,7 +5032,7 @@
     "content": "class Phisic {\n  constructor() {\n    console.log('Phisic')\n  }\n};\nexport default Phisic"
   },
   {
-    "__docId__": 108,
+    "__docId__": 174,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -3380,7 +5049,7 @@
     "interface": false
   },
   {
-    "__docId__": 109,
+    "__docId__": 175,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -3395,7 +5064,7 @@
     "generator": false
   },
   {
-    "__docId__": 110,
+    "__docId__": 176,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -3408,7 +5077,7 @@
     "content": "export default Object.prototype.createBall = function (x,y) {\n    if (this.context) {\n        var $this = this\n        $this.x = x\n        $this.y = y\n        $this.vx = 5\n        $this.vy = 2\n        $this.radius = 25\n        $this.color = 'blue'\n        $this.draw = function () {\n            $this.clearRect(0, 0, $this.element.width, $this.element.height);\n            $this.context.beginPath();\n            $this.context.arc($this.x, $this.y, $this.radius, 0, Math.PI * 2, true);\n            $this.context.closePath();\n            $this.context.fillStyle = $this.color;\n            $this.context.fill();\n            return $this\n        }\n        $this.toX = function (x) {\n            $this.x = x\n            return $this\n        }\n        $this.toY = function (y) {\n            $this.y = y\n            return $this\n        }\n\n        return $this\n    }\n}"
   },
   {
-    "__docId__": 111,
+    "__docId__": 177,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -3444,7 +5113,7 @@
     "generator": false
   },
   {
-    "__docId__": 112,
+    "__docId__": 178,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -3457,7 +5126,7 @@
     "content": "export default Object.prototype.createBallShadow = function (x,y) {\n    if (this.context) {\n        var $this = this\n        $this.x = x\n        $this.y = y\n        $this.vx = 5\n        $this.vy = 2\n        $this.radius = 25\n        $this.color = 'blue'\n        $this.draw = function () {\n            $this.fillStyle('rgba(255,255,255,0.3)')\n            $this.fillRect(0, 0, $this.element.width, $this.element.height);\n            $this.context.beginPath();\n            $this.context.arc($this.x, $this.y, $this.radius, 0, Math.PI * 2, true);\n            $this.context.closePath();\n            $this.context.fillStyle = $this.color;\n            $this.context.fill();\n            return $this\n        }\n        $this.toX = function (x) {\n            $this.x = x\n            return $this\n        }\n        $this.toY = function (y) {\n            $this.y = y\n            return $this\n        }\n\n        $this.draw()\n\n        return $this\n    }\n}"
   },
   {
-    "__docId__": 113,
+    "__docId__": 179,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -3493,7 +5162,7 @@
     "generator": false
   },
   {
-    "__docId__": 114,
+    "__docId__": 180,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -3506,7 +5175,7 @@
     "content": "export default Object.prototype.createBallon = function () {\n    if (this.context) {\n        var ctx = this.context\n\n        ctx.beginPath()\n        ctx.moveTo(75, 25)\n        ctx.quadraticCurveTo(25, 25, 25, 62.5)\n        ctx.quadraticCurveTo(25, 100, 50, 100)\n        ctx.quadraticCurveTo(50, 120, 30, 125)\n        ctx.quadraticCurveTo(60, 120, 65, 100)\n        ctx.quadraticCurveTo(125, 100, 125, 62.5)\n        ctx.quadraticCurveTo(125, 25, 75, 25)\n        ctx.stroke()\n        return this\n    }\n}"
   },
   {
-    "__docId__": 115,
+    "__docId__": 181,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -3529,7 +5198,7 @@
     "generator": false
   },
   {
-    "__docId__": 116,
+    "__docId__": 182,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -3542,7 +5211,7 @@
     "content": "export default Object.prototype.createClockOne = function () {\n    if (this.context) {\n        var ctx = this.context\n        function clock() {\n            var now = new Date()\n            ctx.save();\n            ctx.clearRect(0, 0, 150, 150);\n            ctx.translate(75, 75);\n            ctx.scale(0.4, 0.4);\n            ctx.rotate(-Math.PI / 2);\n            ctx.strokeStyle = \"black\";\n            ctx.fillStyle = \"white\";\n            ctx.lineWidth = 8;\n            ctx.lineCap = \"round\";\n\n            // Hour marks\n            ctx.save();\n            for (var i = 0; i < 12; i++) {\n                ctx.beginPath();\n                ctx.rotate(Math.PI / 6);\n                ctx.moveTo(100, 0);\n                ctx.lineTo(120, 0);\n                ctx.stroke();\n            }\n            ctx.restore();\n\n            // Minute marks\n            ctx.save();\n            ctx.lineWidth = 5;\n            for (i = 0; i < 60; i++) {\n                if (i % 5 != 0) {\n                    ctx.beginPath();\n                    ctx.moveTo(117, 0);\n                    ctx.lineTo(120, 0);\n                    ctx.stroke();\n                }\n                ctx.rotate(Math.PI / 30);\n            }\n            ctx.restore();\n\n            var sec = now.getSeconds();\n            var min = now.getMinutes();\n            var hr = now.getHours();\n            hr = hr >= 12 ? hr - 12 : hr;\n\n            ctx.fillStyle = \"black\";\n\n            // write Hours\n            ctx.save();\n            ctx.rotate(hr * (Math.PI / 6) + (Math.PI / 360) * min + (Math.PI / 21600) * sec)\n            ctx.lineWidth = 14;\n            ctx.beginPath();\n            ctx.moveTo(-20, 0);\n            ctx.lineTo(80, 0);\n            ctx.stroke();\n            ctx.restore();\n\n            // write Minutes\n            ctx.save();\n            ctx.rotate((Math.PI / 30) * min + (Math.PI / 1800) * sec)\n            ctx.lineWidth = 10;\n            ctx.beginPath();\n            ctx.moveTo(-28, 0);\n            ctx.lineTo(112, 0);\n            ctx.stroke();\n            ctx.restore();\n\n            // Write seconds\n            ctx.save();\n            ctx.rotate(sec * Math.PI / 30);\n            ctx.strokeStyle = \"#D40000\";\n            ctx.fillStyle = \"#D40000\";\n            ctx.lineWidth = 6;\n            ctx.beginPath();\n            ctx.moveTo(-30, 0);\n            ctx.lineTo(83, 0);\n            ctx.stroke();\n            ctx.beginPath();\n            ctx.arc(0, 0, 10, 0, Math.PI * 2, true);\n            ctx.fill();\n            ctx.beginPath();\n            ctx.arc(95, 0, 10, 0, Math.PI * 2, true);\n            ctx.stroke();\n            ctx.fillStyle = \"rgba(0,0,0,0)\";\n            ctx.arc(0, 0, 3, 0, Math.PI * 2, true);\n            ctx.fill();\n            ctx.restore();\n\n            ctx.beginPath();\n            ctx.lineWidth = 14;\n            ctx.strokeStyle = '#325FA2';\n            ctx.arc(0, 0, 142, 0, Math.PI * 2, true);\n            ctx.stroke();\n\n            ctx.restore();\n\n            window.requestAnimationFrame(clock);\n        }\n\n        window.requestAnimationFrame(clock);\n        return this\n    }\n}"
   },
   {
-    "__docId__": 117,
+    "__docId__": 183,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -3565,7 +5234,7 @@
     "generator": false
   },
   {
-    "__docId__": 118,
+    "__docId__": 184,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -3578,7 +5247,7 @@
     "content": "export default Object.prototype.createFaceFeliz = function () {\n    if (this.context) {\n        var ctx = this.context\n\n        ctx.beginPath();\n        ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // Outer circle\n        ctx.moveTo(110, 75);\n        ctx.arc(75, 75, 35, 0, Math.PI, false);  // Mouth (clockwise)\n        ctx.moveTo(65, 65);\n        ctx.arc(60, 65, 5, 0, Math.PI * 2, true);  // Left eye\n        ctx.moveTo(95, 65);\n        ctx.arc(90, 65, 5, 0, Math.PI * 2, true);  // Right eye\n        ctx.stroke();\n\n        return this\n    }\n}"
   },
   {
-    "__docId__": 119,
+    "__docId__": 185,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -3601,7 +5270,7 @@
     "generator": false
   },
   {
-    "__docId__": 120,
+    "__docId__": 186,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -3614,7 +5283,7 @@
     "content": "export default Object.prototype.createHeart = function () {\n    if (this.context) {\n        var ctx = this.context\n\n        ctx.beginPath()\n        ctx.moveTo(75, 40)\n        ctx.bezierCurveTo(75, 37, 70, 25, 50, 25)\n        ctx.bezierCurveTo(20, 25, 20, 62.5, 20, 62.5)\n        ctx.bezierCurveTo(20, 80, 40, 102, 75, 120)\n        ctx.bezierCurveTo(110, 102, 130, 80, 130, 62.5)\n        ctx.bezierCurveTo(130, 62.5, 130, 25, 100, 25)\n        ctx.bezierCurveTo(85, 25, 75, 37, 75, 40)\n        ctx.fill()\n        return this\n    }\n}"
   },
   {
-    "__docId__": 121,
+    "__docId__": 187,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -3637,7 +5306,7 @@
     "generator": false
   },
   {
-    "__docId__": 122,
+    "__docId__": 188,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -3650,7 +5319,7 @@
     "content": "export default Object.prototype.createTransformPointerOne = function () {\n    if (this.context) {\n        var ctx = this.context\n\n        var sin = Math.sin(Math.PI / 6);\n        var cos = Math.cos(Math.PI / 6);\n        ctx.translate(100, 100);\n        var c = 0;\n        for (var i = 0; i <= 12; i++) {\n            c = Math.floor(255 / 12 * i);\n            ctx.fillStyle = \"rgb(\" + c + \",\" + c + \",\" + c + \")\";\n            ctx.fillRect(0, 0, 100, 10);\n            ctx.transform(cos, sin, -sin, cos, 0, 0);\n        }\n\n        ctx.setTransform(-1, 0, 0, 1, 100, 100);\n        ctx.fillStyle = \"rgba(255, 128, 255, 0.5)\";\n        ctx.fillRect(0, 50, 100, 100);\n        return this\n    }\n}"
   },
   {
-    "__docId__": 123,
+    "__docId__": 189,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -3673,7 +5342,7 @@
     "generator": false
   },
   {
-    "__docId__": 124,
+    "__docId__": 190,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -3686,7 +5355,7 @@
     "content": ""
   },
   {
-    "__docId__": 125,
+    "__docId__": 191,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -3699,7 +5368,7 @@
     "content": ""
   },
   {
-    "__docId__": 126,
+    "__docId__": 192,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -3712,7 +5381,7 @@
     "content": "import WCanvas from '../elements/WCanvas'\n\nclass World extends WCanvas {\n    constructor() {\n        super()\n    }\n}\n\nexport default World"
   },
   {
-    "__docId__": 127,
+    "__docId__": 193,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -3732,7 +5401,7 @@
     ]
   },
   {
-    "__docId__": 128,
+    "__docId__": 194,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -3747,7 +5416,7 @@
     "generator": false
   },
   {
-    "__docId__": 130,
+    "__docId__": 196,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3760,7 +5429,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 131,
+    "__docId__": 197,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3773,7 +5442,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 132,
+    "__docId__": 198,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3786,7 +5455,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 133,
+    "__docId__": 199,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3799,7 +5468,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 134,
+    "__docId__": 200,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3812,7 +5481,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 135,
+    "__docId__": 201,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3825,7 +5494,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 136,
+    "__docId__": 202,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3838,7 +5507,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 137,
+    "__docId__": 203,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3851,7 +5520,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 138,
+    "__docId__": 204,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3864,7 +5533,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 139,
+    "__docId__": 205,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3877,7 +5546,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 140,
+    "__docId__": 206,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3890,7 +5559,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 141,
+    "__docId__": 207,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3903,7 +5572,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 142,
+    "__docId__": 208,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3916,7 +5585,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 143,
+    "__docId__": 209,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3929,7 +5598,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 144,
+    "__docId__": 210,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3942,7 +5611,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 145,
+    "__docId__": 211,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3955,7 +5624,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 146,
+    "__docId__": 212,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3968,7 +5637,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 147,
+    "__docId__": 213,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3981,7 +5650,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 148,
+    "__docId__": 214,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -3994,7 +5663,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 149,
+    "__docId__": 215,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4007,7 +5676,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 150,
+    "__docId__": 216,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4020,7 +5689,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 151,
+    "__docId__": 217,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4033,7 +5702,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 152,
+    "__docId__": 218,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4046,7 +5715,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 153,
+    "__docId__": 219,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4059,7 +5728,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 154,
+    "__docId__": 220,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4072,7 +5741,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 155,
+    "__docId__": 221,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4085,7 +5754,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 156,
+    "__docId__": 222,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4098,7 +5767,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 157,
+    "__docId__": 223,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4111,7 +5780,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 158,
+    "__docId__": 224,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4124,7 +5793,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 159,
+    "__docId__": 225,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4137,7 +5806,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 160,
+    "__docId__": 226,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4150,7 +5819,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 161,
+    "__docId__": 227,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4163,7 +5832,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 162,
+    "__docId__": 228,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4176,7 +5845,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 163,
+    "__docId__": 229,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4189,7 +5858,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 164,
+    "__docId__": 230,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4202,7 +5871,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 165,
+    "__docId__": 231,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4215,7 +5884,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 166,
+    "__docId__": 232,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4228,7 +5897,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 167,
+    "__docId__": 233,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4241,7 +5910,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 168,
+    "__docId__": 234,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4254,7 +5923,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 169,
+    "__docId__": 235,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4267,7 +5936,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 170,
+    "__docId__": 236,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4280,7 +5949,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 171,
+    "__docId__": 237,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4293,7 +5962,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 172,
+    "__docId__": 238,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4306,7 +5975,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 173,
+    "__docId__": 239,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4319,7 +5988,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 174,
+    "__docId__": 240,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4332,7 +6001,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 175,
+    "__docId__": 241,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4345,7 +6014,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 176,
+    "__docId__": 242,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4358,7 +6027,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 178,
+    "__docId__": 244,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4371,7 +6040,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 179,
+    "__docId__": 245,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4384,7 +6053,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 180,
+    "__docId__": 246,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4397,7 +6066,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 181,
+    "__docId__": 247,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4410,7 +6079,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 182,
+    "__docId__": 248,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4423,7 +6092,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 183,
+    "__docId__": 249,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4436,7 +6105,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 184,
+    "__docId__": 250,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -4449,7 +6118,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 185,
+    "__docId__": 251,
     "kind": "external",
     "static": true,
     "variation": null,

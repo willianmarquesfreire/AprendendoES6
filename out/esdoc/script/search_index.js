@@ -1,11 +1,5 @@
 window.esdocSearchIndex = [
   [
-    "aprendendoes6/src/enums/wcanvasquality.js~canvasquality",
-    "variable/index.html#static-variable-CanvasQuality",
-    "<span>CanvasQuality</span> <span class=\"search-result-import-path\">aprendendoes6/src/enums/WCanvasQuality.js</span>",
-    "variable"
-  ],
-  [
     "aprendendoes6/src/phisic/phisic.js~phisic",
     "class/src/phisic/Phisic.js~Phisic.html",
     "<span>Phisic</span> <span class=\"search-result-import-path\">aprendendoes6/src/phisic/Phisic.js</span>",
@@ -22,6 +16,12 @@ window.esdocSearchIndex = [
     "class/src/elements/WCanvas.js~WCanvas.html",
     "<span>WCanvas</span> <span class=\"search-result-import-path\">aprendendoes6/src/elements/WCanvas.js</span>",
     "class"
+  ],
+  [
+    "aprendendoes6/src/enums/wcanvasquality.js~wcanvasquality",
+    "variable/index.html#static-variable-WCanvasQuality",
+    "<span>WCanvasQuality</span> <span class=\"search-result-import-path\">aprendendoes6/src/enums/WCanvasQuality.js</span>",
+    "variable"
   ],
   [
     "aprendendoes6/src/elements/welement.js~welement",
@@ -42,9 +42,39 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "aprendendoes6/src/enums/wlinecap.js~wlinecap",
+    "variable/index.html#static-variable-WLineCap",
+    "<span>WLineCap</span> <span class=\"search-result-import-path\">aprendendoes6/src/enums/WLineCap.js</span>",
+    "variable"
+  ],
+  [
+    "aprendendoes6/src/enums/wlinejoin.js~wlinejoin",
+    "variable/index.html#static-variable-WLineJoin",
+    "<span>WLineJoin</span> <span class=\"search-result-import-path\">aprendendoes6/src/enums/WLineJoin.js</span>",
+    "variable"
+  ],
+  [
     "aprendendoes6/src/enums/wmimetype.js~wmimetype",
     "variable/index.html#static-variable-WMimeType",
     "<span>WMimeType</span> <span class=\"search-result-import-path\">aprendendoes6/src/enums/WMimeType.js</span>",
+    "variable"
+  ],
+  [
+    "aprendendoes6/src/enums/wrepeat.js~wrepeat",
+    "variable/index.html#static-variable-WRepeat",
+    "<span>WRepeat</span> <span class=\"search-result-import-path\">aprendendoes6/src/enums/WRepeat.js</span>",
+    "variable"
+  ],
+  [
+    "aprendendoes6/src/enums/wtextalign.js~wtextalign",
+    "variable/index.html#static-variable-WTextAlign",
+    "<span>WTextAlign</span> <span class=\"search-result-import-path\">aprendendoes6/src/enums/WTextAlign.js</span>",
+    "variable"
+  ],
+  [
+    "aprendendoes6/src/enums/wtextbaseline.js~wtextbaseline",
+    "variable/index.html#static-variable-WTextBaseline",
+    "<span>WTextBaseline</span> <span class=\"search-result-import-path\">aprendendoes6/src/enums/WTextBaseline.js</span>",
     "variable"
   ],
   [
@@ -468,6 +498,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/elements/wcanvas.js~wcanvas#addcolorstop",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-addColorStop",
+    "src/elements/WCanvas.js~WCanvas#addColorStop",
+    "method"
+  ],
+  [
     "src/elements/wcanvas.js~wcanvas#arc",
     "class/src/elements/WCanvas.js~WCanvas.html#instance-method-arc",
     "src/elements/WCanvas.js~WCanvas#arc",
@@ -517,13 +553,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/elements/wcanvas.js~wcanvas#context",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-context",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-context",
     "src/elements/WCanvas.js~WCanvas#context",
     "member"
   ],
   [
     "src/elements/wcanvas.js~wcanvas#context",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-context",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-context",
     "src/elements/WCanvas.js~WCanvas#context",
     "member"
   ],
@@ -543,6 +579,24 @@ window.esdocSearchIndex = [
     "src/elements/wcanvas.js~wcanvas#createimage",
     "class/src/elements/WCanvas.js~WCanvas.html#instance-method-createImage",
     "src/elements/WCanvas.js~WCanvas#createImage",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#createlineargradient",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-createLinearGradient",
+    "src/elements/WCanvas.js~WCanvas#createLinearGradient",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#createpattern",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-createPattern",
+    "src/elements/WCanvas.js~WCanvas#createPattern",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#createradialgradient",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-createRadialGradient",
+    "src/elements/WCanvas.js~WCanvas#createRadialGradient",
     "method"
   ],
   [
@@ -606,6 +660,30 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/elements/wcanvas.js~wcanvas#filltext",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-fillText",
+    "src/elements/WCanvas.js~WCanvas#fillText",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#filltext",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-fillText",
+    "src/elements/WCanvas.js~WCanvas#fillText",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#font",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-font",
+    "src/elements/WCanvas.js~WCanvas#font",
+    "member"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#font",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-font",
+    "src/elements/WCanvas.js~WCanvas#font",
+    "member"
+  ],
+  [
     "src/elements/wcanvas.js~wcanvas#getimagedata",
     "class/src/elements/WCanvas.js~WCanvas.html#instance-method-getImageData",
     "src/elements/WCanvas.js~WCanvas#getImageData",
@@ -631,13 +709,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/elements/wcanvas.js~wcanvas#imagesmoothingenabled",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-imageSmoothingEnabled",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-imageSmoothingEnabled",
     "src/elements/WCanvas.js~WCanvas#imageSmoothingEnabled",
     "member"
   ],
   [
     "src/elements/wcanvas.js~wcanvas#imagesmoothingenabled",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-imageSmoothingEnabled",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-imageSmoothingEnabled",
     "src/elements/WCanvas.js~WCanvas#imageSmoothingEnabled",
     "member"
   ],
@@ -654,10 +732,64 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/elements/wcanvas.js~wcanvas#ispointinpath",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-isPointInPath",
+    "src/elements/WCanvas.js~WCanvas#isPointInPath",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#linecap",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-lineCap",
+    "src/elements/WCanvas.js~WCanvas#lineCap",
+    "member"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#linecap",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-lineCap",
+    "src/elements/WCanvas.js~WCanvas#lineCap",
+    "member"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#linejoin",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-lineJoin",
+    "src/elements/WCanvas.js~WCanvas#lineJoin",
+    "member"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#linejoin",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-lineJoin",
+    "src/elements/WCanvas.js~WCanvas#lineJoin",
+    "member"
+  ],
+  [
     "src/elements/wcanvas.js~wcanvas#lineto",
     "class/src/elements/WCanvas.js~WCanvas.html#instance-method-lineTo",
     "src/elements/WCanvas.js~WCanvas#lineTo",
     "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#linewidth",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-lineWidth",
+    "src/elements/WCanvas.js~WCanvas#lineWidth",
+    "member"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#linewidth",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-lineWidth",
+    "src/elements/WCanvas.js~WCanvas#lineWidth",
+    "member"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#miterlimit",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-miterLimit",
+    "src/elements/WCanvas.js~WCanvas#miterLimit",
+    "member"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#miterlimit",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-miterLimit",
+    "src/elements/WCanvas.js~WCanvas#miterLimit",
+    "member"
   ],
   [
     "src/elements/wcanvas.js~wcanvas#moveto",
@@ -714,9 +846,81 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/elements/wcanvas.js~wcanvas#setfont",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-setFont",
+    "src/elements/WCanvas.js~WCanvas#setFont",
+    "method"
+  ],
+  [
     "src/elements/wcanvas.js~wcanvas#setimagesmoothingenabled",
     "class/src/elements/WCanvas.js~WCanvas.html#instance-method-setImageSmoothingEnabled",
     "src/elements/WCanvas.js~WCanvas#setImageSmoothingEnabled",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#setlinecap",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-setLineCap",
+    "src/elements/WCanvas.js~WCanvas#setLineCap",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#setlinejoin",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-setLineJoin",
+    "src/elements/WCanvas.js~WCanvas#setLineJoin",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#setlinewidth",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-setLineWidth",
+    "src/elements/WCanvas.js~WCanvas#setLineWidth",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#setmiterlimit",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-setMiterLimit",
+    "src/elements/WCanvas.js~WCanvas#setMiterLimit",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#setshadowblur",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-setShadowBlur",
+    "src/elements/WCanvas.js~WCanvas#setShadowBlur",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#setshadowblurx",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-setShadowBlurX",
+    "src/elements/WCanvas.js~WCanvas#setShadowBlurX",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#setshadowblury",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-setShadowBlurY",
+    "src/elements/WCanvas.js~WCanvas#setShadowBlurY",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#setshadowcolor",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-setShadowColor",
+    "src/elements/WCanvas.js~WCanvas#setShadowColor",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#setstrokestyle",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-setStrokeStyle",
+    "src/elements/WCanvas.js~WCanvas#setStrokeStyle",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#settextalign",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-setTextAlign",
+    "src/elements/WCanvas.js~WCanvas#setTextAlign",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#settextbaseline",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-setTextBaseline",
+    "src/elements/WCanvas.js~WCanvas#setTextBaseline",
     "method"
   ],
   [
@@ -724,6 +928,54 @@ window.esdocSearchIndex = [
     "class/src/elements/WCanvas.js~WCanvas.html#instance-method-setTransform",
     "src/elements/WCanvas.js~WCanvas#setTransform",
     "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#shadowblur",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-shadowBlur",
+    "src/elements/WCanvas.js~WCanvas#shadowBlur",
+    "member"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#shadowblur",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-shadowBlur",
+    "src/elements/WCanvas.js~WCanvas#shadowBlur",
+    "member"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#shadowcolor",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-shadowColor",
+    "src/elements/WCanvas.js~WCanvas#shadowColor",
+    "member"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#shadowcolor",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-shadowColor",
+    "src/elements/WCanvas.js~WCanvas#shadowColor",
+    "member"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#shadowoffsetx",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-shadowOffsetX",
+    "src/elements/WCanvas.js~WCanvas#shadowOffsetX",
+    "member"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#shadowoffsetx",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-shadowOffsetX",
+    "src/elements/WCanvas.js~WCanvas#shadowOffsetX",
+    "member"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#shadowoffsety",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-shadowOffsetY",
+    "src/elements/WCanvas.js~WCanvas#shadowOffsetY",
+    "member"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#shadowoffsety",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-shadowOffsetY",
+    "src/elements/WCanvas.js~WCanvas#shadowOffsetY",
+    "member"
   ],
   [
     "src/elements/wcanvas.js~wcanvas#stringrgba",
@@ -742,6 +994,48 @@ window.esdocSearchIndex = [
     "class/src/elements/WCanvas.js~WCanvas.html#instance-method-strokeRect",
     "src/elements/WCanvas.js~WCanvas#strokeRect",
     "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#strokestyle",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-strokeStyle",
+    "src/elements/WCanvas.js~WCanvas#strokeStyle",
+    "member"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#strokestyle",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-strokeStyle",
+    "src/elements/WCanvas.js~WCanvas#strokeStyle",
+    "member"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#stroketext",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-strokeText",
+    "src/elements/WCanvas.js~WCanvas#strokeText",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#textalign",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-textAlign",
+    "src/elements/WCanvas.js~WCanvas#textAlign",
+    "member"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#textalign",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-textAlign",
+    "src/elements/WCanvas.js~WCanvas#textAlign",
+    "member"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#textbaseline",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-textBaseline",
+    "src/elements/WCanvas.js~WCanvas#textBaseline",
+    "member"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#textbaseline",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-textBaseline",
+    "src/elements/WCanvas.js~WCanvas#textBaseline",
+    "member"
   ],
   [
     "src/elements/wcanvas.js~wcanvas#toblob",
@@ -936,9 +1230,39 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/enums/wlinecap.js",
+    "file/src/enums/WLineCap.js.html",
+    "src/enums/WLineCap.js",
+    "file"
+  ],
+  [
+    "src/enums/wlinejoin.js",
+    "file/src/enums/WLineJoin.js.html",
+    "src/enums/WLineJoin.js",
+    "file"
+  ],
+  [
     "src/enums/wmimetype.js",
     "file/src/enums/WMimeType.js.html",
     "src/enums/WMimeType.js",
+    "file"
+  ],
+  [
+    "src/enums/wrepeat.js",
+    "file/src/enums/WRepeat.js.html",
+    "src/enums/WRepeat.js",
+    "file"
+  ],
+  [
+    "src/enums/wtextalign.js",
+    "file/src/enums/WTextAlign.js.html",
+    "src/enums/WTextAlign.js",
+    "file"
+  ],
+  [
+    "src/enums/wtextbaseline.js",
+    "file/src/enums/WTextBaseline.js.html",
+    "src/enums/WTextBaseline.js",
     "file"
   ],
   [

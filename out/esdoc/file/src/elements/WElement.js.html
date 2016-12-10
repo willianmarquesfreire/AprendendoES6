@@ -36,9 +36,14 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html">WCanvas</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html">WElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/WImage.js~WImage.html">WImage</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">enums</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-CanvasQuality">CanvasQuality</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">enums</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WCanvasQuality">WCanvasQuality</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WGlobalCompositeOperationType">WGlobalCompositeOperationType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WLineCap">WLineCap</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WLineJoin">WLineJoin</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WMimeType">WMimeType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WRepeat">WRepeat</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WTextAlign">WTextAlign</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WTextBaseline">WTextBaseline</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WType">WType</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">events</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-eventFallMove">eventFallMove</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-eventMouseFollow">eventMouseFollow</a></span></span></li>
@@ -57,7 +62,11 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/elements/WElement.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">class WElement {
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * Generic class to elements
+ * @class
+ */
+class WElement {
 
     constructor(element, width, height, border) {
         this.element = element
@@ -65,10 +74,6 @@
         this.height = height
         this.border = border
         console.log(this.getClassName().concat(&apos; Created!&apos;))
-    }
-
-    createElement(element) {
-        return document.createElement(element)
     }
     get id() {
         return this.element.id
@@ -86,21 +91,50 @@
     get attributes() {
         return this.element.attributes
     }
+    /**
+     * Create a element
+     * @param {string} element Type of element
+     * @example WElement element = new WElement(&apos;p&apos;)
+     */
+    createElement(element) {
+        return document.createElement(element)
+    }
+    /**
+     * Set the id of element
+     * @param {string} id Id of element
+     */
     setId(id) {
         this.element.id = id
         return this
     }
+    /**
+     * Set Attribute to element
+     * @param {string} attr Attribute of element
+     * @param {string} value Value of attribute
+     * @example element.setAttribute(&apos;width&apos;,&apos;10&apos;)
+     */
     setAttribute(attr, value) {
         this.element.setAttribute(attr, value)
         return this
     }
+    /**
+     * Set Style of element
+     * @param {string} attr Attribute of style
+     * @param {string} value Value of attributey
+     * @example element.setStyle(&apos;color&apos;,&apos;red&apos;)
+     */
     setStyle(attr, value) {
         this.setAttibute(&apos;style&apos;, attr + &apos;: &apos; + value)
         return this
     }
+    /**
+     * Set size of element
+     * @param {number} width Width of element
+     * @param {number} height Height of element
+     */
     setSize(width, height) {
-        this.width === width
-        this.height === height
+        this.width = width
+        this.height = height
         return this
     }
     set width(width) {
@@ -115,22 +149,40 @@
         this.element.setAttribute(&apos;style&apos;, &apos;border: &apos;.concat(border))
         return this
     }
+    /**
+     * Add Child to Element
+     * @param {Object} child Child to append on element
+     */
     addChild(child) {
         this.element.appendChild(child)
         return this
     }
+    /**
+     * Add current element to body
+     */
     addToBody() {
         document.body.appendChild(this.element)
         return this
     }
+    /**
+     * Add current element to element with specified id
+     * @param {string} id Id of element
+     */
     addToElementById(id) {
         document.getElementById(id).appendChild(this.element)
         return this
     }
+    /**
+     * Add current element to element with specified className
+     * @param {string} className Class of element
+     */
     addToElementByClassName(className) {
         document.getElementsByClassName(className).appendChild(this.element)
         return this
     }
+    /**
+     * Get name of current Class
+     */
     getClassName() {
         return this.constructor.name
     }

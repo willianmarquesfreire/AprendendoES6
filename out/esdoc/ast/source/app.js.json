@@ -1435,31 +1435,11 @@
                         "line": 20,
                         "column": 21
                       }
-                    },
-                    "trailingComments": [
-                      {
-                        "type": "Line",
-                        "value": " world.element.addEventListener('mousemove', pick)",
-                        "range": [
-                          888,
-                          940
-                        ],
-                        "loc": {
-                          "start": {
-                            "line": 24,
-                            "column": 4
-                          },
-                          "end": {
-                            "line": 24,
-                            "column": 56
-                          }
-                        }
-                      }
-                    ]
+                    }
                   },
                   "range": [
                     852,
-                    943
+                    871
                   ],
                   "loc": {
                     "start": {
@@ -1467,7 +1447,7 @@
                       "column": 4
                     },
                     "end": {
-                      "line": 27,
+                      "line": 22,
                       "column": 0
                     }
                   }
@@ -1475,7 +1455,7 @@
               ],
               "range": [
                 786,
-                944
+                872
               ],
               "loc": {
                 "start": {
@@ -1483,7 +1463,7 @@
                   "column": 44
                 },
                 "end": {
-                  "line": 27,
+                  "line": 22,
                   "column": 1
                 }
               }
@@ -1492,7 +1472,7 @@
             "expression": false,
             "range": [
               774,
-              944
+              872
             ],
             "loc": {
               "start": {
@@ -1500,7 +1480,7 @@
                 "column": 32
               },
               "end": {
-                "line": 27,
+                "line": 22,
                 "column": 1
               }
             }
@@ -1508,7 +1488,7 @@
         ],
         "range": [
           742,
-          945
+          873
         ],
         "loc": {
           "start": {
@@ -1516,14 +1496,14 @@
             "column": 0
           },
           "end": {
-            "line": 27,
+            "line": 22,
             "column": 2
           }
         }
       },
       "range": [
         742,
-        945
+        873
       ],
       "loc": {
         "start": {
@@ -1531,7 +1511,7 @@
           "column": 0
         },
         "end": {
-          "line": 27,
+          "line": 22,
           "column": 2
         }
       }
@@ -1540,7 +1520,7 @@
   "sourceType": "module",
   "range": [
     103,
-    945
+    873
   ],
   "loc": {
     "start": {
@@ -1548,7 +1528,7 @@
       "column": 0
     },
     "end": {
-      "line": 27,
+      "line": 22,
       "column": 2
     }
   },
@@ -1568,24 +1548,6 @@
         "end": {
           "line": 1,
           "column": 102
-        }
-      }
-    },
-    {
-      "type": "Line",
-      "value": " world.element.addEventListener('mousemove', pick)",
-      "range": [
-        888,
-        940
-      ],
-      "loc": {
-        "start": {
-          "line": 24,
-          "column": 4
-        },
-        "end": {
-          "line": 24,
-          "column": 56
         }
       }
     }

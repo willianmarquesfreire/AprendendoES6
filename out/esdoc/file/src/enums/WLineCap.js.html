@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">src/events/WFallMove.js | API Document</title>
+  <title data-ice="title">src/enums/WLineCap.js | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -61,47 +61,14 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/events/WFallMove.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">export default Object.prototype.eventFallMove = function () {
-    if (this.context) {
-        var $this = this
-        var ctx = $this.context
+<div class="content" data-ice="content"><h1 data-ice="title">src/enums/WLineCap.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">var WLineCap = {
+    &apos;BUTT&apos;: &quot;butt&quot;,
+    &apos;ROUND&apos;: &quot;round&quot;,
+    &apos;SQUARE&apos;: &apos;square&apos;
+}
 
-        $this.running = false
-
-        var raf;
-
-        $this.start = function() {
-            $this.running = true
-            $this.draw()
-                .toX($this.x)
-                .toY($this.y)
-
-            $this.x += $this.vx
-            $this.y += $this.vy
-            $this.vy *= .99
-            $this.vy += .25
-
-            if ($this.y + $this.vy &gt; $this.element.height
-                || $this.y + $this.vy &lt; 0) {
-                $this.vy = -$this.vy
-            }
-
-            if ($this.x + $this.vx &gt; $this.element.width
-                || $this.x + $this.vx &lt; 0) {
-                $this.vx = -$this.vx
-            }
-            raf = window.requestAnimationFrame($this.start)
-        }
-
-        $this.stop = function() {
-            $this.running = false
-            window.cancelAnimationFrame(raf)
-        }
-
-        return $this
-    }
-}</code></pre>
+export default WLineCap</code></pre>
 
 </div>
 

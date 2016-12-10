@@ -36,9 +36,14 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html">WCanvas</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html">WElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/WImage.js~WImage.html">WImage</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">enums</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-CanvasQuality">CanvasQuality</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">enums</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WCanvasQuality">WCanvasQuality</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WGlobalCompositeOperationType">WGlobalCompositeOperationType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WLineCap">WLineCap</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WLineJoin">WLineJoin</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WMimeType">WMimeType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WRepeat">WRepeat</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WTextAlign">WTextAlign</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WTextBaseline">WTextBaseline</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WType">WType</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">events</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-eventFallMove">eventFallMove</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-eventMouseFollow">eventMouseFollow</a></span></span></li>
@@ -100,6 +105,254 @@ class WCanvas extends WElement {
         if (this.context.msImageSmoothingEnabled) {
             this.context.msImageSmoothingEnabled = imageSmoothingEnabled
         }
+    }
+    get shadowBlur() {
+        return this.context.shadowBlur
+    }
+    set shadowBlur(offset) {
+        this.context.shadowBlur = offset
+    }
+    get shadowOffsetX() {
+        return this.context.shadowOffsetX
+    }
+    set shadowOffsetX(offset) {
+        this.context.shadowOffsetX = offset
+    }
+    get shadowOffsetY() {
+        return this.context.shadowOffsetY
+    }
+    set shadowOffsetY(offset) {
+        this.context.shadowOffsetY = offset
+    }
+    get shadowColor() {
+        return this.context.shadowColor
+    }
+    set shadowColor(shadowColor) {
+        this.context.shadowColor = shadowColor
+    }
+    get strokeStyle() {
+        return this.context.strokeStyle
+    }
+    set strokeStyle(strokeStyle) {
+        this.context.strokeStyle = strokeStyle
+    }
+    get lineCap() {
+        return this.context.lineCap
+    }
+    set lineCap(lineCap) {
+        this.context.lineCap = lineCap
+    }
+    get lineJoin() {
+        return this.context.lineJoin
+    }
+    set lineJoin(lineJoin) {
+        this.context.lineJoin = lineJoin
+    }
+    get lineWidth() {
+        return this.context.lineWidth
+    }
+    set lineWidth(lineWidth) {
+        this.context.lineWidth = lineWidth
+    }
+    get miterLimit() {
+        return this.context.miterLimit
+    }
+    set miterLimit(miterLimit) {
+        this.context.miterLimit = miterLimit
+    }
+    get font() {
+        return this.context.font
+    }
+    set font(font) {
+        this.context.font = font
+    }
+    get textAlign() {
+        return this.context.textAlign
+    }
+    set textAlign(textAlign) {
+        this.context.textAlign = textAlign
+    }
+    get textBaseline() {
+        return this.context.textBaseline
+    }
+    set textBaseline(textBaseline) {
+        this.context.textBaseline = textBaseline
+    }
+    /**
+     * Method returns an object that contains the width of the specified text, in pixels.
+     * @param {string} text	The text to be measured
+     * @returns {string}
+     */
+    fillText(text) {
+        return this.context.measureText(text)
+    }
+    /**
+     * Method draws filled text on the canvas. The default color of the text is black.
+     * @param {string} text	Specifies the text that will be written on the canvas
+     * @param {number} x	The x coordinate where to start painting the text (relative to the canvas)
+     * @param {number} y	The y coordinate where to start painting the text (relative to the canvas)
+     * @param {number} maxWidth	Optional. The maximum allowed width of the text, in pixels
+     */
+    fillText(text, x, y, maxWidth) {
+        this.context.fillText(text, x, y, maxWidth)
+        return this
+    }
+    /**
+     * Method draws text (with no fill) on the canvas. The default color of the text is black.
+     * @param {string} text	Specifies the text that will be written on the canvas
+     * @param {number} x	The x coordinate where to start painting the text (relative to the canvas)
+     * @param {number} y	The y coordinate where to start painting the text (relative to the canvas)
+     * @param {number} maxWidth	Optional. The maximum allowed width of the text, in pixels
+     */
+    strokeText(text, x, y, maxWidth) {
+        this.context.strokeText(text, x, y, maxWidth)
+        return this
+    }
+    /**
+     * The textBaseline property sets or returns the current text baseline used when drawing text.
+     * @param {WTextBaseline} textBaseline	textBaseline to set
+     */
+    setTextBaseline(textBaseline) {
+        this.textBaseline = textBaseline
+        return this
+    }
+    /**
+     * The textAlign property sets or returns the current alignment for text content, according to the anchor point.
+     * @param {WTextAlign} textAlign	TextAlign to set
+     */
+    setTextAlign(textAlign) {
+        this.textAlign = textAlign
+        return this
+    }
+    /**
+     * The font property sets or returns the current font properties for text content on the canvas.
+     * @param {string} font	Font to select
+     */
+    setFont(font) {
+        this.font = font
+        return this
+    }
+    /**
+     * Method returns true if the specified point is in the current path, otherwise false.
+     * @param {x} x	The x-coordinate to test
+     * @param {y} y	The y-coordinate to test
+     */
+    isPointInPath(x, y) {
+        return this.context.isPointInPath(x, y)
+    }
+    /**
+     * The miterLimit property sets or returns the style of the end caps for a line.
+     * @param {number} miterLimit	A positive number that specifies the maximum miter length. If the current miter length exceeds the miterLimit, the corner will display as lineJoin &quot;bevel&quot;
+     */
+    setMiterLimit(miterLimit) {
+        this.miterLimit = miterLimit
+        return this
+    }
+    /**
+     * The lineWidth property sets or returns the style of the end caps for a line.
+     * @param {number} lineWidth	Specifies the lineWidth
+     */
+    setLineWidth(lineWidth) {
+        this.lineWidth = lineWidth
+        return this
+    }
+    /**
+     * The lineJoin property sets or returns the style of the end caps for a line.
+     * @param {WLineJoin} lineJoin	Specifies the lineJoin
+     */
+    setLineJoin(lineJoin) {
+        this.lineJoin = lineJoin
+        return this
+    }
+    /**
+     * The lineCap property sets or returns the style of the end caps for a line.
+     * @param {WLineCap} lineCap	Specifies the lineCap
+     */
+    setLineCap(lineCap) {
+        this.lineCap = lineCap
+        return this
+    }
+    /**
+     * Method repeats the specified element in the specified direction.
+     * @param {Object} image	Specifies the image, canvas, or video element of the pattern to use	 
+     * @param {WRepeat} repeat	Default. The pattern repeats
+     */
+    createPattern(image, repeat) {
+        this.context.createPattern(image, repeat)
+        return this
+    }
+    /**
+     * Method specifies the colors and position in a gradient object.
+     * @param {number} stop	A value between 0.0 and 1.0 that represents the position between start and end in a gradient
+     * @param {string} color A CSS color value to display at the stop position
+     */
+    addColorStop(stop, color) {
+        this.context.addColorStop(stop, color)
+        return this
+    }
+    /**
+     * Method creates a radial gradient object.
+     * @param {number} x0 The x-coordinate of the start point of the gradient
+     * @param {number} y0 The y-coordinate of the start point of the gradient
+     * @param {number} r0 The radius of the gradient
+     * @param {number} x1 The x-coordinate of the end point of the gradient
+     * @param {number} y1 The y-coordinate of the end point of the gradient
+     * @param {number} r1 The radius of the gradient
+     */
+    createRadialGradient(x0, y0, r0, x1, y1, r1) {
+        this.context.createRadialGradient(x0, y0, r0, x1, y1, r1)
+        return this
+    }
+    /**
+     * Method creates a linear gradient object.
+     * @param {number} x0 The x-coordinate of the start point of the gradient
+     * @param {number} y0 The y-coordinate of the start point of the gradient
+     * @param {number} x1 The x-coordinate of the end point of the gradient
+     * @param {number} y1 The y-coordinate of the end point of the gradient
+     */
+    createLinearGradient(x0, y0, x1, y1) {
+        this.context.createLinearGradient(x0, y0, x1, y1)
+        return this
+    }
+    /**
+     * Set strokeStyle of context
+     * @param {Color} strokeStyle Offset of shadow blur
+     */
+    setStrokeStyle(strokeStyle) {
+        this.strokeStyle = strokeStyle
+        return this
+    }
+    /**
+     * Set shadowColor of context
+     * @param {Color} shadowColor Offset of shadow blur
+     */
+    setShadowColor(shadowColor) {
+        this.shadowColor = shadowColor
+        return this
+    }
+    /**
+     * Set Shadow of context
+     * @param {number} offset Offset of shadow blur
+     */
+    setShadowBlur(offset) {
+        this.shadowBlur = offset
+        return this
+    }
+    /**
+     * Set X-Shadow of context
+     * @param {number} offset Offset of shadow blur
+     */
+    setShadowBlurX(offset) {
+        this.shadowOffsetX = offset
+        return this
+    }
+    /**
+     * Set Y-Shadow of context
+     * @param {number} offset Offset of shadow blur
+     */
+    setShadowBlurY(offset) {
+        this.shadowOffsetY = offset
+        return this
     }
     /**
      * Saves the state of the current context
@@ -352,7 +605,7 @@ class WCanvas extends WElement {
         var $this = this
         var img = new Image()
         img.src = url
-        img.onload = function () {
+        img.onload = function() {
             $this.context.drawImage(img, x, y)
             img.style.display = &apos;none&apos;
             if (callback) {
@@ -557,6 +810,7 @@ class WCanvas extends WElement {
         this.imageSmoothingEnabled = imageSmoothingEnabled
         return this
     }
+
     /**
      * Adds a new point and creates a line to that point from the last specified point in the canvas
      * @param {number} x x-coordinate

@@ -118,11 +118,269 @@ var WCanvas = function (_WElement) {
     }
 
     _createClass(WCanvas, [{
-        key: 'save',
+        key: 'setGlobalCompositeOperation',
 
+        /**
+         * Sets or returns how a source (new) image are drawn onto a destination (existing) image.
+         * @param {WGlobalCompositeOperation} globalCompositeOperation	globalCompositeOperation to set
+         */
+        value: function setGlobalCompositeOperation(globalCompositeOperation) {
+            this.globalCompositeOperation = globalCompositeOperation;
+            return this;
+        }
+        /**
+         * Sets or returns the current alpha or transparency value of the drawing.
+         * @param {number} globalAlpha	globalAlpha to set
+         */
+
+    }, {
+        key: 'setGlobalAlpha',
+        value: function setGlobalAlpha(globalAlpha) {
+            this.globalAlpha = globalAlpha;
+            return this;
+        }
+        /**
+         * Method returns an object that contains the width of the specified text, in pixels.
+         * @param {string} text	The text to be measured
+         * @returns {string}
+         */
+
+    }, {
+        key: 'fillText',
+        value: function fillText(text) {
+            return this.context.measureText(text);
+        }
+        /**
+         * Method draws filled text on the canvas. The default color of the text is black.
+         * @param {string} text	Specifies the text that will be written on the canvas
+         * @param {number} x	The x coordinate where to start painting the text (relative to the canvas)
+         * @param {number} y	The y coordinate where to start painting the text (relative to the canvas)
+         * @param {number} maxWidth	Optional. The maximum allowed width of the text, in pixels
+         */
+
+    }, {
+        key: 'fillText',
+        value: function fillText(text, x, y, maxWidth) {
+            this.context.fillText(text, x, y, maxWidth);
+            return this;
+        }
+        /**
+         * Method draws text (with no fill) on the canvas. The default color of the text is black.
+         * @param {string} text	Specifies the text that will be written on the canvas
+         * @param {number} x	The x coordinate where to start painting the text (relative to the canvas)
+         * @param {number} y	The y coordinate where to start painting the text (relative to the canvas)
+         * @param {number} maxWidth	Optional. The maximum allowed width of the text, in pixels
+         */
+
+    }, {
+        key: 'strokeText',
+        value: function strokeText(text, x, y, maxWidth) {
+            this.context.strokeText(text, x, y, maxWidth);
+            return this;
+        }
+        /**
+         * The textBaseline property sets or returns the current text baseline used when drawing text.
+         * @param {WTextBaseline} textBaseline	textBaseline to set
+         */
+
+    }, {
+        key: 'setTextBaseline',
+        value: function setTextBaseline(textBaseline) {
+            this.textBaseline = textBaseline;
+            return this;
+        }
+        /**
+         * The textAlign property sets or returns the current alignment for text content, according to the anchor point.
+         * @param {WTextAlign} textAlign	TextAlign to set
+         */
+
+    }, {
+        key: 'setTextAlign',
+        value: function setTextAlign(textAlign) {
+            this.textAlign = textAlign;
+            return this;
+        }
+        /**
+         * The font property sets or returns the current font properties for text content on the canvas.
+         * @param {string} font	Font to select
+         */
+
+    }, {
+        key: 'setFont',
+        value: function setFont(font) {
+            this.font = font;
+            return this;
+        }
+        /**
+         * Method returns true if the specified point is in the current path, otherwise false.
+         * @param {x} x	The x-coordinate to test
+         * @param {y} y	The y-coordinate to test
+         */
+
+    }, {
+        key: 'isPointInPath',
+        value: function isPointInPath(x, y) {
+            return this.context.isPointInPath(x, y);
+        }
+        /**
+         * The miterLimit property sets or returns the style of the end caps for a line.
+         * @param {number} miterLimit	A positive number that specifies the maximum miter length. If the current miter length exceeds the miterLimit, the corner will display as lineJoin "bevel"
+         */
+
+    }, {
+        key: 'setMiterLimit',
+        value: function setMiterLimit(miterLimit) {
+            this.miterLimit = miterLimit;
+            return this;
+        }
+        /**
+         * The lineWidth property sets or returns the style of the end caps for a line.
+         * @param {number} lineWidth	Specifies the lineWidth
+         */
+
+    }, {
+        key: 'setLineWidth',
+        value: function setLineWidth(lineWidth) {
+            this.lineWidth = lineWidth;
+            return this;
+        }
+        /**
+         * The lineJoin property sets or returns the style of the end caps for a line.
+         * @param {WLineJoin} lineJoin	Specifies the lineJoin
+         */
+
+    }, {
+        key: 'setLineJoin',
+        value: function setLineJoin(lineJoin) {
+            this.lineJoin = lineJoin;
+            return this;
+        }
+        /**
+         * The lineCap property sets or returns the style of the end caps for a line.
+         * @param {WLineCap} lineCap	Specifies the lineCap
+         */
+
+    }, {
+        key: 'setLineCap',
+        value: function setLineCap(lineCap) {
+            this.lineCap = lineCap;
+            return this;
+        }
+        /**
+         * Method repeats the specified element in the specified direction.
+         * @param {Object} image	Specifies the image, canvas, or video element of the pattern to use	 
+         * @param {WRepeat} repeat	Default. The pattern repeats
+         */
+
+    }, {
+        key: 'createPattern',
+        value: function createPattern(image, repeat) {
+            this.context.createPattern(image, repeat);
+            return this;
+        }
+        /**
+         * Method specifies the colors and position in a gradient object.
+         * @param {number} stop	A value between 0.0 and 1.0 that represents the position between start and end in a gradient
+         * @param {string} color A CSS color value to display at the stop position
+         */
+
+    }, {
+        key: 'addColorStop',
+        value: function addColorStop(stop, color) {
+            this.context.addColorStop(stop, color);
+            return this;
+        }
+        /**
+         * Method creates a radial gradient object.
+         * @param {number} x0 The x-coordinate of the start point of the gradient
+         * @param {number} y0 The y-coordinate of the start point of the gradient
+         * @param {number} r0 The radius of the gradient
+         * @param {number} x1 The x-coordinate of the end point of the gradient
+         * @param {number} y1 The y-coordinate of the end point of the gradient
+         * @param {number} r1 The radius of the gradient
+         */
+
+    }, {
+        key: 'createRadialGradient',
+        value: function createRadialGradient(x0, y0, r0, x1, y1, r1) {
+            this.context.createRadialGradient(x0, y0, r0, x1, y1, r1);
+            return this;
+        }
+        /**
+         * Method creates a linear gradient object.
+         * @param {number} x0 The x-coordinate of the start point of the gradient
+         * @param {number} y0 The y-coordinate of the start point of the gradient
+         * @param {number} x1 The x-coordinate of the end point of the gradient
+         * @param {number} y1 The y-coordinate of the end point of the gradient
+         */
+
+    }, {
+        key: 'createLinearGradient',
+        value: function createLinearGradient(x0, y0, x1, y1) {
+            this.context.createLinearGradient(x0, y0, x1, y1);
+            return this;
+        }
+        /**
+         * Set strokeStyle of context
+         * @param {Color} strokeStyle Offset of shadow blur
+         */
+
+    }, {
+        key: 'setStrokeStyle',
+        value: function setStrokeStyle(strokeStyle) {
+            this.strokeStyle = strokeStyle;
+            return this;
+        }
+        /**
+         * Set shadowColor of context
+         * @param {Color} shadowColor Offset of shadow blur
+         */
+
+    }, {
+        key: 'setShadowColor',
+        value: function setShadowColor(shadowColor) {
+            this.shadowColor = shadowColor;
+            return this;
+        }
+        /**
+         * Set Shadow of context
+         * @param {number} offset Offset of shadow blur
+         */
+
+    }, {
+        key: 'setShadowBlur',
+        value: function setShadowBlur(offset) {
+            this.shadowBlur = offset;
+            return this;
+        }
+        /**
+         * Set X-Shadow of context
+         * @param {number} offset Offset of shadow blur
+         */
+
+    }, {
+        key: 'setShadowBlurX',
+        value: function setShadowBlurX(offset) {
+            this.shadowOffsetX = offset;
+            return this;
+        }
+        /**
+         * Set Y-Shadow of context
+         * @param {number} offset Offset of shadow blur
+         */
+
+    }, {
+        key: 'setShadowBlurY',
+        value: function setShadowBlurY(offset) {
+            this.shadowOffsetY = offset;
+            return this;
+        }
         /**
          * Saves the state of the current context
          */
+
+    }, {
+        key: 'save',
         value: function save() {
             this.context.save();
             return this;
@@ -663,6 +921,7 @@ var WCanvas = function (_WElement) {
             this.imageSmoothingEnabled = imageSmoothingEnabled;
             return this;
         }
+
         /**
          * Adds a new point and creates a line to that point from the last specified point in the canvas
          * @param {number} x x-coordinate
@@ -737,6 +996,11 @@ var WCanvas = function (_WElement) {
             this.context.clear();
             return this;
         }
+        //@TODO
+
+    }, {
+        key: 'createEvent',
+        value: function createEvent() {}
         /**
          * @TODO
          * Esta função será implementada
@@ -785,6 +1049,118 @@ var WCanvas = function (_WElement) {
                 this.context.msImageSmoothingEnabled = imageSmoothingEnabled;
             }
         }
+    }, {
+        key: 'shadowBlur',
+        get: function get() {
+            return this.context.shadowBlur;
+        },
+        set: function set(offset) {
+            this.context.shadowBlur = offset;
+        }
+    }, {
+        key: 'shadowOffsetX',
+        get: function get() {
+            return this.context.shadowOffsetX;
+        },
+        set: function set(offset) {
+            this.context.shadowOffsetX = offset;
+        }
+    }, {
+        key: 'shadowOffsetY',
+        get: function get() {
+            return this.context.shadowOffsetY;
+        },
+        set: function set(offset) {
+            this.context.shadowOffsetY = offset;
+        }
+    }, {
+        key: 'shadowColor',
+        get: function get() {
+            return this.context.shadowColor;
+        },
+        set: function set(shadowColor) {
+            this.context.shadowColor = shadowColor;
+        }
+    }, {
+        key: 'strokeStyle',
+        get: function get() {
+            return this.context.strokeStyle;
+        },
+        set: function set(strokeStyle) {
+            this.context.strokeStyle = strokeStyle;
+        }
+    }, {
+        key: 'lineCap',
+        get: function get() {
+            return this.context.lineCap;
+        },
+        set: function set(lineCap) {
+            this.context.lineCap = lineCap;
+        }
+    }, {
+        key: 'lineJoin',
+        get: function get() {
+            return this.context.lineJoin;
+        },
+        set: function set(lineJoin) {
+            this.context.lineJoin = lineJoin;
+        }
+    }, {
+        key: 'lineWidth',
+        get: function get() {
+            return this.context.lineWidth;
+        },
+        set: function set(lineWidth) {
+            this.context.lineWidth = lineWidth;
+        }
+    }, {
+        key: 'miterLimit',
+        get: function get() {
+            return this.context.miterLimit;
+        },
+        set: function set(miterLimit) {
+            this.context.miterLimit = miterLimit;
+        }
+    }, {
+        key: 'font',
+        get: function get() {
+            return this.context.font;
+        },
+        set: function set(font) {
+            this.context.font = font;
+        }
+    }, {
+        key: 'textAlign',
+        get: function get() {
+            return this.context.textAlign;
+        },
+        set: function set(textAlign) {
+            this.context.textAlign = textAlign;
+        }
+    }, {
+        key: 'textBaseline',
+        get: function get() {
+            return this.context.textBaseline;
+        },
+        set: function set(textBaseline) {
+            this.context.textBaseline = textBaseline;
+        }
+    }, {
+        key: 'globalAlpha',
+        get: function get() {
+            return this.context.globalAlpha;
+        },
+        set: function set(globalAlpha) {
+            this.context.globalAlpha = globalAlpha;
+        }
+    }, {
+        key: 'globalCompositeOperation',
+        get: function get() {
+            return this.context.globalCompositeOperation;
+        },
+        set: function set(globalCompositeOperation) {
+            this.context.globalCompositeOperation = globalCompositeOperation;
+        }
     }]);
 
     return WCanvas;
@@ -803,6 +1179,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+/**
+ * Generic class to elements
+ * @class
+ */
 var WElement = function () {
     function WElement(element, width, height, border) {
         _classCallCheck(this, WElement);
@@ -816,58 +1196,112 @@ var WElement = function () {
 
     _createClass(WElement, [{
         key: 'createElement',
+
+        /**
+         * Create a element
+         * @param {string} element Type of element
+         * @example WElement element = new WElement('p')
+         */
         value: function createElement(element) {
             return document.createElement(element);
         }
+        /**
+         * Set the id of element
+         * @param {string} id Id of element
+         */
+
     }, {
         key: 'setId',
         value: function setId(id) {
             this.element.id = id;
             return this;
         }
+        /**
+         * Set Attribute to element
+         * @param {string} attr Attribute of element
+         * @param {string} value Value of attribute
+         * @example element.setAttribute('width','10')
+         */
+
     }, {
         key: 'setAttribute',
         value: function setAttribute(attr, value) {
             this.element.setAttribute(attr, value);
             return this;
         }
+        /**
+         * Set Style of element
+         * @param {string} attr Attribute of style
+         * @param {string} value Value of attributey
+         * @example element.setStyle('color','red')
+         */
+
     }, {
         key: 'setStyle',
         value: function setStyle(attr, value) {
             this.setAttibute('style', attr + ': ' + value);
             return this;
         }
+        /**
+         * Set size of element
+         * @param {number} width Width of element
+         * @param {number} height Height of element
+         */
+
     }, {
         key: 'setSize',
         value: function setSize(width, height) {
-            this.width === width;
-            this.height === height;
+            this.width = width;
+            this.height = height;
             return this;
         }
     }, {
         key: 'addChild',
+
+        /**
+         * Add Child to Element
+         * @param {Object} child Child to append on element
+         */
         value: function addChild(child) {
             this.element.appendChild(child);
             return this;
         }
+        /**
+         * Add current element to body
+         */
+
     }, {
         key: 'addToBody',
         value: function addToBody() {
             document.body.appendChild(this.element);
             return this;
         }
+        /**
+         * Add current element to element with specified id
+         * @param {string} id Id of element
+         */
+
     }, {
         key: 'addToElementById',
         value: function addToElementById(id) {
             document.getElementById(id).appendChild(this.element);
             return this;
         }
+        /**
+         * Add current element to element with specified className
+         * @param {string} className Class of element
+         */
+
     }, {
         key: 'addToElementByClassName',
         value: function addToElementByClassName(className) {
             document.getElementsByClassName(className).appendChild(this.element);
             return this;
         }
+        /**
+         * Get name of current Class
+         */
+
     }, {
         key: 'getClassName',
         value: function getClassName() {
@@ -984,13 +1418,13 @@ exports.default = WImage;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var CanvasQuality = {
+var WCanvasQuality = {
     'FULL': 1.0,
     'MEDIUM': 0.5,
     'LOW': 0.1
 };
 
-exports.default = CanvasQuality;
+exports.default = WCanvasQuality;
 
 },{}],7:[function(require,module,exports){
 'use strict';

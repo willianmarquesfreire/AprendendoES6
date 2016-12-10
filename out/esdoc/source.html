@@ -36,9 +36,14 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html">WCanvas</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html">WElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/WImage.js~WImage.html">WImage</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">enums</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-CanvasQuality">CanvasQuality</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">enums</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WCanvasQuality">WCanvasQuality</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WGlobalCompositeOperationType">WGlobalCompositeOperationType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WLineCap">WLineCap</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WLineJoin">WLineJoin</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WMimeType">WMimeType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WRepeat">WRepeat</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WTextAlign">WTextAlign</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WTextBaseline">WTextBaseline</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WType">WType</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">events</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-eventFallMove">eventFallMove</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-eventMouseFollow">eventMouseFollow</a></span></span></li>
@@ -56,7 +61,7 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1>Source <img data-ice="coverageBadge" src="./badge.svg"><span data-ice="totalCoverageCount" class="total-coverage-count">46/96</span></h1>
+<div class="content" data-ice="content"><h1>Source <img data-ice="coverageBadge" src="./badge.svg"><span data-ice="totalCoverageCount" class="total-coverage-count">77/145</span></h1>
 
 <table class="files-summary" data-ice="files" data-use-coverage="true">
   <thead>
@@ -75,9 +80,9 @@
       <td data-ice="filePath"><span><a href="file/src/app.js.html">src/app.js</a></span></td>
       <td data-ice="identifier" class="identifiers">-</td>
       <td class="coverage"><span data-ice="coverage">-</span></td>
-      <td style="display: none;" data-ice="size">945 byte</td>
-      <td style="display: none;" data-ice="lines">26</td>
-      <td style="display: none;" data-ice="updated">2016-12-07 17:22:12 (UTC)</td>
+      <td style="display: none;" data-ice="size">873 byte</td>
+      <td style="display: none;" data-ice="lines">21</td>
+      <td style="display: none;" data-ice="updated">2016-12-07 18:35:24 (UTC)</td>
     </tr>
 <tr data-ice="file">
       <td data-ice="filePath"><span><a href="file/src/elements/WAudio.js.html#errorLines=1">src/elements/WAudio.js</a></span></td>
@@ -88,20 +93,20 @@
       <td style="display: none;" data-ice="updated">2016-12-06 23:07:02 (UTC)</td>
     </tr>
 <tr data-ice="file">
-      <td data-ice="filePath"><span><a href="file/src/elements/WCanvas.js.html#errorLines=13,16,19,22,25,31,8">src/elements/WCanvas.js</a></span></td>
+      <td data-ice="filePath"><span><a href="file/src/elements/WCanvas.js.html#errorLines=102,105,108,111,114,13,16,19,22,25,31,45,48,51,54,57,60,63,66,69,72,75,78,8,81,84,87,90,93,96,99">src/elements/WCanvas.js</a></span></td>
       <td data-ice="identifier" class="identifiers"><span><a href="class/src/elements/WCanvas.js~WCanvas.html">WCanvas</a></span></td>
-      <td class="coverage"><span data-ice="coverage">86 %</span><span data-ice="coverageCount" class="coverage-count">45/52</span></td>
-      <td style="display: none;" data-ice="size">18435 byte</td>
-      <td style="display: none;" data-ice="lines">564</td>
-      <td style="display: none;" data-ice="updated">2016-12-07 18:32:11 (UTC)</td>
+      <td class="coverage"><span data-ice="coverage">67 %</span><span data-ice="coverageCount" class="coverage-count">65/96</span></td>
+      <td style="display: none;" data-ice="size">26678 byte</td>
+      <td style="display: none;" data-ice="lines">813</td>
+      <td style="display: none;" data-ice="updated">2016-12-07 19:47:47 (UTC)</td>
     </tr>
 <tr data-ice="file">
-      <td data-ice="filePath"><span><a href="file/src/elements/WElement.js.html#errorLines=1,11,14,17,21,24,27,3,30,34,38,42,47,51,55,59,63,67,71,75">src/elements/WElement.js</a></span></td>
+      <td data-ice="filePath"><span><a href="file/src/elements/WElement.js.html#errorLines=14,17,21,24,27,7,76,80,84">src/elements/WElement.js</a></span></td>
       <td data-ice="identifier" class="identifiers"><span><a href="class/src/elements/WElement.js~WElement.html">WElement</a></span></td>
-      <td class="coverage"><span data-ice="coverage">0 %</span><span data-ice="coverageCount" class="coverage-count">0/20</span></td>
-      <td style="display: none;" data-ice="size">1955 byte</td>
-      <td style="display: none;" data-ice="lines">79</td>
-      <td style="display: none;" data-ice="updated">2016-12-07 16:21:11 (UTC)</td>
+      <td class="coverage"><span data-ice="coverage">55 %</span><span data-ice="coverageCount" class="coverage-count">11/20</span></td>
+      <td style="display: none;" data-ice="size">3184 byte</td>
+      <td style="display: none;" data-ice="lines">126</td>
+      <td style="display: none;" data-ice="updated">2016-12-07 18:46:44 (UTC)</td>
     </tr>
 <tr data-ice="file">
       <td data-ice="filePath"><span><a href="file/src/elements/WImage.js.html#errorLines=11,14,3,4,8">src/elements/WImage.js</a></span></td>
@@ -113,11 +118,11 @@
     </tr>
 <tr data-ice="file">
       <td data-ice="filePath"><span><a href="file/src/enums/WCanvasQuality.js.html#errorLines=1">src/enums/WCanvasQuality.js</a></span></td>
-      <td data-ice="identifier" class="identifiers"><span><a href="variable/index.html#static-variable-CanvasQuality">CanvasQuality</a></span></td>
+      <td data-ice="identifier" class="identifiers"><span><a href="variable/index.html#static-variable-WCanvasQuality">WCanvasQuality</a></span></td>
       <td class="coverage"><span data-ice="coverage">0 %</span><span data-ice="coverageCount" class="coverage-count">0/1</span></td>
-      <td style="display: none;" data-ice="size">104 byte</td>
+      <td style="display: none;" data-ice="size">106 byte</td>
       <td style="display: none;" data-ice="lines">6</td>
-      <td style="display: none;" data-ice="updated">2016-12-07 17:04:07 (UTC)</td>
+      <td style="display: none;" data-ice="updated">2016-12-07 19:11:58 (UTC)</td>
     </tr>
 <tr data-ice="file">
       <td data-ice="filePath"><span><a href="file/src/enums/WGlobalCompositeOperationType.js.html#errorLines=1">src/enums/WGlobalCompositeOperationType.js</a></span></td>
@@ -128,12 +133,52 @@
       <td style="display: none;" data-ice="updated">2016-12-06 23:07:02 (UTC)</td>
     </tr>
 <tr data-ice="file">
+      <td data-ice="filePath"><span><a href="file/src/enums/WLineCap.js.html#errorLines=1">src/enums/WLineCap.js</a></span></td>
+      <td data-ice="identifier" class="identifiers"><span><a href="variable/index.html#static-variable-WLineCap">WLineCap</a></span></td>
+      <td class="coverage"><span data-ice="coverage">0 %</span><span data-ice="coverageCount" class="coverage-count">0/1</span></td>
+      <td style="display: none;" data-ice="size">108 byte</td>
+      <td style="display: none;" data-ice="lines">6</td>
+      <td style="display: none;" data-ice="updated">2016-12-07 19:18:35 (UTC)</td>
+    </tr>
+<tr data-ice="file">
+      <td data-ice="filePath"><span><a href="file/src/enums/WLineJoin.js.html#errorLines=1">src/enums/WLineJoin.js</a></span></td>
+      <td data-ice="identifier" class="identifiers"><span><a href="variable/index.html#static-variable-WLineJoin">WLineJoin</a></span></td>
+      <td class="coverage"><span data-ice="coverage">0 %</span><span data-ice="coverageCount" class="coverage-count">0/1</span></td>
+      <td style="display: none;" data-ice="size">110 byte</td>
+      <td style="display: none;" data-ice="lines">6</td>
+      <td style="display: none;" data-ice="updated">2016-12-07 19:21:27 (UTC)</td>
+    </tr>
+<tr data-ice="file">
       <td data-ice="filePath"><span><a href="file/src/enums/WMimeType.js.html#errorLines=1">src/enums/WMimeType.js</a></span></td>
       <td data-ice="identifier" class="identifiers"><span><a href="variable/index.html#static-variable-WMimeType">WMimeType</a></span></td>
       <td class="coverage"><span data-ice="coverage">0 %</span><span data-ice="coverageCount" class="coverage-count">0/1</span></td>
       <td style="display: none;" data-ice="size">77 byte</td>
       <td style="display: none;" data-ice="lines">4</td>
       <td style="display: none;" data-ice="updated">2016-12-07 16:58:11 (UTC)</td>
+    </tr>
+<tr data-ice="file">
+      <td data-ice="filePath"><span><a href="file/src/enums/WRepeat.js.html#errorLines=1">src/enums/WRepeat.js</a></span></td>
+      <td data-ice="identifier" class="identifiers"><span><a href="variable/index.html#static-variable-WRepeat">WRepeat</a></span></td>
+      <td class="coverage"><span data-ice="coverage">0 %</span><span data-ice="coverageCount" class="coverage-count">0/1</span></td>
+      <td style="display: none;" data-ice="size">150 byte</td>
+      <td style="display: none;" data-ice="lines">7</td>
+      <td style="display: none;" data-ice="updated">2016-12-07 19:13:14 (UTC)</td>
+    </tr>
+<tr data-ice="file">
+      <td data-ice="filePath"><span><a href="file/src/enums/WTextAlign.js.html#errorLines=1">src/enums/WTextAlign.js</a></span></td>
+      <td data-ice="identifier" class="identifiers"><span><a href="variable/index.html#static-variable-WTextAlign">WTextAlign</a></span></td>
+      <td class="coverage"><span data-ice="coverage">0 %</span><span data-ice="coverageCount" class="coverage-count">0/1</span></td>
+      <td style="display: none;" data-ice="size">152 byte</td>
+      <td style="display: none;" data-ice="lines">8</td>
+      <td style="display: none;" data-ice="updated">2016-12-07 19:36:49 (UTC)</td>
+    </tr>
+<tr data-ice="file">
+      <td data-ice="filePath"><span><a href="file/src/enums/WTextBaseline.js.html#errorLines=1">src/enums/WTextBaseline.js</a></span></td>
+      <td data-ice="identifier" class="identifiers"><span><a href="variable/index.html#static-variable-WTextBaseline">WTextBaseline</a></span></td>
+      <td class="coverage"><span data-ice="coverage">0 %</span><span data-ice="coverageCount" class="coverage-count">0/1</span></td>
+      <td style="display: none;" data-ice="size">210 byte</td>
+      <td style="display: none;" data-ice="lines">9</td>
+      <td style="display: none;" data-ice="updated">2016-12-07 19:38:56 (UTC)</td>
     </tr>
 <tr data-ice="file">
       <td data-ice="filePath"><span><a href="file/src/enums/WType.js.html#errorLines=1">src/enums/WType.js</a></span></td>
