@@ -36,12 +36,16 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html">WCanvas</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html">WElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/WImage.js~WImage.html">WImage</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">enums</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WGlobalCompositeOperationType">WGlobalCompositeOperationType</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Type">Type</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">enums</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-CanvasQuality">CanvasQuality</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WGlobalCompositeOperationType">WGlobalCompositeOperationType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WMimeType">WMimeType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WType">WType</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">events</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-eventFallMove">eventFallMove</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-eventMouseFollow">eventMouseFollow</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-eventRandomOne">eventRandomOne</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">phisic</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/phisic/Phisic.js~Phisic.html">Phisic</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">reusable_objects</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createBall">createBall</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createBallShadow">createBallShadow</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createBallon">createBallon</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createClockOne">createClockOne</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createFaceFeliz">createFaceFeliz</a></span></span></li>
@@ -52,7 +56,7 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1>Source <img data-ice="coverageBadge" src="./badge.svg"><span data-ice="totalCoverageCount" class="total-coverage-count">2/74</span></h1>
+<div class="content" data-ice="content"><h1>Source <img data-ice="coverageBadge" src="./badge.svg"><span data-ice="totalCoverageCount" class="total-coverage-count">46/96</span></h1>
 
 <table class="files-summary" data-ice="files" data-use-coverage="true">
   <thead>
@@ -71,9 +75,9 @@
       <td data-ice="filePath"><span><a href="file/src/app.js.html">src/app.js</a></span></td>
       <td data-ice="identifier" class="identifiers">-</td>
       <td class="coverage"><span data-ice="coverage">-</span></td>
-      <td style="display: none;" data-ice="size">753 byte</td>
-      <td style="display: none;" data-ice="lines">20</td>
-      <td style="display: none;" data-ice="updated">2016-12-07 13:23:08 (UTC)</td>
+      <td style="display: none;" data-ice="size">945 byte</td>
+      <td style="display: none;" data-ice="lines">26</td>
+      <td style="display: none;" data-ice="updated">2016-12-07 17:22:12 (UTC)</td>
     </tr>
 <tr data-ice="file">
       <td data-ice="filePath"><span><a href="file/src/elements/WAudio.js.html#errorLines=1">src/elements/WAudio.js</a></span></td>
@@ -84,20 +88,20 @@
       <td style="display: none;" data-ice="updated">2016-12-06 23:07:02 (UTC)</td>
     </tr>
 <tr data-ice="file">
-      <td data-ice="filePath"><span><a href="file/src/elements/WCanvas.js.html#errorLines=101,119,12,123,127,131,135,139,143,147,15,151,155,159,163,167,171,175,18,21,25,29,33,37,4,41,45,49,5,53,57,61,64,70,83,9">src/elements/WCanvas.js</a></span></td>
+      <td data-ice="filePath"><span><a href="file/src/elements/WCanvas.js.html#errorLines=13,16,19,22,25,31,8">src/elements/WCanvas.js</a></span></td>
       <td data-ice="identifier" class="identifiers"><span><a href="class/src/elements/WCanvas.js~WCanvas.html">WCanvas</a></span></td>
-      <td class="coverage"><span data-ice="coverage">2 %</span><span data-ice="coverageCount" class="coverage-count">1/37</span></td>
-      <td style="display: none;" data-ice="size">4749 byte</td>
-      <td style="display: none;" data-ice="lines">189</td>
-      <td style="display: none;" data-ice="updated">2016-12-07 12:32:43 (UTC)</td>
+      <td class="coverage"><span data-ice="coverage">86 %</span><span data-ice="coverageCount" class="coverage-count">45/52</span></td>
+      <td style="display: none;" data-ice="size">18435 byte</td>
+      <td style="display: none;" data-ice="lines">564</td>
+      <td style="display: none;" data-ice="updated">2016-12-07 18:32:11 (UTC)</td>
     </tr>
 <tr data-ice="file">
-      <td data-ice="filePath"><span><a href="file/src/elements/WElement.js.html#errorLines=1,11,14,17,20,23,27,3,31,36,40,44,48,52,56,60,64">src/elements/WElement.js</a></span></td>
+      <td data-ice="filePath"><span><a href="file/src/elements/WElement.js.html#errorLines=1,11,14,17,21,24,27,3,30,34,38,42,47,51,55,59,63,67,71,75">src/elements/WElement.js</a></span></td>
       <td data-ice="identifier" class="identifiers"><span><a href="class/src/elements/WElement.js~WElement.html">WElement</a></span></td>
-      <td class="coverage"><span data-ice="coverage">0 %</span><span data-ice="coverageCount" class="coverage-count">0/17</span></td>
-      <td style="display: none;" data-ice="size">1779 byte</td>
-      <td style="display: none;" data-ice="lines">68</td>
-      <td style="display: none;" data-ice="updated">2016-12-06 23:07:02 (UTC)</td>
+      <td class="coverage"><span data-ice="coverage">0 %</span><span data-ice="coverageCount" class="coverage-count">0/20</span></td>
+      <td style="display: none;" data-ice="size">1955 byte</td>
+      <td style="display: none;" data-ice="lines">79</td>
+      <td style="display: none;" data-ice="updated">2016-12-07 16:21:11 (UTC)</td>
     </tr>
 <tr data-ice="file">
       <td data-ice="filePath"><span><a href="file/src/elements/WImage.js.html#errorLines=11,14,3,4,8">src/elements/WImage.js</a></span></td>
@@ -108,6 +112,14 @@
       <td style="display: none;" data-ice="updated">2016-12-06 23:07:02 (UTC)</td>
     </tr>
 <tr data-ice="file">
+      <td data-ice="filePath"><span><a href="file/src/enums/WCanvasQuality.js.html#errorLines=1">src/enums/WCanvasQuality.js</a></span></td>
+      <td data-ice="identifier" class="identifiers"><span><a href="variable/index.html#static-variable-CanvasQuality">CanvasQuality</a></span></td>
+      <td class="coverage"><span data-ice="coverage">0 %</span><span data-ice="coverageCount" class="coverage-count">0/1</span></td>
+      <td style="display: none;" data-ice="size">104 byte</td>
+      <td style="display: none;" data-ice="lines">6</td>
+      <td style="display: none;" data-ice="updated">2016-12-07 17:04:07 (UTC)</td>
+    </tr>
+<tr data-ice="file">
       <td data-ice="filePath"><span><a href="file/src/enums/WGlobalCompositeOperationType.js.html#errorLines=1">src/enums/WGlobalCompositeOperationType.js</a></span></td>
       <td data-ice="identifier" class="identifiers"><span><a href="variable/index.html#static-variable-WGlobalCompositeOperationType">WGlobalCompositeOperationType</a></span></td>
       <td class="coverage"><span data-ice="coverage">0 %</span><span data-ice="coverageCount" class="coverage-count">0/1</span></td>
@@ -116,20 +128,36 @@
       <td style="display: none;" data-ice="updated">2016-12-06 23:07:02 (UTC)</td>
     </tr>
 <tr data-ice="file">
-      <td data-ice="filePath"><span><a href="file/src/enums/WType.js.html#errorLines=1">src/enums/WType.js</a></span></td>
-      <td data-ice="identifier" class="identifiers"><span><a href="variable/index.html#static-variable-Type">Type</a></span></td>
+      <td data-ice="filePath"><span><a href="file/src/enums/WMimeType.js.html#errorLines=1">src/enums/WMimeType.js</a></span></td>
+      <td data-ice="identifier" class="identifiers"><span><a href="variable/index.html#static-variable-WMimeType">WMimeType</a></span></td>
       <td class="coverage"><span data-ice="coverage">0 %</span><span data-ice="coverageCount" class="coverage-count">0/1</span></td>
-      <td style="display: none;" data-ice="size">100 byte</td>
+      <td style="display: none;" data-ice="size">77 byte</td>
+      <td style="display: none;" data-ice="lines">4</td>
+      <td style="display: none;" data-ice="updated">2016-12-07 16:58:11 (UTC)</td>
+    </tr>
+<tr data-ice="file">
+      <td data-ice="filePath"><span><a href="file/src/enums/WType.js.html#errorLines=1">src/enums/WType.js</a></span></td>
+      <td data-ice="identifier" class="identifiers"><span><a href="variable/index.html#static-variable-WType">WType</a></span></td>
+      <td class="coverage"><span data-ice="coverage">0 %</span><span data-ice="coverageCount" class="coverage-count">0/1</span></td>
+      <td style="display: none;" data-ice="size">102 byte</td>
       <td style="display: none;" data-ice="lines">6</td>
-      <td style="display: none;" data-ice="updated">2016-12-06 23:07:02 (UTC)</td>
+      <td style="display: none;" data-ice="updated">2016-12-07 18:33:23 (UTC)</td>
     </tr>
 <tr data-ice="file">
       <td data-ice="filePath"><span><a href="file/src/events/WFallMove.js.html#errorLines=1">src/events/WFallMove.js</a></span></td>
       <td data-ice="identifier" class="identifiers"><span><a href="function/index.html#static-function-eventFallMove">eventFallMove</a></span></td>
       <td class="coverage"><span data-ice="coverage">0 %</span><span data-ice="coverageCount" class="coverage-count">0/1</span></td>
-      <td style="display: none;" data-ice="size">810 byte</td>
-      <td style="display: none;" data-ice="lines">32</td>
-      <td style="display: none;" data-ice="updated">2016-12-07 13:20:53 (UTC)</td>
+      <td style="display: none;" data-ice="size">999 byte</td>
+      <td style="display: none;" data-ice="lines">39</td>
+      <td style="display: none;" data-ice="updated">2016-12-07 13:49:18 (UTC)</td>
+    </tr>
+<tr data-ice="file">
+      <td data-ice="filePath"><span><a href="file/src/events/WMouseFollow.js.html#errorLines=1">src/events/WMouseFollow.js</a></span></td>
+      <td data-ice="identifier" class="identifiers"><span><a href="function/index.html#static-function-eventMouseFollow">eventMouseFollow</a></span></td>
+      <td class="coverage"><span data-ice="coverage">0 %</span><span data-ice="coverageCount" class="coverage-count">0/1</span></td>
+      <td style="display: none;" data-ice="size">795 byte</td>
+      <td style="display: none;" data-ice="lines">30</td>
+      <td style="display: none;" data-ice="updated">2016-12-07 13:49:43 (UTC)</td>
     </tr>
 <tr data-ice="file">
       <td data-ice="filePath"><span><a href="file/src/events/WMoveRandomOne.js.html">src/events/WMoveRandomOne.js</a></span></td>
@@ -151,9 +179,17 @@
       <td data-ice="filePath"><span><a href="file/src/reusable_objects/WBall.js.html#errorLines=1">src/reusable_objects/WBall.js</a></span></td>
       <td data-ice="identifier" class="identifiers"><span><a href="function/index.html#static-function-createBall">createBall</a></span></td>
       <td class="coverage"><span data-ice="coverage">0 %</span><span data-ice="coverageCount" class="coverage-count">0/1</span></td>
-      <td style="display: none;" data-ice="size">883 byte</td>
-      <td style="display: none;" data-ice="lines">31</td>
-      <td style="display: none;" data-ice="updated">2016-12-07 13:22:43 (UTC)</td>
+      <td style="display: none;" data-ice="size">861 byte</td>
+      <td style="display: none;" data-ice="lines">29</td>
+      <td style="display: none;" data-ice="updated">2016-12-07 13:53:48 (UTC)</td>
+    </tr>
+<tr data-ice="file">
+      <td data-ice="filePath"><span><a href="file/src/reusable_objects/WBallShadow.js.html#errorLines=1">src/reusable_objects/WBallShadow.js</a></span></td>
+      <td data-ice="identifier" class="identifiers"><span><a href="function/index.html#static-function-createBallShadow">createBallShadow</a></span></td>
+      <td class="coverage"><span data-ice="coverage">0 %</span><span data-ice="coverageCount" class="coverage-count">0/1</span></td>
+      <td style="display: none;" data-ice="size">941 byte</td>
+      <td style="display: none;" data-ice="lines">32</td>
+      <td style="display: none;" data-ice="updated">2016-12-07 13:53:59 (UTC)</td>
     </tr>
 <tr data-ice="file">
       <td data-ice="filePath"><span><a href="file/src/reusable_objects/WBallon.js.html#errorLines=1">src/reusable_objects/WBallon.js</a></span></td>

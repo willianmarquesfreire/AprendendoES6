@@ -1,21 +1,21 @@
 {
-  "coverage": "2.7%",
-  "expectCount": 74,
-  "actualCount": 2,
+  "coverage": "47.91%",
+  "expectCount": 96,
+  "actualCount": 46,
   "files": {
+    "src/enums/WCanvasQuality.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
     "src/phisic/Phisic.js": {
       "expectCount": 2,
       "actualCount": 0,
       "undocumentLines": [
         1,
         2
-      ]
-    },
-    "src/enums/WType.js": {
-      "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        1
       ]
     },
     "src/elements/WAudio.js": {
@@ -26,68 +26,42 @@
       ]
     },
     "src/elements/WCanvas.js": {
-      "expectCount": 37,
-      "actualCount": 1,
+      "expectCount": 52,
+      "actualCount": 45,
       "undocumentLines": [
-        4,
-        139,
-        159,
-        147,
-        175,
-        131,
-        53,
-        163,
-        5,
-        9,
-        12,
-        15,
-        18,
-        123,
-        119,
-        64,
-        61,
-        70,
-        83,
-        101,
-        171,
-        127,
-        57,
-        151,
-        155,
-        143,
-        49,
-        25,
-        37,
-        21,
-        33,
-        45,
-        167,
-        135,
-        41,
-        29
+        8,
+        16,
+        13,
+        19,
+        22,
+        31,
+        25
       ]
     },
     "src/elements/WElement.js": {
-      "expectCount": 17,
+      "expectCount": 20,
       "actualCount": 0,
       "undocumentLines": [
         1,
-        48,
-        52,
-        60,
-        56,
-        20,
-        44,
+        59,
+        63,
+        71,
+        67,
+        27,
+        55,
         3,
         11,
-        17,
+        24,
+        21,
+        75,
+        51,
         14,
-        64,
-        40,
-        23,
-        31,
-        27,
-        36
+        17,
+        34,
+        30,
+        42,
+        38,
+        47
       ]
     },
     "src/enums/WGlobalCompositeOperationType.js": {
@@ -108,6 +82,20 @@
         11
       ]
     },
+    "src/enums/WMimeType.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/enums/WType.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
     "src/world/World.js": {
       "expectCount": 2,
       "actualCount": 0,
@@ -117,6 +105,13 @@
       ]
     },
     "src/reusable_objects/WBall.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/reusable_objects/WBallShadow.js": {
       "expectCount": 1,
       "actualCount": 0,
       "undocumentLines": [
@@ -159,6 +154,13 @@
       ]
     },
     "src/events/WFallMove.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/events/WMouseFollow.js": {
       "expectCount": 1,
       "actualCount": 0,
       "undocumentLines": [

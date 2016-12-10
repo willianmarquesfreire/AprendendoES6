@@ -11,22 +11,12 @@ import WBallShadow from './reusable_objects/WBallShadow'
 import WMoveRandomOne from './events/WMoveRandomOne'
 import WFallMove from './events/WFallMove'
 import WMouseFollow from './events/WMouseFollow'
+import WMimeType from './enums/WMimeType'
+import WCanvasQuality from './enums/WCanvasQuality'
+
 window.addEventListener("load", function () {
     var world = new World()
+    world.element.id = "world1"
     world.addToBody()
-        .createImage('src/img/rhino.jpg', 0, 0, call)
-
-
-    function call() {
-        world.element.addEventListener('mousemove', function (event) {
-            var x = event.layerX
-            var y = event.layerY
-            var image = world.context.getImageData(x,y,1,1)
-            document.getElementById('color').style.backgroundColor = world.getImageDataRGBA(image)
-        })
-    }
-
-    // world.element.addEventListener('mousemove', pick)
-
 
 })

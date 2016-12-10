@@ -1,7 +1,7 @@
-var Type = {
+var WType = {
     'FILL': 'fill',
     'STROKE': 'stroke',
     'CLEAR': 'clear'
 }
 
-export default Type
+export default WType

@@ -1,15 +1,15 @@
 window.esdocSearchIndex = [
   [
+    "aprendendoes6/src/enums/wcanvasquality.js~canvasquality",
+    "variable/index.html#static-variable-CanvasQuality",
+    "<span>CanvasQuality</span> <span class=\"search-result-import-path\">aprendendoes6/src/enums/WCanvasQuality.js</span>",
+    "variable"
+  ],
+  [
     "aprendendoes6/src/phisic/phisic.js~phisic",
     "class/src/phisic/Phisic.js~Phisic.html",
     "<span>Phisic</span> <span class=\"search-result-import-path\">aprendendoes6/src/phisic/Phisic.js</span>",
     "class"
-  ],
-  [
-    "aprendendoes6/src/enums/wtype.js~type",
-    "variable/index.html#static-variable-Type",
-    "<span>Type</span> <span class=\"search-result-import-path\">aprendendoes6/src/enums/WType.js</span>",
-    "variable"
   ],
   [
     "aprendendoes6/src/elements/waudio.js~waudio",
@@ -42,6 +42,18 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "aprendendoes6/src/enums/wmimetype.js~wmimetype",
+    "variable/index.html#static-variable-WMimeType",
+    "<span>WMimeType</span> <span class=\"search-result-import-path\">aprendendoes6/src/enums/WMimeType.js</span>",
+    "variable"
+  ],
+  [
+    "aprendendoes6/src/enums/wtype.js~wtype",
+    "variable/index.html#static-variable-WType",
+    "<span>WType</span> <span class=\"search-result-import-path\">aprendendoes6/src/enums/WType.js</span>",
+    "variable"
+  ],
+  [
     "aprendendoes6/src/world/world.js~world",
     "class/src/world/World.js~World.html",
     "<span>World</span> <span class=\"search-result-import-path\">aprendendoes6/src/world/World.js</span>",
@@ -51,6 +63,12 @@ window.esdocSearchIndex = [
     "aprendendoes6/src/reusable_objects/wball.js~createball",
     "function/index.html#static-function-createBall",
     "<span>createBall</span> <span class=\"search-result-import-path\">aprendendoes6/src/reusable_objects/WBall.js</span>",
+    "function"
+  ],
+  [
+    "aprendendoes6/src/reusable_objects/wballshadow.js~createballshadow",
+    "function/index.html#static-function-createBallShadow",
+    "<span>createBallShadow</span> <span class=\"search-result-import-path\">aprendendoes6/src/reusable_objects/WBallShadow.js</span>",
     "function"
   ],
   [
@@ -87,6 +105,12 @@ window.esdocSearchIndex = [
     "aprendendoes6/src/events/wfallmove.js~eventfallmove",
     "function/index.html#static-function-eventFallMove",
     "<span>eventFallMove</span> <span class=\"search-result-import-path\">aprendendoes6/src/events/WFallMove.js</span>",
+    "function"
+  ],
+  [
+    "aprendendoes6/src/events/wmousefollow.js~eventmousefollow",
+    "function/index.html#static-function-eventMouseFollow",
+    "<span>eventMouseFollow</span> <span class=\"search-result-import-path\">aprendendoes6/src/events/WMouseFollow.js</span>",
     "function"
   ],
   [
@@ -493,13 +517,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/elements/wcanvas.js~wcanvas#context",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-context",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-context",
     "src/elements/WCanvas.js~WCanvas#context",
     "member"
   ],
   [
     "src/elements/wcanvas.js~wcanvas#context",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-context",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-context",
     "src/elements/WCanvas.js~WCanvas#context",
     "member"
   ],
@@ -514,6 +538,12 @@ window.esdocSearchIndex = [
     "class/src/elements/WCanvas.js~WCanvas.html#instance-get-context3D",
     "src/elements/WCanvas.js~WCanvas#context3D",
     "member"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#createimage",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-createImage",
+    "src/elements/WCanvas.js~WCanvas#createImage",
+    "method"
   ],
   [
     "src/elements/wcanvas.js~wcanvas#drawimage",
@@ -576,6 +606,54 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/elements/wcanvas.js~wcanvas#getimagedata",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-getImageData",
+    "src/elements/WCanvas.js~WCanvas#getImageData",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#getimagedatargba",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-getImageDataRGBA",
+    "src/elements/WCanvas.js~WCanvas#getImageDataRGBA",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#grayscalecanvascolor",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-grayscaleCanvasColor",
+    "src/elements/WCanvas.js~WCanvas#grayscaleCanvasColor",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#grayscalecolor",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-grayscaleColor",
+    "src/elements/WCanvas.js~WCanvas#grayscaleColor",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#imagesmoothingenabled",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-imageSmoothingEnabled",
+    "src/elements/WCanvas.js~WCanvas#imageSmoothingEnabled",
+    "member"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#imagesmoothingenabled",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-imageSmoothingEnabled",
+    "src/elements/WCanvas.js~WCanvas#imageSmoothingEnabled",
+    "member"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#invertcanvascolor",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-invertCanvasColor",
+    "src/elements/WCanvas.js~WCanvas#invertCanvasColor",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#invertcolor",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-invertColor",
+    "src/elements/WCanvas.js~WCanvas#invertColor",
+    "method"
+  ],
+  [
     "src/elements/wcanvas.js~wcanvas#lineto",
     "class/src/elements/WCanvas.js~WCanvas.html#instance-method-lineTo",
     "src/elements/WCanvas.js~WCanvas#lineTo",
@@ -585,6 +663,12 @@ window.esdocSearchIndex = [
     "src/elements/wcanvas.js~wcanvas#moveto",
     "class/src/elements/WCanvas.js~WCanvas.html#instance-method-moveTo",
     "src/elements/WCanvas.js~WCanvas#moveTo",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#putimagedata",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-putImageData",
+    "src/elements/WCanvas.js~WCanvas#putImageData",
     "method"
   ],
   [
@@ -630,9 +714,21 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/elements/wcanvas.js~wcanvas#setimagesmoothingenabled",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-setImageSmoothingEnabled",
+    "src/elements/WCanvas.js~WCanvas#setImageSmoothingEnabled",
+    "method"
+  ],
+  [
     "src/elements/wcanvas.js~wcanvas#settransform",
     "class/src/elements/WCanvas.js~WCanvas.html#instance-method-setTransform",
     "src/elements/WCanvas.js~WCanvas#setTransform",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#stringrgba",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-stringRGBA",
+    "src/elements/WCanvas.js~WCanvas#stringRGBA",
     "method"
   ],
   [
@@ -648,6 +744,18 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/elements/wcanvas.js~wcanvas#toblob",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-toBlob",
+    "src/elements/WCanvas.js~WCanvas#toBlob",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#todataurl",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-toDataURL",
+    "src/elements/WCanvas.js~WCanvas#toDataURL",
+    "method"
+  ],
+  [
     "src/elements/wcanvas.js~wcanvas#transform",
     "class/src/elements/WCanvas.js~WCanvas.html#instance-method-transform",
     "src/elements/WCanvas.js~WCanvas#transform",
@@ -657,6 +765,12 @@ window.esdocSearchIndex = [
     "src/elements/wcanvas.js~wcanvas#translate",
     "class/src/elements/WCanvas.js~WCanvas.html#instance-method-translate",
     "src/elements/WCanvas.js~WCanvas#translate",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#zoomimage",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-zoomImage",
+    "src/elements/WCanvas.js~WCanvas#zoomImage",
     "method"
   ],
   [
@@ -715,13 +829,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/elements/welement.js~welement#element",
-    "class/src/elements/WElement.js~WElement.html#instance-get-element",
+    "class/src/elements/WElement.js~WElement.html#instance-set-element",
     "src/elements/WElement.js~WElement#element",
     "member"
   ],
   [
     "src/elements/welement.js~welement#element",
-    "class/src/elements/WElement.js~WElement.html#instance-set-element",
+    "class/src/elements/WElement.js~WElement.html#instance-get-element",
     "src/elements/WElement.js~WElement#element",
     "member"
   ],
@@ -738,9 +852,27 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/elements/welement.js~welement#id",
+    "class/src/elements/WElement.js~WElement.html#instance-set-id",
+    "src/elements/WElement.js~WElement#id",
+    "member"
+  ],
+  [
+    "src/elements/welement.js~welement#id",
+    "class/src/elements/WElement.js~WElement.html#instance-get-id",
+    "src/elements/WElement.js~WElement#id",
+    "member"
+  ],
+  [
     "src/elements/welement.js~welement#setattribute",
     "class/src/elements/WElement.js~WElement.html#instance-method-setAttribute",
     "src/elements/WElement.js~WElement#setAttribute",
+    "method"
+  ],
+  [
+    "src/elements/welement.js~welement#setid",
+    "class/src/elements/WElement.js~WElement.html#instance-method-setId",
+    "src/elements/WElement.js~WElement#setId",
     "method"
   ],
   [
@@ -792,9 +924,21 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/enums/wcanvasquality.js",
+    "file/src/enums/WCanvasQuality.js.html",
+    "src/enums/WCanvasQuality.js",
+    "file"
+  ],
+  [
     "src/enums/wglobalcompositeoperationtype.js",
     "file/src/enums/WGlobalCompositeOperationType.js.html",
     "src/enums/WGlobalCompositeOperationType.js",
+    "file"
+  ],
+  [
+    "src/enums/wmimetype.js",
+    "file/src/enums/WMimeType.js.html",
+    "src/enums/WMimeType.js",
     "file"
   ],
   [
@@ -807,6 +951,12 @@ window.esdocSearchIndex = [
     "src/events/wfallmove.js",
     "file/src/events/WFallMove.js.html",
     "src/events/WFallMove.js",
+    "file"
+  ],
+  [
+    "src/events/wmousefollow.js",
+    "file/src/events/WMouseFollow.js.html",
+    "src/events/WMouseFollow.js",
     "file"
   ],
   [
@@ -831,6 +981,12 @@ window.esdocSearchIndex = [
     "src/reusable_objects/wball.js",
     "file/src/reusable_objects/WBall.js.html",
     "src/reusable_objects/WBall.js",
+    "file"
+  ],
+  [
+    "src/reusable_objects/wballshadow.js",
+    "file/src/reusable_objects/WBallShadow.js.html",
+    "src/reusable_objects/WBallShadow.js",
     "file"
   ],
   [

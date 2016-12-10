@@ -11,6 +11,13 @@ class WElement {
     createElement(element) {
         return document.createElement(element)
     }
+    get id() {
+        return this.element.id
+    }
+    set id(id) {
+        this.element.id = id
+    }
+
     get element() {
         return this._element
     }
@@ -19,6 +26,10 @@ class WElement {
     }
     get attributes() {
         return this.element.attributes
+    }
+    setId(id) {
+        this.element.id = id
+        return this
     }
     setAttribute(attr, value) {
         this.element.setAttribute(attr, value)

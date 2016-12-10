@@ -58,27 +58,24 @@ var _WMouseFollow = require('./events/WMouseFollow');
 
 var _WMouseFollow2 = _interopRequireDefault(_WMouseFollow);
 
+var _WMimeType = require('./enums/WMimeType');
+
+var _WMimeType2 = _interopRequireDefault(_WMimeType);
+
+var _WCanvasQuality = require('./enums/WCanvasQuality');
+
+var _WCanvasQuality2 = _interopRequireDefault(_WCanvasQuality);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //Parei em => https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Advanced_animations
 window.addEventListener("load", function () {
     var world = new _World2.default();
-    world.addToBody().createImage('src/img/rhino.jpg', 0, 0, call);
-
-    function call() {
-        world.element.addEventListener('mousemove', function (event) {
-            var x = event.layerX;
-            var y = event.layerY;
-            var image = world.context.getImageData(x, y, 1, 1);
-            document.getElementById('color').style.backgroundColor = world.getImageDataRGBA(image);
-        });
-    }
-
-    // world.element.addEventListener('mousemove', pick)
-
+    world.element.id = "world1";
+    world.addToBody();
 });
 
-},{"./elements/WCanvas":3,"./elements/WImage":5,"./enums/WType":6,"./events/WFallMove":7,"./events/WMouseFollow":8,"./events/WMoveRandomOne":9,"./reusable_objects/WBall":10,"./reusable_objects/WBallShadow":11,"./reusable_objects/WBallon":12,"./reusable_objects/WClockOne":13,"./reusable_objects/WHeart":14,"./world/World":15}],3:[function(require,module,exports){
+},{"./elements/WCanvas":3,"./elements/WImage":5,"./enums/WCanvasQuality":6,"./enums/WMimeType":7,"./enums/WType":8,"./events/WFallMove":9,"./events/WMouseFollow":10,"./events/WMoveRandomOne":11,"./reusable_objects/WBall":12,"./reusable_objects/WBallShadow":13,"./reusable_objects/WBallon":14,"./reusable_objects/WClockOne":15,"./reusable_objects/WHeart":16,"./world/World":17}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -103,6 +100,10 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+/**
+ * Emulate the Canvas element with features
+ * @class
+ */
 var WCanvas = function (_WElement) {
     _inherits(WCanvas, _WElement);
 
@@ -112,74 +113,152 @@ var WCanvas = function (_WElement) {
         var _this = _possibleConstructorReturn(this, (WCanvas.__proto__ || Object.getPrototypeOf(WCanvas)).call(this, 'canvas'));
 
         _this._context = _this.context2D;
+        _this.element.id = "canvas";
         return _this;
     }
 
     _createClass(WCanvas, [{
         key: 'save',
+
+        /**
+         * Saves the state of the current context
+         */
         value: function save() {
             this.context.save();
             return this;
         }
+        /**
+         * Previously saved path state and attributes
+         */
+
     }, {
         key: 'restore',
         value: function restore() {
             this.context.restore();
             return this;
         }
+        /**
+         * Remaps the (x,y) position on the canvas
+         * @param {number} x Eixo X
+         * @param {number} y Eixo Y
+         * @return {this}
+         */
+
     }, {
         key: 'translate',
         value: function translate(x, y) {
             this.context.translate(x, y);
             return this;
         }
+        /**
+         * Scale the (x,y) position on the canvas
+         * @param {number} x  Eixo X
+         * @param {number} y  Eixo Y
+         * @return {this}
+         */
+
     }, {
         key: 'scale',
         value: function scale(x, y) {
             this.context.scale(x, y);
             return this;
         }
+        /**
+         * Rotate the (x,y) position on the canvas
+         * @param {number} angle Ângulo
+         * @return {this}
+         */
+
     }, {
         key: 'rotate',
         value: function rotate(angle) {
             this.context.rotate(angle);
             return this;
         }
+        /**
+         * Replaces the current transformation matrix for the drawing
+         * @param {number} a Horizontal scaling
+         * @param {number} b Horizontal skewing
+         * @param {number} c Vertical skewing
+         * @param {number} d Vertical scaling
+         * @param {number} e Horizontal moving
+         * @param {number} f Vertical moving
+         */
+
     }, {
         key: 'transform',
         value: function transform(a, b, c, d, e, f) {
             this.context.transform(a, b, c, d, e, f);
             return this;
         }
+        /**
+         * Resets the current transform to the identity matrix. Then runs 
+         * @param {number} a Horizontal scaling
+         * @param {number} b Horizontal skewing
+         * @param {number} c Vertical skewing
+         * @param {number} d Vertical scaling
+         * @param {number} e Horizontal moving
+         * @param {number} f Vertical moving
+         */
+
     }, {
         key: 'setTransform',
         value: function setTransform(a, b, c, d, e, f) {
             this.context.setTransform(a, b, c, d, e, f);
             return this;
         }
+        /**
+         * Resets the current transform to 0
+         */
+
     }, {
         key: 'resetTransform',
         value: function resetTransform() {
             this.context.resetTransform();
             return this;
         }
+        /**
+         * Clips a region of any shape and size from the original canvas
+         */
+
     }, {
         key: 'clip',
         value: function clip() {
             this.context.clip();
             return this;
         }
+        /**
+         * 	Sets or returns the color, gradient, or pattern used to fill the drawing
+         * @param {style} color CSS   Color value that indicates the fill color of the drawing. Default value is #000000 
+         */
+
     }, {
         key: 'fillStyle',
         value: function fillStyle(color) {
             this.context.fillStyle = color;
             return this;
         }
+        /**
+         * The method creates a rectangle.
+         * @param {number} x	     The x-coordinate of the upper-left corner of the rectangle
+         * @param {number} y	     The y-coordinate of the upper-left corner of the rectangle
+         * @param {number} width	 The width of the rectangle, in pixels
+         * @param {number} height The height of the rectangle, in pixels
+         */
+
     }, {
         key: 'drawRect',
         value: function drawRect(x, y, width, height) {
             this.context.rect(x, y, width, height);
         }
+        /**
+         * The method creates a Line.
+         * @param {number} beginX  The begin of x-coordninate
+         * @param {number} beginY  The begin of y-coordinate
+         * @param {number} endX    The end x of Line
+         * @param {number} endY    The end y of the Line
+         */
+
     }, {
         key: 'drawLine',
         value: function drawLine(beginX, beginY, endX, endY) {
@@ -188,6 +267,15 @@ var WCanvas = function (_WElement) {
             this.stroke();
             return this;
         }
+        /**
+         * Draw a Square
+         * @param {number} x begin of square
+         * @param {number} y end of square
+         * @param {number} width width of square
+         * @param {number} height height of square
+         * @param {WType} type type of rect
+         */
+
     }, {
         key: 'drawSquare',
         value: function drawSquare(x, y, width, height, type) {
@@ -203,6 +291,17 @@ var WCanvas = function (_WElement) {
             }
             return this;
         }
+        /**
+         * Draw a tringle
+         * @param {number} x Indicates the initial x-position
+         * @param {number} y Indicates the initial y-position
+         * @param {number} x1 Indicates the x left side
+         * @param {number} y1 Indicates the y left side
+         * @param {number} x2 Indicates the x right side
+         * @param {number} y2 Indicates the y right side
+         * @param {WType} type Type of rect
+         */
+
     }, {
         key: 'drawTriangle',
         value: function drawTriangle(x, y, x1, y1, x2, y2, type) {
@@ -223,6 +322,14 @@ var WCanvas = function (_WElement) {
             }
             return this;
         }
+        /**
+         * Draw a tringle by dimension
+         * @param {number} x Indicates the initial x-position
+         * @param {number} y Indicates the initial y-position
+         * @param {number} dimension Indicates the dimension
+         * @param {WType} type Type of rect
+         */
+
     }, {
         key: 'drawTriangleByDimension',
         value: function drawTriangleByDimension(x, y, dimension, type) {
@@ -243,18 +350,61 @@ var WCanvas = function (_WElement) {
             }
             return this;
         }
+        /**
+         * Draw a image
+         * @param {Image} image Image to rendering
+         * @param {number} x x-coordinate
+         * @param {number} y y-coordinate
+         */
+
     }, {
         key: 'drawImage',
         value: function drawImage(image, x, y) {
             this.context.drawImage(image, x, y);
             return this;
         }
+        /**
+         * Draw a image
+         * @param {Image} image Image to rendering
+         * @param {number} sx x-coordinate
+         * @param {number} sy y-coordinate
+         */
+
     }, {
         key: 'drawImage',
         value: function drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight) {
             this.context.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
             return this;
         }
+        /**
+         * Create zoom of canvas in other canvas
+         * @param {number} zoomX zomm x-coordinate
+         * @param {number} zoomY zomm y-coordinate
+         * @param {WCanvas} destiny Canvas destination
+         * @param {number} destinyX Canvas destination x-coordinate
+         * @param {number} destinyY Canvas destination y-coordinate
+         * @param {number} originWidth Canvas Origin width
+         * @param {number} originHeight Canvas Origin height
+         * @param {number} destinyWidth Canvas destination width
+         * @param {number} destinyHeight Canvas destination height
+         * @param {boolean} smoothing anti-aliasing of zoom image
+         */
+
+    }, {
+        key: 'zoomImage',
+        value: function zoomImage(zoomX, zoomY, destiny, destinyX, destinyY, originWidth, originHeight, destinyWidth, destinyHeight, smoothing) {
+            destiny.clearRect(0, 0, destiny.element.width, destiny.element.height);
+            if (smoothing) destiny.setImageSmoothingEnabled(true);else destiny.setImageSmoothingEnabled(false);
+            destiny.drawImage(this.element, Math.abs(destinyX - 10), Math.abs(destinyY - 5), zoomX, zoomY, originWidth, originHeight, destinyWidth, destinyHeight);
+        }
+        /**
+         * Create a image
+         * @param {string} url Location of image
+         * @param {number} x x-coordinate
+         * @param {number} y y-coordinate
+         * @param {function} callback Callback function to invokes of load the image 
+         */
+
     }, {
         key: 'createImage',
         value: function createImage(url, x, y, callback) {
@@ -269,94 +419,318 @@ var WCanvas = function (_WElement) {
                 }
                 return this;
             };
+            // return tColor(image,x,y)this
         }
-    }, {
-        key: 'stringRGBA',
-        value: function stringRGBA(r, g, b, a) {
-            return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
-        }
+        /**
+         * @param {number} x x-coordinate
+         * @param {number} y y-coordinate
+         * @param {number} width Size on x-coordinate
+         * @param {number} height Size on y-coordinate
+         * @return {ImageData}
+         */
+
     }, {
         key: 'getImageData',
         value: function getImageData(x, y, width, height) {
             return this.context.getImageData(x, y, width, height);
         }
+        /**
+         * Put the image data on location
+         * @param {ImageData} imageData ImageData to put
+         * @param {number} x x-coordinate
+         * @param {number} y y-coordinate
+         * @return {ImageData} 
+         */
+
+    }, {
+        key: 'putImageData',
+        value: function putImageData(imageData, x, y) {
+            return this.context.putImageData(imageData, x, y);
+        }
+        /**
+         * Get string rgba from imageData
+         * @param {ImageData} imageData ImageData to get rgba
+         * @return {string} RGBA
+         */
+        //@TODO Fazer uma classe Rgba com métodos get de r g b a, e um que retorna tudo
+
     }, {
         key: 'getImageDataRGBA',
         value: function getImageDataRGBA(imageData) {
             return 'rgba(' + imageData.data[0] + ',' + imageData.data[1] + ',' + imageData.data[2] + ',' + imageData.data[3] / 255 + ')';
         }
+        /**
+         * Get string rgba from params
+         * @param {number} r Red
+         * @param {number} g Green
+         * @param {number} b Blue
+         * @param {number} a Opacity
+         * @return {string} RGBA
+         */
+
+    }, {
+        key: 'stringRGBA',
+        value: function stringRGBA(r, g, b, a) {
+            return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
+        }
+        /**
+         * Method returns a data URI containing a representation of the image in the format specified by the type parameter.
+         * Defaults to PNG
+         * The returned image is in a resolution of 96 dpi.
+         * @param {WMimeType} type Type of DataUrl
+         * @param {WCanvasQuality} quality Quality of DataUrl 
+         */
+
+    }, {
+        key: 'toDataURL',
+        value: function toDataURL(type, quality) {
+            var dataUrl = this.element.toDataURL(type, quality);
+            return dataUrl;
+        }
+        /**
+         * Method creates a Blob object representing the image contained in the canvas
+         * @param {function} callback Function of callback to onload Blob
+         * @param {WMimeType} type Type of Blob
+         * @param {WCanvasQuality} quality Quality of Blob 
+         */
+
+    }, {
+        key: 'toBlob',
+        value: function toBlob(callback, type, quality) {
+            var toBlob = this.element.toDataURL(callback, type, quality);
+            return toBlob;
+        }
+        /**
+         * Invert color of ImageData
+         * @param {ImageData} imageData ImageData to invert color
+         * @param {number} x x-coordinate
+         * @param {number} y y-coordinate
+         */
+
+    }, {
+        key: 'invertColor',
+        value: function invertColor(imageData, x, y) {
+            var data = imageData.data;
+            for (var i = 0; i < data.length; i += 4) {
+                data[i] = 255 - data[i];
+                data[i + 1] = 255 - data[i + 1];
+                data[i + 2] = 255 - data[i + 2];
+            }
+            this.putImageData(imageData, x, y);
+            return this;
+        }
+        /**
+         * Invert Canvas Color
+         */
+
+    }, {
+        key: 'invertCanvasColor',
+        value: function invertCanvasColor() {
+            var imageData = this.getImageData(0, 0, this.element.width, this.element.height);
+            this.invertColor(imageData, 0, 0);
+            return this;
+        }
+        /**
+         * Grayscale color of ImageData
+         * @param {ImageData} imageData ImageData to grayscale color
+         * @param {number} x x-coordinate
+         * @param {number} y y-coordinate
+         */
+
+    }, {
+        key: 'grayscaleColor',
+        value: function grayscaleColor(imageData, x, y) {
+            var data = imageData.data;
+            for (var i = 0; i < data.length; i += 4) {
+                var avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+                data[i] = avg; //red
+                data[i + 1] = avg; //green
+                data[i + 2] = avg; //blue
+            }
+            this.putImageData(imageData, x, y);
+            return this;
+        }
+        /**
+         * Grayscale color
+         */
+
+    }, {
+        key: 'grayscaleCanvasColor',
+        value: function grayscaleCanvasColor() {
+            var imageData = this.getImageData(0, 0, this.element.width, this.element.height);
+            this.grayscaleColor(imageData, 0, 0);
+            return this;
+        }
+        /**
+         * Draws a "filled" rectangle
+         * @param {number} x	    The x-coordinate of the upper-left corner of the rectangle
+         * @param {number} y	    The y-coordinate of the upper-left corner of the rectangle
+         * @param {number} width	The width of the rectangle, in pixels
+         * @param {number} height	The height of the rectangle, in pixels
+         * @param {WType} type      Type of Rect
+         */
+
     }, {
         key: 'fillRect',
         value: function fillRect(x, y, width, height, type) {
             this.context.fillRect(x, y, width, height, type);
             return this;
         }
+        /**
+         * Clear a rectangle
+         * @param {number} x	    The x-coordinate of the upper-left corner of the rectangle
+         * @param {number} y	    The y-coordinate of the upper-left corner of the rectangle
+         * @param {number} width	The width of the rectangle, in pixels
+         * @param {number} height	The height of the rectangle, in pixels
+         * @param {WType} type      Type of Rect
+         */
+
     }, {
         key: 'clearRect',
         value: function clearRect(x, y, width, height, type) {
             this.context.clearRect(x, y, width, height, type);
             return this;
         }
+        /**
+         * Stroke a rectangle
+         * @param {number} x	    The x-coordinate of the upper-left corner of the rectangle
+         * @param {number} y	    The y-coordinate of the upper-left corner of the rectangle
+         * @param {number} width	The width of the rectangle, in pixels
+         * @param {number} height	The height of the rectangle, in pixels
+         * @param {WType} type      Type of Rect
+         */
+
     }, {
         key: 'strokeRect',
         value: function strokeRect(x, y, width, height, type) {
             this.context.strokeRect(x, y, width, height, type);
             return this;
         }
+        /**
+         * Creates an arc/curve (used to create circles, or parts of circles)
+         * @param {number} x	            The x-coordinate of the center of the circle
+         * @param {number} y        	    The y-coordinate of the center of the circle
+         * @param {number} radius	            The radius of the circle
+         * @param {number} startAngle  	The starting angle, in radians (0 is at the 3 o'clock position of the arc's circle)
+         * @param {number} endAngle	    The ending angle, in radians
+         * @param {number} anticlockwise	Optional. Specifies whether the drawing should be counterclockwise or clockwise.
+         */
+
     }, {
         key: 'arc',
         value: function arc(x, y, radius, startAngle, endAngle, anticlockwise) {
             this.context.arc(x, y, radius, startAngle, endAngle, anticlockwise);
             return this;
         }
+        /**
+         * Creates a quadratic Bézier curve
+         * @param {number} cp1x	The x-coordinate of the Bézier control point
+         * @param {number} cp1y	The y-coordinate of the Bézier control point
+         * @param {number} x	The x-coordinate of the ending point
+         * @param {number} y	The y-coordinate of the ending point
+         */
+
     }, {
         key: 'quadraticCurveTo',
         value: function quadraticCurveTo(cp1x, cp1y, x, y) {
             this.context.quadraticCurveTo(cp1x, cp1y, x, y);
             return this;
         }
+        /**
+        * Creates a cubic Bézier curve
+        * @param {number} cp1x	The x-coordinate of the first Bézier control point
+        * @param {number} cp1y	The y-coordinate of the first Bézier control point
+        * @param {number} cp2x	The x-coordinate of the second Bézier control point
+        * @param {number} cp2y	The y-coordinate of the second Bézier control point
+        * @param {number} x	The x-coordinate of the ending point
+        * @param {number} y	The y-coordinate of the ending point
+        */
+
     }, {
         key: 'bezierCurveTo',
         value: function bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y) {
             this.context.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y);
             return this;
         }
+        /**
+         * Set Smoothing configuration enable
+         * @param {boolean} imageSmoothingEnabled Enabled or disable the configuration
+         */
+
+    }, {
+        key: 'setImageSmoothingEnabled',
+        value: function setImageSmoothingEnabled(imageSmoothingEnabled) {
+            this.imageSmoothingEnabled = imageSmoothingEnabled;
+            return this;
+        }
+        /**
+         * Adds a new point and creates a line to that point from the last specified point in the canvas
+         * @param {number} x x-coordinate
+         * @param {number} y y-coordinate
+         */
+
     }, {
         key: 'lineTo',
         value: function lineTo(x, y) {
             this.context.lineTo(x, y);
             return this;
         }
+        /**
+         * Moves the path to the specified point in the canvas, without creating a line
+         * @param {number} x x-coordinate
+         * @param {number} y y-coordinate
+         */
+
     }, {
         key: 'moveTo',
         value: function moveTo(x, y) {
             this.context.moveTo(x, y);
             return this;
         }
+        /**
+         * Begins a path, or resets the current path
+         */
+
     }, {
         key: 'beginPath',
         value: function beginPath() {
             this.context.beginPath();
             return this;
         }
+        /**
+         * Creates a path from the current point back to the starting point
+         */
+
     }, {
         key: 'closePath',
         value: function closePath() {
             this.context.closePath();
             return this;
         }
+        /**
+         * Actually draws the path you have defined
+         */
+
     }, {
         key: 'stroke',
         value: function stroke() {
             this.context.stroke();
             return this;
         }
+        /**
+         * Fills the current drawing (path)
+         */
+
     }, {
         key: 'fill',
         value: function fill() {
             this.context.fill();
             return this;
         }
+        /**
+         * Clear the context
+         */
+
     }, {
         key: 'clear',
         value: function clear() {
@@ -392,6 +766,25 @@ var WCanvas = function (_WElement) {
         get: function get() {
             return this.element.getContext('3d');
         }
+    }, {
+        key: 'imageSmoothingEnabled',
+        get: function get() {
+            return this.context.imageSmoothingEnabled || this.context.mozImageSmoothingEnabled || this.context.webkitImageSmoothingEnabled || this.context.msImageSmoothingEnabled;
+        },
+        set: function set(imageSmoothingEnabled) {
+            if (this.context.imageSmoothingEnabled) {
+                this.context.imageSmoothingEnabled = imageSmoothingEnabled;
+            }
+            if (this.context.mozImageSmoothingEnabled) {
+                this.context.mozImageSmoothingEnabled = imageSmoothingEnabled;
+            }
+            if (this.context.webkitImageSmoothingEnabled) {
+                this.context.webkitImageSmoothingEnabled = imageSmoothingEnabled;
+            }
+            if (this.context.msImageSmoothingEnabled) {
+                this.context.msImageSmoothingEnabled = imageSmoothingEnabled;
+            }
+        }
     }]);
 
     return WCanvas;
@@ -399,7 +792,7 @@ var WCanvas = function (_WElement) {
 
 exports.default = WCanvas;
 
-},{"../enums/WType":6,"./WElement":4}],4:[function(require,module,exports){
+},{"../enums/WType":8,"./WElement":4}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -425,6 +818,12 @@ var WElement = function () {
         key: 'createElement',
         value: function createElement(element) {
             return document.createElement(element);
+        }
+    }, {
+        key: 'setId',
+        value: function setId(id) {
+            this.element.id = id;
+            return this;
         }
     }, {
         key: 'setAttribute',
@@ -473,6 +872,14 @@ var WElement = function () {
         key: 'getClassName',
         value: function getClassName() {
             return this.constructor.name;
+        }
+    }, {
+        key: 'id',
+        get: function get() {
+            return this.element.id;
+        },
+        set: function set(id) {
+            this.element.id = id;
         }
     }, {
         key: 'element',
@@ -577,15 +984,41 @@ exports.default = WImage;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var Type = {
+var CanvasQuality = {
+    'FULL': 1.0,
+    'MEDIUM': 0.5,
+    'LOW': 0.1
+};
+
+exports.default = CanvasQuality;
+
+},{}],7:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var WMimeType = {
+    'IMAGE_JPEG': 'image/jpeg'
+};
+
+exports.default = WMimeType;
+
+},{}],8:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var WType = {
     'FILL': 'fill',
     'STROKE': 'stroke',
     'CLEAR': 'clear'
 };
 
-exports.default = Type;
+exports.default = WType;
 
-},{}],7:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -629,7 +1062,7 @@ exports.default = Object.prototype.eventFallMove = function () {
     }
 };
 
-},{}],8:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -681,7 +1114,7 @@ exports.default = Object.prototype.eventMouseFollow = function () {
     }
 };
 
-},{}],9:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -739,7 +1172,7 @@ exports.default = Object.prototype.eventRandomOne = function () {
     }
 };
 
-},{}],10:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -777,7 +1210,7 @@ exports.default = Object.prototype.createBall = function (x, y) {
     }
 };
 
-},{}],11:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -818,7 +1251,7 @@ exports.default = Object.prototype.createBallShadow = function (x, y) {
     }
 };
 
-},{}],12:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -842,7 +1275,7 @@ exports.default = Object.prototype.createBallon = function () {
     }
 };
 
-},{}],13:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -967,7 +1400,7 @@ exports.default = Object.prototype.createClockOne = function () {
     }
 };
 
-},{}],14:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -991,7 +1424,7 @@ exports.default = Object.prototype.createHeart = function () {
     }
 };
 
-},{}],15:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
