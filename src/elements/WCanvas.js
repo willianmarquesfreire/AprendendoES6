@@ -522,7 +522,7 @@ class WCanvas extends WElement {
      * @param {number} sx x-coordinate
      * @param {number} sy y-coordinate
      */
-    drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight) {
+    drawFullImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight) {
         this.context.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
         return this
     }

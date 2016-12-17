@@ -37,6 +37,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html">WElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/WImage.js~WImage.html">WImage</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">enums</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WCanvasQuality">WCanvasQuality</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WGlobalCompositeOperation">WGlobalCompositeOperation</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WGlobalCompositeOperationType">WGlobalCompositeOperationType</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WLineCap">WLineCap</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WLineJoin">WLineJoin</a></span></span></li>
@@ -177,6 +178,34 @@ class WCanvas extends WElement {
     }
     set textBaseline(textBaseline) {
         this.context.textBaseline = textBaseline
+    }
+    get globalAlpha() {
+        return this.context.globalAlpha
+    }
+    set globalAlpha(globalAlpha) {
+        this.context.globalAlpha = globalAlpha
+    }
+    get globalCompositeOperation() {
+        return this.context.globalCompositeOperation
+    }
+    set globalCompositeOperation(globalCompositeOperation) {
+        this.context.globalCompositeOperation = globalCompositeOperation
+    }
+    /**
+     * Sets or returns how a source (new) image are drawn onto a destination (existing) image.
+     * @param {WGlobalCompositeOperation} globalCompositeOperation	globalCompositeOperation to set
+     */
+    setGlobalCompositeOperation(globalCompositeOperation) {
+        this.globalCompositeOperation = globalCompositeOperation
+        return this
+    }
+    /**
+     * Sets or returns the current alpha or transparency value of the drawing.
+     * @param {number} globalAlpha	globalAlpha to set
+     */
+    setGlobalAlpha(globalAlpha) {
+        this.globalAlpha = globalAlpha
+        return this
     }
     /**
      * Method returns an object that contains the width of the specified text, in pixels.
@@ -558,7 +587,7 @@ class WCanvas extends WElement {
      * @param {number} sx x-coordinate
      * @param {number} sy y-coordinate
      */
-    drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight) {
+    drawFullImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight) {
         this.context.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
         return this
     }
@@ -863,6 +892,10 @@ class WCanvas extends WElement {
     clear() {
         this.context.clear()
         return this
+    }
+    //@TODO
+    createEvent() {
+
     }
     /**
      * @TODO

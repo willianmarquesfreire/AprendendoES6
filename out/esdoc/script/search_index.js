@@ -30,6 +30,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "aprendendoes6/src/enums/wglobalcompositeoperation.js~wglobalcompositeoperation",
+    "variable/index.html#static-variable-WGlobalCompositeOperation",
+    "<span>WGlobalCompositeOperation</span> <span class=\"search-result-import-path\">aprendendoes6/src/enums/WGlobalCompositeOperation.js</span>",
+    "variable"
+  ],
+  [
     "aprendendoes6/src/enums/wglobalcompositeoperationtype.js~wglobalcompositeoperationtype",
     "variable/index.html#static-variable-WGlobalCompositeOperationType",
     "<span>WGlobalCompositeOperationType</span> <span class=\"search-result-import-path\">aprendendoes6/src/enums/WGlobalCompositeOperationType.js</span>",
@@ -553,13 +559,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/elements/wcanvas.js~wcanvas#context",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-context",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-context",
     "src/elements/WCanvas.js~WCanvas#context",
     "member"
   ],
   [
     "src/elements/wcanvas.js~wcanvas#context",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-context",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-context",
     "src/elements/WCanvas.js~WCanvas#context",
     "member"
   ],
@@ -574,6 +580,12 @@ window.esdocSearchIndex = [
     "class/src/elements/WCanvas.js~WCanvas.html#instance-get-context3D",
     "src/elements/WCanvas.js~WCanvas#context3D",
     "member"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#createevent",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-createEvent",
+    "src/elements/WCanvas.js~WCanvas#createEvent",
+    "method"
   ],
   [
     "src/elements/wcanvas.js~wcanvas#createimage",
@@ -600,9 +612,9 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/elements/wcanvas.js~wcanvas#drawimage",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-drawImage",
-    "src/elements/WCanvas.js~WCanvas#drawImage",
+    "src/elements/wcanvas.js~wcanvas#drawfullimage",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-drawFullImage",
+    "src/elements/WCanvas.js~WCanvas#drawFullImage",
     "method"
   ],
   [
@@ -673,13 +685,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/elements/wcanvas.js~wcanvas#font",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-font",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-font",
     "src/elements/WCanvas.js~WCanvas#font",
     "member"
   ],
   [
     "src/elements/wcanvas.js~wcanvas#font",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-font",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-font",
     "src/elements/WCanvas.js~WCanvas#font",
     "member"
   ],
@@ -694,6 +706,30 @@ window.esdocSearchIndex = [
     "class/src/elements/WCanvas.js~WCanvas.html#instance-method-getImageDataRGBA",
     "src/elements/WCanvas.js~WCanvas#getImageDataRGBA",
     "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#globalalpha",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-globalAlpha",
+    "src/elements/WCanvas.js~WCanvas#globalAlpha",
+    "member"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#globalalpha",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-globalAlpha",
+    "src/elements/WCanvas.js~WCanvas#globalAlpha",
+    "member"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#globalcompositeoperation",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-globalCompositeOperation",
+    "src/elements/WCanvas.js~WCanvas#globalCompositeOperation",
+    "member"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#globalcompositeoperation",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-globalCompositeOperation",
+    "src/elements/WCanvas.js~WCanvas#globalCompositeOperation",
+    "member"
   ],
   [
     "src/elements/wcanvas.js~wcanvas#grayscalecanvascolor",
@@ -751,13 +787,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/elements/wcanvas.js~wcanvas#linejoin",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-lineJoin",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-lineJoin",
     "src/elements/WCanvas.js~WCanvas#lineJoin",
     "member"
   ],
   [
     "src/elements/wcanvas.js~wcanvas#linejoin",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-lineJoin",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-lineJoin",
     "src/elements/WCanvas.js~WCanvas#lineJoin",
     "member"
   ],
@@ -781,13 +817,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/elements/wcanvas.js~wcanvas#miterlimit",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-miterLimit",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-miterLimit",
     "src/elements/WCanvas.js~WCanvas#miterLimit",
     "member"
   ],
   [
     "src/elements/wcanvas.js~wcanvas#miterlimit",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-miterLimit",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-miterLimit",
     "src/elements/WCanvas.js~WCanvas#miterLimit",
     "member"
   ],
@@ -849,6 +885,18 @@ window.esdocSearchIndex = [
     "src/elements/wcanvas.js~wcanvas#setfont",
     "class/src/elements/WCanvas.js~WCanvas.html#instance-method-setFont",
     "src/elements/WCanvas.js~WCanvas#setFont",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#setglobalalpha",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-setGlobalAlpha",
+    "src/elements/WCanvas.js~WCanvas#setGlobalAlpha",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#setglobalcompositeoperation",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-setGlobalCompositeOperation",
+    "src/elements/WCanvas.js~WCanvas#setGlobalCompositeOperation",
     "method"
   ],
   [
@@ -931,13 +979,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/elements/wcanvas.js~wcanvas#shadowblur",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-shadowBlur",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-shadowBlur",
     "src/elements/WCanvas.js~WCanvas#shadowBlur",
     "member"
   ],
   [
     "src/elements/wcanvas.js~wcanvas#shadowblur",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-shadowBlur",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-shadowBlur",
     "src/elements/WCanvas.js~WCanvas#shadowBlur",
     "member"
   ],
@@ -967,13 +1015,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/elements/wcanvas.js~wcanvas#shadowoffsety",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-shadowOffsetY",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-shadowOffsetY",
     "src/elements/WCanvas.js~WCanvas#shadowOffsetY",
     "member"
   ],
   [
     "src/elements/wcanvas.js~wcanvas#shadowoffsety",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-shadowOffsetY",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-shadowOffsetY",
     "src/elements/WCanvas.js~WCanvas#shadowOffsetY",
     "member"
   ],
@@ -997,13 +1045,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/elements/wcanvas.js~wcanvas#strokestyle",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-strokeStyle",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-strokeStyle",
     "src/elements/WCanvas.js~WCanvas#strokeStyle",
     "member"
   ],
   [
     "src/elements/wcanvas.js~wcanvas#strokestyle",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-strokeStyle",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-strokeStyle",
     "src/elements/WCanvas.js~WCanvas#strokeStyle",
     "member"
   ],
@@ -1015,25 +1063,25 @@ window.esdocSearchIndex = [
   ],
   [
     "src/elements/wcanvas.js~wcanvas#textalign",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-textAlign",
-    "src/elements/WCanvas.js~WCanvas#textAlign",
-    "member"
-  ],
-  [
-    "src/elements/wcanvas.js~wcanvas#textalign",
     "class/src/elements/WCanvas.js~WCanvas.html#instance-set-textAlign",
     "src/elements/WCanvas.js~WCanvas#textAlign",
     "member"
   ],
   [
-    "src/elements/wcanvas.js~wcanvas#textbaseline",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-textBaseline",
-    "src/elements/WCanvas.js~WCanvas#textBaseline",
+    "src/elements/wcanvas.js~wcanvas#textalign",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-textAlign",
+    "src/elements/WCanvas.js~WCanvas#textAlign",
     "member"
   ],
   [
     "src/elements/wcanvas.js~wcanvas#textbaseline",
     "class/src/elements/WCanvas.js~WCanvas.html#instance-set-textBaseline",
+    "src/elements/WCanvas.js~WCanvas#textBaseline",
+    "member"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#textbaseline",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-textBaseline",
     "src/elements/WCanvas.js~WCanvas#textBaseline",
     "member"
   ],
@@ -1224,6 +1272,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/enums/wglobalcompositeoperation.js",
+    "file/src/enums/WGlobalCompositeOperation.js.html",
+    "src/enums/WGlobalCompositeOperation.js",
+    "file"
+  ],
+  [
     "src/enums/wglobalcompositeoperationtype.js",
     "file/src/enums/WGlobalCompositeOperationType.js.html",
     "src/enums/WGlobalCompositeOperationType.js",
@@ -1366,5 +1420,17 @@ window.esdocSearchIndex = [
     "class/src/world/World.js~World.html#instance-constructor-constructor",
     "src/world/World.js~World#constructor",
     "method"
+  ],
+  [
+    "src/world/world.js~world#method",
+    "class/src/world/World.js~World.html#instance-method-method",
+    "src/world/World.js~World#method",
+    "method"
+  ],
+  [
+    "src/world/test.js",
+    "file/src/world/test.js.html",
+    "src/world/test.js",
+    "file"
   ]
 ]

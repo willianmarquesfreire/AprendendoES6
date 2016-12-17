@@ -1,7 +1,7 @@
 {
-  "coverage": "53.1%",
-  "expectCount": 145,
-  "actualCount": 77,
+  "coverage": "51.29%",
+  "expectCount": 154,
+  "actualCount": 79,
   "files": {
     "src/phisic/Phisic.js": {
       "expectCount": 2,
@@ -19,36 +19,41 @@
       ]
     },
     "src/elements/WCanvas.js": {
-      "expectCount": 96,
-      "actualCount": 65,
+      "expectCount": 103,
+      "actualCount": 67,
       "undocumentLines": [
         8,
-        16,
         13,
+        16,
         19,
         22,
-        102,
+        832,
         99,
-        31,
+        102,
+        117,
+        120,
+        126,
+        123,
         25,
+        31,
         78,
         75,
         81,
         84,
-        90,
         87,
+        90,
         96,
         93,
         48,
         45,
-        66,
         63,
+        66,
         51,
         54,
-        57,
         60,
-        69,
+        57,
         72,
+        69,
         105,
         108,
         111,
@@ -75,6 +80,13 @@
         14,
         17,
         76
+      ]
+    },
+    "src/enums/WGlobalCompositeOperation.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
       ]
     },
     "src/enums/WGlobalCompositeOperationType.js": {
@@ -145,11 +157,12 @@
       ]
     },
     "src/world/World.js": {
-      "expectCount": 2,
+      "expectCount": 3,
       "actualCount": 0,
       "undocumentLines": [
-        3,
-        4
+        4,
+        5,
+        9
       ]
     },
     "src/reusable_objects/WBall.js": {

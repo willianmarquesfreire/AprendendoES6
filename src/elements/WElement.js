@@ -11,6 +11,22 @@ class WElement {
         this.border = border
         console.log(this.getClassName().concat(' Created!'))
     }
+    get hashcode() {
+        let hash = this.constructor.name
+            .split("")
+            .reduce(function (a, b) {
+                a = ((a << 5) - a)
+                    + b.charCodeAt(0); return a & a
+            }, 0);
+        let hashcode = ""
+        for (var i = 0; i < 10; i++) {
+            hashcode = hashcode.concat(String.fromCodePoint(Math.round(Math.random() * 100) + 4))
+        }
+        return (hash + ".*wmf*." + hashcode).trim()
+    }
+    get type() {
+        return this.constructor.name
+    }
     get id() {
         return this.element.id
     }

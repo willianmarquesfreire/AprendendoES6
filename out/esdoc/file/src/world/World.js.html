@@ -37,6 +37,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html">WElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/WImage.js~WImage.html">WImage</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">enums</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WCanvasQuality">WCanvasQuality</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WGlobalCompositeOperation">WGlobalCompositeOperation</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WGlobalCompositeOperationType">WGlobalCompositeOperationType</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WLineCap">WLineCap</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WLineJoin">WLineJoin</a></span></span></li>
@@ -63,14 +64,33 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/world/World.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import WCanvas from &apos;../elements/WCanvas&apos;
+import test from &quot;./test&quot;
 
-class World extends WCanvas {
-    constructor() {
+export default class World extends WCanvas {
+    constructor(j=1) {
+        var canvas = new WCanvas()
         super()
+    }
+    method(ola) {
+
     }
 }
 
-export default World</code></pre>
+function inject(){
+    return (target, property, descriptor) =&gt; {
+        console.log(target)
+        console.log(property)
+        console.log(descriptor)
+        // console.log(descriptor)
+        
+    }
+}
+
+class ola {
+    constructor() {
+        console.log(&quot;ola&quot;)
+    }
+}</code></pre>
 
 </div>
 
