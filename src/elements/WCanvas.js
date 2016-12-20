@@ -22,6 +22,14 @@ class WCanvas extends WElement {
     get context3D() {
         return this.element.getContext('3d')
     }
+    requestAnimationFrame(callback) {
+        return window.requestAnimationFrame
+            || window.webkitRequestAnimationFrame
+            || window.mozRequestAnimationFrame
+            || function (callback) {
+                window.setTimeout(callback, 1000 / 60)
+            }
+    }
     get imageSmoothingEnabled() {
         return this.context.imageSmoothingEnabled
             || this.context.mozImageSmoothingEnabled
@@ -125,6 +133,13 @@ class WCanvas extends WElement {
     }
     set globalCompositeOperation(globalCompositeOperation) {
         this.context.globalCompositeOperation = globalCompositeOperation
+    }
+    //@TODO
+    animateFadeTo(beginX, beginY, endX, endY, call) {
+        // console.log("1")
+
+        this.requestAnimationFrame(this.animateFadeTo(x,y))
+        return this
     }
     /**
      * Sets or returns how a source (new) image are drawn onto a destination (existing) image.
@@ -569,7 +584,7 @@ class WCanvas extends WElement {
         var $this = this
         var img = new Image()
         img.src = url
-        img.onload = function() {
+        img.onload = function () {
             $this.context.drawImage(img, x, y)
             img.style.display = 'none'
             if (callback) {
@@ -831,14 +846,6 @@ class WCanvas extends WElement {
     //@TODO
     createEvent() {
 
-    }
-    /**
-     * @TODO
-     * Esta função será implementada
-     * Ela está aqui somente para me lembrar de como fazer animações
-     */
-    requestAnimationFrame(fn) {
-        return window.requestAnimationFrame(draw)
     }
 
 }

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">src/reusable_objects/WFaceFeliz.js | API Document</title>
+  <title data-ice="title">src/util/WDInject.js | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -49,7 +49,6 @@
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">events</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-eventFallMove">eventFallMove</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-eventMouseFollow">eventMouseFollow</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-eventRandomOne">eventRandomOne</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">examples</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/examples/Example.js~Example.html">Example</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">phisic</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/phisic/Phisic.js~Phisic.html">Phisic</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">reusable_objects</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createBall">createBall</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createBallShadow">createBallShadow</a></span></span></li>
@@ -58,27 +57,56 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createFaceFeliz">createFaceFeliz</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createHeart">createHeart</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createTransformPointerOne">createTransformPointerOne</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">util</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Object.prototype.InjectionPool">Object.prototype.InjectionPool</a></span></span></li>
 </ul>
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/reusable_objects/WFaceFeliz.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">export default Object.prototype.createFaceFeliz = function () {
-    if (this.context) {
-        var ctx = this.context
-
-        ctx.beginPath();
-        ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // Outer circle
-        ctx.moveTo(110, 75);
-        ctx.arc(75, 75, 35, 0, Math.PI, false);  // Mouth (clockwise)
-        ctx.moveTo(65, 65);
-        ctx.arc(60, 65, 5, 0, Math.PI * 2, true);  // Left eye
-        ctx.moveTo(95, 65);
-        ctx.arc(90, 65, 5, 0, Math.PI * 2, true);  // Right eye
-        ctx.stroke();
-
-        return this
+<div class="content" data-ice="content"><h1 data-ice="title">src/util/WDInject.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import InjectionPool from &apos;./InjectionPool&apos;
+Object.prototype.Injectable = function () {
+    return (target, property, descriptor) =&gt; {
+        let injection = {
+            &apos;hashcode&apos;: target.prototype.hashcode,
+            &apos;type&apos;: target.prototype.type || target.prototype.constructor.name,
+            &apos;target&apos;: target,
+            &apos;property&apos;: property,
+            &apos;descriptor&apos;: descriptor
+        }
+        InjectionPool.add(injection)
     }
+}
+
+Object.prototype.Inject = function (...injections) {
+    return (target, property, descriptor) =&gt; {
+        injections.forEach(function (injection) {
+            let obj = InjectionPool.get(injection)
+            Object.defineProperty(target.prototype, obj.type, {
+                __proto__: null,
+                enumerable: true,
+                get: function () {
+                    var elem = new obj.target
+                    return elem
+                }
+            })
+        })
+    }
+}
+
+Object.prototype.InjectLoader = function (...loaders) {
+    return (target, property, descriptor) =&gt; {
+        loaders.forEach(function (loader) {
+            let obj = InjectionPool.get(loader)
+            var loaderStart = new obj.target()
+        })
+        new target()
+    }
+}
+
+export default {
+    Injectable,
+    Inject,
+    InjectLoader
 }</code></pre>
 
 </div>

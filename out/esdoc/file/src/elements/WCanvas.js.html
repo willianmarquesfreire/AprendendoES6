@@ -49,6 +49,7 @@
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">events</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-eventFallMove">eventFallMove</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-eventMouseFollow">eventMouseFollow</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-eventRandomOne">eventRandomOne</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">examples</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/examples/Example.js~Example.html">Example</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">phisic</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/phisic/Phisic.js~Phisic.html">Phisic</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">reusable_objects</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createBall">createBall</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createBallShadow">createBallShadow</a></span></span></li>
@@ -57,7 +58,6 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createFaceFeliz">createFaceFeliz</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createHeart">createHeart</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createTransformPointerOne">createTransformPointerOne</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">world</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/world/World.js~World.html">World</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -86,6 +86,14 @@ class WCanvas extends WElement {
     }
     get context3D() {
         return this.element.getContext(&apos;3d&apos;)
+    }
+    requestAnimationFrame(callback) {
+        return window.requestAnimationFrame
+            || window.webkitRequestAnimationFrame
+            || window.mozRequestAnimationFrame
+            || function (callback) {
+                window.setTimeout(callback, 1000 / 60)
+            }
     }
     get imageSmoothingEnabled() {
         return this.context.imageSmoothingEnabled
@@ -190,6 +198,11 @@ class WCanvas extends WElement {
     }
     set globalCompositeOperation(globalCompositeOperation) {
         this.context.globalCompositeOperation = globalCompositeOperation
+    }
+    animateFadeTo(x,y) {
+        console.log(&quot;1&quot;)
+        // this.requestAnimationFrame(this.animateFadeTo(x,y))
+        return this
     }
     /**
      * Sets or returns how a source (new) image are drawn onto a destination (existing) image.
@@ -634,7 +647,7 @@ class WCanvas extends WElement {
         var $this = this
         var img = new Image()
         img.src = url
-        img.onload = function() {
+        img.onload = function () {
             $this.context.drawImage(img, x, y)
             img.style.display = &apos;none&apos;
             if (callback) {
@@ -896,14 +909,6 @@ class WCanvas extends WElement {
     //@TODO
     createEvent() {
 
-    }
-    /**
-     * @TODO
-     * Esta fun&#xE7;&#xE3;o ser&#xE1; implementada
-     * Ela est&#xE1; aqui somente para me lembrar de como fazer anima&#xE7;&#xF5;es
-     */
-    requestAnimationFrame(fn) {
-        return window.requestAnimationFrame(draw)
     }
 
 }

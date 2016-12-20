@@ -49,6 +49,7 @@
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">events</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-eventFallMove">eventFallMove</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-eventMouseFollow">eventMouseFollow</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-eventRandomOne">eventRandomOne</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">examples</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/examples/Example.js~Example.html">Example</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">phisic</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/phisic/Phisic.js~Phisic.html">Phisic</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">reusable_objects</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createBall">createBall</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createBallShadow">createBallShadow</a></span></span></li>
@@ -57,7 +58,6 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createFaceFeliz">createFaceFeliz</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createHeart">createHeart</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createTransformPointerOne">createTransformPointerOne</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">world</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/world/World.js~World.html">World</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -80,7 +80,7 @@
   
   
   <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span><a href="class/src/elements/WElement.js~WElement.html">WElement</a></span> &#x2192; WCanvas</div></div>
-  <div class="flat-list" data-ice="directSubclass"><h4>Direct Subclass:</h4><div><span><a href="class/src/world/World.js~World.html">World</a></span></div></div>
+  
   
   
   
@@ -1033,6 +1033,31 @@
     <td>
       <div>
         <p>
+           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-animateFadeTo">animateFadeTo</a></span></span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
            <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-arc">arc</a></span></span><span data-ice="signature">(x: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, y: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, radius: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, startAngle: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, endAngle: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, anticlockwise: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span>*</span></span>
         </p>
       </div>
@@ -1941,7 +1966,7 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-requestAnimationFrame">requestAnimationFrame</a></span></span><span data-ice="signature">(fn: <span>*</span>): <span>*</span></span>
+           <span data-ice="name"><span><a href="class/src/elements/WCanvas.js~WCanvas.html#instance-method-requestAnimationFrame">requestAnimationFrame</a></span></span><span data-ice="signature">(callback: <span>*</span>): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -2847,6 +2872,31 @@
     <td>
       <span class="access" data-ice="access">public</span>
       
+      <span class="kind" data-ice="kind">get</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html#instance-get-hashcode">hashcode</a></span></span><span data-ice="signature">: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
       <span class="kind" data-ice="kind">set</span>
       
       <span class="override" data-ice="override"></span>
@@ -2905,6 +2955,31 @@
       <div>
         <p>
            <span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html#instance-set-id">id</a></span></span><span data-ice="signature">: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      <span class="kind" data-ice="kind">get</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html#instance-get-type">type</a></span></span><span data-ice="signature">: <span>*</span></span>
         </p>
       </div>
       <div>
@@ -3136,6 +3211,56 @@
     <td>
       <div>
         <p>
+           <span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html#instance-method-setBorder">setBorder</a></span></span><span data-ice="signature">(border: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html#instance-method-setHeight">setHeight</a></span></span><span data-ice="signature">(height: <span>*</span>): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
            <span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html#instance-method-setId">setId</a></span></span><span data-ice="signature">(id: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span>*</span></span>
         </p>
       </div>
@@ -3196,6 +3321,31 @@
         
         <div data-ice="description"><p>Set Style of element</p>
 </div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html#instance-method-setWidth">setWidth</a></span></span><span data-ice="signature">(width: <span>*</span>): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
       </div>
     </td>
     <td>
@@ -3425,7 +3575,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber102">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber110">source</a></span></span>
     </span>
   </h3>
 
@@ -3465,7 +3615,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber99">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber107">source</a></span></span>
     </span>
   </h3>
 
@@ -3505,7 +3655,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber120">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber128">source</a></span></span>
     </span>
   </h3>
 
@@ -3545,7 +3695,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber117">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber125">source</a></span></span>
     </span>
   </h3>
 
@@ -3585,7 +3735,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber123">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber131">source</a></span></span>
     </span>
   </h3>
 
@@ -3625,7 +3775,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber126">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber134">source</a></span></span>
     </span>
   </h3>
 
@@ -3665,7 +3815,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber25">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber33">source</a></span></span>
     </span>
   </h3>
 
@@ -3705,7 +3855,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber31">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber39">source</a></span></span>
     </span>
   </h3>
 
@@ -3745,7 +3895,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber78">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber86">source</a></span></span>
     </span>
   </h3>
 
@@ -3785,7 +3935,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber75">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber83">source</a></span></span>
     </span>
   </h3>
 
@@ -3825,7 +3975,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber81">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber89">source</a></span></span>
     </span>
   </h3>
 
@@ -3865,7 +4015,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber84">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber92">source</a></span></span>
     </span>
   </h3>
 
@@ -3905,7 +4055,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber90">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber98">source</a></span></span>
     </span>
   </h3>
 
@@ -3945,7 +4095,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber87">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber95">source</a></span></span>
     </span>
   </h3>
 
@@ -3985,7 +4135,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber96">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber104">source</a></span></span>
     </span>
   </h3>
 
@@ -4025,7 +4175,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber93">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber101">source</a></span></span>
     </span>
   </h3>
 
@@ -4065,7 +4215,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber48">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber56">source</a></span></span>
     </span>
   </h3>
 
@@ -4105,7 +4255,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber45">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber53">source</a></span></span>
     </span>
   </h3>
 
@@ -4145,7 +4295,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber63">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber71">source</a></span></span>
     </span>
   </h3>
 
@@ -4185,7 +4335,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber66">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber74">source</a></span></span>
     </span>
   </h3>
 
@@ -4225,7 +4375,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber54">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber62">source</a></span></span>
     </span>
   </h3>
 
@@ -4265,7 +4415,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber51">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber59">source</a></span></span>
     </span>
   </h3>
 
@@ -4305,7 +4455,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber60">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber68">source</a></span></span>
     </span>
   </h3>
 
@@ -4345,7 +4495,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber57">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber65">source</a></span></span>
     </span>
   </h3>
 
@@ -4385,7 +4535,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber72">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber80">source</a></span></span>
     </span>
   </h3>
 
@@ -4425,7 +4575,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber69">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber77">source</a></span></span>
     </span>
   </h3>
 
@@ -4465,7 +4615,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber105">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber113">source</a></span></span>
     </span>
   </h3>
 
@@ -4505,7 +4655,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber108">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber116">source</a></span></span>
     </span>
   </h3>
 
@@ -4545,7 +4695,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber111">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber119">source</a></span></span>
     </span>
   </h3>
 
@@ -4585,7 +4735,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber114">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber122">source</a></span></span>
     </span>
   </h3>
 
@@ -4628,7 +4778,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber253">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber266">source</a></span></span>
     </span>
   </h3>
 
@@ -4693,6 +4843,78 @@
   
 </div>
 <div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-animateFadeTo">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">animateFadeTo</span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber137">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">x</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">y</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span>*</span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="instance-method-arc">
     <span class="access" data-ice="access">public</span>
     
@@ -4703,7 +4925,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber741">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber754">source</a></span></span>
     </span>
   </h3>
 
@@ -4806,7 +5028,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber799">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber812">source</a></span></span>
     </span>
   </h3>
 
@@ -4857,7 +5079,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber765">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber778">source</a></span></span>
     </span>
   </h3>
 
@@ -4960,7 +5182,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber827">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber840">source</a></span></span>
     </span>
   </h3>
 
@@ -5011,7 +5233,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber716">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber729">source</a></span></span>
     </span>
   </h3>
 
@@ -5107,7 +5329,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber400">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber413">source</a></span></span>
     </span>
   </h3>
 
@@ -5158,7 +5380,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber806">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber819">source</a></span></span>
     </span>
   </h3>
 
@@ -5209,7 +5431,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber832">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber845">source</a></span></span>
     </span>
   </h3>
 
@@ -5249,7 +5471,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber568">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber581">source</a></span></span>
     </span>
   </h3>
 
@@ -5328,7 +5550,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber277">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber290">source</a></span></span>
     </span>
   </h3>
 
@@ -5417,7 +5639,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber244">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber257">source</a></span></span>
     </span>
   </h3>
 
@@ -5492,7 +5714,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber266">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber279">source</a></span></span>
     </span>
   </h3>
 
@@ -5595,7 +5817,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber525">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber538">source</a></span></span>
     </span>
   </h3>
 
@@ -5677,7 +5899,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber515">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber528">source</a></span></span>
     </span>
   </h3>
 
@@ -5759,7 +5981,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber429">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber442">source</a></span></span>
     </span>
   </h3>
 
@@ -5848,7 +6070,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber419">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber432">source</a></span></span>
     </span>
   </h3>
 
@@ -5927,7 +6149,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber443">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber456">source</a></span></span>
     </span>
   </h3>
 
@@ -6023,7 +6245,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber466">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber479">source</a></span></span>
     </span>
   </h3>
 
@@ -6133,7 +6355,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber491">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber504">source</a></span></span>
     </span>
   </h3>
 
@@ -6222,7 +6444,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber820">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber833">source</a></span></span>
     </span>
   </h3>
 
@@ -6273,7 +6495,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber704">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber717">source</a></span></span>
     </span>
   </h3>
 
@@ -6369,7 +6591,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber408">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber421">source</a></span></span>
     </span>
   </h3>
 
@@ -6437,7 +6659,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber150">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber163">source</a></span></span>
     </span>
   </h3>
 
@@ -6505,7 +6727,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber160">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber173">source</a></span></span>
     </span>
   </h3>
 
@@ -6594,7 +6816,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber589">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber602">source</a></span></span>
     </span>
   </h3>
 
@@ -6682,7 +6904,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber608">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber621">source</a></span></span>
     </span>
   </h3>
 
@@ -6751,7 +6973,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber691">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber704">source</a></span></span>
     </span>
   </h3>
 
@@ -6802,7 +7024,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber677">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber690">source</a></span></span>
     </span>
   </h3>
 
@@ -6884,7 +7106,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber666">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber679">source</a></span></span>
     </span>
   </h3>
 
@@ -6935,7 +7157,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber653">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber666">source</a></span></span>
     </span>
   </h3>
 
@@ -7017,7 +7239,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber204">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber217">source</a></span></span>
     </span>
   </h3>
 
@@ -7092,7 +7314,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber783">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber796">source</a></span></span>
     </span>
   </h3>
 
@@ -7167,7 +7389,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber792">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber805">source</a></span></span>
     </span>
   </h3>
 
@@ -7242,7 +7464,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber599">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber612">source</a></span></span>
     </span>
   </h3>
 
@@ -7324,7 +7546,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber752">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber765">source</a></span></span>
     </span>
   </h3>
 
@@ -7409,11 +7631,11 @@
     
     
     
-    <span data-ice="name">requestAnimationFrame</span><span data-ice="signature">(fn: <span>*</span>): <span>*</span></span>
+    <span data-ice="name">requestAnimationFrame</span><span data-ice="signature">(callback: <span>*</span>): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber840">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber25">source</a></span></span>
     </span>
   </h3>
 
@@ -7433,7 +7655,7 @@
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">fn</td>
+      <td data-ice="name" data-depth="0">callback</td>
       <td data-ice="type"><span>*</span></td>
       <td data-ice="appendix"></td>
       <td data-ice="description"></td>
@@ -7479,7 +7701,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber393">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber406">source</a></span></span>
     </span>
   </h3>
 
@@ -7530,7 +7752,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber331">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber344">source</a></span></span>
     </span>
   </h3>
 
@@ -7581,7 +7803,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber360">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber373">source</a></span></span>
     </span>
   </h3>
 
@@ -7649,7 +7871,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber324">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber337">source</a></span></span>
     </span>
   </h3>
 
@@ -7700,7 +7922,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber351">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber364">source</a></span></span>
     </span>
   </h3>
 
@@ -7775,7 +7997,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber195">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber208">source</a></span></span>
     </span>
   </h3>
 
@@ -7843,7 +8065,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber141">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber154">source</a></span></span>
     </span>
   </h3>
 
@@ -7911,7 +8133,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber133">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber146">source</a></span></span>
     </span>
   </h3>
 
@@ -7979,7 +8201,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber773">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber786">source</a></span></span>
     </span>
   </h3>
 
@@ -8047,7 +8269,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber235">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber248">source</a></span></span>
     </span>
   </h3>
 
@@ -8115,7 +8337,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber227">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber240">source</a></span></span>
     </span>
   </h3>
 
@@ -8183,7 +8405,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber219">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber232">source</a></span></span>
     </span>
   </h3>
 
@@ -8251,7 +8473,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber211">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber224">source</a></span></span>
     </span>
   </h3>
 
@@ -8319,7 +8541,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber301">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber314">source</a></span></span>
     </span>
   </h3>
 
@@ -8387,7 +8609,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber309">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber322">source</a></span></span>
     </span>
   </h3>
 
@@ -8455,7 +8677,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber317">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber330">source</a></span></span>
     </span>
   </h3>
 
@@ -8523,7 +8745,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber293">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber306">source</a></span></span>
     </span>
   </h3>
 
@@ -8591,7 +8813,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber285">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber298">source</a></span></span>
     </span>
   </h3>
 
@@ -8659,7 +8881,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber187">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber200">source</a></span></span>
     </span>
   </h3>
 
@@ -8727,7 +8949,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber179">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber192">source</a></span></span>
     </span>
   </h3>
 
@@ -8795,7 +9017,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber386">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber399">source</a></span></span>
     </span>
   </h3>
 
@@ -8898,7 +9120,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber623">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber636">source</a></span></span>
     </span>
   </h3>
 
@@ -8988,7 +9210,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber813">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber826">source</a></span></span>
     </span>
   </h3>
 
@@ -9039,7 +9261,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber728">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber741">source</a></span></span>
     </span>
   </h3>
 
@@ -9135,7 +9357,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber171">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber184">source</a></span></span>
     </span>
   </h3>
 
@@ -9224,7 +9446,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber643">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber656">source</a></span></span>
     </span>
   </h3>
 
@@ -9306,7 +9528,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber633">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber646">source</a></span></span>
     </span>
   </h3>
 
@@ -9383,7 +9605,7 @@ The returned image is in a resolution of 96 dpi.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber373">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber386">source</a></span></span>
     </span>
   </h3>
 
@@ -9486,7 +9708,7 @@ The returned image is in a resolution of 96 dpi.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber341">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber354">source</a></span></span>
     </span>
   </h3>
 
@@ -9561,7 +9783,7 @@ The returned image is in a resolution of 96 dpi.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber542">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/elements/WCanvas.js.html#lineNumber555">source</a></span></span>
     </span>
   </h3>
 

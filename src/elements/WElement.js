@@ -4,11 +4,8 @@
  */
 class WElement {
 
-    constructor(element, width, height, border) {
+    constructor(element, configuration) {
         this.element = element
-        this.width = width
-        this.height = height
-        this.border = border
         console.log(this.getClassName().concat(' Created!'))
     }
     get hashcode() {
@@ -33,7 +30,6 @@ class WElement {
     set id(id) {
         this.element.id = id
     }
-
     get element() {
         return this._element
     }
@@ -60,6 +56,14 @@ class WElement {
         return this
     }
     /**
+     * Add Content to Element
+     * @param {Object} content Content to append on element
+     */
+    addContent(content) {
+        this.element.innerHTML = content
+        return this
+    }
+    /**
      * Set Attribute to element
      * @param {string} attr Attribute of element
      * @param {string} value Value of attribute
@@ -76,29 +80,26 @@ class WElement {
      * @example element.setStyle('color','red')
      */
     setStyle(attr, value) {
-        this.setAttibute('style', attr + ': ' + value)
+        this.element.style[attr] = value
         return this
     }
     /**
-     * Set size of element
-     * @param {number} width Width of element
-     * @param {number} height Height of element
+     * Set Configuration of element
+     * @param {Object} configuration Configuration to apply
      */
-    setSize(width, height) {
-        this.width = width
-        this.height = height
-        return this
-    }
-    set width(width) {
-        this.element.setAttribute('style', 'width: '.concat(width))
-        return this
-    }
-    set height(height) {
-        this.element.setAttribute('style', 'height: '.concat(height))
-        return this
-    }
-    set border(border = '1px solid black') {
-        this.element.setAttribute('style', 'border: '.concat(border))
+    config(configuration) {
+        for (let prop in configuration) {
+            if (prop === 'id') {
+                this.setId(configuration[prop])
+                continue;
+            }
+            if (prop === 'className') {
+                this.set
+            }
+            if (configuration.hasOwnProperty(prop)) {
+                this.setStyle(prop,configuration[prop])
+            }
+        }
         return this
     }
     /**
@@ -106,7 +107,7 @@ class WElement {
      * @param {Object} child Child to append on element
      */
     addChild(child) {
-        this.element.appendChild(child)
+        this.element.appendChild(child.element)
         return this
     }
     /**

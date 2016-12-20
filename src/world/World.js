@@ -1,14 +1,39 @@
+import WElement from '../elements/WElement'
 import WCanvas from '../elements/WCanvas'
-import test from "./test"
-
 @Injectable()
-export default class World extends WCanvas {
-    constructor(j = 1) {
-        var canvas = new WCanvas()
-        super()
+export default class World extends WElement {
+    constructor() {
+        super('div')
+        this.layers = {}
     }
-    method(ola) {
-        console.log("ola")
-        return "willian"
+    get layers() {
+        return this._layers
+    }
+    set layers(_layers) {
+        this._layers = _layers
+    }
+    setOverflow(overflow) {
+        this.element.style.overflow = overflow
+        return this
+    }
+    newLayer(configuration) {
+        let layer = new WCanvas()
+        if (!configuration.id) {
+            configuration.id = this.getObjectSize(this.layers) + 1
+        }
+        layer.config(configuration)
+        this.addChild(layer)
+        this.layers[configuration.id] = layer
+        return this
+    }
+    getObjectSize(obj) {
+        let size = 0, key
+        for (key in obj) {
+            if (obj.hasOwnProperty(key)) size++
+        }
+        return size
+    }
+    getLayer(id) {
+        return this.layers[id]
     }
 }

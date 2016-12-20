@@ -1,8 +1,16 @@
 {
-  "coverage": "51.29%",
-  "expectCount": 154,
-  "actualCount": 79,
+  "coverage": "49.05%",
+  "expectCount": 159,
+  "actualCount": 78,
   "files": {
+    "src/examples/Example.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        2,
+        3
+      ]
+    },
     "src/phisic/Phisic.js": {
       "expectCount": 2,
       "actualCount": 0,
@@ -19,45 +27,47 @@
       ]
     },
     "src/elements/WCanvas.js": {
-      "expectCount": 103,
-      "actualCount": 67,
+      "expectCount": 104,
+      "actualCount": 66,
       "undocumentLines": [
+        137,
         8,
-        13,
         16,
+        13,
         19,
         22,
-        832,
-        99,
-        102,
-        117,
-        120,
-        126,
-        123,
+        845,
+        107,
+        110,
+        128,
+        125,
+        134,
+        131,
+        39,
+        33,
+        86,
+        83,
+        92,
+        89,
+        95,
+        98,
+        101,
+        104,
         25,
-        31,
-        78,
-        75,
-        81,
-        84,
-        87,
-        90,
-        96,
-        93,
-        48,
-        45,
-        63,
-        66,
-        51,
-        54,
-        60,
-        57,
-        72,
-        69,
-        105,
-        108,
-        111,
-        114
+        53,
+        56,
+        71,
+        74,
+        62,
+        59,
+        65,
+        68,
+        77,
+        80,
+        116,
+        113,
+        119,
+        122
       ]
     },
     "src/enums/WCanvasQuality.js": {
@@ -68,18 +78,23 @@
       ]
     },
     "src/elements/WElement.js": {
-      "expectCount": 20,
+      "expectCount": 25,
       "actualCount": 11,
       "undocumentLines": [
-        27,
-        84,
+        43,
+        52,
         7,
-        24,
-        21,
-        80,
+        40,
+        37,
         14,
-        17,
-        76
+        49,
+        30,
+        33,
+        110,
+        106,
+        102,
+        27,
+        46
       ]
     },
     "src/enums/WGlobalCompositeOperation.js": {
@@ -154,15 +169,6 @@
       "actualCount": 0,
       "undocumentLines": [
         1
-      ]
-    },
-    "src/world/World.js": {
-      "expectCount": 3,
-      "actualCount": 0,
-      "undocumentLines": [
-        4,
-        5,
-        9
       ]
     },
     "src/reusable_objects/WBall.js": {

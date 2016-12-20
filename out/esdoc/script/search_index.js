@@ -1,5 +1,11 @@
 window.esdocSearchIndex = [
   [
+    "aprendendoes6/src/examples/example.js~example",
+    "class/src/examples/Example.js~Example.html",
+    "<span>Example</span> <span class=\"search-result-import-path\">aprendendoes6/src/examples/Example.js</span>",
+    "class"
+  ],
+  [
     "aprendendoes6/src/phisic/phisic.js~phisic",
     "class/src/phisic/Phisic.js~Phisic.html",
     "<span>Phisic</span> <span class=\"search-result-import-path\">aprendendoes6/src/phisic/Phisic.js</span>",
@@ -88,12 +94,6 @@ window.esdocSearchIndex = [
     "variable/index.html#static-variable-WType",
     "<span>WType</span> <span class=\"search-result-import-path\">aprendendoes6/src/enums/WType.js</span>",
     "variable"
-  ],
-  [
-    "aprendendoes6/src/world/world.js~world",
-    "class/src/world/World.js~World.html",
-    "<span>World</span> <span class=\"search-result-import-path\">aprendendoes6/src/world/World.js</span>",
-    "class"
   ],
   [
     "aprendendoes6/src/reusable_objects/wball.js~createball",
@@ -486,12 +486,6 @@ window.esdocSearchIndex = [
     "external"
   ],
   [
-    "src/app.js",
-    "file/src/app.js.html",
-    "src/app.js",
-    "file"
-  ],
-  [
     "src/elements/waudio.js",
     "file/src/elements/WAudio.js.html",
     "src/elements/WAudio.js",
@@ -507,6 +501,12 @@ window.esdocSearchIndex = [
     "src/elements/wcanvas.js~wcanvas#addcolorstop",
     "class/src/elements/WCanvas.js~WCanvas.html#instance-method-addColorStop",
     "src/elements/WCanvas.js~WCanvas#addColorStop",
+    "method"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#animatefadeto",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-method-animateFadeTo",
+    "src/elements/WCanvas.js~WCanvas#animateFadeTo",
     "method"
   ],
   [
@@ -559,13 +559,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/elements/wcanvas.js~wcanvas#context",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-context",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-context",
     "src/elements/WCanvas.js~WCanvas#context",
     "member"
   ],
   [
     "src/elements/wcanvas.js~wcanvas#context",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-context",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-context",
     "src/elements/WCanvas.js~WCanvas#context",
     "member"
   ],
@@ -685,13 +685,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/elements/wcanvas.js~wcanvas#font",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-font",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-font",
     "src/elements/WCanvas.js~WCanvas#font",
     "member"
   ],
   [
     "src/elements/wcanvas.js~wcanvas#font",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-font",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-font",
     "src/elements/WCanvas.js~WCanvas#font",
     "member"
   ],
@@ -721,13 +721,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/elements/wcanvas.js~wcanvas#globalcompositeoperation",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-globalCompositeOperation",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-globalCompositeOperation",
     "src/elements/WCanvas.js~WCanvas#globalCompositeOperation",
     "member"
   ],
   [
     "src/elements/wcanvas.js~wcanvas#globalcompositeoperation",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-globalCompositeOperation",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-globalCompositeOperation",
     "src/elements/WCanvas.js~WCanvas#globalCompositeOperation",
     "member"
   ],
@@ -745,13 +745,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/elements/wcanvas.js~wcanvas#imagesmoothingenabled",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-imageSmoothingEnabled",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-imageSmoothingEnabled",
     "src/elements/WCanvas.js~WCanvas#imageSmoothingEnabled",
     "member"
   ],
   [
     "src/elements/wcanvas.js~wcanvas#imagesmoothingenabled",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-imageSmoothingEnabled",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-imageSmoothingEnabled",
     "src/elements/WCanvas.js~WCanvas#imageSmoothingEnabled",
     "member"
   ],
@@ -775,13 +775,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/elements/wcanvas.js~wcanvas#linecap",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-lineCap",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-lineCap",
     "src/elements/WCanvas.js~WCanvas#lineCap",
     "member"
   ],
   [
     "src/elements/wcanvas.js~wcanvas#linecap",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-get-lineCap",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-lineCap",
     "src/elements/WCanvas.js~WCanvas#lineCap",
     "member"
   ],
@@ -1003,25 +1003,25 @@ window.esdocSearchIndex = [
   ],
   [
     "src/elements/wcanvas.js~wcanvas#shadowoffsetx",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-shadowOffsetX",
-    "src/elements/WCanvas.js~WCanvas#shadowOffsetX",
-    "member"
-  ],
-  [
-    "src/elements/wcanvas.js~wcanvas#shadowoffsetx",
     "class/src/elements/WCanvas.js~WCanvas.html#instance-get-shadowOffsetX",
     "src/elements/WCanvas.js~WCanvas#shadowOffsetX",
     "member"
   ],
   [
-    "src/elements/wcanvas.js~wcanvas#shadowoffsety",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-shadowOffsetY",
-    "src/elements/WCanvas.js~WCanvas#shadowOffsetY",
+    "src/elements/wcanvas.js~wcanvas#shadowoffsetx",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-shadowOffsetX",
+    "src/elements/WCanvas.js~WCanvas#shadowOffsetX",
     "member"
   ],
   [
     "src/elements/wcanvas.js~wcanvas#shadowoffsety",
     "class/src/elements/WCanvas.js~WCanvas.html#instance-get-shadowOffsetY",
+    "src/elements/WCanvas.js~WCanvas#shadowOffsetY",
+    "member"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#shadowoffsety",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-shadowOffsetY",
     "src/elements/WCanvas.js~WCanvas#shadowOffsetY",
     "member"
   ],
@@ -1063,25 +1063,25 @@ window.esdocSearchIndex = [
   ],
   [
     "src/elements/wcanvas.js~wcanvas#textalign",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-textAlign",
-    "src/elements/WCanvas.js~WCanvas#textAlign",
-    "member"
-  ],
-  [
-    "src/elements/wcanvas.js~wcanvas#textalign",
     "class/src/elements/WCanvas.js~WCanvas.html#instance-get-textAlign",
     "src/elements/WCanvas.js~WCanvas#textAlign",
     "member"
   ],
   [
-    "src/elements/wcanvas.js~wcanvas#textbaseline",
-    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-textBaseline",
-    "src/elements/WCanvas.js~WCanvas#textBaseline",
+    "src/elements/wcanvas.js~wcanvas#textalign",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-textAlign",
+    "src/elements/WCanvas.js~WCanvas#textAlign",
     "member"
   ],
   [
     "src/elements/wcanvas.js~wcanvas#textbaseline",
     "class/src/elements/WCanvas.js~WCanvas.html#instance-get-textBaseline",
+    "src/elements/WCanvas.js~WCanvas#textBaseline",
+    "member"
+  ],
+  [
+    "src/elements/wcanvas.js~wcanvas#textbaseline",
+    "class/src/elements/WCanvas.js~WCanvas.html#instance-set-textBaseline",
     "src/elements/WCanvas.js~WCanvas#textBaseline",
     "member"
   ],
@@ -1188,6 +1188,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/elements/welement.js~welement#hashcode",
+    "class/src/elements/WElement.js~WElement.html#instance-get-hashcode",
+    "src/elements/WElement.js~WElement#hashcode",
+    "member"
+  ],
+  [
     "src/elements/welement.js~welement#height",
     "class/src/elements/WElement.js~WElement.html#instance-set-height",
     "src/elements/WElement.js~WElement#height",
@@ -1212,6 +1218,18 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/elements/welement.js~welement#setborder",
+    "class/src/elements/WElement.js~WElement.html#instance-method-setBorder",
+    "src/elements/WElement.js~WElement#setBorder",
+    "method"
+  ],
+  [
+    "src/elements/welement.js~welement#setheight",
+    "class/src/elements/WElement.js~WElement.html#instance-method-setHeight",
+    "src/elements/WElement.js~WElement#setHeight",
+    "method"
+  ],
+  [
     "src/elements/welement.js~welement#setid",
     "class/src/elements/WElement.js~WElement.html#instance-method-setId",
     "src/elements/WElement.js~WElement#setId",
@@ -1228,6 +1246,18 @@ window.esdocSearchIndex = [
     "class/src/elements/WElement.js~WElement.html#instance-method-setStyle",
     "src/elements/WElement.js~WElement#setStyle",
     "method"
+  ],
+  [
+    "src/elements/welement.js~welement#setwidth",
+    "class/src/elements/WElement.js~WElement.html#instance-method-setWidth",
+    "src/elements/WElement.js~WElement#setWidth",
+    "method"
+  ],
+  [
+    "src/elements/welement.js~welement#type",
+    "class/src/elements/WElement.js~WElement.html#instance-get-type",
+    "src/elements/WElement.js~WElement#type",
+    "member"
   ],
   [
     "src/elements/welement.js~welement#width",
@@ -1344,6 +1374,18 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/examples/example.js",
+    "file/src/examples/Example.js.html",
+    "src/examples/Example.js",
+    "file"
+  ],
+  [
+    "src/examples/example.js~example#constructor",
+    "class/src/examples/Example.js~Example.html#instance-constructor-constructor",
+    "src/examples/Example.js~Example#constructor",
+    "method"
+  ],
+  [
     "src/phisic/phisic.js",
     "file/src/phisic/Phisic.js.html",
     "src/phisic/Phisic.js",
@@ -1407,30 +1449,6 @@ window.esdocSearchIndex = [
     "src/util/enumsymbol.js",
     "file/src/util/EnumSymbol.js.html",
     "src/util/EnumSymbol.js",
-    "file"
-  ],
-  [
-    "src/world/world.js",
-    "file/src/world/World.js.html",
-    "src/world/World.js",
-    "file"
-  ],
-  [
-    "src/world/world.js~world#constructor",
-    "class/src/world/World.js~World.html#instance-constructor-constructor",
-    "src/world/World.js~World#constructor",
-    "method"
-  ],
-  [
-    "src/world/world.js~world#method",
-    "class/src/world/World.js~World.html#instance-method-method",
-    "src/world/World.js~World#method",
-    "method"
-  ],
-  [
-    "src/world/test.js",
-    "file/src/world/test.js.html",
-    "src/world/test.js",
     "file"
   ]
 ]

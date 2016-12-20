@@ -29,7 +29,9 @@
     "angular": "^1.5.8",
     "core-decorators": "^0.15.0",
     "esdoc": "^0.4.8",
-    "npm-run-all": "^1.7.0"
+    "npm-run-all": "^1.7.0",
+    "systemjs": "^0.19.41",
+    "winject-load": "latest"
   },
   "devDependencies": {
     "babel-cli": "^6.7.5",
