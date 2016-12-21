@@ -104,34 +104,20 @@ var Start = (_dec = Inject('World'), _dec(_class = function Start() {
         id: 'World',
         border: '1px solid red'
     }).addToBody().newLayer({
-        width: '100px',
-        height: '40px',
+        width: '500px',
+        height: '400px',
         border: '2px solid black',
         position: _WPosition2.default.RELATIVE
-    }).newLayer({
-        width: '100px',
-        height: '40px',
-        border: '2px solid black',
-        position: _WPosition2.default.ABSOLUTE,
-        top: '10px',
-        left: '20px'
     });
 
-    world.getLayer(1).fillStyle('red').fillRect(10, 100, 90, 30);
-
-    var img = new Image(100, 200);
-    img.src = "./src/img/1.jpg";
-
-    world.getLayer(2).draw(_WObjectType2.default.IMAGE, {
-        image: img,
-        sx: 10,
-        sy: 20,
-        sWidth: 300,
-        sHeight: 400,
-        dx: 50,
-        dy: 60,
-        dWidth: 45,
-        dHeight: 46
+    world.getLayer(1).draw(_WObjectType2.default.TRIANGLE, {
+        x: 10, y: 10, dimension: 20, type: _WType2.default.FILL
+    }).element.addEventListener('mousemove', function (e) {
+        var x = e.clientX;
+        var y = e.clientY;
+        world.getLayer(1).clear().draw(_WObjectType2.default.TRIANGLE, {
+            x: x - 50, y: y - 50, dimension: 10, type: _WType2.default.FILL
+        });
     });
 }) || _class);
 exports.default = Start;

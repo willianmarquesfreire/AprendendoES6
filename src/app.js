@@ -29,38 +29,25 @@ export default class Start {
             })
             .addToBody()
             .newLayer({
-                width: '100px',
-                height: '40px',
+                width: '500px',
+                height: '400px',
                 border: '2px solid black',
                 position: WPosition.RELATIVE
             })
-            .newLayer({
-                width: '100px',
-                height: '40px',
-                border: '2px solid black',
-                position: WPosition.ABSOLUTE,
-                top: '10px',
-                left: '20px'
-            })
 
         world.getLayer(1)
-            .fillStyle('red')
-            .fillRect(10, 100, 90, 30)
-
-        var img = new Image(100,200)
-        img.src = "./src/img/1.jpg"
-        
-        world.getLayer(2)
-            .draw(WObjectType.IMAGE, {
-                    image: img,
-                    sx: 10,
-                    sy: 20,
-                    sWidth: 300,
-                    sHeight: 400,
-                    dx: 50,
-                    dy: 60,
-                    dWidth: 45,
-                    dHeight: 46
+            .draw(WObjectType.TRIANGLE, {
+                x: 10, y: 10, dimension: 20, type: WType.FILL
+            })
+            .element
+            .addEventListener('mousemove', function (e) {
+                let x = e.clientX
+                let y = e.clientY
+                world.getLayer(1)
+                    .clear()
+                    .draw(WObjectType.TRIANGLE, {
+                        x: x-50, y: y-50, dimension: 10, type: WType.FILL
+                    })
             })
     }
 }
