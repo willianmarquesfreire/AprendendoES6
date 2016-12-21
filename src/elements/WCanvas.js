@@ -136,9 +136,7 @@ class WCanvas extends WElement {
     }
     //@TODO
     animateFadeTo(beginX, beginY, endX, endY, call) {
-        // console.log("1")
-
-        this.requestAnimationFrame(this.animateFadeTo(x,y))
+        this.requestAnimationFrame(this.animateFadeTo(x, y))
         return this
     }
     /**
@@ -440,11 +438,22 @@ class WCanvas extends WElement {
      * @param {number} beginY  The begin of y-coordinate
      * @param {number} endX    The end x of Line
      * @param {number} endY    The end y of the Line
+     * @param {number} lineWidth    The line width of the Line
+     * @param {WType}  type    The type of the Line
      */
-    drawLine(beginX, beginY, endX, endY) {
+    drawLine(beginX, beginY, endX, endY, lineWidth, type) {
         this.moveTo(beginX, beginY)
         this.lineTo(endX, endY)
-        this.stroke()
+        switch (type) {
+            case WType.FILL:
+                this.fill()
+                break
+            case WType.CLEAR:
+                this.clear()
+                break
+            default:
+                this.stroke()
+        }
         return this
     }
     /**
@@ -521,24 +530,48 @@ class WCanvas extends WElement {
         }
         return this
     }
+
+
     /**
-     * Draw a image
-     * @param {Image} image Image to rendering
-     * @param {number} x x-coordinate
-     * @param {number} y y-coordinate
+     * Draw an arc/curve (used to create circles, or parts of circles)
+     * @param {number} x	            The x-coordinate of the center of the circle
+     * @param {number} y        	    The y-coordinate of the center of the circle
+     * @param {number} radius	            The radius of the circle
+     * @param {number} startAngle  	The starting angle, in radians (0 is at the 3 o'clock position of the arc's circle)
+     * @param {number} endAngle	    The ending angle, in radians
+     * @param {number} anticlockwise	Optional. Specifies whether the drawing should be counterclockwise or clockwise.
+     * @param {WType} type Type of rect
      */
-    drawImage(image, x, y) {
-        this.context.drawImage(image, x, y)
+    drawArc(x, y, radius, startAngle, endAngle, anticlockwise, type) {
+        this.beginPath()
+        this.arc(x, y, radius, startAngle, endAngle, anticlockwise)
+
+        switch (type) {
+            case WType.STROKE:
+                this.stroke()
+                break
+            case WType.CLEAR:
+                this.clear()
+                break
+            default:
+                this.fill()
+        }
         return this
     }
     /**
-     * Draw a image
-     * @param {Image} image Image to rendering
-     * @param {number} sx x-coordinate
-     * @param {number} sy y-coordinate
+     * Draw a image on Canvas
+     * @param {Image}  img	Specifies the image, canvas, or video element to use	 
+     * @param {Number} sx	Optional. The x coordinate where to start clipping	Play it »
+     * @param {Number} sy	Optional. The y coordinate where to start clipping	Play it »
+     * @param {Number} swidth	Optional. The width of the clipped image	Play it »
+     * @param {Number} sheight	Optional. The height of the clipped image	Play it »
+     * @param {Number} x	The x coordinate where to place the image on the canvas	Play it »
+     * @param {Number} y	The y coordinate where to place the image on the canvas	Play it »
+     * @param {Number} width	Optional. The width of the image to use (stretch or reduce the image)	Play it »
+     * @param {Number} height	Optional. The height of the image to use (stretch or reduce the image)
      */
-    drawFullImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight) {
-        this.context.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
+    drawImage(img, sx, sy, sWidth, sHeight, dx, dy, width, height) {
+        this.context.drawImage(img, sx, sy, sWidth, sHeight, dx, dy, width, height)
         return this
     }
     /**
@@ -840,7 +873,81 @@ class WCanvas extends WElement {
      * Clear the context
      */
     clear() {
-        this.context.clear()
+        this.context.clearRect(0, 0, this.element.width, this.element.height)
+        return this
+    }
+    drawSquareWithConfiguration(obj, configuration) {
+        this.drawSquare(
+            configuration.x,
+            configuration.y,
+            configuration.width,
+            configuration.height,
+            configuration.type
+        )
+    }
+    drawArcWithConfiguration(obj, configuration) {
+        this.drawArc(
+            configuration.x,
+            configuration.y,
+            configuration.radius,
+            configuration.startAngle,
+            configuration.endAngle,
+            configuration.anticlockwise,
+            configuration.type
+        )
+    }
+    drawTringleWithConfiguration(obj, configuration) {
+        this.drawTriangleByDimension(
+            configuration.x,
+            configuration.y,
+            configuration.dimension,
+            configuration.type
+        )
+    }
+    drawLineWithConfiguration(obj, configuration) {
+        if (configuration.lineWidth)
+            this.lineWidth = configuration.lineWidth
+        this.drawLine(
+            configuration.beginX,
+            configuration.beginY,
+            configuration.endX,
+            configuration.endY,
+            configuration.type
+        )
+    }
+    drawImageWithConfiguration(obj, configuration) {
+        this.drawImage(
+            configuration.image,
+            configuration.sx,
+            configuration.sy,
+            configuration.sWidth,
+            configuration.sHeight,
+            configuration.dx,
+            configuration.dy,
+            configuration.dWidth,
+            configuration.dHeight
+        )
+    }
+    draw(obj, configuration) {
+        this.fillStyle(configuration.fillStyle || 'black')
+        switch (obj) {
+            case 'square':
+                this.drawSquareWithConfiguration(obj, configuration)
+                break
+            case 'arc':
+                this.drawArcWithConfiguration(obj, configuration)
+                break
+            case 'triangle':
+                this.drawTringleWithConfiguration(obj, configuration)
+                break
+            case 'line':
+                this.drawLineWithConfiguration(obj, configuration)
+                break
+            case 'image':
+                this.drawImageWithConfiguration(obj, configuration)
+                break
+
+        }
         return this
     }
     //@TODO

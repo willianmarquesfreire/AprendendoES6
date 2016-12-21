@@ -1,5 +1,3 @@
-//Parei em => https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Advanced_animations
-
 import WElement from './elements/WElement'
 import World from './world/World'
 import WImage from './elements/WImage'
@@ -17,6 +15,8 @@ import WMouseFollow from './events/WMouseFollow'
 import WMimeType from './enums/WMimeType'
 import WCanvasQuality from './enums/WCanvasQuality'
 import Example from './examples/Example'
+import WException from './enums/WException'
+import WObjectType from './enums/WObjectType'
 
 
 @Inject('World')
@@ -47,10 +47,21 @@ export default class Start {
             .fillStyle('red')
             .fillRect(10, 100, 90, 30)
 
+        var img = new Image(100,200)
+        img.src = "./src/img/1.jpg"
+        
         world.getLayer(2)
-            .fillStyle('blue')
-            .fillRect(10, 100, 90, 30)
-
+            .draw(WObjectType.IMAGE, {
+                    image: img,
+                    sx: 10,
+                    sy: 20,
+                    sWidth: 300,
+                    sHeight: 400,
+                    dx: 50,
+                    dy: 60,
+                    dWidth: 45,
+                    dHeight: 46
+            })
     }
 }
 

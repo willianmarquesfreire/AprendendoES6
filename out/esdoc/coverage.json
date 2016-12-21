@@ -1,7 +1,7 @@
 {
-  "coverage": "49.05%",
-  "expectCount": 159,
-  "actualCount": 78,
+  "coverage": "47.3%",
+  "expectCount": 167,
+  "actualCount": 79,
   "files": {
     "src/examples/Example.js": {
       "expectCount": 2,
@@ -9,6 +9,15 @@
       "undocumentLines": [
         2,
         3
+      ]
+    },
+    "src/exceptions/GetLayerException.js": {
+      "expectCount": 3,
+      "actualCount": 0,
+      "undocumentLines": [
+        2,
+        3,
+        7
       ]
     },
     "src/phisic/Phisic.js": {
@@ -27,41 +36,47 @@
       ]
     },
     "src/elements/WCanvas.js": {
-      "expectCount": 104,
+      "expectCount": 110,
       "actualCount": 66,
       "undocumentLines": [
-        137,
+        138,
         8,
         16,
         13,
         19,
         22,
-        845,
-        107,
+        954,
+        931,
+        888,
+        918,
+        907,
+        879,
+        899,
         110,
+        107,
         128,
         125,
         134,
         131,
-        39,
         33,
+        39,
         86,
         83,
         92,
         89,
         95,
         98,
-        101,
         104,
+        101,
         25,
-        53,
         56,
-        71,
+        53,
         74,
+        71,
         62,
         59,
-        65,
         68,
+        65,
         77,
         80,
         116,
@@ -78,23 +93,24 @@
       ]
     },
     "src/elements/WElement.js": {
-      "expectCount": 25,
-      "actualCount": 11,
+      "expectCount": 20,
+      "actualCount": 12,
       "undocumentLines": [
-        43,
-        52,
+        39,
         7,
-        40,
-        37,
-        14,
-        49,
-        30,
+        36,
         33,
-        110,
-        106,
-        102,
+        11,
         27,
-        46
+        30,
+        24
+      ]
+    },
+    "src/enums/WException.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
       ]
     },
     "src/enums/WGlobalCompositeOperation.js": {
@@ -143,6 +159,20 @@
         1
       ]
     },
+    "src/enums/WObjectType.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/enums/WPosition.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
     "src/enums/WRepeat.js": {
       "expectCount": 1,
       "actualCount": 0,
@@ -158,6 +188,13 @@
       ]
     },
     "src/enums/WTextBaseline.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/enums/WTransition.js": {
       "expectCount": 1,
       "actualCount": 0,
       "undocumentLines": [

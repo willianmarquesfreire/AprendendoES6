@@ -1,5 +1,7 @@
 import WElement from '../elements/WElement'
 import WCanvas from '../elements/WCanvas'
+import GetLayerException from '../exceptions/GetLayerException'
+
 @Injectable()
 export default class World extends WElement {
     constructor() {
@@ -34,6 +36,9 @@ export default class World extends WElement {
         return size
     }
     getLayer(id) {
+        if (!this.layers[id]) {
+            throw new GetLayerException()
+        }
         return this.layers[id]
     }
 }

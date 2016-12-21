@@ -37,19 +37,24 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/WElement.js~WElement.html">WElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/elements/WImage.js~WImage.html">WImage</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">enums</div><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WCanvasQuality">WCanvasQuality</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WException">WException</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WGlobalCompositeOperation">WGlobalCompositeOperation</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WGlobalCompositeOperationType">WGlobalCompositeOperationType</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WLineCap">WLineCap</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WLineJoin">WLineJoin</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WMimeType">WMimeType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WObjectType">WObjectType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WPosition">WPosition</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WRepeat">WRepeat</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WTextAlign">WTextAlign</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WTextBaseline">WTextBaseline</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WTransition">WTransition</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-WType">WType</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">events</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-eventFallMove">eventFallMove</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-eventMouseFollow">eventMouseFollow</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-eventRandomOne">eventRandomOne</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">examples</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/examples/Example.js~Example.html">Example</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">exceptions</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/exceptions/GetLayerException.js~GetLayerException.html">GetLayerException</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">phisic</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/phisic/Phisic.js~Phisic.html">Phisic</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">reusable_objects</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createBall">createBall</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createBallShadow">createBallShadow</a></span></span></li>
@@ -69,11 +74,8 @@
  */
 class WElement {
 
-    constructor(element, width, height, border) {
+    constructor(element, configuration) {
         this.element = element
-        this.width = width
-        this.height = height
-        this.border = border
         console.log(this.getClassName().concat(&apos; Created!&apos;))
     }
     get hashcode() {
@@ -98,7 +100,6 @@ class WElement {
     set id(id) {
         this.element.id = id
     }
-
     get element() {
         return this._element
     }
@@ -107,15 +108,6 @@ class WElement {
     }
     get attributes() {
         return this.element.attributes
-    }
-    set width(width) {
-        this.element.setAttribute(&apos;style&apos;, &apos;width: &apos;.concat(width))
-    }
-    set height(height) {
-        this.element.setAttribute(&apos;style&apos;, &apos;height: &apos;.concat(height))
-    }
-    set border(border = &apos;1px solid black&apos;) {
-        this.element.setAttribute(&apos;style&apos;, &apos;border: &apos;.concat(border))
     }
     /**
      * Create a element
@@ -131,6 +123,14 @@ class WElement {
      */
     setId(id) {
         this.element.id = id
+        return this
+    }
+    /**
+     * Add Content to Element
+     * @param {Object} content Content to append on element
+     */
+    addContent(content) {
+        this.element.innerHTML = content
         return this
     }
     /**
@@ -150,30 +150,26 @@ class WElement {
      * @example element.setStyle(&apos;color&apos;,&apos;red&apos;)
      */
     setStyle(attr, value) {
-        console.log(attr + &apos;:&apos; + value)
-        this.element.setAttibute(&apos;style&apos;, (attr + &apos;:&apos; + value))
+        this.element.style[attr] = value
         return this
     }
     /**
-     * Set size of element
-     * @param {number} width Width of element
-     * @param {number} height Height of element
+     * Set Configuration of element
+     * @param {Object} configuration Configuration to apply
      */
-    setSize(width, height) {
-        this.width = width
-        this.height = height
-        return this
-    }
-    setWidth(width) {
-        this.element.setAttribute(&apos;style&apos;, &apos;width: &apos;.concat(width))
-        return this
-    }
-    setHeight(height) {
-        this.element.setAttribute(&apos;style&apos;, &apos;height: &apos;.concat(height))
-        return this
-    }
-    setBorder(border = &apos;1px solid black&apos;) {
-        this.element.setAttribute(&apos;style&apos;, &apos;border: &apos;.concat(border))
+    config(configuration) {
+        for (let prop in configuration) {
+            if (prop === &apos;id&apos;) {
+                this.setId(configuration[prop])
+                continue;
+            }
+            if (prop === &apos;className&apos;) {
+                this.set
+            }
+            if (configuration.hasOwnProperty(prop)) {
+                this.setStyle(prop,configuration[prop])
+            }
+        }
         return this
     }
     /**
@@ -181,7 +177,7 @@ class WElement {
      * @param {Object} child Child to append on element
      */
     addChild(child) {
-        this.element.appendChild(child)
+        this.element.appendChild(child.element)
         return this
     }
     /**

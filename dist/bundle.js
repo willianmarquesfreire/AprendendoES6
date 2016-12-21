@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
-var _dec, _class; //Parei em => https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Advanced_animations
+var _dec, _class;
 
 var _WElement = require('./elements/WElement');
 
@@ -85,6 +85,14 @@ var _Example = require('./examples/Example');
 
 var _Example2 = _interopRequireDefault(_Example);
 
+var _WException = require('./enums/WException');
+
+var _WException2 = _interopRequireDefault(_WException);
+
+var _WObjectType = require('./enums/WObjectType');
+
+var _WObjectType2 = _interopRequireDefault(_WObjectType);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -111,14 +119,27 @@ var Start = (_dec = Inject('World'), _dec(_class = function Start() {
 
     world.getLayer(1).fillStyle('red').fillRect(10, 100, 90, 30);
 
-    world.getLayer(2).fillStyle('blue').fillRect(10, 100, 90, 30);
+    var img = new Image(100, 200);
+    img.src = "./src/img/1.jpg";
+
+    world.getLayer(2).draw(_WObjectType2.default.IMAGE, {
+        image: img,
+        sx: 10,
+        sy: 20,
+        sWidth: 300,
+        sHeight: 400,
+        dx: 50,
+        dy: 60,
+        dWidth: 45,
+        dHeight: 46
+    });
 }) || _class);
 exports.default = Start;
 
 
 window.onload = new Start();
 
-},{"./elements/WCanvas":3,"./elements/WElement":4,"./elements/WImage":5,"./enums/WCanvasQuality":6,"./enums/WMimeType":7,"./enums/WPosition":8,"./enums/WType":9,"./events/WFallMove":10,"./events/WMouseFollow":11,"./events/WMoveRandomOne":12,"./examples/Example":13,"./reusable_objects/WBall":14,"./reusable_objects/WBallShadow":15,"./reusable_objects/WBallon":16,"./reusable_objects/WClockOne":17,"./reusable_objects/WHeart":18,"./world/World":19}],3:[function(require,module,exports){
+},{"./elements/WCanvas":3,"./elements/WElement":4,"./elements/WImage":5,"./enums/WCanvasQuality":6,"./enums/WException":7,"./enums/WMimeType":8,"./enums/WObjectType":9,"./enums/WPosition":10,"./enums/WType":11,"./events/WFallMove":12,"./events/WMouseFollow":13,"./events/WMoveRandomOne":14,"./examples/Example":15,"./reusable_objects/WBall":17,"./reusable_objects/WBallShadow":18,"./reusable_objects/WBallon":19,"./reusable_objects/WClockOne":20,"./reusable_objects/WHeart":21,"./world/World":22}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -172,8 +193,6 @@ var WCanvas = function (_WElement) {
 
         //@TODO
         value: function animateFadeTo(beginX, beginY, endX, endY, call) {
-            // console.log("1")
-
             this.requestAnimationFrame(this.animateFadeTo(x, y));
             return this;
         }
@@ -575,14 +594,25 @@ var WCanvas = function (_WElement) {
          * @param {number} beginY  The begin of y-coordinate
          * @param {number} endX    The end x of Line
          * @param {number} endY    The end y of the Line
+         * @param {number} lineWidth    The line width of the Line
+         * @param {WType}  type    The type of the Line
          */
 
     }, {
         key: 'drawLine',
-        value: function drawLine(beginX, beginY, endX, endY) {
+        value: function drawLine(beginX, beginY, endX, endY, lineWidth, type) {
             this.moveTo(beginX, beginY);
             this.lineTo(endX, endY);
-            this.stroke();
+            switch (type) {
+                case _WType2.default.FILL:
+                    this.fill();
+                    break;
+                case _WType2.default.CLEAR:
+                    this.clear();
+                    break;
+                default:
+                    this.stroke();
+            }
             return this;
         }
         /**
@@ -668,30 +698,53 @@ var WCanvas = function (_WElement) {
             }
             return this;
         }
+
         /**
-         * Draw a image
-         * @param {Image} image Image to rendering
-         * @param {number} x x-coordinate
-         * @param {number} y y-coordinate
+         * Draw an arc/curve (used to create circles, or parts of circles)
+         * @param {number} x	            The x-coordinate of the center of the circle
+         * @param {number} y        	    The y-coordinate of the center of the circle
+         * @param {number} radius	            The radius of the circle
+         * @param {number} startAngle  	The starting angle, in radians (0 is at the 3 o'clock position of the arc's circle)
+         * @param {number} endAngle	    The ending angle, in radians
+         * @param {number} anticlockwise	Optional. Specifies whether the drawing should be counterclockwise or clockwise.
+         * @param {WType} type Type of rect
+         */
+
+    }, {
+        key: 'drawArc',
+        value: function drawArc(x, y, radius, startAngle, endAngle, anticlockwise, type) {
+            this.beginPath();
+            this.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+
+            switch (type) {
+                case _WType2.default.STROKE:
+                    this.stroke();
+                    break;
+                case _WType2.default.CLEAR:
+                    this.clear();
+                    break;
+                default:
+                    this.fill();
+            }
+            return this;
+        }
+        /**
+         * Draw a image on Canvas
+         * @param {Image}  img	Specifies the image, canvas, or video element to use	 
+         * @param {Number} sx	Optional. The x coordinate where to start clipping	Play it »
+         * @param {Number} sy	Optional. The y coordinate where to start clipping	Play it »
+         * @param {Number} swidth	Optional. The width of the clipped image	Play it »
+         * @param {Number} sheight	Optional. The height of the clipped image	Play it »
+         * @param {Number} x	The x coordinate where to place the image on the canvas	Play it »
+         * @param {Number} y	The y coordinate where to place the image on the canvas	Play it »
+         * @param {Number} width	Optional. The width of the image to use (stretch or reduce the image)	Play it »
+         * @param {Number} height	Optional. The height of the image to use (stretch or reduce the image)
          */
 
     }, {
         key: 'drawImage',
-        value: function drawImage(image, x, y) {
-            this.context.drawImage(image, x, y);
-            return this;
-        }
-        /**
-         * Draw a image
-         * @param {Image} image Image to rendering
-         * @param {number} sx x-coordinate
-         * @param {number} sy y-coordinate
-         */
-
-    }, {
-        key: 'drawFullImage',
-        value: function drawFullImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight) {
-            this.context.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
+        value: function drawImage(img, sx, sy, sWidth, sHeight, dx, dy, width, height) {
+            this.context.drawImage(img, sx, sy, sWidth, sHeight, dx, dy, width, height);
             return this;
         }
         /**
@@ -1053,7 +1106,57 @@ var WCanvas = function (_WElement) {
     }, {
         key: 'clear',
         value: function clear() {
-            this.context.clear();
+            this.context.clearRect(0, 0, this.element.width, this.element.height);
+            return this;
+        }
+    }, {
+        key: 'drawSquareWithConfiguration',
+        value: function drawSquareWithConfiguration(obj, configuration) {
+            this.drawSquare(configuration.x, configuration.y, configuration.width, configuration.height, configuration.type);
+        }
+    }, {
+        key: 'drawArcWithConfiguration',
+        value: function drawArcWithConfiguration(obj, configuration) {
+            this.drawArc(configuration.x, configuration.y, configuration.radius, configuration.startAngle, configuration.endAngle, configuration.anticlockwise, configuration.type);
+        }
+    }, {
+        key: 'drawTringleWithConfiguration',
+        value: function drawTringleWithConfiguration(obj, configuration) {
+            this.drawTriangleByDimension(configuration.x, configuration.y, configuration.dimension, configuration.type);
+        }
+    }, {
+        key: 'drawLineWithConfiguration',
+        value: function drawLineWithConfiguration(obj, configuration) {
+            if (configuration.lineWidth) this.lineWidth = configuration.lineWidth;
+            this.drawLine(configuration.beginX, configuration.beginY, configuration.endX, configuration.endY, configuration.type);
+        }
+    }, {
+        key: 'drawImageWithConfiguration',
+        value: function drawImageWithConfiguration(obj, configuration) {
+            this.drawImage(configuration.image, configuration.sx, configuration.sy, configuration.sWidth, configuration.sHeight, configuration.dx, configuration.dy, configuration.dWidth, configuration.dHeight);
+        }
+    }, {
+        key: 'draw',
+        value: function draw(obj, configuration) {
+            this.fillStyle(configuration.fillStyle || 'black');
+            switch (obj) {
+                case 'square':
+                    this.drawSquareWithConfiguration(obj, configuration);
+                    break;
+                case 'arc':
+                    this.drawArcWithConfiguration(obj, configuration);
+                    break;
+                case 'triangle':
+                    this.drawTringleWithConfiguration(obj, configuration);
+                    break;
+                case 'line':
+                    this.drawLineWithConfiguration(obj, configuration);
+                    break;
+                case 'image':
+                    this.drawImageWithConfiguration(obj, configuration);
+                    break;
+
+            }
             return this;
         }
         //@TODO
@@ -1217,7 +1320,7 @@ var WCanvas = function (_WElement) {
 
 exports.default = WCanvas;
 
-},{"../enums/WType":9,"./WElement":4}],4:[function(require,module,exports){
+},{"../enums/WType":11,"./WElement":4}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1495,13 +1598,45 @@ exports.default = WCanvasQuality;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+var WException = {
+    'NO_GET_LAYER': {
+        name: 'NO_GET_LAYER',
+        message: 'Error to get Layer!',
+        solutions: [' - Verify if exists this id.']
+    }
+};
+
+exports.default = WException;
+
+},{}],8:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 var WMimeType = {
     'IMAGE_JPEG': 'image/jpeg'
 };
 
 exports.default = WMimeType;
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var WObjectType = {
+    'SQUARE': 'square',
+    'ARC': 'arc',
+    'TRIANGLE': 'triangle',
+    'LINE': 'line',
+    'IMAGE': 'image'
+};
+
+exports.default = WObjectType;
+
+},{}],10:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1516,7 +1651,7 @@ var WPosition = {
 
 exports.default = WPosition;
 
-},{}],9:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1530,7 +1665,7 @@ var WType = {
 
 exports.default = WType;
 
-},{}],10:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1574,7 +1709,7 @@ exports.default = Object.prototype.eventFallMove = function () {
     }
 };
 
-},{}],11:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1626,7 +1761,7 @@ exports.default = Object.prototype.eventMouseFollow = function () {
     }
 };
 
-},{}],12:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1684,7 +1819,7 @@ exports.default = Object.prototype.eventRandomOne = function () {
     }
 };
 
-},{}],13:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1701,7 +1836,46 @@ var Example = function Example() {
 
 exports.default = Example;
 
-},{}],14:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = undefined;
+
+var _WException = require('../enums/WException');
+
+var _WException2 = _interopRequireDefault(_WException);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var GetLayerException = function (_Error) {
+    _inherits(GetLayerException, _Error);
+
+    function GetLayerException(message) {
+        _classCallCheck(this, GetLayerException);
+
+        var exception = _WException2.default.NO_GET_LAYER;
+
+        var _this = _possibleConstructorReturn(this, (GetLayerException.__proto__ || Object.getPrototypeOf(GetLayerException)).call(this, exception.message + '\n' + exception.solutions.join('\n')));
+
+        _this.name = exception.name;
+        return _this;
+    }
+
+    return GetLayerException;
+}(Error);
+
+exports.default = GetLayerException;
+
+},{"../enums/WException":7}],17:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1739,7 +1913,7 @@ exports.default = Object.prototype.createBall = function (x, y) {
     }
 };
 
-},{}],15:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1780,7 +1954,7 @@ exports.default = Object.prototype.createBallShadow = function (x, y) {
     }
 };
 
-},{}],16:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1804,7 +1978,7 @@ exports.default = Object.prototype.createBallon = function () {
     }
 };
 
-},{}],17:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1929,7 +2103,7 @@ exports.default = Object.prototype.createClockOne = function () {
     }
 };
 
-},{}],18:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1953,7 +2127,7 @@ exports.default = Object.prototype.createHeart = function () {
     }
 };
 
-},{}],19:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1972,6 +2146,10 @@ var _WElement3 = _interopRequireDefault(_WElement2);
 var _WCanvas = require('../elements/WCanvas');
 
 var _WCanvas2 = _interopRequireDefault(_WCanvas);
+
+var _GetLayerException = require('../exceptions/GetLayerException');
+
+var _GetLayerException2 = _interopRequireDefault(_GetLayerException);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2024,6 +2202,9 @@ var World = (_dec = Injectable(), _dec(_class = function (_WElement) {
     }, {
         key: 'getLayer',
         value: function getLayer(id) {
+            if (!this.layers[id]) {
+                throw new _GetLayerException2.default();
+            }
             return this.layers[id];
         }
     }, {
@@ -2040,4 +2221,4 @@ var World = (_dec = Injectable(), _dec(_class = function (_WElement) {
 }(_WElement3.default)) || _class);
 exports.default = World;
 
-},{"../elements/WCanvas":3,"../elements/WElement":4}]},{},[1]);
+},{"../elements/WCanvas":3,"../elements/WElement":4,"../exceptions/GetLayerException":16}]},{},[1]);
